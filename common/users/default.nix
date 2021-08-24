@@ -17,5 +17,5 @@
   };
   
   users.users.root.openssh.authorizedKeys.keys =
-    config.users.users.mara.openssh.authorizedKeys.keys;
+    config.users.users.jeff.openssh.authorizedKeys.keys;
 }
