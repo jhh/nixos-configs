@@ -16,7 +16,7 @@
   ];
   services.qemuGuest.enable = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos-02";
   time.timeZone = "America/Detroit";
   i18n.defaultLocale = "en_US.UTF-8";
 
