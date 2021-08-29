@@ -11,9 +11,7 @@
 
   defaults = { pkgs, ... }: {
     # This module will be imported by all hosts
-    environment.systemPackages = with pkgs; [
-      vim wget curl
-    ];
+    environment.systemPackages = with pkgs; [ vim wget curl ];
 
     security.sudo.wheelNeedsPassword = false;
     i18n.defaultLocale = "en_US.UTF-8";
@@ -62,9 +60,7 @@
       dates = "daily";
     };
 
-    deployment = {
-      targetHost = "192.168.1.118";
-    };
+    deployment = { targetHost = "192.168.1.118"; };
   };
 
 }
