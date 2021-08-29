@@ -5,7 +5,11 @@
     # - A path to a Nixpkgs checkout
     # - The Nixpkgs lambda (e.g., import <nixpkgs>)
     # - An initialized Nixpkgs attribute set
-    nixpkgs = <nixpkgs>;
+    nixpkgs = <nixos-unstable>;
+
+    nodeNixpkgs = {
+      eris = <nixos>;
+    };
   };
 
   defaults = { pkgs, ... }: {
