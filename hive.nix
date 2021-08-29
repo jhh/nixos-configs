@@ -21,17 +21,27 @@
       enable = true;
       permitRootLogin = "yes";
     };
-  };
-
-  nixos-01 = { name, nodes, ... }: {
-    networking.hostName = name;
-
-    imports = [ ./hosts/nixos-01/configuration.nix ];
 
     nix.autoOptimiseStore = true;
     nix.gc = {
       automatic = true;
       dates = "daily";
+    };
+
+  };
+
+  nixos-01 = { name, nodes, ... }: {
+    networking.hostName = name;
+
+    imports = [
+      <home-manager/nixos>
+      ./common/users
+      ./hosts/nixos-01/configuration.nix
+    ];
+
+    home-manager.useGlobalPkgs = true;
+    home-manager.users.jeff = { pkgs, ... }: {
+      imports = [ ./common/home.nix ];
     };
 
     deployment = {
@@ -52,12 +62,6 @@
     home-manager.useGlobalPkgs = true;
     home-manager.users.jeff = { pkgs, ... }: {
       imports = [ ./common/home.nix ];
-    };
-
-    nix.autoOptimiseStore = true;
-    nix.gc = {
-      automatic = true;
-      dates = "daily";
     };
 
     deployment = { targetHost = "192.168.1.118"; };
