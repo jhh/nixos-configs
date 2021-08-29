@@ -76,7 +76,12 @@
 
   programs.vim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [ vim-fugitive vim-nix vim-sensible ];
+    plugins = with pkgs.vimPlugins; [
+      vim-commentary
+      vim-fugitive
+      vim-nix
+      vim-sensible
+    ];
     settings = {
       background = "dark";
       relativenumber = true;
