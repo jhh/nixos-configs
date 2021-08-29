@@ -22,12 +22,30 @@
       permitRootLogin = "yes";
     };
 
+    nixpkgs.config.allowUnfree = true;
     nix.autoOptimiseStore = true;
     nix.gc = {
       automatic = true;
       dates = "daily";
     };
 
+  };
+
+  eris = { name, nodes, ... }: {
+    networking.hostName = name;
+
+    imports =
+      [ <home-manager/nixos> ./common/users ./hosts/eris/configuration.nix ];
+
+    home-manager.useGlobalPkgs = true;
+    home-manager.users.jeff = { pkgs, ... }: {
+      imports = [ ./common/home.nix ];
+    };
+
+    deployment = {
+      allowLocalDeployment = true;
+      targetHost = null;
+    };
   };
 
   nixos-01 = { name, nodes, ... }: {
