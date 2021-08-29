@@ -42,5 +42,30 @@
     };
   };
 
+  nixos-03 = { name, nodes, ... }: {
+    networking.hostName = name;
+
+    imports = [
+      ./hosts/nixos-03/configuration.nix
+      ./common/users
+      <home-manager/nixos>
+    ];
+
+    home-manager.useGlobalPkgs = true;
+    home-manager.users.jeff = { pkgs, ... }: {
+      imports = [ ./common/home.nix ];
+    };
+
+    nix.autoOptimiseStore = true;
+    nix.gc = {
+      automatic = true;
+      dates = "daily";
+    };
+
+    deployment = {
+      targetHost = "192.168.1.118";
+    };
+  };
+
 }
 
