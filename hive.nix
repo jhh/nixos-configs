@@ -6,7 +6,6 @@
     # - The Nixpkgs lambda (e.g., import <nixpkgs>)
     # - An initialized Nixpkgs attribute set
     nixpkgs = <nixpkgs>;
-
   };
 
   defaults = { pkgs, ... }: {
@@ -63,8 +62,8 @@
     };
 
     deployment = {
-      allowLocalDeployment = true;
-      targetHost = null;
+      allowLocalDeployment = false;
+      targetHost = "192.168.1.182";
     };
   };
 
