@@ -14,9 +14,6 @@
   networking.useDHCP = false;
   networking.interfaces.ens18.useDHCP = true;
 
-
-
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -74,13 +71,6 @@
     ];
 
   };
-
-  nix.autoOptimiseStore = true;
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-  };
-
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

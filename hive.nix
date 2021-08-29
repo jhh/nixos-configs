@@ -30,6 +30,12 @@
 
     imports = [ ./hosts/nixos-01/configuration.nix ];
 
+    nix.autoOptimiseStore = true;
+    nix.gc = {
+      automatic = true;
+      dates = "daily";
+    };
+
     deployment = {
       allowLocalDeployment = true;
       targetHost = null;
