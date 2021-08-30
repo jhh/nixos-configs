@@ -42,7 +42,7 @@
 
     home-manager.useGlobalPkgs = true;
     home-manager.users.jeff = { pkgs, ... }: {
-      imports = [ ./common/home.nix ];
+      imports = [ ./home ];
     };
 
     deployment = {
