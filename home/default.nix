@@ -25,6 +25,8 @@ let
   ];
 
 in {
+  imports = (import ./programs);
+
   home = {
     username = "jeff";
     homeDirectory = "/home/jeff";
@@ -110,30 +112,6 @@ in {
   programs.gpg.enable = true;
 
   #programs.gh.enable = true;
-
-  programs.git = {
-    enable = true;
-    userName = "Jeff Hutchison";
-    userEmail = "jeff@jeffhutchison.com";
-    signing = {
-      signByDefault = true;
-      key = "26960A62CBEEC91D";
-    };
-
-    aliases = {
-      amend = "commit --amend -m";
-      br = "branch";
-      co = "checkout";
-      st = "status";
-      ls = ''
-        log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate'';
-      ll = ''
-        log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate --numstat'';
-      cm = "commit -m";
-      ca = "commit -am";
-      dc = "diff --cached";
-    };
-  };
 
   programs.man = {
     enable = true;
