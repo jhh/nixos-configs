@@ -56,9 +56,7 @@
       }
     ];
 
-    shellAbbrs = {
-      gst = "git status";
-    };
+    shellAbbrs = { gst = "git status"; };
 
     shellAliases = {
       dc = "docker-compose";
@@ -99,6 +97,20 @@
     signing = {
       signByDefault = true;
       key = "26960A62CBEEC91D";
+    };
+
+    aliases = {
+      amend = "commit --amend -m";
+      br = "branch";
+      co = "checkout";
+      st = "status";
+      ls = ''
+        log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate'';
+      ll = ''
+        log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate --numstat'';
+      cm = "commit -m";
+      ca = "commit -am";
+      dc = "diff --cached";
     };
   };
 
