@@ -40,7 +40,7 @@
 
   programs.bat.enable = true;
 
-  programs.broot = {
+  programs.direnv = {
     enable = true;
     enableFishIntegration = true;
   };
@@ -87,4 +87,6 @@
       relativenumber = true;
     };
   };
+
+  services.lorri.enable = true;
 }
