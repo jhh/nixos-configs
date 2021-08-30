@@ -6,7 +6,15 @@
     MANWIDTH = 100;
   };
 
-  home.packages = with pkgs; [ fd fortune gitAndTools.gh htop nixfmt ];
+  home.packages = with pkgs; [
+    fd
+    fortune
+    gitAndTools.gh
+    htop
+    ncdu
+    nixfmt
+    prettyping
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -47,6 +55,19 @@
         };
       }
     ];
+
+    shellAbbrs = {
+      gst = "git status";
+    };
+
+    shellAliases = {
+      dc = "docker-compose";
+      dps = "docker-compose ps";
+      dcd = "docker-compose down --remove-orphans";
+      drm = "docker images -a -q | xargs docker rmi -f";
+      du = "ncdu --color dark -rr -x";
+      ping = "prettyping";
+    };
   };
 
   programs.bat.enable = true;
