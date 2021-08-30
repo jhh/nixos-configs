@@ -62,7 +62,7 @@
 
     home-manager.useGlobalPkgs = true;
     home-manager.users.jeff = { pkgs, ... }: {
-      imports = [ ./common/home.nix ];
+      imports = [ ./home ];
     };
 
     deployment = {
@@ -82,7 +82,7 @@
 
     home-manager.useGlobalPkgs = true;
     home-manager.users.jeff = { pkgs, ... }: {
-      imports = [ ./common/home.nix ];
+      imports = [ ./home ];
     };
 
     deployment = { targetHost = "192.168.1.118"; };
