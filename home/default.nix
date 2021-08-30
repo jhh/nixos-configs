@@ -75,19 +75,5 @@ in {
     enableFishIntegration = true;
   };
 
-  programs.vim = {
-    enable = true;
-    plugins = with pkgs.vimPlugins; [
-      vim-commentary
-      vim-fugitive
-      vim-nix
-      vim-sensible
-    ];
-    settings = {
-      background = "dark";
-      relativenumber = true;
-    };
-  };
-
   services.lorri.enable = true;
 }
