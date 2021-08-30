@@ -1,3 +1,4 @@
 [
+  ./fish.nix
   ./git.nix
 ]
