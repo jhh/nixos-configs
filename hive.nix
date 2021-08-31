@@ -7,9 +7,7 @@
     # - An initialized Nixpkgs attribute set
     nixpkgs = <nixos-unstable>;
 
-    nodeNixpkgs = {
-      eris = <nixos>;
-    };
+    nodeNixpkgs = { eris = <nixos>; };
   };
 
   defaults = { pkgs, ... }: {
@@ -37,13 +35,16 @@
   eris = { name, nodes, ... }: {
     networking.hostName = name;
 
-    imports =
-      [ <home-manager/nixos> ./common/users ./hosts/eris/configuration.nix ];
+    imports = [
+      <home-manager/nixos>
+      ./common/users
+      ./hosts/eris/configuration.nix
+      ./hosts/eris/grafana.nix
+      ./hosts/eris/prometheus.nix
+    ];
 
     home-manager.useGlobalPkgs = true;
-    home-manager.users.jeff = { pkgs, ... }: {
-      imports = [ ./home ];
-    };
+    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
 
     deployment = {
       allowLocalDeployment = true;
@@ -61,9 +62,7 @@
     ];
 
     home-manager.useGlobalPkgs = true;
-    home-manager.users.jeff = { pkgs, ... }: {
-      imports = [ ./home ];
-    };
+    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
 
     deployment = {
       allowLocalDeployment = false;
@@ -81,9 +80,7 @@
     ];
 
     home-manager.useGlobalPkgs = true;
-    home-manager.users.jeff = { pkgs, ... }: {
-      imports = [ ./home ];
-    };
+    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
 
     deployment = { targetHost = "192.168.1.118"; };
   };
