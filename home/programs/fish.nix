@@ -1,6 +1,22 @@
 { config, pkgs, ... }: {
   programs.fish = {
     enable = true;
+
+    shellAbbrs = {
+      gcb = "git checkout -b";
+      gcm = "git switch main";
+      gst = "git status";
+    };
+
+    shellAliases = {
+      dc = "docker-compose";
+      dps = "docker-compose ps";
+      dcd = "docker-compose down --remove-orphans";
+      drm = "docker images -a -q | xargs docker rmi -f";
+      du = "ncdu --color dark -rr -x";
+      ping = "prettyping";
+    };
+
     plugins = [
       {
         name = "colored-man";
@@ -35,16 +51,5 @@
         };
       }
     ];
-
-    shellAbbrs = { gst = "git status"; };
-
-    shellAliases = {
-      dc = "docker-compose";
-      dps = "docker-compose ps";
-      dcd = "docker-compose down --remove-orphans";
-      drm = "docker images -a -q | xargs docker rmi -f";
-      du = "ncdu --color dark -rr -x";
-      ping = "prettyping";
-    };
   };
 }
