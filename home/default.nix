@@ -39,40 +39,38 @@ in {
     packages = defaultPackages ++ gitPkgs;
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
 
+    bat.enable = true;
 
-  programs.bat.enable = true;
+    direnv = {
+      enable = true;
+      enableFishIntegration = true;
+      nix-direnv.enable = true;
+    };
 
-  programs.direnv = {
-    enable = true;
-    enableFishIntegration = true;
-    nix-direnv.enable = true;
-  };
+    exa = {
+      enable = true;
+      enableAliases = true;
+    };
 
-  programs.exa = {
-    enable = true;
-    enableAliases = true;
-  };
+    fzf = {
+      enable = true;
+      enableFishIntegration = false;
+    };
 
-  programs.fzf = {
-    enable = true;
-    enableFishIntegration = false;
-  };
+    gpg.enable = true;
 
-  programs.gpg.enable = true;
+    man = {
+      enable = true;
+      generateCaches = true;
+    };
 
-  #programs.gh.enable = true;
-
-  programs.man = {
-    enable = true;
-    generateCaches = true;
-  };
-
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
+    };
   };
 
   services.lorri.enable = true;
