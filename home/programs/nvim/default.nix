@@ -8,10 +8,15 @@ let
         if has('nvim') && executable('nvr')
           let $GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
         endif
-        '';
+      '';
+    }
+    {
+      plugin = telescope-nvim;
+      config = ''
+        lua require("telescope").setup { }
+      '';
     }
     lazygit-nvim
-    telescope-nvim
     vim-fish
     vim-fugitive
     vim-nix
@@ -22,6 +27,19 @@ let
         set timeoutlen=500
         lua require "which-key".setup { }
         lua require('keymaps')
+      '';
+    }
+    {
+      plugin = nvim-treesitter;
+      config = ''
+        lua <<EOF
+        require "nvim-treesitter.configs".setup {
+          ensure_installed = "maintained",
+          highlight = { enable = true },
+          incremental_selection = { enable = true },
+          indent = { enable = true },
+        }
+        EOF
       '';
     }
   ];
@@ -38,9 +56,9 @@ in {
     vimdiffAlias = true;
     withNodeJs = true; # for coc.nvim
     withPython3 = true; # for plugins
-  };
+    extraPackages = with pkgs; [ gcc neovim-remote tree-sitter ];
 
-  home.packages = [ pkgs.neovim-remote ];
+  };
 
   # which-keys keymaps
   xdg.configFile."nvim/lua/keymaps.lua".source = ./keymaps.lua;
