@@ -1,17 +1,9 @@
 {
   meta = {
-    # Override to pin the Nixpkgs version (recommended). This option
-    # accepts one of the following:
-    # - A path to a Nixpkgs checkout
-    # - The Nixpkgs lambda (e.g., import <nixpkgs>)
-    # - An initialized Nixpkgs attribute set
     nixpkgs = <nixos-unstable>;
-
-    nodeNixpkgs = { eris = <nixos>; };
   };
 
   defaults = { pkgs, ... }: {
-    # This module will be imported by all hosts
     environment.systemPackages = with pkgs; [ vim wget curl ];
 
     security.sudo.wheelNeedsPassword = false;
