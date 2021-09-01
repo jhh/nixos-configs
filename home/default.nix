@@ -4,24 +4,25 @@ let
   defaultPackages = with pkgs; [
     asciinema # record the terminal
     bottom # alternative to htop & ytop
+    du-dust # more intuitive version of du in rust
     duf # disk usage/free utility
     fd # "find" for files
     fortune # print a random, hopefully interesting, adage
-    gitAndTools.gh # GitHub CLI
     htop # interactive process viewer
+    lazygit # simple terminal UI for git commands
     manix # documentation searcher for nix
-    ncdu # NCurses Disk Usage
     neofetch # command-line system information
     nixfmt # formatter for Nix code
     nyancat # the famous rainbow cat!
     prettyping # a nicer ping
+    ripgrep # search in files
   ];
 
   gitPkgs = with pkgs.gitAndTools; [
     diff-so-fancy # git diff with colors
+    gh # GitHub CLI
     git-crypt # git files encryption
     hub # github command-line client
-    tig # diff and commit view
   ];
 
 in {
@@ -71,6 +72,12 @@ in {
       enable = true;
       enableFishIntegration = true;
     };
+
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
   };
 
   services.lorri.enable = true;

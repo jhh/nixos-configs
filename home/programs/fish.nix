@@ -13,7 +13,7 @@
       dps = "docker-compose ps";
       dcd = "docker-compose down --remove-orphans";
       drm = "docker images -a -q | xargs docker rmi -f";
-      du = "ncdu --color dark -rr -x";
+      du = "dust";
       ping = "prettyping";
     };
 
@@ -40,16 +40,6 @@
         };
       }
 
-      {
-        name = "z";
-        src = pkgs.fetchFromGitHub {
-          owner = "jethrokuan";
-          repo = "z";
-          rev = "45a9ff6d0932b0e9835cbeb60b9794ba706eef10";
-          sha256 = "1kjyl4gx26q8175wcizvsm0jwhppd00rixdcr1p7gifw6s308sd5";
-          fetchSubmodules = true;
-        };
-      }
     ];
   };
 }
