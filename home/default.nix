@@ -8,6 +8,7 @@ let
     duf # disk usage/free utility
     fd # "find" for files
     fortune # print a random, hopefully interesting, adage
+    fzf #  command-line fuzzy finder
     htop # interactive process viewer
     lazygit # simple terminal UI for git commands
     manix # documentation searcher for nix
@@ -54,11 +55,6 @@ in {
     exa = {
       enable = true;
       enableAliases = true;
-    };
-
-    fzf = {
-      enable = true;
-      enableFishIntegration = false;
     };
 
     gpg.enable = true;

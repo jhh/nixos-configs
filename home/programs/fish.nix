@@ -41,5 +41,8 @@
       }
 
     ];
+
+    # fzf.fish plugin ctrl-R keybind is overwritten by vanilla fzf, so rebind
+    interactiveShellInit = "bind \\cr _fzf_search_history";
   };
 }

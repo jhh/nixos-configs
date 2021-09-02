@@ -1,56 +1,35 @@
 { config, pkgs, ... }:
 let
+  pluginWithConfig = plugin: {
+    plugin = plugin;
+    config = ''
+      lua require 'j3ff.${plugin.pname}'
+    '';
+  };
+
   vimPlugins = with pkgs.vimPlugins; [
-    kommentary
-    {
-      plugin = lazygit-nvim;
-      config = ''
-        if has('nvim') && executable('nvr')
-          let $GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
-        endif
-      '';
-    }
-    {
-      plugin = telescope-nvim;
-      config = ''
-        lua require("telescope").setup { }
-      '';
-    }
     lazygit-nvim
     vim-fish
     vim-fugitive
     vim-nix
     vim-surround
-    {
-      plugin = which-key-nvim;
-      config = ''
-        set timeoutlen=500
-        lua require "which-key".setup { }
-        lua require('keymaps')
-      '';
-    }
-    {
-      plugin = nvim-treesitter;
-      config = ''
-        lua <<EOF
-        require "nvim-treesitter.configs".setup {
-          ensure_installed = "maintained",
-          highlight = { enable = true },
-          incremental_selection = { enable = true },
-          indent = { enable = true },
-        }
-        EOF
-      '';
-    }
+    kommentary
   ];
 
-  vimConfig = builtins.readFile ./config.vim;
+  vimPluginsWithConfig = with pkgs.vimPlugins;
+    map pluginWithConfig [ nvim-treesitter telescope-nvim which-key-nvim ];
+
+  # vimConfig = builtins.readFile ./config.vim;
 
 in {
+  xdg.configFile."nvim/lua".source = ./lua;
+
   programs.neovim = {
     enable = true;
-    extraConfig = vimConfig;
-    plugins = vimPlugins;
+    extraConfig = ''
+      lua require('init')
+    '';
+    plugins = vimPlugins ++ vimPluginsWithConfig;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
@@ -61,5 +40,5 @@ in {
   };
 
   # which-keys keymaps
-  xdg.configFile."nvim/lua/keymaps.lua".source = ./keymaps.lua;
+  # xdg.configFile."nvim/lua/keymaps.lua".source = ./keymaps.lua;
 }

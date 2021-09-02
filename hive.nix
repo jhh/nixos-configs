@@ -48,7 +48,7 @@
     networking.hostName = name;
 
     imports = [
-      <home-manager-unstable/nixos>
+      <home-manager/nixos>
       ./common/users
       ./hosts/nixos-01/configuration.nix
     ];
@@ -68,7 +68,7 @@
     imports = [
       ./hosts/nixos-03/configuration.nix
       ./common/users
-      <home-manager-unstable/nixos>
+      <home-manager/nixos>
     ];
 
     home-manager.useGlobalPkgs = true;
