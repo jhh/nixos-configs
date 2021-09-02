@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
 
   defaultPackages = with pkgs; [
@@ -31,7 +31,7 @@ in {
 
   home = {
     username = "jeff";
-    homeDirectory = "/home/jeff";
+    homeDirectory = if pkgs.stdenv.isDarwin then "/Users/jeff" else "/home/jeff";
 
     sessionVariables = {
       EDITOR = "vim";
@@ -76,5 +76,7 @@ in {
 
   };
 
-  services.lorri.enable = true;
+  services = lib.mkIf pkgs.stdenv.isLinux {
+    lorri.enable = true;
+  };
 }

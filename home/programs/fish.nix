@@ -1,23 +1,6 @@
-{ config, pkgs, ... }: {
-  programs.fish = {
-    enable = true;
-
-    shellAbbrs = {
-      gcb = "git checkout -b";
-      gcm = "git switch main";
-      gst = "git status";
-    };
-
-    shellAliases = {
-      dc = "docker-compose";
-      dps = "docker-compose ps";
-      dcd = "docker-compose down --remove-orphans";
-      drm = "docker images -a -q | xargs docker rmi -f";
-      du = "dust";
-      ping = "prettyping";
-    };
-
-    plugins = [
+{ config, lib, pkgs, ... }:
+let
+  defaultPlugins = [
       {
         name = "colored-man";
         src = pkgs.fetchFromGitHub {
@@ -39,8 +22,51 @@
           fetchSubmodules = true;
         };
       }
+  ];
 
-    ];
+    extraPlugins = if pkgs.stdenv.isDarwin then [
+
+      {
+        name="foreign-env";
+        src = pkgs.fetchFromGitHub {
+          owner = "oh-my-fish";
+          repo = "plugin-foreign-env";
+          rev = "dddd9213272a0ab848d474d0cbde12ad034e65bc";
+          sha256 = "00xqlyl3lffc5l0viin1nyp819wf81fncqyz87jx8ljjdhilmgbs";
+        };
+      }
+      {
+         name = "nix-env";
+         src =   pkgs.fetchFromGitHub {
+           owner = "lilyball";
+           repo = "nix-env.fish";
+           rev = "00c6cc762427efe08ac0bd0d1b1d12048d3ca727";
+           sha256 = "1hrl22dd0aaszdanhvddvqz3aq40jp9zi2zn0v1hjnf7fx4bgpma";
+           fetchSubmodules = true;
+        };
+      }
+    ] else [];
+
+in {
+  programs.fish = {
+    enable = true;
+
+    shellAbbrs = {
+      gcb = "git checkout -b";
+      gcm = "git switch main";
+      gst = "git status";
+    };
+
+    shellAliases = {
+      dc = "docker-compose";
+      dps = "docker-compose ps";
+      dcd = "docker-compose down --remove-orphans";
+      drm = "docker images -a -q | xargs docker rmi -f";
+      du = "dust";
+      ping = "prettyping";
+    };
+
+    plugins = defaultPlugins ++ extraPlugins;
 
     # fzf.fish plugin ctrl-R keybind is overwritten by vanilla fzf, so rebind
     interactiveShellInit = "bind \\cr _fzf_search_history";
