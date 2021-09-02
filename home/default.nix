@@ -64,6 +64,11 @@ in {
       generateCaches = true;
     };
 
+    nix-index = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
     starship = {
       enable = true;
       enableFishIntegration = true;

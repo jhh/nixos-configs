@@ -70,5 +70,11 @@ in {
 
     # fzf.fish plugin ctrl-R keybind is overwritten by vanilla fzf, so rebind
     interactiveShellInit = "bind \\cr _fzf_search_history";
+
+    shellInit = if pkgs.stdenv.isDarwin then
+      ''
+        fenv export NIX_PATH=\$HOME/.nix-defexpr/channels\''${NIX_PATH:+:}\$NIX_PATH
+      ''
+      else "";
   };
 }
