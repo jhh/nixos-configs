@@ -66,7 +66,7 @@ in {
 
     nix-index = {
       enable = true;
-      enableFishIntegration = true;
+      enableFishIntegration = pkgs.stdenv.isDarwin;
     };
 
     starship = {
