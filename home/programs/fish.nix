@@ -63,6 +63,7 @@ in {
       dcd = "docker-compose down --remove-orphans";
       drm = "docker images -a -q | xargs docker rmi -f";
       du = "dust";
+      git = "hub";
       ping = "prettyping";
     };
 
