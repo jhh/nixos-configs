@@ -10,13 +10,16 @@ let
     fortune # print a random, hopefully interesting, adage
     fzf #  command-line fuzzy finder
     htop # interactive process viewer
+    jq # JSON parsing cli
     lazygit # simple terminal UI for git commands
+    lorri # build changes in shell.nix automatically
     manix # documentation searcher for nix
     neofetch # command-line system information
     nixfmt # formatter for Nix code
     nyancat # the famous rainbow cat!
     prettyping # a nicer ping
     ripgrep # search in files
+    tealdeer # fast version of tldr
   ];
 
   gitPkgs = with pkgs.gitAndTools; [
