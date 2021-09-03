@@ -14,7 +14,7 @@ o.updatetime = 500
 o.autochdir  = false
 
 o.backspace = "indent,eol,start" -- backspace over all things
-o.shell = '/run/current-system/sw/bin/fish'
+-- o.shell = '/run/current-system/sw/bin/fish'
 o.viewoptions = 'folds,options,cursor,unix,slash'
 o.encoding = 'utf-8'
 o.number = true

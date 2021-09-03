@@ -1,5 +1,6 @@
 [
-  ./fish.nix
+  ./fish
   ./git.nix
   ./nvim
+  ./starship.nix
 ]

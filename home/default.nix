@@ -72,11 +72,6 @@ in {
       enableFishIntegration = pkgs.stdenv.isDarwin;
     };
 
-    starship = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-
     zoxide = {
       enable = true;
       enableFishIntegration = true;
