@@ -55,6 +55,7 @@ in {
     shellAbbrs = {
       gcb = "git checkout -b";
       gcm = "git switch main";
+      gmnff = "git merge --no-ff";
       gst = "git status";
     };
 

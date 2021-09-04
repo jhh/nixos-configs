@@ -1,13 +1,35 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
-  gitConfig = {
-    core = {
-      editor = "vim";
-      pager = "diff-so-fancy | less --tabs=4 -RFX";
-    };
-    init.defaultBranch = "main";
-  };
+  gitConfig = lib.mkMerge [
+    {
+      core = {
+        editor = "vim";
+        pager = "diff-so-fancy | less --tabs=4 -RFX";
+      };
+      github = { user = "jhh"; };
+      hub = { protocol = "ssh"; };
+      init = { defaultBranch = "main"; };
+    }
+    (lib.mkIf pkgs.stdenv.isDarwin {
+      diff = { tool = "Kaleidoscope"; };
+      difftool.Kaleidoscope = {
+        cmd = ''
+          ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
+        '';
+      };
+      difftool.prompt = false;
+      merge = { tool = "Kaleidoscope"; };
+      mergetool.Kaleidoscope = {
+        cmd = ''
+          ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
+        '';
+        trustExitCode = true;
+      };
+      mergetool.prompt = false;
+    })
+  ];
+
 in {
   programs.git = {
     enable = true;
@@ -25,6 +47,7 @@ in {
       br = "branch";
       co = "checkout";
       st = "status";
+      la = "!git config -l | grep alias | cut -c 7-";
       ls = ''
         log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate'';
       ll = ''
@@ -37,6 +60,6 @@ in {
       dc = "diff --cached";
     };
 
-    ignores = [ "*.direnv" "*.envrc" "*.jvmopts" "*.swp" ];
+    ignores = [ "*.direnv" "*.envrc" "*.jvmopts" ".nvimlog" "*.swp" ];
   };
 }
