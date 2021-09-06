@@ -6,15 +6,15 @@
     ./users
     ./ssd.nix
   ];
- 
+
   boot.cleanTmpDir = true;
-  
+
   nix.autoOptimiseStore = true;
   nix.gc = {
     automatic = true;
     dates = "weekly";
   };
-  
+
   services.journald.extraConfig = ''
     SystemMaxUse=100M
     MaxFileSec=7day
@@ -27,5 +27,5 @@
 
   time.timeZone = "America/Detroit";
   i18n.defaultLocale = "en_US.UTF-8";
-  
+
 }

@@ -4,7 +4,7 @@
     [
       ./hardware-configuration.nix
       ../../common/services/tailscale.nix
-#      ./services/zrepl.nix
+      #      ./services/zrepl.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
@@ -22,10 +22,10 @@
     useDHCP = false;
     interfaces.eno1 = {
       useDHCP = false;
-      ipv4.addresses = [ {
+      ipv4.addresses = [{
         address = "192.168.1.46";
         prefixLength = 24;
-      } ];
+      }];
     };
     defaultGateway = "192.168.1.1";
     nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
@@ -34,7 +34,7 @@
   };
 
   services.journald.extraConfig = ''
-  Compress=false
+    Compress=false
   '';
 
   services.zfs = {

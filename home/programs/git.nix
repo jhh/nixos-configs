@@ -30,7 +30,8 @@ let
     })
   ];
 
-in {
+in
+{
   programs.git = {
     enable = true;
     userName = "Jeff Hutchison";

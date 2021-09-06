@@ -22,7 +22,8 @@ let
 
   # vimConfig = builtins.readFile ./config.vim;
 
-in {
+in
+{
   xdg.configFile."nvim/lua".source = ./lua;
 
   programs.neovim = {
