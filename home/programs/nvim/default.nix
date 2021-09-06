@@ -11,6 +11,7 @@ let
     lazygit-nvim
     vim-fish
     vim-fugitive
+    vim-go
     vim-nix
     vim-surround
     kommentary

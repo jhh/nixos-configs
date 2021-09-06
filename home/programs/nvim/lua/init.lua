@@ -12,6 +12,7 @@ o.scrolloff  = 10 -- keep a minimum of 10 lines around cursor
 o.linebreak  = true -- soft wraps on words not individual chars
 o.updatetime = 500
 o.autochdir  = false
+o.autowrite  = true
 
 o.backspace = "indent,eol,start" -- backspace over all things
 -- o.shell = '/run/current-system/sw/bin/fish'
