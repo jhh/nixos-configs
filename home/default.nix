@@ -10,11 +10,13 @@ let
     fortune # print a random, hopefully interesting, adage
     fzf #  command-line fuzzy finder
     htop # interactive process viewer
+    httpie # command-line HTTP client
     jq # JSON parsing cli
     lazygit # simple terminal UI for git commands
     lorri # build changes in shell.nix automatically
     manix # documentation searcher for nix
     neofetch # command-line system information
+    niv # dependency management for Nix projects
     nixpkgs-fmt # formatter for Nix code
     nyancat # the famous rainbow cat!
     prettyping # a nicer ping
