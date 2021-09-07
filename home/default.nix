@@ -9,6 +9,7 @@ let
     fd # "find" for files
     fortune # print a random, hopefully interesting, adage
     fzf #  command-line fuzzy finder
+    glow # markdown previewer
     htop # interactive process viewer
     httpie # command-line HTTP client
     jq # JSON parsing cli

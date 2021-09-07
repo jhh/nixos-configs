@@ -7,6 +7,11 @@ local g = vim.g
 local map = vim.api.nvim_set_keymap
 local o = vim.opt
 
+-- colors --
+o.termguicolors = true
+o.background = "dark" -- or "light" for light mode
+cmd([[colorscheme gruvbox]])
+
 -- basic Vim config --
 o.scrolloff  = 10 -- keep a minimum of 10 lines around cursor
 o.linebreak  = true -- soft wraps on words not individual chars
@@ -20,7 +25,6 @@ o.viewoptions = 'folds,options,cursor,unix,slash'
 o.encoding = 'utf-8'
 o.number = true
 o.relativenumber = true
-o.termguicolors = true
 
 local tabWidth = 2
 

@@ -26,6 +26,6 @@ wk.register({
     l = { '<Cmd>tabnext<CR>'       , 'Next'              },
     h = { '<Cmd>tabprevious<CR>'   , 'Previous'          },
   },
-
+  z = { "<cmd>nohlsearch<cr>", "Clear Search" },
 }, { prefix = " " })
 

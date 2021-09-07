@@ -8,6 +8,8 @@ let
   };
 
   vimPlugins = with pkgs.vimPlugins; [
+    glow-nvim
+    gruvbox-nvim
     lazygit-nvim
     vim-fish
     vim-fugitive
@@ -30,6 +32,7 @@ in
     enable = true;
     extraConfig = ''
       lua require('init')
+      let g:glow_binary_path = "${pkgs.glow}/bin"
     '';
     plugins = vimPlugins ++ vimPluginsWithConfig;
     viAlias = true;
