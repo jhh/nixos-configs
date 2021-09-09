@@ -10,7 +10,7 @@ local o = vim.opt
 -- colors --
 o.termguicolors = true
 o.background = "dark" -- or "light" for light mode
-cmd([[colorscheme gruvbox]])
+cmd([[colorscheme nord]])
 
 -- basic Vim config --
 o.scrolloff  = 10 -- keep a minimum of 10 lines around cursor

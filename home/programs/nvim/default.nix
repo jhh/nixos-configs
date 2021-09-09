@@ -8,19 +8,21 @@ let
   };
 
   vimPlugins = with pkgs.vimPlugins; [
-    glow-nvim
-    gruvbox-nvim
-    lazygit-nvim
-    vim-fish
-    vim-fugitive
-    vim-go
-    vim-nix
-    vim-surround
-    kommentary
+    glow-nvim # https://github.com/ellisonleao/glow.nvim
+    kommentary # https://github.com/b3nj5m1n/kommentary
+    nord-nvim # https://github.com/shaunsingh/nord.nvim
+    vim-fugitive # https://github.com/tpope/vim-fugitive
+    vim-go # https://github.com/fatih/vim-go
+    vim-nix # https://github.com/LnL7/vim-nix
+    vim-surround # https://github.com/tpope/vim-surround
   ];
 
   vimPluginsWithConfig = with pkgs.vimPlugins;
-    map pluginWithConfig [ nvim-treesitter telescope-nvim which-key-nvim ];
+    map pluginWithConfig [
+      nvim-treesitter # https://github.com/nvim-treesitter/nvim-treesitter
+      telescope-nvim # https://github.com/nvim-telescope/telescope.nvim
+      which-key-nvim # https://github.com/folke/which-key.nvim
+    ];
 
   # vimConfig = builtins.readFile ./config.vim;
 
