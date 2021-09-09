@@ -3,7 +3,7 @@ let
   pluginWithConfig = plugin: {
     plugin = plugin;
     config = ''
-      lua require 'j3ff.${plugin.pname}'
+      lua require 'j3ff.${builtins.replaceStrings ["."] ["-"] plugin.pname}'
     '';
   };
 
