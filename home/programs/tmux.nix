@@ -3,6 +3,12 @@ let
   tmuxConf = ''
     bind-key r source-file ~/.config/tmux/tmux.conf \; display-message "tmux.conf reloaded"
     set -g status-left-length 50
+    bind-key j choose-tree -swZ
+    bind C-j display-popup -E "\
+      tmux list-sessions -F '#{?session_attached,,#{session_name}}' |\
+      sed '/^$/d' |\
+      fzf --reverse --header jump-to-session --preview 'tmux capture-pane -pt {}'  |\
+      xargs tmux switch-client -t"
   '';
 in {
   programs.tmux = {
