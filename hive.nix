@@ -1,6 +1,10 @@
 {
   meta = {
     nixpkgs = <nixos-unstable>;
+
+    nodeNixpkgs = {
+      ceres = <nixos>;
+    };
   };
 
   defaults = { pkgs, ... }: {
@@ -19,9 +23,24 @@
     nix.autoOptimiseStore = true;
     nix.gc = {
       automatic = true;
-      dates = "daily";
+      dates = "weekly";
+      options = "--delete-older-than 2w --max-freed 1G";
     };
 
+  };
+
+  ceres = { name, nodes, ... }: {
+    networking.hostName = name;
+
+    imports = [
+      ./common/users
+      ./hosts/ceres/configuration.nix
+    ];
+
+    deployment = {
+      allowLocalDeployment = false;
+      targetHost = "192.168.1.9";
+    };
   };
 
   eris = { name, nodes, ... }: {
