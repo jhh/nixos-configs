@@ -7,7 +7,15 @@ let
     '';
   };
 
-  vimPlugins = with pkgs.vimPlugins; [
+  custom-plugins = pkgs.callPackage ./custom-plugins.nix {
+    inherit (pkgs.vimUtils) buildVimPlugin;
+    inherit (pkgs) fetchFromGitHub;
+  };
+
+  plugins = pkgs.vimPlugins // custom-plugins;
+
+  vimPlugins = with plugins; [
+    beancount-nvim # https://github.com/polarmutex/beancount.nvim
     glow-nvim # https://github.com/ellisonleao/glow.nvim
     kommentary # https://github.com/b3nj5m1n/kommentary
     nord-nvim # https://github.com/shaunsingh/nord.nvim
