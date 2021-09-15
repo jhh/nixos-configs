@@ -7,11 +7,14 @@ wk.setup { }
 wk.register({
   f = {
     name = "Find", -- optional group name
-    b = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
-    f = { "<cmd>Telescope find_files<cr>", "Find File" },
+    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+    c = { "<cmd>Telescope commands<cr>", "Commands" },
+    f = { "<cmd>Telescope find_files<cr>", "Files" },
     g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
-    h = { "<cmd>Telescope help_tags<cr>", "Find Help Tag" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File"}
+    h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
+    r = { "<cmd>Telescope oldfiles<cr>", "Recent Files"},
+    t = { "<cmd>Telescope treesitter<cr>", "Treesitter Symbols"},
+    z = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer"},
   },
   g = {
     name = "Git",
