@@ -3,7 +3,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../common/services/tailscale.nix
       #      ./services/zrepl.nix
     ];
 

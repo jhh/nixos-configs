@@ -18,6 +18,7 @@
       };
 
       root = {
+        passwordFile = "/root/passwd";
         openssh.authorizedKeys.keys = config.users.users.jeff.openssh.authorizedKeys.keys;
       };
     };

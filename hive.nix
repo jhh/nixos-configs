@@ -4,6 +4,7 @@
 
     nodeNixpkgs = {
       ceres = <nixos>;
+      luna = <nixos>;
     };
   };
 
@@ -33,6 +34,7 @@
     networking.hostName = name;
 
     imports = [
+      ./common/services/ups.nix
       ./common/users
       ./hosts/ceres/configuration.nix
     ];
@@ -43,11 +45,29 @@
     };
   };
 
+  luna = { name, nodes, ... }: {
+    networking.hostName = name;
+
+    imports = [
+      ./common/services/tailscale.nix
+      ./common/services/ups.nix
+      ./common/users
+      ./hosts/luna/configuration.nix
+    ];
+
+    deployment = {
+      allowLocalDeployment = false;
+      targetHost = "192.168.1.7";
+    };
+  };
+
   eris = { name, nodes, ... }: {
     networking.hostName = name;
 
     imports = [
       <home-manager/nixos>
+      ./common/services/tailscale.nix
+      ./common/services/ups.nix
       ./common/users
       ./hosts/eris/configuration.nix
       ./hosts/eris/grafana.nix
@@ -69,6 +89,7 @@
     imports = [
       <home-manager/nixos>
       ./common/users
+      ./common/services/ups.nix
       ./hosts/nixos-01/configuration.nix
     ];
 
