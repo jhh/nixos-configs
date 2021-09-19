@@ -33,14 +33,14 @@
             {
               type = "regex";
               negate = true;
-              regex = "^zrepl_.*";
+              regex = "^zrepl_";
             }
           ];
           keep_receiver = [{
             type = "grid";
             regex = "^zrepl_";
             grid =
-              lib.concatStringsSep " | " [ "1x1h(keep=all)" "24x1h" "365x1d" ];
+              lib.concatStringsSep " | " [ "1x1h(keep=all)" "24x1h" "6x30d" ];
           }];
         };
       }];
