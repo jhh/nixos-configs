@@ -4,7 +4,6 @@
 
     nodeNixpkgs = {
       ceres = <nixos>;
-      luna = <nixos>;
     };
   };
 
@@ -17,7 +16,7 @@
 
     services.openssh = {
       enable = true;
-      permitRootLogin = "yes";
+      permitRootLogin = "prohibit-password";
     };
 
     nixpkgs.config.allowUnfree = true;
@@ -45,22 +44,6 @@
     };
   };
 
-  luna = { name, nodes, ... }: {
-    networking.hostName = name;
-
-    imports = [
-      ./common/services/tailscale.nix
-      ./common/services/ups.nix
-      ./common/users
-      ./hosts/luna/configuration.nix
-    ];
-
-    deployment = {
-      allowLocalDeployment = false;
-      targetHost = "192.168.1.7";
-    };
-  };
-
   eris = { name, nodes, ... }: {
     networking.hostName = name;
 
@@ -68,6 +51,7 @@
       <home-manager/nixos>
       ./common/services/tailscale.nix
       ./common/services/ups.nix
+      ./common/services/zrepl/client.nix
       ./common/users
       ./hosts/eris/configuration.nix
       ./hosts/eris/grafana.nix
@@ -80,6 +64,23 @@
     deployment = {
       allowLocalDeployment = true;
       targetHost = null;
+    };
+  };
+
+  luna = { name, nodes, ... }: {
+    networking.hostName = name;
+
+    imports = [
+      ./common/services/tailscale.nix
+      ./common/services/ups.nix
+      ./common/services/zrepl/server.nix
+      ./common/users
+      ./hosts/luna/configuration.nix
+    ];
+
+    deployment = {
+      allowLocalDeployment = false;
+      targetHost = "192.168.1.7";
     };
   };
 

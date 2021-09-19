@@ -3,7 +3,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      #      ./services/zrepl.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;

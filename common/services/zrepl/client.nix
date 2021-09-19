@@ -1,8 +1,7 @@
 { config, pkgs, lib, ... }:
-
 {
   services.zrepl = {
-    enable = false;
+    enable = true;
     settings = {
       global = {
         logging = [{
@@ -17,7 +16,7 @@
         type = "push";
         connect = {
           type = "tcp";
-          address = "192.168.1.10:29491";
+          address = "100.78.167.19:29491";
         };
         filesystems = {
           "rpool/safe<" = true;
@@ -32,8 +31,9 @@
           keep_sender = [
             { type = "not_replicated"; }
             {
-              type = "last_n";
-              count = 10;
+              type = "regex";
+              negate = true;
+              regex = "^zrepl_.*";
             }
           ];
           keep_receiver = [{
