@@ -20,11 +20,13 @@
     };
 
     nixpkgs.config.allowUnfree = true;
-    nix.autoOptimiseStore = true;
-    nix.gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 2w --max-freed 1G";
+    nix = {
+      autoOptimiseStore = true;
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 4w --max-freed 1G";
+      };
     };
 
   };
@@ -57,6 +59,8 @@
       ./hosts/eris/grafana.nix
       ./hosts/eris/prometheus.nix
     ];
+
+    documentation.man.generateCaches = true;
 
     home-manager.useGlobalPkgs = true;
     home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
