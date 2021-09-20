@@ -25,102 +25,107 @@
       gc = {
         automatic = true;
         dates = "weekly";
-        options = "--delete-older-than 4w --max-freed 1G";
+        options = "--delete-older-than 6w --max-freed 256M";
+          };
+      };
+
+    };
+
+    ceres = { name, nodes, ... }: {
+      networking.hostName = name;
+
+      imports = [
+        ./common/services
+        ./common/users
+        ./hosts/ceres/configuration.nix
+      ];
+
+      j3ff = {
+        tailscale = true;
+        ups = true;
+        zrepl = true;
+      };
+
+      deployment = {
+        allowLocalDeployment = false;
+        targetHost = "192.168.1.9";
       };
     };
 
-  };
+    eris = { name, nodes, ... }: {
+      networking.hostName = name;
 
-  ceres = { name, nodes, ... }: {
-    networking.hostName = name;
+      imports = [
+        <home-manager/nixos>
+        ./common/services
+        ./common/users
+        ./hosts/eris/configuration.nix
+        ./hosts/eris/grafana.nix
+        ./hosts/eris/prometheus.nix
+      ];
 
-    imports = [
-      ./common/services/ups.nix
-      ./common/users
-      ./hosts/ceres/configuration.nix
-    ];
+      j3ff = {
+        tailscale = true;
+        ups = true;
+        zrepl = true;
+      };
 
-    deployment = {
-      allowLocalDeployment = false;
-      targetHost = "192.168.1.9";
+      documentation.man.generateCaches = true;
+
+      home-manager.useGlobalPkgs = true;
+      home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
+
+      deployment = {
+        allowLocalDeployment = true;
+        targetHost = null;
+      };
     };
-  };
 
-  eris = { name, nodes, ... }: {
-    networking.hostName = name;
+    luna = { name, nodes, ... }: {
+      networking.hostName = name;
 
-    imports = [
-      <home-manager/nixos>
-      ./common/services/tailscale.nix
-      ./common/services/ups.nix
-      ./common/services/zrepl/client.nix
-      ./common/users
-      ./hosts/eris/configuration.nix
-      ./hosts/eris/grafana.nix
-      ./hosts/eris/prometheus.nix
-    ];
+      imports = [
+        ./hosts/luna/configuration.nix
+        ./common/services
+        ./common/services/zrepl/server.nix
+        ./common/users
+      ];
 
-    documentation.man.generateCaches = true;
+      j3ff = {
+        tailscale = true;
+        ups = true;
+        zrepl = false; # zrepl server
+      };
 
-    home-manager.useGlobalPkgs = true;
-    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
-
-    deployment = {
-      allowLocalDeployment = true;
-      targetHost = null;
+      deployment = {
+        allowLocalDeployment = false;
+        targetHost = "192.168.1.7";
+      };
     };
-  };
 
-  luna = { name, nodes, ... }: {
-    networking.hostName = name;
+    nixos-01 = { name, nodes, ... }: {
+      networking.hostName = name;
 
-    imports = [
-      ./common/services/tailscale.nix
-      ./common/services/ups.nix
-      ./common/services/zrepl/server.nix
-      ./common/users
-      ./hosts/luna/configuration.nix
-    ];
+      imports = [
+        ./hosts/nixos-01/configuration.nix
+        <home-manager/nixos>
+        ./common/users
+        ./common/services
+      ];
 
-    deployment = {
-      allowLocalDeployment = false;
-      targetHost = "192.168.1.7";
+      j3ff = {
+        tailscale = true;
+      };
+
+
+      home-manager.useGlobalPkgs = true;
+      home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
+
+      deployment = {
+        allowLocalDeployment = false;
+        targetHost = "192.168.1.182";
+      };
     };
-  };
 
-  nixos-01 = { name, nodes, ... }: {
-    networking.hostName = name;
-
-    imports = [
-      <home-manager/nixos>
-      ./common/users
-      ./common/services/ups.nix
-      ./hosts/nixos-01/configuration.nix
-    ];
-
-    home-manager.useGlobalPkgs = true;
-    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
-
-    deployment = {
-      allowLocalDeployment = false;
-      targetHost = "192.168.1.182";
-    };
-  };
-
-  nixos-03 = { name, nodes, ... }: {
-    networking.hostName = name;
-
-    imports = [
-      ./hosts/nixos-03/configuration.nix
-      ./common/users
-      <home-manager/nixos>
-    ];
-
-    home-manager.useGlobalPkgs = true;
-    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
-
-    deployment = { targetHost = "192.168.1.118"; };
-  };
-
-}
+  }
 
