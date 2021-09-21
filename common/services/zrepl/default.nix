@@ -1,13 +1,10 @@
 { config, pkgs, lib, ... }:
 {
   options = {
-    j3ff.zrepl = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
+    j3ff.zrepl.enable = lib.mkEnableOption "Zrepl client";
   };
 
-  config = lib.mkIf config.j3ff.zrepl {
+  config = lib.mkIf config.j3ff.zrepl.enable {
     services.zrepl = {
       enable = true;
       settings = {

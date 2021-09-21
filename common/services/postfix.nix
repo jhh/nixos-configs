@@ -1,13 +1,10 @@
 { config, lib, pkgs, ... }:
 {
   options = {
-    j3ff.mail = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
+    j3ff.mail.enable = lib.mkEnableOption "Postfix mailer";
   };
 
-  config = lib.mkIf config.j3ff.mail {
+  config = lib.mkIf config.j3ff.mail.enable {
     services.postfix = {
       enable = true;
       config = {

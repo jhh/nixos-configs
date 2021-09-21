@@ -1,26 +1,27 @@
-{config, lib, ...}:
+{ config, lib, ... }:
 {
   options = {
-    j3ff.mdns = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
+    j3ff.mdns.enable = lib.mkEnableOption "MDNS resolving";
   };
 
-  config = {
-    networking.useHostResolvConf = false;
-    services.resolved = {
-      enable = true;
-      dnssec = "false";
-      llmnr = lib.boolToString config.j3ff.mdns;
-      domains = [
-        "lan.j3ff.io"
-      ];
-    };
+  config =
+    let
+      cfg = config.j3ff.mdns;
+    in
+    {
+      networking.useHostResolvConf = false;
+      services.resolved = {
+        enable = true;
+        dnssec = "false";
+        llmnr = lib.boolToString cfg.enable;
+        domains = [
+          "lan.j3ff.io"
+        ];
+      };
 
-    services.avahi = {
-      enable = config.j3ff.mdns;
-      nssmdns = true;
+      services.avahi = {
+        enable = cfg.enable;
+        nssmdns = true;
+      };
     };
-  };
 }

@@ -1,13 +1,10 @@
 { config, lib, pkgs, ... }:
 {
   options = {
-    j3ff.ups = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
+    j3ff.ups.enable = lib.mkEnableOption "UPS monitoring";
   };
 
-  config = lib.mkIf config.j3ff.ups {
+  config = lib.mkIf config.j3ff.ups.enable {
     environment.systemPackages = [
       pkgs.nut
     ];

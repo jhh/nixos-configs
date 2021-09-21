@@ -42,9 +42,9 @@
     ];
 
     j3ff = {
-      tailscale = true;
-      ups = true;
-      zrepl = true;
+      tailscale.enable = true;
+      ups.enable = true;
+      zrepl.enable = true;
     };
 
     deployment = {
@@ -55,6 +55,8 @@
 
   eris = { name, nodes, ... }: {
     networking.hostName = name;
+    services.smartd.enable = true;
+    services.smartd.notifications.test = true;
 
     imports = [
       <home-manager/nixos>
@@ -66,10 +68,10 @@
     ];
 
     j3ff = {
-      mail = true;
-      tailscale = true;
-      ups = true;
-      zrepl = true;
+      mail.enable = true;
+      tailscale.enable = true;
+      ups.enable = true;
+      zrepl.enable = true;
     };
 
     documentation.man.generateCaches = true;
@@ -94,10 +96,10 @@
     ];
 
     j3ff = {
-      mail = true;
-      tailscale = true;
-      ups = true;
-      zrepl = false; # zrepl server
+      mail.enable = true;
+      tailscale.enable = true;
+      ups.enable = true;
+      zrepl.enable = false; # zrepl server
     };
 
     deployment = {
@@ -122,8 +124,10 @@
     ];
 
     j3ff = {
-      mail = true;
-      tailscale = true;
+      mail.enable = true;
+      mdns.enable = false;
+      tailscale.enable = true;
+      ups.enable = false;
     };
 
 

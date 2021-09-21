@@ -4,16 +4,13 @@ let
 in
 {
   options = {
-    j3ff.tailscale = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
+    j3ff.tailscale.enable = lib.mkEnableOption "Tailscale VPN";
   };
 
   imports = [ <nixos-unstable/nixos/modules/services/networking/tailscale.nix> ];
   disabledModules = [ "services/networking/tailscale.nix" ];
 
-  config = lib.mkIf config.j3ff.tailscale {
+  config = lib.mkIf config.j3ff.tailscale.enable {
 
     environment.systemPackages = [
       unstable.tailscale
