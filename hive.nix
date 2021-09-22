@@ -92,6 +92,7 @@
 
     imports = [
       ./hosts/luna/configuration.nix
+      ./hosts/luna/nfs.nix
       ./common/services
       ./common/services/zrepl/server.nix
       ./common/users
