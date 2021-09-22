@@ -1,10 +1,12 @@
 { config, lib, pkgs, ... }:
 {
   options = {
-    j3ff.mail.enable = lib.mkEnableOption "Postfix mailer";
+    j3ff.mail.enable = lib.mkEnableOption "Emails from host";
   };
 
   config = lib.mkIf config.j3ff.mail.enable {
+    environment.systemPackages = with pkgs; [ mailutils ];
+
     services.postfix = {
       enable = true;
       config = {

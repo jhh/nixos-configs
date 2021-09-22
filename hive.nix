@@ -1,6 +1,6 @@
 {
   meta = {
-    nixpkgs = <nixos-unstable>;
+    nixpkgs = import <nixos-unstable> { };
 
     nodeNixpkgs = {
       ceres = <nixos>;
@@ -86,7 +86,7 @@
     };
   };
 
-  luna = { name, nodes, ... }: {
+  luna = { pkgs, name, nodes, ... }: {
     networking.hostName = name;
 
     imports = [
@@ -102,6 +102,31 @@
       tailscale.enable = true;
       ups.enable = true;
       zrepl.enable = false; # zrepl server
+    };
+
+    # ZFS
+    boot.kernelParams = [ "zfs.zfs_arc_max=29344391168" ];
+    services.zfs = {
+      autoScrub = {
+        enable = true;
+        interval = "monthly";
+      };
+      autoSnapshot.enable = true;
+      trim.enable = true;
+      zed = {
+        enableMail = false;
+        settings = {
+          ZED_EMAIL_ADDR = [ "root" ];
+          ZED_EMAIL_PROG = "${pkgs.mailutils}/bin/mail";
+          ZED_EMAIL_OPTS = "-s '@SUBJECT@' @ADDRESS@";
+
+          ZED_NOTIFY_INTERVAL_SECS = 3600;
+          ZED_NOTIFY_VERBOSE = true;
+
+          ZED_USE_ENCLOSURE_LEDS = true;
+          ZED_SCRUB_AFTER_RESILVER = false;
+        };
+      };
     };
 
     deployment = {
