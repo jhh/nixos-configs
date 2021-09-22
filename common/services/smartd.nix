@@ -13,7 +13,7 @@
       enable = true;
       notifications.test = true;
       defaults.autodetected = lib.concatStringsSep " " [
-        "-s" "(L/../01/./02|S/../../2/01|O/../.././(00|08|16))"
+        "-s" "(L/../01/./02|S/../../2/01)"
         "-a"
         "-o" "off"
         "-n" "never"

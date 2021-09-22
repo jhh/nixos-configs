@@ -8,6 +8,7 @@
   };
 
   defaults = { pkgs, ... }: {
+    boot.loader.systemd-boot.configurationLimit = 10;
     environment.systemPackages = with pkgs; [ vim wget curl ];
     networking.domain = "lan.j3ff.io";
 
