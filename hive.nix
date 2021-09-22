@@ -42,6 +42,8 @@
     ];
 
     j3ff = {
+      mail.enable = true;
+      smartd.enable = true;
       tailscale.enable = true;
       ups.enable = true;
       zrepl.enable = true;
@@ -55,8 +57,6 @@
 
   eris = { name, nodes, ... }: {
     networking.hostName = name;
-    services.smartd.enable = true;
-    services.smartd.notifications.test = true;
 
     imports = [
       <home-manager/nixos>
@@ -69,6 +69,7 @@
 
     j3ff = {
       mail.enable = true;
+      smartd.enable = true;
       tailscale.enable = true;
       ups.enable = true;
       zrepl.enable = true;
@@ -97,6 +98,7 @@
 
     j3ff = {
       mail.enable = true;
+      smartd.enable = true;
       tailscale.enable = true;
       ups.enable = true;
       zrepl.enable = false; # zrepl server
@@ -126,6 +128,7 @@
     j3ff = {
       mail.enable = true;
       mdns.enable = false;
+      smartd.enable = false;
       tailscale.enable = true;
       ups.enable = false;
     };

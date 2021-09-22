@@ -4,6 +4,7 @@
   imports = [
     ./dns.nix
     ./postfix.nix
+    ./smartd.nix
     ./tailscale.nix
     ./ups.nix
     ./zrepl
