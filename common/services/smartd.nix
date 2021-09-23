@@ -5,6 +5,13 @@
   };
 
   config = lib.mkIf config.j3ff.smartd.enable {
+    assertions = [
+      {
+        assertion = config.j3ff.mail.enable == true;
+        message = "You need j3ff.mail.enable = true to use smartd.";
+      }
+    ];
+
     environment.systemPackages = [
       pkgs.smartmontools
     ];
