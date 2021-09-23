@@ -13,16 +13,29 @@
 
   networking = {
     useDHCP = false;
-    interfaces.enp4s0f0 = {
+
+    bonds = {
+      bond0 = {
+        interfaces = [ "enp4s0f0" "enp4s0f1" ];
+        driverOptions = {
+          miimon = "100";
+          mode = "802.3ad";
+          xmit_hash_policy = "layer2+3";
+        };
+      };
+    };
+
+    interfaces.bond0 = {
       useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.1.7";
         prefixLength = 24;
       }];
     };
-    interfaces.enp4s0f1.useDHCP = false;
+
     interfaces.enp6s0f0.useDHCP = false;
     interfaces.enp6s0f1.useDHCP = false;
+
     defaultGateway = "192.168.1.1";
     nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
     hostId = "1200ccec";
