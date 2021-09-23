@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 {
   system.activationScripts = {
-    exports = "mkdir -p /export/plex";
+    exports = ''
+      mkdir -p /export/plex
+      mkdir -p /export/proxmox
+    '';
   };
 
   fileSystems."/export/plex/dl4cv" = {
@@ -29,11 +32,23 @@
     options = [ "bind" ];
   };
 
+  fileSystems."/export/proxmox/pbs" = {
+    device = "/mnt/tank/proxmox/pbs";
+    options = [ "bind" ];
+  };
+
+  fileSystems."/export/proxmox/pve" = {
+    device = "/mnt/tank/proxmox/pve";
+    options = [ "bind" ];
+  };
+
   services.nfs.server = {
     enable = true;
     exports = ''
       /export 192.168.1.0/24(rw,fsid=0,no_subtree_check)
       /export/plex 192.168.1.0/24(rw,insecure,sync,no_subtree_check,crossmnt)
+      /export/proxmox/pbs 192.168.1.47(rw,insecure,sync,no_subtree_check)
+      /export/proxmox/pve 192.168.1.20(rw,insecure,sync,no_subtree_check,no_root_squash) 192.168.1.21(rw,insecure,sync,no_subtree_check,no_root_squash)
     '';
   };
 
