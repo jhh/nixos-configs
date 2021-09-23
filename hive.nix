@@ -99,6 +99,7 @@
     networking.hostName = name;
 
     imports = [
+      <home-manager/nixos>
       ./hosts/luna/configuration.nix
       ./hosts/luna/nfs.nix
       ./common/services
@@ -120,6 +121,9 @@
 
     # ZFS
     boot.kernelParams = [ "zfs.zfs_arc_max=29344391168" ];
+
+    home-manager.useGlobalPkgs = true;
+    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
 
     deployment = {
       allowLocalDeployment = false;
