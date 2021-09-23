@@ -126,7 +126,7 @@
     home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
 
     deployment = {
-      allowLocalDeployment = false;
+      allowLocalDeployment = true;
       targetHost = "192.168.1.7";
     };
   };
