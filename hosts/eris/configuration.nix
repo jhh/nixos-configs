@@ -31,16 +31,6 @@
     firewall.enable = false;
   };
 
-  services.journald.extraConfig = ''
-    Compress=false
-  '';
-
-  services.zfs = {
-    autoScrub.enable = true;
-    autoSnapshot.enable = true;
-    trim.enable = true;
-  };
-
   fileSystems."/root" = {
     device = "rpool/safe/home/root";
     fsType = "zfs";

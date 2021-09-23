@@ -15,8 +15,6 @@
     supportedFilesystems = [ "zfs" ];
   };
 
-  time.timeZone = "America/Detroit";
-
   networking = {
     hostName = "ceres";
     useDHCP = false;
@@ -31,16 +29,6 @@
     nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
     hostId = "96a5b0e0";
     firewall.enable = false;
-  };
-
-  services.journald.extraConfig = ''
-    Compress=false
-  '';
-
-  services.zfs = {
-    autoScrub.enable = true;
-    autoSnapshot.enable = true;
-    trim.enable = true;
   };
 
   fileSystems."/mnt" =

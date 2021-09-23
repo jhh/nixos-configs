@@ -11,8 +11,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "luna"; # Define your hostname.
-
   networking = {
     useDHCP = false;
     interfaces.enp4s0f0 = {
@@ -30,11 +28,6 @@
     hostId = "1200ccec";
     firewall.enable = false;
   };
-
-  services.journald.extraConfig = ''
-    Compress=false
-  '';
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

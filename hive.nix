@@ -1,10 +1,6 @@
 {
   meta = {
     nixpkgs = import <nixos-unstable> { };
-
-    nodeNixpkgs = {
-      ceres = <nixos>;
-    };
   };
 
   defaults = { pkgs, ... }: {
@@ -37,6 +33,7 @@
     networking.hostName = name;
 
     imports = [
+      <home-manager/nixos>
       ./common/services
       ./common/users
       ./hosts/ceres/configuration.nix
@@ -47,8 +44,15 @@
       smartd.enable = true;
       tailscale.enable = true;
       ups.enable = true;
+      zfs = {
+        enable = true;
+        enableTrim = true;
+      };
       zrepl.enable = true;
     };
+
+    home-manager.useGlobalPkgs = true;
+    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
 
     deployment = {
       allowLocalDeployment = false;
@@ -73,6 +77,10 @@
       smartd.enable = true;
       tailscale.enable = true;
       ups.enable = true;
+      zfs = {
+        enable = true;
+        enableTrim = true;
+      };
       zrepl.enable = true;
     };
 
@@ -103,33 +111,15 @@
       smartd.enable = true;
       tailscale.enable = true;
       ups.enable = true;
+      zfs = {
+        enable = true;
+        enableTrim = false;
+      };
       zrepl.enable = false; # zrepl server
     };
 
     # ZFS
     boot.kernelParams = [ "zfs.zfs_arc_max=29344391168" ];
-    services.zfs = {
-      autoScrub = {
-        enable = true;
-        interval = "monthly";
-      };
-      autoSnapshot.enable = true;
-      trim.enable = true;
-      zed = {
-        enableMail = false;
-        settings = {
-          ZED_EMAIL_ADDR = [ "root" ];
-          ZED_EMAIL_PROG = "${pkgs.mailutils}/bin/mail";
-          ZED_EMAIL_OPTS = "-s '@SUBJECT@' @ADDRESS@";
-
-          ZED_NOTIFY_INTERVAL_SECS = 3600;
-          ZED_NOTIFY_VERBOSE = true;
-
-          ZED_USE_ENCLOSURE_LEDS = true;
-          ZED_SCRUB_AFTER_RESILVER = false;
-        };
-      };
-    };
 
     deployment = {
       allowLocalDeployment = false;
@@ -158,6 +148,7 @@
       smartd.enable = false;
       tailscale.enable = true;
       ups.enable = false;
+      zfs.enable = true;
     };
 
 
