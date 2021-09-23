@@ -1,48 +1,5 @@
 { config, pkgs, ... }:
 {
-  # system.activationScripts = {
-  #   exports = ''
-  #     mkdir -p /export/plex
-  #     mkdir -p /export/proxmox
-  #   '';
-  # };
-
-  # fileSystems."/export/plex/dl4cv" = {
-  #   device = "/mnt/tank/media/plex/dl4cv";
-  #   options = [ "bind" ];
-  # };
-
-  # fileSystems."/export/plex/movies" = {
-  #   device = "/mnt/tank/media/plex/movies";
-  #   options = [ "bind" ];
-  # };
-
-  # fileSystems."/export/plex/music" = {
-  #   device = "/mnt/tank/media/plex/music";
-  #   options = [ "bind" ];
-  # };
-
-  # fileSystems."/export/plex/photos" = {
-  #   device = "/mnt/tank/media/plex/photos";
-  #   options = [ "bind" ];
-  # };
-
-  # fileSystems."/export/plex/tv" = {
-  #   device = "/mnt/tank/media/plex/tv";
-  #   options = [ "bind" ];
-  # };
-
-  # fileSystems."/export/proxmox/pbs" = {
-  #   device = "/mnt/tank/proxmox/pbs";
-  #   options = [ "bind" ];
-  # };
-
-  # fileSystems."/export/proxmox/pve" = {
-  #   device = "/mnt/tank/proxmox/pve";
-  #   options = [ "bind" ];
-  # };
-
-
   services.nfs.server = {
     enable = true;
     exports = ''
