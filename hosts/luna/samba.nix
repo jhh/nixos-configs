@@ -20,7 +20,7 @@
       fruit:wipe_intentionally_left_blank_rfork = yes 
       fruit:delete_empty_adfiles = yes
 
-      #use sendfile = yes
+      use sendfile = yes
       hosts allow = 192.168.1.0/24
       guest account = nobody
       map to guest = bad user
@@ -32,9 +32,18 @@
     '';
 
     shares = {
+      Jeff = {
+        path = "/mnt/tank/share/jeff";
+        "valid users" = "jeff";
+        public = "no";
+        writeable = "yes";
+        "force user" = "jeff";
+      };
+
       tm_europa = {
         path = "/mnt/tank/backup/tm/europa";
         "valid users" = "jeff";
+        browsable = "no";
         public = "no";
         writeable = "yes";
         "force user" = "jeff";
@@ -44,6 +53,7 @@
       tm_callisto = {
         path = "/mnt/tank/backup/tm/callisto";
         "valid users" = "jeff";
+        browsable = "no";
         public = "no";
         writeable = "yes";
         "force user" = "jeff";
