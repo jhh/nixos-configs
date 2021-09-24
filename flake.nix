@@ -73,6 +73,79 @@
         };
       };
 
+      luna = { pkgs, name, nodes, ... }: {
+        networking.hostName = name;
+
+        imports = [
+          <home-manager/nixos>
+          ./hosts/luna/configuration.nix
+          ./hosts/luna/nfs.nix
+          ./hosts/luna/plex.nix
+          ./hosts/luna/samba.nix
+          ./common/services
+          ./common/services/zrepl/server.nix
+          ./common/users
+        ];
+
+        j3ff = {
+          mail.enable = true;
+          smartd.enable = true;
+          tailscale.enable = true;
+          ups.enable = true;
+          zfs = {
+            enable = true;
+            enableTrim = false;
+          };
+          zrepl.enable = false; # zrepl server
+        };
+
+        # ZFS
+        boot.kernelParams = [ "zfs.zfs_arc_max=29344391168" ];
+
+        # Prometheus
+        services.prometheus = {
+          exporters = {
+            node = {
+              enable = true;
+              enabledCollectors = [ "systemd" "processes" "nfs" "nfsd" ];
+              port = 9002;
+            };
+          };
+        };
+
+
+      };
+
+      ceres = { name, nodes, ... }: {
+        networking.hostName = name;
+
+        imports = [
+          <home-manager/nixos>
+          ./common/services
+          ./common/users
+          ./hosts/ceres/configuration.nix
+        ];
+
+        j3ff = {
+          mail.enable = true;
+          smartd.enable = true;
+          tailscale.enable = true;
+          ups.enable = true;
+          zfs = {
+            enable = true;
+            enableTrim = true;
+          };
+          zrepl.enable = true;
+        };
+
+        home-manager.useGlobalPkgs = true;
+        home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
+
+        deployment = {
+          allowLocalDeployment = false;
+          targetHost = "192.168.1.9";
+        };
+      };
     };
   };
 }
