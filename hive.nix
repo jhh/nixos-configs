@@ -123,6 +123,17 @@
     # ZFS
     boot.kernelParams = [ "zfs.zfs_arc_max=29344391168" ];
 
+    # Prometheus
+    services.prometheus = {
+        exporters = {
+          node = {
+            enable = true;
+            enabledCollectors = [ "systemd" "processes" "nfs" "nfsd" ];
+            port = 9002;
+          };
+        };
+      };
+
     home-manager.useGlobalPkgs = true;
     home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
 

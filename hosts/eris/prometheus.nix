@@ -6,20 +6,39 @@
     exporters = {
       node = {
         enable = true;
-        enabledCollectors = [ "systemd" ];
+        enabledCollectors = [ "systemd" "processes" ];
         port = 9002;
       };
     };
 
-    scrapeConfigs = [{
-      job_name = "eris";
-      static_configs = [{
-        targets = [
-          "127.0.0.1:${toString config.services.prometheus.exporters.node.port}"
-          "127.0.0.1:80"
+    scrapeConfigs = [
+      {
+        job_name = "node";
+        static_configs = [{
+          targets = [
+            "eris:${toString config.services.prometheus.exporters.node.port}"
+            "luna:9002"
+          ];
+        }];
+      }
+      {
+        job_name = "grafana";
+        static_configs = [{
+          targets = [
+            "eris:80"
+          ];
+        }];
+      }
+      {
+        job_name = "pihole";
+        static_configs = [
+          {
+            targets = [
+              "docker-01:9617"
+            ];
+          }
         ];
-      }];
-    }];
-
+      }
+    ];
   };
 }

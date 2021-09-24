@@ -4,6 +4,7 @@
     domain = "grafana.j3ff.io";
     port = 2342;
     addr = "127.0.0.1";
+    declarativePlugins = with pkgs.grafanaPlugins; [ grafana-piechart-panel ];
   };
 
   services.nginx = {
