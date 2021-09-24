@@ -1,6 +1,6 @@
 {
   meta = {
-    nixpkgs = import <nixos-unstable> { };
+    nixpkgs = import <nixos> { };
   };
 
   defaults = { pkgs, ... }: {
@@ -25,6 +25,10 @@
         dates = "weekly";
         options = "--delete-older-than 6w --max-freed 256M";
       };
+      package = pkgs.nixUnstable;
+      extraOptions = ''
+        experimental-features = nix-command flakes
+      '';
     };
 
   };
@@ -126,14 +130,14 @@
 
     # Prometheus
     services.prometheus = {
-        exporters = {
-          node = {
-            enable = true;
-            enabledCollectors = [ "systemd" "processes" "nfs" "nfsd" ];
-            port = 9002;
-          };
+      exporters = {
+        node = {
+          enable = true;
+          enabledCollectors = [ "systemd" "processes" "nfs" "nfsd" ];
+          port = 9002;
         };
       };
+    };
 
     home-manager.useGlobalPkgs = true;
     home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };

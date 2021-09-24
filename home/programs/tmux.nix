@@ -9,6 +9,7 @@ let
       sed '/^$/d' |\
       fzf --reverse --header jump-to-session --preview 'tmux capture-pane -pt {}'  |\
       xargs tmux switch-client -t"
+    set-option -sa terminal-overrides ',xterm-256color:RGB'
   '';
 in {
   programs.tmux = {
