@@ -30,6 +30,10 @@
             dates = "weekly";
             options = "--delete-older-than 6w --max-freed 256M";
           };
+          package = pkgs.nixUnstable;
+          extraOptions = ''
+            experimental-features = nix-command flakes
+          '';
         };
 
       };
