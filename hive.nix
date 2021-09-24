@@ -102,6 +102,7 @@
       <home-manager/nixos>
       ./hosts/luna/configuration.nix
       ./hosts/luna/nfs.nix
+      ./hosts/luna/plex.nix
       ./hosts/luna/samba.nix
       ./common/services
       ./common/services/zrepl/server.nix
