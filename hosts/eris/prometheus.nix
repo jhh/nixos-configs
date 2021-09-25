@@ -18,6 +18,7 @@
           targets = [
             "eris:${toString config.services.prometheus.exporters.node.port}"
             "luna:9002"
+            "phobos:9002"
           ];
         }];
       }

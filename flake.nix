@@ -82,8 +82,8 @@
           ./hosts/luna/nfs.nix
           ./hosts/luna/plex.nix
           ./hosts/luna/samba.nix
+          ./hosts/luna/zrepl.nix
           ./common/services
-          ./common/services/zrepl/server.nix
           ./common/users
         ];
 
@@ -99,6 +99,14 @@
           zrepl.enable = false; # zrepl server
         };
 
+        home-manager.useGlobalPkgs = true;
+        home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
+
+        deployment = {
+          allowLocalDeployment = false;
+          targetHost = "192.168.1.7";
+        };
+
         # ZFS
         boot.kernelParams = [ "zfs.zfs_arc_max=29344391168" ];
 
@@ -108,6 +116,54 @@
             node = {
               enable = true;
               enabledCollectors = [ "systemd" "processes" "nfs" "nfsd" ];
+              port = 9002;
+            };
+          };
+        };
+
+
+      };
+
+      phobos = { pkgs, name, nodes, ... }: {
+        networking.hostName = name;
+
+        imports = [
+          <home-manager/nixos>
+          ./hosts/phobos/configuration.nix
+          ./hosts/phobos/zrepl.nix
+          ./common/services
+          ./common/users
+        ];
+
+        j3ff = {
+          mail.enable = true;
+          smartd.enable = true;
+          tailscale.enable = true;
+          ups.enable = false;
+          zfs = {
+            enable = true;
+            enableTrim = false;
+          };
+          zrepl.enable = false; # zrepl server
+        };
+
+        home-manager.useGlobalPkgs = true;
+        home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
+
+        deployment = {
+          allowLocalDeployment = false;
+          targetHost = "192.168.1.5";
+        };
+
+        # ZFS
+        boot.kernelParams = [ "zfs.zfs_arc_max=29344391168" ];
+
+        # Prometheus
+        services.prometheus = {
+          exporters = {
+            node = {
+              enable = true;
+              enabledCollectors = [ "systemd" "processes" ];
               port = 9002;
             };
           };

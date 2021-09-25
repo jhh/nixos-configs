@@ -17,8 +17,7 @@
           type = "tcp";
           listen = ":29491";
           clients = {
-            "100.103.156.2" = "ceres";
-            "100.93.77.66" = "eris";
+            "192.168.1.7" = "luna";
           };
         };
         root_fs = "rpool/zrepl";
