@@ -28,7 +28,7 @@
           gc = {
             automatic = true;
             dates = "weekly";
-            options = "--delete-older-than 6w --max-freed 256M";
+            options = "--delete-older-than 30d --max-freed 256M";
           };
           package = pkgs.nixUnstable;
           extraOptions = ''
@@ -107,9 +107,6 @@
           targetHost = "192.168.1.7";
         };
 
-        # ZFS
-        boot.kernelParams = [ "zfs.zfs_arc_max=29344391168" ];
-
         # Prometheus
         services.prometheus = {
           exporters = {
@@ -154,9 +151,6 @@
           allowLocalDeployment = false;
           targetHost = "192.168.1.5";
         };
-
-        # ZFS
-        boot.kernelParams = [ "zfs.zfs_arc_max=29344391168" ];
 
         # Prometheus
         services.prometheus = {

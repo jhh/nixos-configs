@@ -8,8 +8,22 @@
 
   hardware.cpu.intel.updateMicrocode = true;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    kernelParams = [
+      "console=tty1"
+      "console=ttyS0,115200"
+      "zfs.zfs_arc_max=29344391168"
+    ];
+
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+
+    initrd.mdadmConf = ''
+      MAILADDR root
+    '';
+  };
 
 
   networking = {

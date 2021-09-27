@@ -8,6 +8,8 @@
 
   hardware.cpu.intel.updateMicrocode = true;
 
+  boot.kernelParams = [ "zfs.zfs_arc_max=29344391168" ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
