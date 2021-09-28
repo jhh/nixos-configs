@@ -17,6 +17,7 @@
         static_configs = [{
           targets = [
             "eris:${toString config.services.prometheus.exporters.node.port}"
+            "ceres:9002"
             "luna:9002"
             "phobos:9002"
           ];

@@ -195,6 +195,17 @@
           allowLocalDeployment = false;
           targetHost = "192.168.1.9";
         };
+
+        # Prometheus
+        services.prometheus = {
+          exporters = {
+            node = {
+              enable = true;
+              enabledCollectors = [ "systemd" "processes" ];
+              port = 9002;
+            };
+          };
+        };
       };
     };
   };
