@@ -11,7 +11,7 @@
   boot = {
     kernelParams = [
       "console=tty1"
-      "console=ttyS0,115200"
+      "console=ttyS1,115200"
       "zfs.zfs_arc_max=29344391168"
     ];
 
@@ -19,12 +19,11 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-
-    initrd.mdadmConf = ''
-      MAILADDR root
-    '';
   };
 
+  environment.etc."mdadm.conf".text = ''
+    MAILADDR root
+  '';
 
   networking = {
     useDHCP = false;

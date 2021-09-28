@@ -13,6 +13,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  environment.etc."mdadm.conf".text = ''
+    MAILADDR root
+  '';
+
   networking = {
     useDHCP = false;
 
