@@ -1,7 +1,14 @@
 { config, pkgs, lib, ... }:
 {
   options = {
-    j3ff.zrepl.enable = lib.mkEnableOption "Zrepl client";
+    j3ff.zrepl = {
+      enable = lib.mkEnableOption "Zrepl client";
+      server = lib.mkOption {
+        type = lib.types.str;
+        description = "zrepl sink to backup to.";
+        default = "100.64.244.48";
+      };
+    };
   };
 
   config = lib.mkIf config.j3ff.zrepl.enable {
@@ -21,7 +28,7 @@
           type = "push";
           connect = {
             type = "tcp";
-            address = "100.78.167.19:29491";
+            address = "${config.j3ff.zrepl.server}:29491";
           };
           filesystems = {
             "rpool/safe<" = true;

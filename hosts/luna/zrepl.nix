@@ -10,26 +10,13 @@
           format = "human";
         }];
       };
-      jobs = [{
-        name = "sink";
-        type = "sink";
-        serve = {
-          type = "tcp";
-          listen = ":29491";
-          clients = {
-            "100.103.156.2" = "ceres";
-            "100.93.77.66" = "eris";
-          };
-        };
-        root_fs = "rpool/zrepl";
-      }
-
+      jobs = [
         {
           name = "backups";
           type = "push";
           connect = {
             type = "tcp";
-            address = "192.168.1.5:29491";
+            address = "${config.j3ff.zrepl.server}:29491";
           };
           filesystems = {
             "rpool/safe<" = true;
@@ -58,7 +45,8 @@
                 lib.concatStringsSep " | " [ "1x1h(keep=all)" "24x1h" "6x30d" ];
             }];
           };
-        }];
+        }
+      ];
     };
   };
 }
