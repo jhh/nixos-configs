@@ -149,7 +149,7 @@
 
         deployment = {
           allowLocalDeployment = false;
-          targetHost = "192.168.1.5";
+          targetHost = "100.64.244.48";
         };
 
         # Prometheus

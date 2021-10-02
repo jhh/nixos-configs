@@ -31,14 +31,14 @@
     interfaces.enp7s0 = {
       useDHCP = false;
       ipv4.addresses = [{
-        address = "192.168.1.5";
+        address = "192.168.3.20";
         prefixLength = 24;
       }];
     };
 
     interfaces.enp8s0.useDHCP = true;
 
-    defaultGateway = "192.168.1.1";
+    defaultGateway = "192.168.3.1";
     nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
     hostId = "2b7703b8";
     firewall.enable = false;
