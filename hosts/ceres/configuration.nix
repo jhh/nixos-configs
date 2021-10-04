@@ -8,6 +8,13 @@
   hardware.cpu.intel.updateMicrocode = true;
 
   boot = {
+    kernel.sysctl = {
+      "net.bridge.bridge-nf-call-ip6tables" = 0;
+      "net.bridge.bridge-nf-call-iptables" = 0;
+      "net.bridge.bridge-nf-call-arptables" = 0;
+      "net.bridge.bridge-nf-filter-vlan-tagged" = 0;
+    };
+
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -15,21 +22,27 @@
     supportedFilesystems = [ "zfs" ];
   };
 
-  networking = {
-    hostName = "ceres";
-    useDHCP = false;
-    interfaces.eno1 = {
+  networking =
+    {
+      hostName = "ceres";
       useDHCP = false;
-      ipv4.addresses = [{
-        address = "192.168.1.9";
-        prefixLength = 24;
-      }];
+      bridges."br0" = {
+        interfaces = [
+          "eno1"
+        ];
+      };
+      interfaces.br0 = {
+        useDHCP = false;
+        ipv4.addresses = [{
+          address = "192.168.1.9";
+          prefixLength = 24;
+        }];
+      };
+      defaultGateway = "192.168.1.1";
+      nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
+      hostId = "96a5b0e0";
+      firewall.enable = false;
     };
-    defaultGateway = "192.168.1.1";
-    nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
-    hostId = "96a5b0e0";
-    firewall.enable = false;
-  };
 
   fileSystems."/mnt" =
     {

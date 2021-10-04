@@ -7,6 +7,7 @@
     ./smartd.nix
     ./tailscale.nix
     ./ups.nix
+    ./virtualization.nix
     ./zfs.nix
     ./zrepl
   ];

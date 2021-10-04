@@ -177,6 +177,7 @@
         ];
 
         j3ff = {
+          virtualization.enable = true;
           mail.enable = true;
           smartd.enable = true;
           tailscale.enable = true;
@@ -187,6 +188,7 @@
           };
           zrepl.enable = true;
         };
+
 
         home-manager.useGlobalPkgs = true;
         home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
