@@ -127,6 +127,7 @@
         imports = [
           <home-manager/nixos>
           ./hosts/phobos/configuration.nix
+          ./hosts/phobos/nfs.nix
           ./hosts/phobos/zrepl.nix
           ./common/services
           ./common/users
