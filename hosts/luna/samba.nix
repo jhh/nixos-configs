@@ -1,5 +1,13 @@
 { config, pkgs, ... }:
 {
+
+  users.users.tm = {
+    isSystemUser = true;
+    group = "tm";
+    description = "Time Machine";
+  };
+  users.groups.tm = {};
+
   services.samba = {
     enable = true;
     extraConfig = ''
@@ -42,21 +50,21 @@
 
       tm_europa = {
         path = "/mnt/tank/backup/tm/europa";
-        "valid users" = "jeff";
+        "valid users" = "tm";
         browsable = "no";
         public = "no";
         writeable = "yes";
-        "force user" = "jeff";
+        "force user" = "tm";
         "fruit:time machine" = "yes";
       };
 
       tm_callisto = {
         path = "/mnt/tank/backup/tm/callisto";
-        "valid users" = "jeff";
+        "valid users" = "tm";
         browsable = "no";
         public = "no";
         writeable = "yes";
-        "force user" = "jeff";
+        "force user" = "tm";
         "fruit:time machine" = "yes";
       };
     };
