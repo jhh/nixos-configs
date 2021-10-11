@@ -81,6 +81,7 @@
           ./hosts/luna/configuration.nix
           ./hosts/luna/nfs.nix
           ./hosts/luna/plex.nix
+          ./hosts/luna/rsync.nix
           ./hosts/luna/samba.nix
           ./hosts/luna/zrepl.nix
           ./common/services
