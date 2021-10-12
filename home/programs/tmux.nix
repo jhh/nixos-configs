@@ -17,7 +17,7 @@ in {
     baseIndex = 1;
     extraConfig = tmuxConf;
     keyMode = "vi";
-    shortcut = "s";
+    shortcut = "g";
     plugins = with pkgs.tmuxPlugins; [
       nord # https://github.com/arcticicestudio/nord-tmux
       pain-control # https://github.com/tmux-plugins/tmux-pain-control
