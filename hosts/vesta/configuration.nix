@@ -7,9 +7,16 @@
     ];
 
   # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "/dev/sda";
+  boot = {
+    loader.grub = {
+      enable = true;
+      version = 2;
+      device = "/dev/sda";
+    };
+    kernel.sysctl = {
+      "fs.inotify.max_user_watches" = 524288;
+    };
+  };
 
   networking = {
     useDHCP = false;
