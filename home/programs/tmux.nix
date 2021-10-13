@@ -23,5 +23,8 @@ in {
       pain-control # https://github.com/tmux-plugins/tmux-pain-control
       sensible # https://github.com/tmux-plugins/tmux-sensible
     ];
+
+    tmuxp.enable = true;
   };
+
 }
