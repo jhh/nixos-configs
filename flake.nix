@@ -211,6 +211,46 @@
           };
         };
       };
+
+      vesta = { name, nodes, ... }: {
+        networking.hostName = name;
+
+        imports = [
+          <home-manager/nixos>
+          ./common/services
+          ./common/users
+          ./hosts/vesta/configuration.nix
+        ];
+
+        j3ff = {
+          mail.enable = true;
+          tailscale.enable = true;
+        };
+
+        home-manager.useGlobalPkgs = true;
+        home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
+
+        deployment = {
+          allowLocalDeployment = false;
+          targetHost = "192.168.1.45";
+        };
+
+        services = {
+          fstrim.enable = true;
+          qemuGuest.enable = true;
+        };
+
+        # Prometheus
+        services.prometheus = {
+          exporters = {
+            node = {
+              enable = true;
+              enabledCollectors = [ "systemd" "processes" ];
+              port = 9002;
+            };
+          };
+        };
+      };
     };
   };
 }
