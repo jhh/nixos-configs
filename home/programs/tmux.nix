@@ -11,6 +11,7 @@ let
       xargs tmux switch-client -t"
     set-option -sa terminal-overrides ',xterm-256color:RGB'
   '';
+  home = config.home.homeDirectory;
 in
 {
   programs.tmux = {
@@ -40,7 +41,7 @@ in
         window_name = "home";
         focus = true;
         panes = [ "pane" ];
-        start_directory = "\${HOME}";
+        start_directory = "${home}";
       }
     ];
   };
@@ -51,12 +52,12 @@ in
       {
         window_name = "deadeye";
         focus = true;
-        start_directory = "\${HOME}/code/strykeforce/deadeye";
+        start_directory = "${home}/code/strykeforce/deadeye";
         panes = [ "pane" ];
       }
       {
         window_name = "daemon";
-        start_directory = "\${HOME}/code/strykeforce/deadeye/daemon";
+        start_directory = "${home}/code/strykeforce/deadeye/daemon";
         panes = [
           { focus = true; }
           { shell_command = [ "cd build" "./src/deadeyed" ]; }
@@ -64,7 +65,7 @@ in
       }
       {
         window_name = "admin";
-        start_directory = "\${HOME}/code/strykeforce/deadeye/admin";
+        start_directory = "${home}/code/strykeforce/deadeye/admin";
         panes = [
           { focus = true; }
           { shell_command = "poetry run python -m deadeye.scripts.server"; }
@@ -72,7 +73,7 @@ in
       }
       {
         window_name = "web";
-        start_directory = "\${HOME}/code/strykeforce/deadeye/web";
+        start_directory = "${home}/code/strykeforce/deadeye/web";
         panes = [
           { focus = true; }
           { shell_command = "npm start"; }
