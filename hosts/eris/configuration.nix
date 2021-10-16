@@ -17,6 +17,7 @@
 
   networking = {
     hostName = "eris";
+    useNetworkd = true;
     useDHCP = false;
     interfaces.eno1 = {
       useDHCP = false;
