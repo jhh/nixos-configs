@@ -14,6 +14,7 @@
         "smtp_sasl_auth_enable" = "yes";
         "smtp_sasl_password_maps" = "hash:/etc/postfix/sasl_passwd";
         "smtp_sasl_security_options" = "noanonymous";
+        "inet_protocols" = "ipv4";
       };
       domain = config.networking.domain;
       relayHost = "smtp.fastmail.com";
