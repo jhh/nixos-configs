@@ -10,7 +10,7 @@ let
 
     {
       name = "fzf-fish";
-      src = sources."fzf.fish";
+      src = sources.fish-fzf;
     }
   ];
 
@@ -18,11 +18,11 @@ let
     if pkgs.stdenv.isDarwin then [
       {
         name = "foreign-env";
-        src = sources.plugin-foreign-env;
+        src = sources.fish-plugin-foreign-env;
       }
       {
         name = "nix-env";
-        src = sources."nix-env.fish";
+        src = sources.fish-nix-env;
       }
     ] else [ ];
 
