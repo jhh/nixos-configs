@@ -24,7 +24,7 @@ let
     }
   ];
 
-  extraPlugins =
+  darwinPlugins =
     if pkgs.stdenv.isDarwin then [
       {
         name = "foreign-env";
@@ -70,7 +70,7 @@ in
       ping = "prettyping";
     };
 
-    plugins = defaultPlugins ++ extraPlugins;
+    plugins = defaultPlugins ++ darwinPlugins;
 
     # fzf.fish plugin ctrl-R keybind is overwritten by vanilla fzf, so rebind
     interactiveShellInit = ''
