@@ -7,6 +7,13 @@ in
   };
 
   defaults = { pkgs, ... }: {
+
+    imports = [
+      (import "${sources.home-manager}/nixos")
+      ./common/services
+      ./common/users
+    ];
+
     boot.loader.systemd-boot.configurationLimit = 10;
     environment.systemPackages = with pkgs; [ vim wget curl ];
     networking.domain = "lan.j3ff.io";
@@ -35,6 +42,9 @@ in
       '';
     };
 
+    home-manager.useGlobalPkgs = true;
+    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
+
     documentation.man.generateCaches = true;
   };
 
@@ -42,16 +52,12 @@ in
     networking.hostName = name;
 
     imports = [
-      (import "${sources.home-manager}/nixos")
-      ./common/services
-      ./common/users
       ./hosts/eris/configuration.nix
-      ./hosts/eris/grafana.nix
-      ./hosts/eris/prometheus.nix
     ];
 
     j3ff = {
       mail.enable = true;
+      prometheus.enable = true;
       smartd.enable = true;
       tailscale.enable = true;
       ups.enable = true;
@@ -61,10 +67,6 @@ in
       };
       zrepl.enable = true;
     };
-
-
-    home-manager.useGlobalPkgs = true;
-    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
 
     deployment = {
       allowLocalDeployment = true;
@@ -76,19 +78,12 @@ in
     networking.hostName = name;
 
     imports = [
-      (import "${sources.home-manager}/nixos")
       ./hosts/luna/configuration.nix
-      ./hosts/luna/nfs.nix
-      ./hosts/luna/plex.nix
-      ./hosts/luna/rsync.nix
-      ./hosts/luna/samba.nix
-      ./hosts/luna/zrepl.nix
-      ./common/services
-      ./common/users
     ];
 
     j3ff = {
       mail.enable = true;
+      prometheus.enable = true;
       smartd.enable = true;
       tailscale.enable = true;
       ups.enable = true;
@@ -99,42 +94,22 @@ in
       zrepl.enable = false; # zrepl server
     };
 
-    home-manager.useGlobalPkgs = true;
-    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
-
     deployment = {
       allowLocalDeployment = false;
       targetHost = "192.168.1.7";
     };
-
-    # Prometheus
-    services.prometheus = {
-      exporters = {
-        node = {
-          enable = true;
-          enabledCollectors = [ "systemd" "processes" "nfs" "nfsd" ];
-          port = 9002;
-        };
-      };
-    };
-
-
   };
 
   phobos = { pkgs, name, nodes, ... }: {
     networking.hostName = name;
 
     imports = [
-      (import "${sources.home-manager}/nixos")
       ./hosts/phobos/configuration.nix
-      ./hosts/phobos/nfs.nix
-      ./hosts/phobos/zrepl.nix
-      ./common/services
-      ./common/users
     ];
 
     j3ff = {
       mail.enable = true;
+      prometheus.enable = true;
       smartd.enable = true;
       tailscale.enable = true;
       ups.enable = false;
@@ -145,44 +120,26 @@ in
       zrepl.enable = false; # zrepl server
     };
 
-    home-manager.useGlobalPkgs = true;
-    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
-
     deployment = {
       allowLocalDeployment = false;
       targetHost = "100.64.244.48";
     };
-
-    # Prometheus
-    services.prometheus = {
-      exporters = {
-        node = {
-          enable = true;
-          enabledCollectors = [ "systemd" "processes" ];
-          port = 9002;
-        };
-      };
-    };
-
-
   };
 
   ceres = { name, nodes, ... }: {
     networking.hostName = name;
 
     imports = [
-      (import "${sources.home-manager}/nixos")
-      ./common/services
-      ./common/users
       ./hosts/ceres/configuration.nix
     ];
 
     j3ff = {
-      virtualization.enable = true;
       mail.enable = true;
+      prometheus.enable = true;
       smartd.enable = true;
       tailscale.enable = true;
       ups.enable = true;
+      virtualization.enable = true;
       zfs = {
         enable = true;
         enableTrim = true;
@@ -190,24 +147,9 @@ in
       zrepl.enable = true;
     };
 
-
-    home-manager.useGlobalPkgs = true;
-    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
-
     deployment = {
       allowLocalDeployment = false;
       targetHost = "192.168.1.9";
-    };
-
-    # Prometheus
-    services.prometheus = {
-      exporters = {
-        node = {
-          enable = true;
-          enabledCollectors = [ "systemd" "processes" ];
-          port = 9002;
-        };
-      };
     };
   };
 
@@ -215,9 +157,6 @@ in
     networking.hostName = name;
 
     imports = [
-      (import "${sources.home-manager}/nixos")
-      ./common/services
-      ./common/users
       ./hosts/vesta/configuration.nix
     ];
 
@@ -226,28 +165,10 @@ in
       tailscale.enable = true;
     };
 
-    home-manager.useGlobalPkgs = true;
-    home-manager.users.jeff = { pkgs, ... }: { imports = [ ./home ]; };
-
     deployment = {
       allowLocalDeployment = false;
       targetHost = "192.168.1.45";
     };
 
-    services = {
-      fstrim.enable = true;
-      qemuGuest.enable = true;
-    };
-
-    # Prometheus
-    services.prometheus = {
-      exporters = {
-        node = {
-          enable = true;
-          enabledCollectors = [ "systemd" "processes" ];
-          port = 9002;
-        };
-      };
-    };
   };
 }

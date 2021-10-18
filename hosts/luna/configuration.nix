@@ -4,6 +4,11 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./nfs.nix
+      ./plex.nix
+      ./rsync.nix
+      ./samba.nix
+      ./zrepl.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
