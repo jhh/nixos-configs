@@ -4,6 +4,8 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./nfs.nix
+      ./zrepl.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;

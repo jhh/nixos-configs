@@ -3,6 +3,8 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./grafana.nix
+      ./prometheus.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;

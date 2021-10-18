@@ -1,0 +1,86 @@
+{
+    "fish-colored-man": {
+        "branch": "master",
+        "description": "Color-enabled man pages plugin for fish-shell",
+        "homepage": "",
+        "owner": "decors",
+        "repo": "fish-colored-man",
+        "rev": "1ad8fff696d48c8bf173aa98f9dff39d7916de0e",
+        "sha256": "0l32a5bq3zqndl4ksy5iv988z2nv56a91244gh8mnrjv45wpi1ms",
+        "type": "tarball",
+        "url": "https://github.com/decors/fish-colored-man/archive/1ad8fff696d48c8bf173aa98f9dff39d7916de0e.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "fish-fzf": {
+        "branch": "main",
+        "description": "Augment your fish command line with fzf key bindings.",
+        "homepage": "",
+        "owner": "PatrickF1",
+        "repo": "fzf.fish",
+        "rev": "9caeb82c8f9ea83134ec70cf5a710b46de87d3e7",
+        "sha256": "0ym4kjycp2bb22x67vasnjr9hwjqsvbjs1mqjj3lhlw2lgr1jdq5",
+        "type": "tarball",
+        "url": "https://github.com/PatrickF1/fzf.fish/archive/9caeb82c8f9ea83134ec70cf5a710b46de87d3e7.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "fish-nix-env": {
+        "branch": "master",
+        "description": "Nix environment setup for the fish shell",
+        "homepage": "",
+        "owner": "lilyball",
+        "repo": "nix-env.fish",
+        "rev": "00c6cc762427efe08ac0bd0d1b1d12048d3ca727",
+        "sha256": "1hrl22dd0aaszdanhvddvqz3aq40jp9zi2zn0v1hjnf7fx4bgpma",
+        "type": "tarball",
+        "url": "https://github.com/lilyball/nix-env.fish/archive/00c6cc762427efe08ac0bd0d1b1d12048d3ca727.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "fish-plugin-foreign-env": {
+        "branch": "master",
+        "description": "Run foreign bash scripts and capture exported environment variables",
+        "homepage": "",
+        "owner": "oh-my-fish",
+        "repo": "plugin-foreign-env",
+        "rev": "dddd9213272a0ab848d474d0cbde12ad034e65bc",
+        "sha256": "00xqlyl3lffc5l0viin1nyp819wf81fncqyz87jx8ljjdhilmgbs",
+        "type": "tarball",
+        "url": "https://github.com/oh-my-fish/plugin-foreign-env/archive/dddd9213272a0ab848d474d0cbde12ad034e65bc.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "home-manager": {
+        "branch": "master",
+        "description": "Manage a user environment using Nix  [maintainer=@rycee] ",
+        "homepage": "https://nix-community.github.io/home-manager/",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "309808afbc2a07e340067f66029a4202b4c4b959",
+        "sha256": "0gwk6xgfajw31v3q2hzzr34yizssc75r87jg4vyvx0amdk4isbdm",
+        "type": "tarball",
+        "url": "https://github.com/nix-community/home-manager/archive/309808afbc2a07e340067f66029a4202b4c4b959.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "niv": {
+        "branch": "master",
+        "description": "Easy dependency management for Nix projects",
+        "homepage": "https://github.com/nmattia/niv",
+        "owner": "nmattia",
+        "repo": "niv",
+        "rev": "65a61b147f307d24bfd0a5cd56ce7d7b7cc61d2e",
+        "sha256": "17mirpsx5wyw262fpsd6n6m47jcgw8k2bwcp1iwdnrlzy4dhcgqh",
+        "type": "tarball",
+        "url": "https://github.com/nmattia/niv/archive/65a61b147f307d24bfd0a5cd56ce7d7b7cc61d2e.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "nixos-unstable",
+        "description": "Nix Packages collection",
+        "homepage": "",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9aeeb7574fb784eaf6395f4400705b5f619e6cc3",
+        "sha256": "061x7m82mzlzpyxa0yc0xymdicc842dz6wii4b7mcyx96mfypy8g",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/9aeeb7574fb784eaf6395f4400705b5f619e6cc3.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}
