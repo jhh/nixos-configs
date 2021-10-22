@@ -10,6 +10,6 @@
     ./ups.nix
     ./virtualization.nix
     ./zfs.nix
-    ./zrepl
+    ./zrepl.nix
   ];
 }
