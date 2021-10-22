@@ -1,8 +1,48 @@
 { config, pkgs, lib, ... }:
+let
+  cfg = config.j3ff.zrepl;
+  grid =
+    lib.concatStringsSep " | " [ "1x1h(keep=all)" "24x1h" "30x1d" "6x1w" ];
+
+  backups = {
+    name = "backups";
+    type = "push";
+    connect = {
+      type = "tcp";
+      address = "${config.j3ff.zrepl.server}:29491";
+    };
+    filesystems = {
+      "rpool/safe<" = true;
+      "rpool/safe/root" = false;
+    };
+    send.compressed = true;
+    snapshotting = {
+      type = "periodic";
+      prefix = "zrepl_";
+      interval = "15m";
+    };
+    pruning = {
+      keep_sender = [
+        { type = "not_replicated"; }
+        {
+          type = "grid";
+          regex = "^zrepl_";
+          inherit grid;
+        }
+      ];
+      keep_receiver = [{
+        type = "grid";
+        regex = "^zrepl_";
+        inherit grid;
+      }];
+    };
+  };
+in
 {
   options = {
     j3ff.zrepl = {
-      enable = lib.mkEnableOption "Zrepl client";
+      enable = lib.mkEnableOption "ZFS replication";
+
       server = lib.mkOption {
         type = lib.types.str;
         description = "zrepl sink to backup to.";
@@ -11,7 +51,7 @@
     };
   };
 
-  config = lib.mkIf config.j3ff.zrepl.enable {
+  config = lib.mkIf cfg.enable {
     services.zrepl = {
       enable = true;
       settings = {
@@ -27,39 +67,7 @@
           }];
         };
 
-        jobs = [{
-          name = "backups";
-          type = "push";
-          connect = {
-            type = "tcp";
-            address = "${config.j3ff.zrepl.server}:29491";
-          };
-          filesystems = {
-            "rpool/safe<" = true;
-          };
-          send.compressed = true;
-          snapshotting = {
-            type = "periodic";
-            prefix = "zrepl_";
-            interval = "10m";
-          };
-          pruning = {
-            keep_sender = [
-              { type = "not_replicated"; }
-              {
-                type = "regex";
-                negate = true;
-                regex = "^zrepl_";
-              }
-            ];
-            keep_receiver = [{
-              type = "grid";
-              regex = "^zrepl_";
-              grid =
-                lib.concatStringsSep " | " [ "1x1h(keep=all)" "24x1h" "6x30d" ];
-            }];
-          };
-        }];
+        jobs = [ backups ];
       };
     };
   };

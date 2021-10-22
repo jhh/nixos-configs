@@ -34,7 +34,7 @@ in
       };
 
       autoSnapshot = {
-        enable = true;
+        enable = false;
         flags = "--keep-zero-sized-snapshots --parallel-snapshots --utc";
       };
 
