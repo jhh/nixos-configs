@@ -27,6 +27,7 @@ let
 
   vimPluginsWithConfig = with pkgs.vimPlugins;
     map pluginWithConfig [
+      nvim-lspconfig # https://github.com/neovim/nvim-lspconfig
       nvim-treesitter # https://github.com/nvim-treesitter/nvim-treesitter
       telescope-nvim # https://github.com/nvim-telescope/telescope.nvim
       which-key-nvim # https://github.com/folke/which-key.nvim
@@ -47,7 +48,7 @@ in
     vimdiffAlias = true;
     withNodeJs = true; # for coc.nvim
     withPython3 = true; # for plugins
-    extraPackages = with pkgs; [ gcc neovim-remote tree-sitter ];
+    extraPackages = with pkgs; [ gcc neovim-remote nodePackages.pyright tree-sitter ];
 
   };
 

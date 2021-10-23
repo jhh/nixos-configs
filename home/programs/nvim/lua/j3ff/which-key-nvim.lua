@@ -22,7 +22,7 @@ wk.register({
   },
   -- Tabs
   t = {
-    name = '+Tabs',
+    name = 'Tabs',
     n = { '<Cmd>tabnew +term<CR>'  , 'New with terminal' },
     o = { '<Cmd>tabonly<CR>'       , 'Close all other'   },
     q = { '<Cmd>tabclose<CR>'      , 'Close'             },
@@ -30,5 +30,5 @@ wk.register({
     h = { '<Cmd>tabprevious<CR>'   , 'Previous'          },
   },
   z = { "<cmd>nohlsearch<cr>", "Clear Search" },
-}, { prefix = " " })
+}, { prefix = "<space>" })
 
