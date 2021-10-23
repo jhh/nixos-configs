@@ -8,10 +8,11 @@ local on_attach = function(client, bufnr)
 
   wk.register({
     g = {
-      d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Go to definition" },
+      d = { "<cmd>Telescope lsp_definitions<cr>", "Go to definition" },
       D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Go to declaration" },
-      i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "List implementations" },
-      r = { "<cmd>lua vim.lsp.buf.references()<cr>", "List references" }
+      i = { "<cmd>Telescope lsp_implementations<cr>", "Go to implementation" },
+      r = { "<cmd>Telescope lsp_references<cr>", "List references" },
+      t = { "<cmd>Telescope lsp_type_definitions<cr>", "Go to type definition" },
     },
     K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Display hover info for symbol" },
     ["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Display hover info for symbol" },
@@ -26,17 +27,22 @@ local on_attach = function(client, bufnr)
   wk.register({
     l = {
       name = "Language Server",
-      a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "List code actions" },
-      e = { "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", "Show errors for line" },
+      a = { "<cmd>Telescope lsp_code_actions<cr>", "Code actions" },
+      d = { "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", "Error details" },
+      e = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Show errors" },
       f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format buffer" },
       r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
-      q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Show errors in location list" },
+      v = { "<cmd>Telescope lsp_range_code_actions<cr>", "Code actions for range" },
       w = {
         name = "Workspace",
         a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", "Add workspace folder" },
         l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List workspace folders" },
         r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove workspace folder" },
       },
+    },
+    w = {
+      name = "Workspace Search",
+      s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Find symbols"},
     },
   }, { buffer = bufnr, prefix = "<space>" })
 end
