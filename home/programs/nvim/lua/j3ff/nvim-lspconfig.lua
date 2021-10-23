@@ -25,6 +25,9 @@ local on_attach = function(client, bufnr)
   }, { buffer = bufnr })
 
   wk.register({
+    f = {
+      s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Find symbols"},
+    };
     l = {
       name = "Language Server",
       a = { "<cmd>Telescope lsp_code_actions<cr>", "Code actions" },
@@ -39,10 +42,6 @@ local on_attach = function(client, bufnr)
         l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", "List workspace folders" },
         r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove workspace folder" },
       },
-    },
-    w = {
-      name = "Workspace Search",
-      s = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Find symbols"},
     },
   }, { buffer = bufnr, prefix = "<space>" })
 end
