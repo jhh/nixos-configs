@@ -31,9 +31,6 @@ let
       telescope-nvim # https://github.com/nvim-telescope/telescope.nvim
       which-key-nvim # https://github.com/folke/which-key.nvim
     ];
-
-  # vimConfig = builtins.readFile ./config.vim;
-
 in
 {
   xdg.configFile."nvim/lua".source = ./lua;
