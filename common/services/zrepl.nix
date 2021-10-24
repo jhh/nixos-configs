@@ -37,6 +37,10 @@ let
       }];
     };
   };
+
+  sources = import ../../nix/sources.nix;
+  zrctl = import sources.j3ff-zrctl { inherit sources; };
+
 in
 {
   options = {
@@ -52,6 +56,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    environment.systemPackages = [
+      zrctl # custom zrepl cli
+    ];
+
     services.zrepl = {
       enable = true;
       settings = {

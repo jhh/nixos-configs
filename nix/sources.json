@@ -82,5 +82,17 @@
         "type": "tarball",
         "url": "https://github.com/NixOS/nixpkgs/archive/34ad3ffe08adfca17fcb4e4a47bb5f3b113687be.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "j3ff-zrctl": {
+        "branch": "main",
+        "description": "My ZFS tools",
+        "homepage": null,
+        "owner": "jhh",
+        "repo": "zrctl",
+        "rev": "f6db3153f075da90f2264c6d5e13e57137e87937",
+        "sha256": "1lyjwpyhdad1g36gs1z3y6bx011gszi1ja8c7qycn6q65nlwy6rr",
+        "type": "tarball",
+        "url": "https://github.com/jhh/zrctl/archive/f6db3153f075da90f2264c6d5e13e57137e87937.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
