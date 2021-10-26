@@ -23,8 +23,10 @@ let
 
   vimPlugins = with plugins; [
     beancount-nvim # https://github.com/polarmutex/beancount.nvim
-    # cmp-nvim-lsp # https://github.com/hrsh7th/cmp-nvim-lsp
-    # cmp-buffer # https://github.com/hrsh7th/cmp-buffer
+    luasnip # https://github.com/l3mon4d3/luasnip
+    cmp_luasnip # https://github.com/saadparwaiz1/cmp_luasnip
+    cmp-nvim-lsp # https://github.com/hrsh7th/cmp-nvim-lsp
+    cmp-buffer # https://github.com/hrsh7th/cmp-buffer
     glow-nvim # https://github.com/ellisonleao/glow.nvim
     kommentary # https://github.com/b3nj5m1n/kommentary
     nord-nvim # https://github.com/shaunsingh/nord.nvim
@@ -36,8 +38,8 @@ let
 
   vimPluginsWithConfig = with pkgs.vimPlugins;
     map pluginWithConfig [
-      # nvim-cmp # https://github.com/hrsh7th/nvim-cmp
       nvim-lspconfig # https://github.com/neovim/nvim-lspconfig
+      nvim-cmp # https://github.com/hrsh7th/nvim-cmp
       treesitter # https://github.com/nvim-treesitter/nvim-treesitter
       telescope-nvim # https://github.com/nvim-telescope/telescope.nvim
       which-key-nvim # https://github.com/folke/which-key.nvim
@@ -52,7 +54,7 @@ in
       lua require('init')
       let g:glow_binary_path = "${pkgs.glow}/bin"
     '';
-    plugins = vimPlugins ++ vimPluginsWithConfig;
+    plugins = vimPluginsWithConfig ++ vimPlugins ;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
