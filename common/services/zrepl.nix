@@ -64,23 +64,24 @@ in
     };
   };
 
-  services.zrepl = {
-    enable = true;
-    settings = {
-      global = {
-        logging = [{
-          type = "syslog";
-          level = "info";
-          format = "human";
-        }];
-        monitoring = [{
-          type = "prometheus";
-          listen = ":9811";
-        }];
-      };
+  config = {
+    services.zrepl = {
+      enable = true;
+      settings = {
+        global = {
+          logging = [{
+            type = "syslog";
+            level = "info";
+            format = "human";
+          }];
+          monitoring = [{
+            type = "prometheus";
+            listen = ":9811";
+          }];
+        };
 
-      jobs = [ (backups // { filesystems = cfg.filesystems; }) ] ++ cfg.extraJobs;
+        jobs = [ (backups // { filesystems = cfg.filesystems; }) ] ++ cfg.extraJobs;
+      };
     };
   };
-};
 }
