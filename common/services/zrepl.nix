@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 let
   cfg = config.j3ff.zrepl;
+
   grid =
     lib.concatStringsSep " | " [ "1x1h(keep=all)" "24x1h" "30x1d" "6x1w" ];
 
@@ -10,10 +11,6 @@ let
     connect = {
       type = "tcp";
       address = "${config.j3ff.zrepl.server}:29491";
-    };
-    filesystems = {
-      "rpool/safe<" = true;
-      "rpool/safe/root" = false;
     };
     send.compressed = true;
     snapshotting = {
@@ -38,14 +35,26 @@ let
     };
   };
 
-  sources = import ../../nix/sources.nix;
-  zrctl = import sources.j3ff-zrctl { inherit sources; };
-
 in
 {
   options = {
     j3ff.zrepl = {
       enable = lib.mkEnableOption "ZFS replication";
+
+      filesystems = lib.mkOption {
+        type = with lib.types; attrsOf bool;
+        description = "filesystems to back up as part of default job";
+        default = {
+          "rpool/safe<" = true;
+          "rpool/safe/root" = false;
+        };
+      };
+
+      extraJobs = lib.mkOption {
+        type = with lib.types; listOf anything;
+        description = "extra zrepl jobs to schedule";
+        default = [ ];
+      };
 
       server = lib.mkOption {
         type = lib.types.str;
@@ -55,28 +64,23 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    environment.systemPackages = [
-      zrctl # custom zrepl cli
-    ];
-
-    services.zrepl = {
-      enable = true;
-      settings = {
-        global = {
-          logging = [{
-            type = "syslog";
-            level = "info";
-            format = "human";
-          }];
-          monitoring = [{
-            type = "prometheus";
-            listen = ":9811";
-          }];
-        };
-
-        jobs = [ backups ];
+  services.zrepl = {
+    enable = true;
+    settings = {
+      global = {
+        logging = [{
+          type = "syslog";
+          level = "info";
+          format = "human";
+        }];
+        monitoring = [{
+          type = "prometheus";
+          listen = ":9811";
+        }];
       };
+
+      jobs = [ (backups // { filesystems = cfg.filesystems; }) ] ++ cfg.extraJobs;
     };
   };
+};
 }

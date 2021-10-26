@@ -91,7 +91,38 @@ in
         enable = true;
         enableTrim = false;
       };
-      zrepl.enable = false; # zrepl server
+      zrepl = {
+        enable = true;
+        filesystems = {
+          "rpool/safe<" = true;
+          "rpool/safe/root" = false;
+          "rpool/tank/media<" = true;
+          "rpool/tank/share<" = true;
+        };
+        extraJobs = [
+          {
+            name = "time_machine";
+            type = "snap";
+            filesystems = {
+              "rpool/tank/backup/tm<" = true;
+            };
+            snapshotting = {
+              type = "periodic";
+              prefix = "zrepl_";
+              interval = "15m";
+            };
+            pruning = {
+              keep = [
+                {
+                  type = "grid";
+                  regex = "^zrepl_";
+                  grid = pkgs.lib.concatStringsSep " | " [ "4x1h(keep=all)" "24x1h" "14x1d" ];
+                }
+              ];
+            };
+          }
+        ];
+      };
     };
 
     deployment = {

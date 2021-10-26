@@ -8,7 +8,6 @@
       ./plex.nix
       ./rsync.nix
       ./samba.nix
-      ./zrepl.nix
     ];
 
   hardware.cpu.intel.updateMicrocode = true;
