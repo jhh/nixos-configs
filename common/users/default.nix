@@ -17,6 +17,8 @@
         imports = [
           ../../home/programs/nvim
         ];
+        home.username = "root";
+        home.homeDirectory = "/root";
         home.sessionVariables = {
           EDITOR = "vim";
           MANWIDTH = 100;
