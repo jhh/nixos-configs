@@ -30,6 +30,7 @@
           ripgrep
         ];
         programs = {
+          bash.enable = true;
           bat.enable = true;
           exa = {
             enable = true;
