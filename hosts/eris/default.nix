@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ flakes, config, pkgs, ... }:
 {
   imports =
     [
@@ -6,6 +6,20 @@
       ./grafana.nix
       ./prometheus.nix
     ];
+
+  j3ff = {
+    mail.enable = true;
+    prometheus.enable = true;
+    smartd.enable = true;
+    tailscale.enable = true;
+    ups.enable = true;
+    zfs = {
+      enable = true;
+      enableTrim = true;
+    };
+    zrepl.enable = true;
+  };
+
 
   hardware.cpu.intel.updateMicrocode = true;
 

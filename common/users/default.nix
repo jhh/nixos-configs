@@ -1,11 +1,23 @@
 # common/users/default.nix
 
-{ config, pkgs, ... }:
+{ flakes, config, pkgs, ... }:
 
 {
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit flakes; };
+    users = {
+      jeff = {
+        imports = [
+          ../../home
+        ];
+      };
+    };
+  };
+
   users = {
     mutableUsers = false;
-
     users = {
       jeff = {
         isNormalUser = true;
