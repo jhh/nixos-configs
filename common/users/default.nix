@@ -13,6 +13,28 @@
           ../../home
         ];
       };
+      root = {
+        imports = [
+          ../../home/programs/nvim
+        ];
+        home.sessionVariables = {
+          EDITOR = "vim";
+          MANWIDTH = 100;
+        };
+        home.packages = with pkgs; [
+          fd
+          git
+          nix-diff
+          ripgrep
+        ];
+        programs = {
+          bat.enable = true;
+          exa = {
+            enable = true;
+            enableAliases = true;
+          };
+        };
+      };
     };
   };
 

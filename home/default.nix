@@ -18,6 +18,7 @@ let
     manix # documentation searcher for nix
     neofetch # command-line system information
     niv # dependency management for Nix projects
+    nix-diff # show differences between deploys
     nixpkgs-fmt # formatter for Nix code
     nyancat # the famous rainbow cat!
     prettyping # a nicer ping
