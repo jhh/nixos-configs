@@ -35,6 +35,7 @@
             enable = true;
             enableAliases = true;
           };
+          home-manager.enable = true;
         };
       };
     };
