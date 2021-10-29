@@ -24,6 +24,7 @@
   };
 
   networking = {
+    hostName = "vesta";
     useDHCP = false;
 
     interfaces.ens18 = {

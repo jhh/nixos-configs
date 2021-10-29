@@ -66,6 +66,7 @@
   '';
 
   networking = {
+    hostName = "luna";
     useDHCP = false;
 
     bonds = {

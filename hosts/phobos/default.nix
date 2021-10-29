@@ -41,6 +41,7 @@
   '';
 
   networking = {
+    hostName = "phobos";
     useDHCP = false;
 
     interfaces.enp7s0 = {
