@@ -6,6 +6,11 @@
       ./hardware-configuration.nix
     ];
 
+  j3ff = {
+    mail.enable = true;
+    tailscale.enable = true;
+  };
+
   # Use the GRUB 2 boot loader.
   boot = {
     loader.grub = {
