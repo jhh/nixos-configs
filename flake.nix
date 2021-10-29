@@ -28,6 +28,7 @@
     in
     {
       nixosConfigurations = {
+        ceres = mkHost "ceres" nixpkgs home-manager;
         eris = mkHost "eris" nixpkgs home-manager;
       };
     };

@@ -5,6 +5,20 @@
       ./hardware-configuration.nix
     ];
 
+  j3ff = {
+    mail.enable = true;
+    prometheus.enable = true;
+    smartd.enable = true;
+    tailscale.enable = true;
+    ups.enable = true;
+    virtualization.enable = true;
+    zfs = {
+      enable = true;
+      enableTrim = true;
+    };
+    zrepl.enable = true;
+  };
+
   hardware.cpu.intel.updateMicrocode = true;
 
   boot = {
