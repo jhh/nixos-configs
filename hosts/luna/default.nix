@@ -10,9 +10,53 @@
       ./samba.nix
     ];
 
+  j3ff = {
+    mail.enable = true;
+    prometheus.enable = true;
+    smartd.enable = true;
+    tailscale.enable = true;
+    ups.enable = true;
+    zfs = {
+      enable = true;
+      enableTrim = false;
+    };
+    zrepl = {
+      enable = true;
+      filesystems = {
+        "rpool/safe<" = true;
+        "rpool/safe/root" = false;
+        "rpool/tank/media<" = true;
+        "rpool/tank/share<" = true;
+      };
+      extraJobs = [
+        {
+          name = "time_machine";
+          type = "snap";
+          filesystems = {
+            "rpool/tank/backup/tm<" = true;
+          };
+          snapshotting = {
+            type = "periodic";
+            prefix = "zrepl_";
+            interval = "15m";
+          };
+          pruning = {
+            keep = [
+              {
+                type = "grid";
+                regex = "^zrepl_";
+                grid = pkgs.lib.concatStringsSep " | " [ "4x1h(keep=all)" "24x1h" "14x1d" ];
+              }
+            ];
+          };
+        }
+      ];
+    };
+  };
+
   hardware.cpu.intel.updateMicrocode = true;
 
-  boot.kernelParams = [ "zfs.zfs_arc_max=29344391168" ];
+  boot.kernelParams = [ "zfs.zfs_arc_max=30064771072" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
