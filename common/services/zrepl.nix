@@ -64,7 +64,7 @@ in
     };
   };
 
-  config = {
+  config = lib.mkIf cfg.enable {
     services.zrepl = {
       enable = true;
       settings = {
