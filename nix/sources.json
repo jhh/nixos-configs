@@ -1,16 +1,4 @@
 {
-    "fish-colored-man": {
-        "branch": "master",
-        "description": "Color-enabled man pages plugin for fish-shell",
-        "homepage": "",
-        "owner": "decors",
-        "repo": "fish-colored-man",
-        "rev": "1ad8fff696d48c8bf173aa98f9dff39d7916de0e",
-        "sha256": "0l32a5bq3zqndl4ksy5iv988z2nv56a91244gh8mnrjv45wpi1ms",
-        "type": "tarball",
-        "url": "https://github.com/decors/fish-colored-man/archive/1ad8fff696d48c8bf173aa98f9dff39d7916de0e.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "fish-nix-env": {
         "branch": "master",
         "description": "Nix environment setup for the fish shell",

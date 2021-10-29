@@ -1,11 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ flakes, config, lib, pkgs, ... }:
 let
   sources = import ../../../nix/sources.nix;
 
   defaultPlugins = [
     {
       name = "colored-man";
-      src = sources.fish-colored-man;
+      src = flakes.fish-colored-man;
     }
 
     {

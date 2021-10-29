@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "fish-colored-man": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1626408713,
+        "narHash": "sha256-uoZ4eSFbZlsRfISIkJQp24qPUNqxeD0JbRb/gVdRYlA=",
+        "owner": "decors",
+        "repo": "fish-colored-man",
+        "rev": "1ad8fff696d48c8bf173aa98f9dff39d7916de0e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "decors",
+        "repo": "fish-colored-man",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -39,6 +55,7 @@
     },
     "root": {
       "inputs": {
+        "fish-colored-man": "fish-colored-man",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }

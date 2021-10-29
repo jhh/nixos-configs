@@ -4,11 +4,18 @@
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
 
-    home-manager.url = github:nix-community/home-manager/master;
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = github:nix-community/home-manager/master;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    fish-colored-man = {
+      url = github:decors/fish-colored-man;
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager } @ flakes:
+  outputs = { self, nixpkgs, home-manager, ... } @ flakes:
     let
       mkHost = name: pkgs: hm: pkgs.lib.nixosSystem {
         system = "x86_64-linux";
