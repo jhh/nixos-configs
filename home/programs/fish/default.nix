@@ -9,6 +9,11 @@ let
     }
 
     {
+      name = "forgit";
+      src = pkgs.fishPlugins.forgit.src;
+    }
+
+    {
       name = "fzf-fish";
       src = pkgs.fishPlugins.fzf-fish.src;
     }
@@ -20,6 +25,7 @@ let
         name = "foreign-env";
         src = pkgs.fishPlugins.foreign-env.src;
       }
+
       {
         name = "nix-env";
         src = sources.fish-nix-env;
