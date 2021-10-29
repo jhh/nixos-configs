@@ -34,5 +34,15 @@
         phobos = mkHost "phobos" nixpkgs home-manager;
         vesta = mkHost "vesta" nixpkgs home-manager;
       };
+
+      homeManagerConfigurations = {
+        europa = home-manager.lib.homeManagerConfiguration {
+          configuration = ./home;
+            system = "x86_64-darwin";
+          homeDirectory = "/Users/jeff";
+          username = "jeff";
+          extraSpecialArgs = { inherit flakes; };
+        };
+      };
     };
 }
