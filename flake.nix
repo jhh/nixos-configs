@@ -45,7 +45,7 @@
       homeManagerConfigurations = {
         europa = home-manager.lib.homeManagerConfiguration {
           configuration = ./home;
-            system = "x86_64-darwin";
+          system = "x86_64-darwin";
           homeDirectory = "/Users/jeff";
           username = "jeff";
           extraSpecialArgs = { inherit flakes; };
