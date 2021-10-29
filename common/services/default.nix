@@ -3,6 +3,7 @@
 {
   imports = [
     ./dns.nix
+    ./man.nix
     ./postfix.nix
     ./prometheus.nix
     ./smartd.nix

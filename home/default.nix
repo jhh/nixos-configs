@@ -67,7 +67,7 @@ in
 
     gpg.enable = true;
 
-    man = {
+    man = lib.mkIf pkgs.stdenv.isDarwin {
       enable = true;
       generateCaches = true;
     };
