@@ -1,7 +1,5 @@
 { flakes, config, lib, pkgs, ... }:
 let
-  sources = import ../../../nix/sources.nix;
-
   defaultPlugins = [
     {
       name = "colored-man";
