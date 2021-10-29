@@ -31,6 +31,7 @@
         ceres = mkHost "ceres" nixpkgs home-manager;
         eris = mkHost "eris" nixpkgs home-manager;
         luna = mkHost "luna" nixpkgs home-manager;
+        phobos = mkHost "phobos" nixpkgs home-manager;
         vesta = mkHost "vesta" nixpkgs home-manager;
       };
     };

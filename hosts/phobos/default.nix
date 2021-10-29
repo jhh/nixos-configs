@@ -8,6 +8,19 @@
       ./zrepl.nix
     ];
 
+  j3ff = {
+    mail.enable = true;
+    prometheus.enable = true;
+    smartd.enable = true;
+    tailscale.enable = true;
+    ups.enable = false;
+    zfs = {
+      enable = true;
+      enableTrim = false;
+    };
+    zrepl.enable = false; # zrepl server
+  };
+
   hardware.cpu.intel.updateMicrocode = true;
 
   boot = {
