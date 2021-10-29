@@ -1,16 +1,4 @@
 {
-    "fish-nix-env": {
-        "branch": "master",
-        "description": "Nix environment setup for the fish shell",
-        "homepage": "",
-        "owner": "lilyball",
-        "repo": "nix-env.fish",
-        "rev": "00c6cc762427efe08ac0bd0d1b1d12048d3ca727",
-        "sha256": "1hrl22dd0aaszdanhvddvqz3aq40jp9zi2zn0v1hjnf7fx4bgpma",
-        "type": "tarball",
-        "url": "https://github.com/lilyball/nix-env.fish/archive/00c6cc762427efe08ac0bd0d1b1d12048d3ca727.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "home-manager": {
         "branch": "master",
         "description": "Manage a user environment using Nix  [maintainer=@rycee] ",

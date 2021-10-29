@@ -28,7 +28,7 @@ let
 
       {
         name = "nix-env";
-        src = sources.fish-nix-env;
+        src = flakes.fish-nix-env;
       }
     ] else [ ];
 

@@ -13,6 +13,11 @@
       url = github:decors/fish-colored-man;
       flake = false;
     };
+
+    fish-nix-env = {
+      url = github:lilyball/nix-env.fish;
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ flakes:
