@@ -29,6 +29,7 @@ let
     cmp-buffer # https://github.com/hrsh7th/cmp-buffer
     glow-nvim # https://github.com/ellisonleao/glow.nvim
     kommentary # https://github.com/b3nj5m1n/kommentary
+    lsp-colors-nvim # https://github.com/folke/lsp-colors.nvim
     nord-nvim # https://github.com/shaunsingh/nord.nvim
     vim-fugitive # https://github.com/tpope/vim-fugitive
     vim-go # https://github.com/fatih/vim-go
