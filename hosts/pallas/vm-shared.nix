@@ -72,10 +72,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    firefox
     gnumake
     killall
-    niv
-    rxvt_unicode
     xclip
 
     # This is needed for the vmware user tools clipboard to work.
