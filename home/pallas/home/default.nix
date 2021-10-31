@@ -35,18 +35,13 @@ let
 
 in
 {
-  imports = [
-    ./pallas
-  ] ++ (import ./programs);
+  imports = (import ./programs);
 
   home = {
     username = "jeff";
     homeDirectory = if pkgs.stdenv.isDarwin then "/Users/jeff" else "/home/jeff";
 
     sessionVariables = {
-      LANG = "en_US.UTF-8";
-      LC_CTYPE = "en_US.UTF-8";
-      LC_ALL = "en_US.UTF-8";
       EDITOR = "vim";
       MANWIDTH = 100;
     };
