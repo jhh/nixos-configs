@@ -1,13 +1,20 @@
 # nixos-configs
 NixOS Configs for Homelab
 
-## Linux
+## NixOS
 
 ```sh
 $ sudo ./deploy [host|all] command
 ```
 
-## Darwin
+*or, for local machine...*
+
+
+```sh
+$ sudo nixos-rebuild switch --flake .
+```
+
+## macOS
 
 ```sh
 $ nix build .#homeManagerConfigurations.europa.activationPackage
