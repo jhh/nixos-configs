@@ -73,7 +73,12 @@ in
       enableAliases = true;
     };
 
-    gpg.enable = true;
+    gpg = {
+      enable = true;
+      settings = {
+        keyserver = "hkps://keys.openpgp.org";
+      };
+    };
 
     man = lib.mkIf pkgs.stdenv.isDarwin {
       enable = true;
