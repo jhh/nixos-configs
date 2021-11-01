@@ -3,6 +3,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./zinc.nix
     ];
 
   j3ff = {
