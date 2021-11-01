@@ -1,4 +1,7 @@
 { flakes, config, lib, pkgs, ... }:
+let
+  zinc = flakes.zinc.defaultPackage.x86_64-linux;
+in
 {
   systemd.services.zinc = {
     description = "Zrepl local console";
@@ -6,11 +9,12 @@
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
     environment = {
-      "FLASK_APP" = "zinc";
-      "FLASK_ENV" = "production";
+      FLASK_APP = "zinc";
+      FLASK_ENV = "production";
     };
-    script = ''
-      ${flakes.zinc.defaultPackage.x86_64-linux}/bin/flask run
-    '';
+    serviceConfig = {
+      ExecStart = "${zinc}/bin/flask run --host=0.0.0.0";
+      Restart = "always";
+    };
   };
 }
