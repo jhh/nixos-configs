@@ -10,7 +10,7 @@
 
     script = ''
       echo backing up /home/jeff
-      ${pkgs.rsync}/bin/rsync -az /home/jeff sshd@luna:backup/pallas/
+      ${pkgs.rsync}/bin/rsync -az /home/jeff jeff@luna:backup/pallas/
     '';
   };
 
