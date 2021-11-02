@@ -9,7 +9,7 @@
 
   j3ff = {
     mail.enable = false;
-    tailscale.enable = false;
+    tailscale.enable = true;
   };
 
 }
