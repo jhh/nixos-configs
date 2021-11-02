@@ -19,6 +19,7 @@
     home.packages = with pkgs; [
       rofi
       virt-manager
+      virt-viewer
       watch
       zathura
     ];
