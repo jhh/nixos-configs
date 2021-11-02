@@ -1,7 +1,17 @@
--- https://github.com/nvim-telescope/telescope.nvim
+--  https://github.com/nvim-telescope/telescope.nvim
 --
 require('telescope').setup {
 }
 
 require('telescope').load_extension('fzf')
 
+--[[ local actions = require('telescope.actions')
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      },
+    },
+  }
+} ]]
