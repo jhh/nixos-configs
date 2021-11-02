@@ -34,65 +34,81 @@ let
   ];
 
 in
-{
-  imports = (import ./programs);
+rec {
+  imports = [
+    ./fish
+    ./git.nix
+    ./gui
+    ./nvim
+    ./starship.nix
+    ./tmux.nix
+  ];
 
-  home = {
-    username = "jeff";
-    homeDirectory = if pkgs.stdenv.isDarwin then "/Users/jeff" else "/home/jeff";
-
-    sessionVariables = {
-      EDITOR = "vim";
-      MANWIDTH = 100;
-    };
-
-    packages = defaultPackages ++ gitPkgs;
+  options = {
+    j3ff.gui = lib.mkEnableOption "GUI programs";
   };
 
-  programs = {
-    home-manager.enable = true;
+  config = {
+    home = {
+      username = "jeff";
+      homeDirectory = if pkgs.stdenv.isDarwin then "/Users/jeff" else "/home/jeff";
 
-    bat.enable = true;
+      sessionVariables = {
+        LANG = "en_US.UTF-8";
+        LC_CTYPE = "en_US.UTF-8";
+        LC_ALL = "en_US.UTF-8";
+        EDITOR = "vim";
+        MANWIDTH = 100;
+      };
 
-    direnv = {
-      enable = true;
-      enableFishIntegration = true;
-      nix-direnv = {
+      packages = defaultPackages ++ gitPkgs;
+    };
+
+    programs = {
+      home-manager.enable = true;
+
+      bat.enable = true;
+
+      direnv = {
         enable = true;
-        enableFlakes = true;
+        enableFishIntegration = true;
+        nix-direnv = {
+          enable = true;
+          enableFlakes = true;
+        };
       };
-    };
 
-    exa = {
-      enable = true;
-      enableAliases = true;
-    };
-
-    gpg = {
-      enable = true;
-      settings = {
-        keyserver = "hkps://keys.openpgp.org";
+      exa = {
+        enable = true;
+        enableAliases = true;
       };
+
+      gpg = {
+        enable = true;
+        settings = {
+          keyserver = "hkps://keys.openpgp.org";
+        };
+      };
+
+      man = lib.mkIf pkgs.stdenv.isDarwin {
+        enable = true;
+        generateCaches = true;
+      };
+
+      nix-index = {
+        enable = true;
+        enableFishIntegration = pkgs.stdenv.isDarwin;
+      };
+
+      zoxide = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+
     };
 
-    man = lib.mkIf pkgs.stdenv.isDarwin {
-      enable = true;
-      generateCaches = true;
+    services = lib.mkIf pkgs.stdenv.isLinux {
+      lorri.enable = true;
     };
-
-    nix-index = {
-      enable = true;
-      enableFishIntegration = pkgs.stdenv.isDarwin;
-    };
-
-    zoxide = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-
-  };
-
-  services = lib.mkIf pkgs.stdenv.isLinux {
-    lorri.enable = true;
   };
 }
