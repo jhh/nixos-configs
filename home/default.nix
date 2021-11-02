@@ -35,9 +35,7 @@ let
 
 in
 {
-  imports = [
-    ./pallas
-  ] ++ (import ./programs);
+  imports = [ ./programs ];
 
   home = {
     username = "jeff";

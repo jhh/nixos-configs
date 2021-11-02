@@ -1,7 +1,10 @@
-[
-  ./fish
-  ./git.nix
-  ./nvim
-  ./starship.nix
-  ./tmux.nix
-]
+{ config, lib, pkgs, ... }:
+{
+  imports = [
+    ./fish
+    ./git.nix
+    ./nvim
+    ./starship.nix
+    ./tmux.nix
+  ];
+}
