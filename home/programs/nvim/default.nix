@@ -29,6 +29,7 @@ let
     cmp-buffer # https://github.com/hrsh7th/cmp-buffer
     glow-nvim # https://github.com/ellisonleao/glow.nvim
     kommentary # https://github.com/b3nj5m1n/kommentary
+    lazygit-nvim # https://github.com/kdheepak/lazygit.nvim
     lsp-colors-nvim # https://github.com/folke/lsp-colors.nvim
     nord-nvim # https://github.com/shaunsingh/nord.nvim
     telescope-fzf-native-nvim # https://github.com/nvim-telescope/telescope-fzf-native.nvim
