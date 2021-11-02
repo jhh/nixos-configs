@@ -31,6 +31,7 @@ let
     kommentary # https://github.com/b3nj5m1n/kommentary
     lsp-colors-nvim # https://github.com/folke/lsp-colors.nvim
     nord-nvim # https://github.com/shaunsingh/nord.nvim
+    telescope-fzf-native-nvim # https://github.com/nvim-telescope/telescope-fzf-native.nvim
     vim-fugitive # https://github.com/tpope/vim-fugitive
     vim-go # https://github.com/fatih/vim-go
     vim-nix # https://github.com/LnL7/vim-nix
