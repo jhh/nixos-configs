@@ -1,9 +1,8 @@
 --  https://github.com/nvim-telescope/telescope.nvim
 --
-require('telescope').setup {
-}
+require("telescope").setup({})
 
-require('telescope').load_extension('fzf')
+require("telescope").load_extension("fzf")
 
 --[[ local actions = require('telescope.actions')
 require('telescope').setup{
