@@ -23,14 +23,14 @@ set_from_resource $white		i3wm.color15	#C5C8C6
 set_from_resource $yellow		i3wm.color11	#F0C674
 set_from_resource $red			i3wm.color9		#CC6666
 set_from_resource $darkred		i3wm.color1		#A54242
-set_from_resource $green		i3wm.color10	#B5BD56
+set_from_resource $green		i3wm.color10	#B48EAD
 
 #class                  border      backgr.     text        split
-client.focused          $green     $green       $black      $red
+client.focused          #4C566A     #4C566A     #2E3440     #8FBCBB
 client.focused_inactive $grey       $grey       $lightgrey  $grey
 client.unfocused        $grey       $grey       $lightgrey  $grey
-client.urgent           $red        $red        $black      $red
-client.background       $back
+client.urgent           $red        $red        #2E3440     #8FBCBB
+client.background       #2E3440
 
 #----------------------------------------------------------------------
 # Startup
