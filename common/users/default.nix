@@ -12,10 +12,11 @@
         imports = [
           ../../home
         ];
+        j3ff.gui = config.services.xserver.enable;
       };
       root = {
         imports = [
-          ../../home/programs/nvim
+          ../../home/nvim
         ];
         home.username = "root";
         home.homeDirectory = "/root";

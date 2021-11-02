@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ./vm-intel.nix
     ./hardware-configuration.nix
     ./rsync.nix
+    ./vm-intel.nix
   ];
 
   j3ff = {
