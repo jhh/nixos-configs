@@ -16,10 +16,11 @@
     # Packages I always want installed. Most packages I install using
     # per-project flakes sourced with direnv and nix-shell, so this is
     # not a huge list.
-    home.packages = [
-      pkgs.rofi
-      pkgs.watch
-      pkgs.zathura
+    home.packages = with pkgs; [
+      rofi
+      virt-manager
+      watch
+      zathura
     ];
 
     #---------------------------------------------------------------------
