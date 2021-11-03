@@ -53,9 +53,9 @@
 
       general = {
         colors = true;
-        color_good = "#8C9440";
-        color_bad = "#A54242";
-        color_degraded = "#DE935F";
+        color_good = "#A3BE8C";
+        color_bad = "#BF616A";
+        color_degraded = "#EBCB8B";
       };
 
       modules = {
