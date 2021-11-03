@@ -8,7 +8,7 @@
   ];
 
   j3ff = {
-    mail.enable = false;
+    mail.enable = true;
     tailscale.enable = true;
   };
 
