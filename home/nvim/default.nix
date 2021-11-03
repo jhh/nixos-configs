@@ -14,12 +14,7 @@ let
 
   plugins = pkgs.vimPlugins // custom-plugins;
 
-  treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (
-    plugins: with plugins; [
-      tree-sitter-nix
-      tree-sitter-python
-    ]
-  );
+  treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars);
 
   vimPlugins = with plugins; [
     beancount-nvim # https://github.com/polarmutex/beancount.nvim
@@ -57,7 +52,7 @@ in
       lua require('init')
       let g:glow_binary_path = "${pkgs.glow}/bin"
     '';
-    plugins = vimPluginsWithConfig ++ vimPlugins ;
+    plugins = vimPluginsWithConfig ++ vimPlugins;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;

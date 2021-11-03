@@ -1,6 +1,7 @@
 { buildVimPlugin, fetchFromGitHub }:
 
 {
+  # nix run nixpkgs#nix-prefetch-github -- polarmutex beancount.nvim
   beancount-nvim = buildVimPlugin {
     pname = "beancount-nvim";
     version = "0.1.0";
