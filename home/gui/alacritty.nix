@@ -8,8 +8,11 @@
       settings = {
         font = {
           normal.family = "Dank Mono";
+          bold.style = "Bold";
+          italic.style = "Italic";
           size = 12.0;
         };
+        draw_bold_text_with_bright_colors = true;
 
         env.TERM = "xterm-256color";
 
