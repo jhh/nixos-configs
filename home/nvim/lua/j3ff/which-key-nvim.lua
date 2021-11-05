@@ -9,7 +9,7 @@ wk.register({
 		name = "Find", -- optional group name
 		b = { "<cmd>Telescope buffers<cr>", "Buffers" },
 		c = { "<cmd>Telescope commands<cr>", "Commands" },
-		e = { "<cmd>Telescope file_browser<cr>", "Commands" },
+		e = { "<cmd>Telescope file_browser<cr>", "File Browser" },
 		f = { "<cmd>Telescope find_files<cr>", "Files" },
 		g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
 		h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
