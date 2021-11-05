@@ -32,6 +32,7 @@ let
     vim-go # https://github.com/fatih/vim-go
     vim-nix # https://github.com/LnL7/vim-nix
     vim-surround # https://github.com/tpope/vim-surround
+    vim-test # https://github.com/vim-test/vim-test
   ];
 
   vimPluginsWithConfig = with pkgs.vimPlugins;
@@ -51,6 +52,7 @@ in
     extraConfig = ''
       lua require('init')
       let g:glow_binary_path = "${pkgs.glow}/bin"
+      let test#strategy = "neovim"
     '';
     plugins = vimPluginsWithConfig ++ vimPlugins;
     viAlias = true;

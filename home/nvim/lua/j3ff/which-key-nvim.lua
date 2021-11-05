@@ -45,3 +45,14 @@ wk.register({
 		s = { "<cmd>Telescope grep_string<cr>", "Find string under cursor" },
 	},
 }, {})
+
+wk.register({
+	t = {
+		name = "Test", -- optional group name
+		n = { "<cmd>TestNearest<cr>", "Nearest" },
+		f = { "<cmd>TestFile<cr>", "File" },
+		s = { "<cmd>TestSuite<cr>", "Suite" },
+		l = { "<cmd>TestLast<cr>", "Last" },
+		v = { "<cmd>TestVisit<cr>", "Visit" },
+	},
+}, {})
