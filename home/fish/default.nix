@@ -56,7 +56,6 @@ in
 
     # fzf.fish plugin ctrl-R keybind is overwritten by vanilla fzf, so rebind
     interactiveShellInit = ''
-      source $HOME/.config/iterm2/iterm2_shell_integration.fish
       bind \cr _fzf_search_history
       if not functions -q __direnv_export_eval; and command -sq direnv
         direnv hook fish | source
