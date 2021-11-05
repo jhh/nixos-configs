@@ -69,6 +69,4 @@ in
       '' else
         "";
   };
-  xdg.configFile."iterm2/iterm2_shell_integration.fish".source =
-    ./iterm2_shell_integration.fish;
 }
