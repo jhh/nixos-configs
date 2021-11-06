@@ -14,7 +14,30 @@ let
 
   plugins = pkgs.vimPlugins // custom-plugins;
 
-  treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars);
+  # https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/development/tools/parsing/tree-sitter/grammars
+  treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
+    tree-sitter-comment
+    tree-sitter-cpp
+    tree-sitter-css
+    tree-sitter-embedded-template
+    tree-sitter-fish
+    tree-sitter-go
+    tree-sitter-html
+    tree-sitter-java
+    tree-sitter-javascript
+    tree-sitter-json
+    tree-sitter-lua
+    tree-sitter-make
+    tree-sitter-markdown
+    tree-sitter-nix
+    tree-sitter-python
+    tree-sitter-regex
+    tree-sitter-rst
+    tree-sitter-toml
+    tree-sitter-typescript
+    tree-sitter-vim
+    tree-sitter-yaml
+  ]);
 
   vimPlugins = with plugins; [
     beancount-nvim # https://github.com/polarmutex/beancount.nvim
