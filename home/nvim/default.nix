@@ -102,6 +102,7 @@ in
     withNodeJs = true; # for coc.nvim
     withPython3 = true; # for plugins
     extraPackages = with pkgs; [
+      black
       gcc
       neovim-remote
       nodePackages.prettier
