@@ -83,7 +83,14 @@ in
     vimdiffAlias = true;
     withNodeJs = true; # for coc.nvim
     withPython3 = true; # for plugins
-    extraPackages = with pkgs; [ gcc neovim-remote nodePackages.pyright rnix-lsp tree-sitter ];
+    extraPackages = with pkgs; [
+      gcc
+      neovim-remote
+      nodePackages.pyright
+      nodePackages.vscode-langservers-extracted
+      rnix-lsp
+      tree-sitter
+    ];
 
   };
 
