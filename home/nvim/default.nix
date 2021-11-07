@@ -49,6 +49,7 @@ let
     kommentary # https://github.com/b3nj5m1n/kommentary
     lazygit-nvim # https://github.com/kdheepak/lazygit.nvim
     lsp-colors-nvim # https://github.com/folke/lsp-colors.nvim
+    neoformat # https://github.com/sbdchd/neoformat
     nord-nvim # https://github.com/shaunsingh/nord.nvim
     telescope-fzf-native-nvim # https://github.com/nvim-telescope/telescope-fzf-native.nvim
     vim-fugitive # https://github.com/tpope/vim-fugitive
@@ -76,6 +77,10 @@ in
       lua require('init')
       let g:glow_binary_path = "${pkgs.glow}/bin"
       let test#strategy = "neovim"
+      augroup fmt
+        autocmd!
+        autocmd BufWritePre * undojoin | Neoformat
+      augroup END
     '';
     plugins = vimPluginsWithConfig ++ vimPlugins;
     viAlias = true;
@@ -86,6 +91,7 @@ in
     extraPackages = with pkgs; [
       gcc
       neovim-remote
+      nodePackages.prettier
       nodePackages.pyright
       nodePackages.vscode-langservers-extracted
       rnix-lsp
