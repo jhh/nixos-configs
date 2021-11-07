@@ -153,11 +153,11 @@
         "poetry2nix": "poetry2nix"
       },
       "locked": {
-        "lastModified": 1635902621,
-        "narHash": "sha256-ruMwkbx0uuEAChJMlRygGoRWnMP1hnz4sv1WPs62ABQ=",
+        "lastModified": 1636311680,
+        "narHash": "sha256-kMSufZ+Fxtml2QvL220RmEUaYYCNQTQDLDNPprReX1I=",
         "owner": "jhh",
         "repo": "zinc",
-        "rev": "305933840866ff164790e303fb254a859702d52f",
+        "rev": "f65149e328bc5af443ca376c6dd372f95154bf72",
         "type": "github"
       },
       "original": {
