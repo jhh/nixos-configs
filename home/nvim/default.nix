@@ -45,18 +45,37 @@ let
     cmp_luasnip # https://github.com/saadparwaiz1/cmp_luasnip
     cmp-nvim-lsp # https://github.com/hrsh7th/cmp-nvim-lsp
     cmp-buffer # https://github.com/hrsh7th/cmp-buffer
-    glow-nvim # https://github.com/ellisonleao/glow.nvim
+    {
+      plugin = glow-nvim; # https://github.com/ellisonleao/glow.nvim
+      config = ''
+        let g:glow_binary_path = "${pkgs.glow}/bin"
+      '';
+    }
     kommentary # https://github.com/b3nj5m1n/kommentary
     lazygit-nvim # https://github.com/kdheepak/lazygit.nvim
     lsp-colors-nvim # https://github.com/folke/lsp-colors.nvim
-    neoformat # https://github.com/sbdchd/neoformat
+    {
+      plugin = neoformat; # https://github.com/sbdchd/neoformat
+      config = ''
+        augroup fmt
+          autocmd!
+          autocmd BufWritePre * undojoin | Neoformat
+        augroup END
+      '';
+    }
     nord-nvim # https://github.com/shaunsingh/nord.nvim
     telescope-fzf-native-nvim # https://github.com/nvim-telescope/telescope-fzf-native.nvim
     vim-fugitive # https://github.com/tpope/vim-fugitive
     vim-go # https://github.com/fatih/vim-go
     vim-nix # https://github.com/LnL7/vim-nix
     vim-surround # https://github.com/tpope/vim-surround
-    vim-test # https://github.com/vim-test/vim-test
+    {
+      plugin = vim-test; # https://github.com/vim-test/vim-test
+      config = ''
+        let test#strategy = "neovim"
+      '';
+    }
+
   ];
 
   vimPluginsWithConfig = with pkgs.vimPlugins;
@@ -75,12 +94,6 @@ in
     enable = true;
     extraConfig = ''
       lua require('init')
-      let g:glow_binary_path = "${pkgs.glow}/bin"
-      let test#strategy = "neovim"
-      augroup fmt
-        autocmd!
-        autocmd BufWritePre * undojoin | Neoformat
-      augroup END
     '';
     plugins = vimPluginsWithConfig ++ vimPlugins;
     viAlias = true;
