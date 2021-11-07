@@ -8,6 +8,7 @@ in
     documentation = [ "https://github.com/jhh/zinc" ];
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.zrepl ];
     environment = {
       FLASK_APP = "zinc";
       FLASK_ENV = "production";
