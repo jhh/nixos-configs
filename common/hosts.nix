@@ -10,6 +10,8 @@
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "America/Detroit";
 
+  programs.fish.enable = true;
+
   services.openssh = {
     enable = true;
     permitRootLogin = "prohibit-password";
