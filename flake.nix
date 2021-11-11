@@ -50,8 +50,8 @@
         vesta = mkHost "vesta" nixpkgs home-manager;
       };
 
-      homeManagerConfigurations = {
-        europa = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations = {
+        jeff = home-manager.lib.homeManagerConfiguration {
           configuration = ./home;
           system = "x86_64-darwin";
           homeDirectory = "/Users/jeff";

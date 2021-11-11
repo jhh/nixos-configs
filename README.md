@@ -1,4 +1,5 @@
 # nixos-configs
+
 NixOS Configs for Homelab
 
 ## NixOS
@@ -7,8 +8,7 @@ NixOS Configs for Homelab
 $ sudo ./deploy [host|all] command
 ```
 
-*or, for local machine...*
-
+_or, for local machine..._
 
 ```sh
 $ sudo nixos-rebuild switch --flake .
@@ -17,6 +17,6 @@ $ sudo nixos-rebuild switch --flake .
 ## macOS
 
 ```sh
-$ nix build .#homeManagerConfigurations.europa.activationPackage
-$ ./result/activate
+$ ln -s flake.nix ~/.config/nixpkgs
+$ home-manager switch
 ```
