@@ -2,6 +2,11 @@
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.cleanTmpDir = true;
 
+  nix.nixPath = [
+    "nixpkgs=${pkgs.path}"
+    # "home-manager=${home-manager}"
+  ];
+
   environment.systemPackages = with pkgs; [ bat file neovim wget curl ];
 
   networking.domain = "lan.j3ff.io";
