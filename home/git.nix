@@ -50,7 +50,7 @@ in
       st = "status";
       la = "!git config -l | grep alias | cut -c 7-";
       ls = ''
-        log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate'';
+        log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --all --decorate --oneline --graph'';
       ll = ''
         log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate --numstat'';
       lg =
