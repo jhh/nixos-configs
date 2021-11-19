@@ -63,9 +63,8 @@ in
     '';
 
     shellInit =
-      if pkgs.stdenv.isDarwin then ''
+      lib.optionalString pkgs.stdenv.isDarwin ''
         fenv export NIX_PATH=\$HOME/.nix-defexpr/channels\''${NIX_PATH:+:}\$NIX_PATH
-      '' else
-        "";
+      '';
   };
 }

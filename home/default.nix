@@ -61,6 +61,8 @@ rec {
         MANWIDTH = 88;
       };
 
+      sessionPath = lib.optionals pkgs.stdenv.isDarwin [ "$HOME/Library/Python/3.9/bin" ];
+
       packages = defaultPackages ++ gitPkgs;
     };
 
