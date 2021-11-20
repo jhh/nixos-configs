@@ -2,24 +2,24 @@
   description = "NixOS configurations for j3ff.io";
 
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = github:nix-community/home-manager/master;
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     fish-colored-man = {
-      url = github:decors/fish-colored-man;
+      url = "github:decors/fish-colored-man";
       flake = false;
     };
 
     fish-nix-env = {
-      url = github:lilyball/nix-env.fish;
+      url = "github:lilyball/nix-env.fish";
       flake = false;
     };
 
-    zinc.url = github:jhh/zinc;
+    zinc.url = "github:jhh/zinc";
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ flakes:
