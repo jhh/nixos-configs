@@ -31,6 +31,14 @@
         }];
       }
       {
+        job_name = "prometheus";
+        static_configs = [{
+          targets = [
+            "eris:9001"
+          ];
+        }];
+      }
+      {
         job_name = "pihole";
         static_configs = [
           {

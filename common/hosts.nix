@@ -2,10 +2,6 @@
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.cleanTmpDir = true;
 
-  nix.nixPath = [
-    "nixpkgs=${pkgs.path}"
-    # "home-manager=${home-manager}"
-  ];
 
   environment.systemPackages = with pkgs; [ bat file neovim wget curl ];
 
@@ -37,6 +33,10 @@
       options = "--delete-older-than 30d";
       randomizedDelaySec = "1h";
     };
+    nixPath = [
+      "nixpkgs=${pkgs.path}"
+      # "home-manager=${home-manager}"
+    ];
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes
