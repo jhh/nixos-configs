@@ -23,6 +23,7 @@
   hardware.cpu.intel.updateMicrocode = true;
 
   boot = {
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernel.sysctl = {
       "net.bridge.bridge-nf-call-ip6tables" = 0;
       "net.bridge.bridge-nf-call-iptables" = 0;
@@ -74,4 +75,3 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
 }
-
