@@ -57,10 +57,13 @@
 
   hardware.cpu.intel.updateMicrocode = true;
 
-  boot.kernelParams = [ "zfs.zfs_arc_max=30064771072" ];
+  boot = {
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelParams = [ "zfs.zfs_arc_max=30064771072" ];
+    loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = true;
+  };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   environment.etc."mdadm.conf".text = ''
     MAILADDR root
