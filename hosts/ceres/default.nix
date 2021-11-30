@@ -77,6 +77,10 @@
 
   services.xserver = {
     enable = true;
+    xkbOptions = "ctrl:swapcaps";
+
+    videoDrivers = [ "intel" ];
+    useGlamor = true;
 
     desktopManager = {
       xterm.enable = false;
