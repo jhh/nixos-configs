@@ -6,10 +6,11 @@
     group = "tm";
     description = "Time Machine";
   };
-  users.groups.tm = {};
+  users.groups.tm = { };
 
   services.samba = {
     enable = true;
+    securityType = "user";
     extraConfig = ''
       workgroup = WORKGROUP
       server string = Luna
