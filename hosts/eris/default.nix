@@ -24,6 +24,7 @@
   hardware.cpu.intel.updateMicrocode = true;
 
   boot = {
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -67,4 +68,3 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
 }
-
