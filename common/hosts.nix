@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }: {
-  boot.loader.systemd-boot.configurationLimit = 10;
-  boot.cleanTmpDir = true;
+  boot = {
+    loader.systemd-boot.configurationLimit = 10;
+    cleanTmpDir = true;
+    tmpOnTmpfs = true;
+  };
 
 
   environment.systemPackages = with pkgs; [ bat file neovim wget curl ];
