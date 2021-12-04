@@ -19,7 +19,10 @@
       flake = false;
     };
 
-    zinc.url = "github:jhh/zinc";
+    zinc = {
+      url = "github:jhh/zinc";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ flakes:
