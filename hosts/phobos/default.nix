@@ -24,16 +24,14 @@
   hardware.cpu.intel.updateMicrocode = true;
 
   boot = {
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [
       "console=tty1"
       "console=ttyS1,115200"
-      "zfs.zfs_arc_max=29344391168"
+      "zfs.zfs_arc_max=30064771072"
     ];
-
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
+    loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = true;
   };
 
   environment.etc."mdadm.conf".text = ''
@@ -69,4 +67,3 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
 }
-
