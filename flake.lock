@@ -115,13 +115,25 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1638627839,
+        "narHash": "sha256-sEI2pEbpdTC+DG8ShWo349rq1g8b6C3keiSmqG7Mvk0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "6bd1daaf0fe8190a48ac5d27028ef8bed3891ec7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "poetry2nix": {
       "inputs": {
         "flake-utils": "flake-utils_2",
-        "nixpkgs": [
-          "zinc",
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1633382856,
