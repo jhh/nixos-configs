@@ -7,6 +7,7 @@
   services.prometheus = {
     enable = true;
     port = 9001;
+    webExternalUrl = "http://eris.ts.j3ff.io:9001";
 
     scrapeConfigs = [
       {
@@ -62,5 +63,45 @@
         ];
       }
     ];
+
+    alertmanagers = [{
+      static_configs = [{
+        targets = [ "localhost:9093" ];
+      }];
+    }];
+
+    rules = [
+      ''
+        groups:
+         - name: default
+           rules:
+           - alert: InstanceDown
+             expr: up == 0
+             for: 1m
+      ''
+    ];
+
+    alertmanager = {
+      enable = true;
+      webExternalUrl = "http://eris.ts.j3ff.io:9093";
+      configuration = {
+        global = {
+          smtp_smarthost = "localhost:25";
+          smtp_from = "alertmanager@j3ff.io";
+        };
+        route = {
+          receiver = "default";
+        };
+        receivers = [
+          {
+            name = "default";
+            email_configs = [{
+              to = "jeff@j3ff.io";
+              require_tls = false;
+            }];
+          }
+        ];
+      };
+    };
   };
 }
