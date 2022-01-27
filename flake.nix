@@ -20,11 +20,6 @@
       url = "github:lilyball/nix-env.fish";
       flake = false;
     };
-
-    zinc = {
-      url = "github:jhh/zinc";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ flakes:

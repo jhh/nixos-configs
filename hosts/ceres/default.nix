@@ -4,7 +4,6 @@
     [
       ./hardware-configuration.nix
       flakes.nixos-hardware.nixosModules.common-cpu-intel
-      ./zinc.nix
     ];
 
   j3ff = {

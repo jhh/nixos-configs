@@ -8,7 +8,6 @@
       ./plex.nix
       ./rsync.nix
       ./samba.nix
-      ../ceres/zinc.nix
     ];
 
   j3ff = {
