@@ -23,13 +23,14 @@
       fruit:aapl = yes
       fruit:metadata = stream
       fruit:model = MacSamba
-      fruit:veto_appledouble = yes
+      fruit:veto_appledouble = no
       fruit:posix_rename = yes 
       fruit:zero_file_id = yes
       fruit:wipe_intentionally_left_blank_rfork = yes 
       fruit:delete_empty_adfiles = yes
 
       use sendfile = yes
+      socket options = IPTOS_LOWDELAY TCP_NODELAY
       hosts allow = 192.168.1.0/24
       guest account = nobody
       map to guest = bad user
