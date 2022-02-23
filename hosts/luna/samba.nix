@@ -52,11 +52,11 @@
 
       tm_europa = {
         path = "/mnt/tank/backup/tm/europa";
-        "valid users" = "tm";
+        "valid users" = "jeff";
         browsable = "no";
         public = "no";
         writeable = "yes";
-        "force user" = "tm";
+        "force user" = "jeff";
         "fruit:time machine" = "yes";
       };
 
