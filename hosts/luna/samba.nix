@@ -47,7 +47,6 @@
         "valid users" = "jeff";
         public = "no";
         writeable = "yes";
-        "force user" = "jeff";
       };
 
       tm_europa = {
@@ -56,7 +55,6 @@
         browsable = "no";
         public = "no";
         writeable = "yes";
-        "force user" = "jeff";
         "fruit:time machine" = "yes";
       };
 
