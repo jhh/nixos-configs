@@ -12,6 +12,7 @@
 
   j3ff = {
     mail.enable = true;
+    mdns.enable = true;
     prometheus.enable = true;
     smartd.enable = true;
     tailscale.enable = true;
