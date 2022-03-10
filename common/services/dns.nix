@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   options = {
     j3ff.mdns.enable = lib.mkEnableOption "MDNS resolving";
@@ -28,6 +28,9 @@
           hinfo = true;
           userServices = true;
           workstation = true;
+        };
+        extraServiceFiles = {
+          ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
         };
       };
     };
