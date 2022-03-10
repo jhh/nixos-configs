@@ -22,6 +22,11 @@
       services.avahi = {
         enable = cfg.enable;
         nssmdns = true;
+        publish = {
+          enable = true;
+          addresses = true;
+          workstation = true;
+        };
       };
     };
 }
