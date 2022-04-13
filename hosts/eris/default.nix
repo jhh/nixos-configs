@@ -2,6 +2,7 @@
 {
   imports =
     [
+      flakes.nixos-hardware.nixosModules.common-cpu-intel
       ./hardware-configuration.nix
       ./grafana.nix
       ./prometheus.nix
@@ -23,6 +24,7 @@
 
 
   hardware.cpu.intel.updateMicrocode = true;
+  services.thermald.enable = true;
 
   boot = {
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
