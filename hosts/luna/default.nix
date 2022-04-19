@@ -11,7 +11,7 @@
     ];
 
   services.thermald.enable = true;
-  virtualisation.docker.enable = true;
+  virtualisation.docker.enable = false;
 
   j3ff = {
     mail.enable = true;
