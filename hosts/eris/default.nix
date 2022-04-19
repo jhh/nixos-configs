@@ -25,6 +25,7 @@
 
   hardware.cpu.intel.updateMicrocode = true;
   services.thermald.enable = true;
+  virtualisation.docker.enable = true;
 
   boot = {
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
