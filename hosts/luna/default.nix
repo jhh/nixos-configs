@@ -10,7 +10,7 @@
       ./samba.nix
     ];
 
-  services.thermald.enable = true;
+  services.thermald.enable = false; # unsupported
   virtualisation.docker.enable = false;
 
   j3ff = {
