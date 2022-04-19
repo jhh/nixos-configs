@@ -10,6 +10,9 @@
       ./samba.nix
     ];
 
+  services.thermald.enable = true;
+  virtualisation.docker.enable = true;
+
   j3ff = {
     mail.enable = true;
     mdns.enable = true;
