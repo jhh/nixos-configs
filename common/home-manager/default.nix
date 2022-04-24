@@ -16,6 +16,7 @@ let
     lazygit # simple terminal UI for git commands
     lorri # build changes in shell.nix automatically
     manix # documentation searcher for nix
+    mosh # ssh alternative
     neofetch # command-line system information
     niv # dependency management for Nix projects
     nix-diff # show differences between deploys
@@ -41,7 +42,6 @@ rec {
     ./gui
     ./nvim
     ./starship.nix
-    ./tmux.nix
   ];
 
   options = {
@@ -73,7 +73,6 @@ rec {
 
       direnv = {
         enable = true;
-        enableFishIntegration = true;
         nix-direnv = {
           enable = true;
         };
