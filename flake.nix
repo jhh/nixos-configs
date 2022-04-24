@@ -49,30 +49,56 @@
       };
 
       nixosConfigurations = {
+        luna = mkSystem [ ./hosts/luna ];
         nixos-01 = mkSystem [ ./hosts/nixos-01 ];
+        phobos = mkSystem [ ./hosts/phobos ];
         vesta = mkSystem [ ./hosts/vesta ];
       };
 
 
-      deploy.nodes.nixos-01 = {
-        hostname = "192.168.1.228";
-        sshUser = "root";
-        fastConnection = true;
+      deploy.nodes = {
+        luna = {
+          hostname = "192.168.1.7";
+          sshUser = "root";
+          fastConnection = true;
 
-        profiles.system = {
-          user = "root";
-          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixos-01;
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.luna;
+          };
         };
-      };
 
-      deploy.nodes.vesta = {
-        hostname = "192.168.1.45";
-        sshUser = "root";
-        fastConnection = true;
+        nixos-01 = {
+          hostname = "192.168.1.228";
+          sshUser = "root";
+          fastConnection = true;
 
-        profiles.system = {
-          user = "root";
-          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.vesta;
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixos-01;
+          };
+        };
+
+        phobos = {
+          hostname = "100.64.244.48";
+          sshUser = "root";
+
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.phobos;
+          };
+        };
+
+
+        vesta = {
+          hostname = "192.168.1.45";
+          sshUser = "root";
+          fastConnection = true;
+
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.vesta;
+          };
         };
       };
 
