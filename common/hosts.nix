@@ -40,7 +40,7 @@
       "nixpkgs=${pkgs.path}"
       # "home-manager=${home-manager}"
     ];
-    package = pkgs.nix_2_4;
+    package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';

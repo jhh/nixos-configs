@@ -41,7 +41,6 @@ rec {
     ./gui
     ./nvim
     ./starship.nix
-    ./tmux.nix
   ];
 
   options = {
@@ -73,7 +72,6 @@ rec {
 
       direnv = {
         enable = true;
-        enableFishIntegration = true;
         nix-direnv = {
           enable = true;
         };
