@@ -6,6 +6,11 @@
       ./hardware-configuration.nix
     ];
 
+  environment.systemPackages = with pkgs; [
+    vim
+    nodejs-16_x
+  ];
+
   j3ff = {
     mail.enable = true;
     tailscale.enable = true;
@@ -54,4 +59,3 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
 }
-
