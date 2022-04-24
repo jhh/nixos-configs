@@ -8,7 +8,6 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    nodejs-16_x
   ];
 
   j3ff = {
