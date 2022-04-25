@@ -6,7 +6,6 @@
 
   boot = {
     loader.systemd-boot.configurationLimit = 10;
-    cleanTmpDir = true;
     tmpOnTmpfs = true;
   };
 
