@@ -37,4 +37,5 @@
 
   j3ff.man.enable = true;
   j3ff.prometheus.enable = true;
+  j3ff.ups.enable = true;
 }
