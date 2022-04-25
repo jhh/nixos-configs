@@ -21,6 +21,7 @@
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
+      # fix for broken nut build in nixos-unstable 4/25/22
       overlay-nut = self: super: {
         nut = super.nut.overrideAttrs
           (oldAttrs: rec {
