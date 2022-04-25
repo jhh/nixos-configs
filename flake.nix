@@ -34,7 +34,7 @@
           system = "x86_64-linux";
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-nut ]; })
-            agenix.nixosModules.age
+            agenix.nixosModule
             home-manager.nixosModules.home-manager
             ({ config, ... }: {
               system.configurationRevision = self.sourceInfo.rev;

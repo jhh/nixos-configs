@@ -14,8 +14,10 @@
     systemd.services.upsd.enable = false;
     systemd.services.upsdrv.enable = false;
 
-    systemd.services.upsmon.preStart = ''
-      ln -sf /root/upsmon.conf /etc/nut/upsmon.conf
-    '';
+    age.secrets.upsmon = {
+      file = ./secrets/upsmon.conf.age;
+      path = "/etc/nut/upsmon.conf";
+    };
+
   };
 }
