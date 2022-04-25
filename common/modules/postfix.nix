@@ -22,9 +22,10 @@
       rootAlias = "jeff@j3ff.io";
     };
 
-    systemd.services.postfix.preStart = ''
-      ln -sf /root/sasl_passwd /etc/postfix/sasl_passwd
-      ${pkgs.postfix}/bin/postmap /etc/postfix/sasl_passwd
-    '';
+    age.secrets.sasl_passwd = {
+      file = ./secrets/sasl_passwd.age;
+      path = "/etc/postfix/sasl_passwd";
+    };
+
   };
 }
