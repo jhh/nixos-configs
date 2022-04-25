@@ -6,10 +6,6 @@
       ./hardware-configuration.nix
     ];
 
-  environment.systemPackages = with pkgs; [
-    vim
-  ];
-
   j3ff = {
     mail.enable = true;
     tailscale.enable = true;

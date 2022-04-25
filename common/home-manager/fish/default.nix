@@ -52,6 +52,14 @@ in
       ping = "prettyping";
     };
 
+    functions = {
+      "show-nix-diffs" = {
+        body = ''
+          nix store diff-closures (ls -d /nix/var/nix/profiles/* | tail -n 2 | cut -d ' ' -f 1)
+        '';
+      };
+    };
+
     plugins = defaultPlugins ++ darwinPlugins;
 
     # fzf.fish plugin ctrl-R keybind is overwritten by vanilla fzf, so rebind

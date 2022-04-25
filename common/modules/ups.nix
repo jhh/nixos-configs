@@ -5,9 +5,6 @@
   };
 
   config = lib.mkIf config.j3ff.ups.enable {
-    environment.systemPackages = [
-      pkgs.nut
-    ];
 
     power.ups = {
       enable = true;

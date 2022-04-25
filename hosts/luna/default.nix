@@ -19,7 +19,7 @@
     prometheus.enable = true;
     smartd.enable = true;
     tailscale.enable = true;
-    ups.enable = true;
+    ups.enable = true; # nut fails to build
     zfs = {
       enable = true;
       enableTrim = false;
