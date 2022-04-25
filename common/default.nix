@@ -17,6 +17,7 @@
     minisign
     neovim
     nfs-utils
+    nodejs-16_x
   ];
 
   networking.domain = "lan.j3ff.io";
