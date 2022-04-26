@@ -27,7 +27,7 @@
     };
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, darwin,  deploy-rs, ... } @ flakes:
+  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, ... } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
@@ -59,11 +59,18 @@
         };
     in
     {
-      devShells.x86_64-linux.default = pkgs.mkShell {
-        buildInputs = [
-          deploy-rs.packages.x86_64-linux.deploy-rs
-          agenix.packages.x86_64-linux.agenix
-        ];
+      devShells = {
+        x86_64-linux.default = pkgs.mkShell {
+          buildInputs = [
+            deploy-rs.packages.x86_64-linux.deploy-rs
+            agenix.packages.x86_64-linux.agenix
+          ];
+        };
+        x86_64-darwin.default = pkgs.mkShell {
+          buildInputs = [
+            agenix.packages.x86_64-linux.agenix
+          ];
+        };
       };
 
       darwinConfigurations."Jeffs-Mac" = darwin.lib.darwinSystem {
@@ -76,7 +83,7 @@
             home-manager.extraSpecialArgs = { inherit flakes; };
             home-manager.users.jeff = {
               imports = [ ./common/home-manager ];
-            }; 
+            };
           })
         ];
       };
