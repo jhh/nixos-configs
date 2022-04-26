@@ -13,6 +13,7 @@
       "firefox"
       "iterm2"
       "jetbrains-toolbox"
+      "kaleidoscope"
       "visual-studio-code"
     ];
 
