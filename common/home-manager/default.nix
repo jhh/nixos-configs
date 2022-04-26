@@ -11,7 +11,7 @@ let
     fzf #  command-line fuzzy finder
     glow # markdown previewer
     htop # interactive process viewer
-    httpie # command-line HTTP client
+    # httpie # command-line HTTP client
     jq # JSON parsing cli
     lazygit # simple terminal UI for git commands
     lorri # build changes in shell.nix automatically

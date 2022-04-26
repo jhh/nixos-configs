@@ -11,13 +11,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    darwin = {
+      url = "github:lnl7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     fish-colored-man = {
       url = "github:decors/fish-colored-man";
       flake = false;
     };
+
+    fish-nix-env = {
+      url = "github:lilyball/nix-env.fish";
+      flake = false;
+    };
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, deploy-rs, ... } @ flakes:
+  outputs = { self, agenix, nixpkgs, home-manager, darwin,  deploy-rs, ... } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
@@ -53,6 +63,21 @@
         buildInputs = [
           deploy-rs.packages.x86_64-linux.deploy-rs
           agenix.packages.x86_64-linux.agenix
+        ];
+      };
+
+      darwinConfigurations."Jeffs-Mac" = darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
+        modules = [
+          ./hosts/europa
+          home-manager.darwinModules.home-manager
+          ({ config, ... }: {
+            home-manager.useGlobalPkgs = true;
+            home-manager.extraSpecialArgs = { inherit flakes; };
+            home-manager.users.jeff = {
+              imports = [ ./common/home-manager ];
+            }; 
+          })
         ];
       };
 
