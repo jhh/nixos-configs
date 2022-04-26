@@ -66,7 +66,7 @@
         ];
       };
 
-      darwinConfigurations."Jeffs-Mac" = darwin.lib.darwinSystem {
+      darwinConfigurations."Europa" = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
           ./hosts/europa
@@ -76,7 +76,7 @@
             home-manager.extraSpecialArgs = { inherit flakes; };
             home-manager.users.jeff = {
               imports = [ ./common/home-manager ];
-            }; 
+            };
           })
         ];
       };
