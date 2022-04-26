@@ -9,6 +9,7 @@
   j3ff = {
     mail.enable = true;
     tailscale.enable = true;
+    mdns.enable = true;
   };
 
   # Use the GRUB 2 boot loader.
