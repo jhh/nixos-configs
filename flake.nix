@@ -67,9 +67,7 @@
           ];
         };
         x86_64-darwin.default = pkgs.mkShell {
-          buildInputs = [
-            agenix.packages.x86_64-linux.agenix
-          ];
+          buildInputs = [ ];
         };
       };
 
