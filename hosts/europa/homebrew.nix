@@ -1,8 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  homebrew.enable = true;
-  homebrew.casks = [
-    "visual-studio-code"
-  ];
+  homebrew = {
+    enable = true;
+    cleanup = "zap";
+
+    casks = [
+      "visual-studio-code"
+    ];
+  };
 }
