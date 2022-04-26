@@ -18,6 +18,27 @@
         "type": "github"
       }
     },
+    "darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1650920635,
+        "narHash": "sha256-csLLku/jHa7oTPAEJCQhFfyGYstD7jmJJV+3MiOyA+E=",
+        "owner": "lnl7",
+        "repo": "nix-darwin",
+        "rev": "1a387b8b3e4d65d7e65ae3fd85ac62b7c114c9c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lnl7",
+        "ref": "master",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "deploy-rs": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -51,6 +72,22 @@
       "original": {
         "owner": "decors",
         "repo": "fish-colored-man",
+        "type": "github"
+      }
+    },
+    "fish-nix-env": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1638213644,
+        "narHash": "sha256-RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=",
+        "owner": "lilyball",
+        "repo": "nix-env.fish",
+        "rev": "7b65bd228429e852c8fdfa07601159130a818cfa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lilyball",
+        "repo": "nix-env.fish",
         "type": "github"
       }
     },
@@ -141,8 +178,10 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "darwin": "darwin",
         "deploy-rs": "deploy-rs",
         "fish-colored-man": "fish-colored-man",
+        "fish-nix-env": "fish-nix-env",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_3"
       }

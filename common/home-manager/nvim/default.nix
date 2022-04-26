@@ -17,14 +17,8 @@ let
   # https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/development/tools/parsing/tree-sitter/grammars
   treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
     tree-sitter-comment
-    tree-sitter-cpp
-    tree-sitter-css
-    tree-sitter-embedded-template
     tree-sitter-fish
-    tree-sitter-go
     tree-sitter-html
-    tree-sitter-java
-    tree-sitter-javascript
     tree-sitter-json
     tree-sitter-lua
     tree-sitter-make
@@ -34,7 +28,6 @@ let
     tree-sitter-regex
     tree-sitter-rst
     tree-sitter-toml
-    tree-sitter-typescript
     tree-sitter-vim
     tree-sitter-yaml
   ]);
@@ -66,7 +59,6 @@ let
     nord-nvim # https://github.com/shaunsingh/nord.nvim
     telescope-fzf-native-nvim # https://github.com/nvim-telescope/telescope-fzf-native.nvim
     vim-fugitive # https://github.com/tpope/vim-fugitive
-    vim-go # https://github.com/fatih/vim-go
     vim-nix # https://github.com/LnL7/vim-nix
     vim-surround # https://github.com/tpope/vim-surround
     {
