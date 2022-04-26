@@ -6,7 +6,7 @@
 
   boot = {
     loader.systemd-boot.configurationLimit = 10;
-    tmpOnTmpfs = true;
+    cleanTmpDir = true;
   };
 
   environment.systemPackages = with pkgs; [
