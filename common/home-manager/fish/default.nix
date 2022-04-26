@@ -63,16 +63,11 @@ in
     plugins = defaultPlugins ++ darwinPlugins;
 
     # fzf.fish plugin ctrl-R keybind is overwritten by vanilla fzf, so rebind
-    interactiveShellInit = ''
-      bind \cr _fzf_search_history
-      if not functions -q __direnv_export_eval; and command -sq direnv
-        direnv hook fish | source
-      end
-    '';
+    interactiveShellInit = builtins.readFile ./interactiveShellInit.fish;
 
-    shellInit =
-      lib.optionalString pkgs.stdenv.isDarwin ''
-        fenv export NIX_PATH=\$HOME/.nix-defexpr/channels\''${NIX_PATH:+:}\$NIX_PATH
-      '';
+    # shellInit =
+    #   lib.optionalString pkgs.stdenv.isDarwin ''
+    #     fenv export NIX_PATH=\$HOME/.nix-defexpr/channels\''${NIX_PATH:+:}\$NIX_PATH
+    #   '';
   };
 }
