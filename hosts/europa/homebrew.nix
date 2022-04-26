@@ -9,6 +9,7 @@
     # ];
 
     casks = [
+      "dash"
       "firefox"
       "iterm2"
       "jetbrains-toolbox"
