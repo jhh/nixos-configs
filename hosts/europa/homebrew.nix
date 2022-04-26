@@ -10,6 +10,7 @@
 
     casks = [
       "firefox"
+      "iTerm2"
       "visual-studio-code"
     ];
 
