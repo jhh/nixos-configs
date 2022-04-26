@@ -9,6 +9,7 @@
     # ];
 
     casks = [
+      "firefox"
       "visual-studio-code"
     ];
 
