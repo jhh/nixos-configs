@@ -7,11 +7,6 @@ let
     }
 
     {
-      name = "forgit";
-      src = pkgs.fishPlugins.forgit.src;
-    }
-
-    {
       name = "fzf-fish";
       src = pkgs.fishPlugins.fzf-fish.src;
     }
