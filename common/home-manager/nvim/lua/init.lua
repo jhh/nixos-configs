@@ -8,9 +8,9 @@ local map = vim.api.nvim_set_keymap
 local o = vim.opt
 
 -- colors --
-o.termguicolors = true
+-- o.termguicolors = true
 o.background = "dark" -- or "light" for light mode
-cmd([[colorscheme nord]])
+-- cmd([[colorscheme nord]])
 
 -- basic Vim config --
 o.scrolloff = 10 -- keep a minimum of 10 lines around cursor
