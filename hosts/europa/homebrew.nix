@@ -14,6 +14,7 @@
       "iterm2"
       "jetbrains-toolbox"
       "kaleidoscope"
+      "spotify"
       "visual-studio-code"
     ];
 
