@@ -27,23 +27,23 @@
     };
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, darwin,  deploy-rs, ... } @ flakes:
+  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, ... } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
       # fix for broken nut build in nixos-unstable 4/25/22
-      overlay-nut = self: super: {
-        nut = super.nut.overrideAttrs
-          (oldAttrs: rec {
-            NIX_CFLAGS_COMPILE = "-std=c++14";
-          });
-      };
+      # overlay-nut = self: super: {
+      #   nut = super.nut.overrideAttrs
+      #     (oldAttrs: rec {
+      #       NIX_CFLAGS_COMPILE = "-std=c++14";
+      #     });
+      # };
 
       mkSystem = extraModules:
         nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-nut ]; })
+            # ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-nut ]; })
             agenix.nixosModule
             home-manager.nixosModules.home-manager
             ({ config, ... }: {
