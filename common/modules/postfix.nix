@@ -27,7 +27,7 @@
     };
 
     systemd.services.postfix.preStart = ''
-      ln -sf /run/agenix/sasl_passwd /etc/postfix/sasl_passwd
+      ln -sf ${config.age.secrets.sasl_passwd.path} /etc/postfix/sasl_passwd
       ${pkgs.postfix}/bin/postmap /etc/postfix/sasl_passwd
     '';
 
