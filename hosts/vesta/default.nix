@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./rsync.nix
     ];
 
   j3ff = {
