@@ -212,6 +212,7 @@ function fish_prompt
         (__theme_print_prompt_char)\
     )
 
+    echo
     echo "$line1"
     echo "$line2 "
 end
