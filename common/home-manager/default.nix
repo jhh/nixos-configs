@@ -41,7 +41,7 @@ rec {
     ./git.nix
     ./gui
     ./nvim
-    ./starship.nix
+    # ./starship.nix
   ];
 
   options = {
