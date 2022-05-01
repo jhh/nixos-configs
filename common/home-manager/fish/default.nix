@@ -7,6 +7,11 @@ let
     }
 
     {
+      name = "done";
+      src = pkgs.fishPlugins.done;
+    }
+
+    {
       name = "fzf-fish";
       src = pkgs.fishPlugins.fzf-fish.src;
     }
