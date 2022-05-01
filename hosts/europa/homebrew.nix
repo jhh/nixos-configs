@@ -5,9 +5,9 @@
     enable = true;
     cleanup = "zap";
 
-    brews = [
-      "terminal-notifier"
-    ];
+    # brews = [
+    #   "terminal-notifier"
+    # ];
 
     casks = [
       "carbon-copy-cloner"
