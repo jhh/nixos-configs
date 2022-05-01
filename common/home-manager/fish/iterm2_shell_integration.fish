@@ -2,12 +2,12 @@
 # modify it under the terms of the GNU General Public License
 # as published by the Free Software Foundation; either version 2
 # of the License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
@@ -30,7 +30,11 @@ if begin; status --is-interactive; and not functions -q -- iterm2_status; and [ 
   # Tell terminal to create a mark at this location
   function iterm2_preexec --on-event fish_preexec
     # For other shells we would output status here but we can't do that in fish.
-    printf "\033]133;C;\007"
+    if [ "$TERM_PROGRAM" = "iTerm.app" ]
+      printf "\033]133;C;\r\007"
+    else
+      printf "\033]133;C;\007"
+    end
   end
 
   # Usage: iterm2_set_user_var key value
@@ -120,3 +124,4 @@ if begin; status --is-interactive; and not functions -q -- iterm2_status; and [ 
   iterm2_write_remotehost_currentdir_uservars
   printf "\033]1337;ShellIntegrationVersion=17;shell=fish\007"
 end
+# alias imgcat=~/.iterm2/imgcat;alias imgls=~/.iterm2/imgls;alias it2api=~/.iterm2/it2api;alias it2attention=~/.iterm2/it2attention;alias it2check=~/.iterm2/it2check;alias it2copy=~/.iterm2/it2copy;alias it2dl=~/.iterm2/it2dl;alias it2getvar=~/.iterm2/it2getvar;alias it2git=~/.iterm2/it2git;alias it2setcolor=~/.iterm2/it2setcolor;alias it2setkeylabel=~/.iterm2/it2setkeylabel;alias it2tip=~/.iterm2/it2tip;alias it2ul=~/.iterm2/it2ul;alias it2universion=~/.iterm2/it2universion;alias it2profile=~/.iterm2/it2profile

@@ -65,4 +65,10 @@ in
     #     fenv export NIX_PATH=\$HOME/.nix-defexpr/channels\''${NIX_PATH:+:}\$NIX_PATH
     #   '';
   };
+
+  home.file = {
+    ".config/fish/functions/fish_prompt.fish".source = ./fish_prompt.fish;
+    ".config/fish/functions/fish_right_prompt.fish".source = ./fish_right_prompt.fish;
+    ".config/fish/conf.d/iterm2.fish".source = ./iterm2_shell_integration.fish;
+  };
 }
