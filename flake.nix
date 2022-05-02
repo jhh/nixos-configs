@@ -26,11 +26,12 @@
       flake = false;
     };
 
-    deadeye-web.url = "github:strykeforce/deadeye/flakify?dir=web";
     deadeye-admin.url = "github:strykeforce/deadeye/flakify?dir=admin";
+    deadeye-web.url = "github:strykeforce/deadeye/flakify?dir=web";
+    deadeye-daemon.url = "github:strykeforce/deadeye/flakify?dir=daemon";
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye-web, deadeye-admin, ... } @ flakes:
+  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye-web, deadeye-admin, deadeye-daemon, ... } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
@@ -85,9 +86,12 @@
           ./hosts/vesta
           deadeye-web.nixosModules.default
           deadeye-admin.nixosModules.default
+          deadeye-daemon.nixosModules.default
           ({ config, ... }: {
             deadeye.admin.enable = true;
             deadeye.admin.ntServerAddress = "192.168.1.30";
+            deadeye.daemon.enable = true;
+            deadeye.daemon.ntServerAddress = "192.168.1.30";
             deadeye.web.enable = true;
           })
         ];
