@@ -25,19 +25,14 @@
       url = "github:lilyball/nix-env.fish";
       flake = false;
     };
+
+    deadeye-web.url = "github:strykeforce/deadeye/flakify?dir=web";
+    deadeye-admin.url = "github:strykeforce/deadeye/flakify?dir=admin";
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, ... } @ flakes:
+  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye-web, deadeye-admin, ... } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
-
-      # fix for broken nut build in nixos-unstable 4/25/22
-      # overlay-nut = self: super: {
-      #   nut = super.nut.overrideAttrs
-      #     (oldAttrs: rec {
-      #       NIX_CFLAGS_COMPILE = "-std=c++14";
-      #     });
-      # };
 
       mkSystem = extraModules:
         nixpkgs.lib.nixosSystem rec {
@@ -85,7 +80,17 @@
         luna = mkSystem [ ./hosts/luna ];
         nixos-01 = mkSystem [ ./hosts/nixos-01 ];
         phobos = mkSystem [ ./hosts/phobos ];
-        vesta = mkSystem [ ./hosts/vesta ];
+
+        vesta = mkSystem [
+          ./hosts/vesta
+          deadeye-web.nixosModules.default
+          deadeye-admin.nixosModules.default
+          ({ config, ... }: {
+            deadeye.admin.enable = true;
+            deadeye.admin.ntServerAddress = "192.168.1.30";
+            deadeye.web.enable = true;
+          })
+        ];
       };
 
 
