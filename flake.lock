@@ -46,11 +46,11 @@
       },
       "locked": {
         "dir": "admin",
-        "lastModified": 1651532104,
-        "narHash": "sha256-V1Q5zbtqUWLoH61hCSDrPbHQ2X3gJREGZy0Xsz4gqMw=",
+        "lastModified": 1651535330,
+        "narHash": "sha256-Un8OOlV6vzQHV5ickHWzDt0LORq+kHAwUHMG3cKVQTM=",
         "owner": "strykeforce",
         "repo": "deadeye",
-        "rev": "7cf17c142422616cd6d835155ef1ebcd59229d22",
+        "rev": "75b538f550f96aaa64f0f0e06a6287e41bd5294d",
         "type": "github"
       },
       "original": {
@@ -72,11 +72,11 @@
       },
       "locked": {
         "dir": "daemon",
-        "lastModified": 1651532104,
-        "narHash": "sha256-V1Q5zbtqUWLoH61hCSDrPbHQ2X3gJREGZy0Xsz4gqMw=",
+        "lastModified": 1651535330,
+        "narHash": "sha256-Un8OOlV6vzQHV5ickHWzDt0LORq+kHAwUHMG3cKVQTM=",
         "owner": "strykeforce",
         "repo": "deadeye",
-        "rev": "7cf17c142422616cd6d835155ef1ebcd59229d22",
+        "rev": "75b538f550f96aaa64f0f0e06a6287e41bd5294d",
         "type": "github"
       },
       "original": {
@@ -95,11 +95,11 @@
       },
       "locked": {
         "dir": "web",
-        "lastModified": 1651532104,
-        "narHash": "sha256-V1Q5zbtqUWLoH61hCSDrPbHQ2X3gJREGZy0Xsz4gqMw=",
+        "lastModified": 1651535330,
+        "narHash": "sha256-Un8OOlV6vzQHV5ickHWzDt0LORq+kHAwUHMG3cKVQTM=",
         "owner": "strykeforce",
         "repo": "deadeye",
-        "rev": "7cf17c142422616cd6d835155ef1ebcd59229d22",
+        "rev": "75b538f550f96aaa64f0f0e06a6287e41bd5294d",
         "type": "github"
       },
       "original": {
