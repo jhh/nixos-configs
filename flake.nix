@@ -27,8 +27,11 @@
     };
 
     deadeye-admin.url = "github:strykeforce/deadeye?dir=admin";
+    deadeye-admin.inputs.nixpkgs.follows = "nixpkgs";
     deadeye-web.url = "github:strykeforce/deadeye?dir=web";
+    deadeye-web.inputs.nixpkgs.follows = "nixpkgs";
     deadeye-daemon.url = "github:strykeforce/deadeye?dir=daemon";
+    deadeye-daemon.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye-web, deadeye-admin, deadeye-daemon, ... } @ flakes:
