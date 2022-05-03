@@ -25,6 +25,8 @@
     };
   };
 
+  zramSwap.enable = true;
+
   networking = {
     hostName = "vesta";
     useDHCP = false;

@@ -5,21 +5,31 @@
 
 {
   imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
+    [
+      (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/0cc3bc46-439f-4399-bb5e-70e084712cfb";
+    {
+      device = "/dev/disk/by-uuid/0cc3bc46-439f-4399-bb5e-70e084712cfb";
       fsType = "ext4";
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/b1a2c418-72ee-4ebd-8169-b30fbc1dd953"; }
-    ];
+  swapDevices = [ ];
 
+  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+  # Per-interface useDHCP will be mandatory in the future, so this generated config
+  # replicates the default behaviour.
+  networking.useDHCP = lib.mkDefault false;
+  networking.interfaces.br0.useDHCP = lib.mkDefault true;
+  networking.interfaces.docker0.useDHCP = lib.mkDefault true;
+  networking.interfaces.ens18.useDHCP = lib.mkDefault true;
+  networking.interfaces.tailscale0.useDHCP = lib.mkDefault true;
+
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
