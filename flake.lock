@@ -46,17 +46,16 @@
       },
       "locked": {
         "dir": "admin",
-        "lastModified": 1651535330,
-        "narHash": "sha256-Un8OOlV6vzQHV5ickHWzDt0LORq+kHAwUHMG3cKVQTM=",
+        "lastModified": 1651581570,
+        "narHash": "sha256-GAhxlxsYHAf0dTdku7cEa4CiEIyowDKq3XyDQn+QuB4=",
         "owner": "strykeforce",
         "repo": "deadeye",
-        "rev": "75b538f550f96aaa64f0f0e06a6287e41bd5294d",
+        "rev": "10c61af0169fa0b04a4642d97ac50e999d43736e",
         "type": "github"
       },
       "original": {
         "dir": "admin",
         "owner": "strykeforce",
-        "ref": "flakify",
         "repo": "deadeye",
         "type": "github"
       }
@@ -72,17 +71,16 @@
       },
       "locked": {
         "dir": "daemon",
-        "lastModified": 1651535330,
-        "narHash": "sha256-Un8OOlV6vzQHV5ickHWzDt0LORq+kHAwUHMG3cKVQTM=",
+        "lastModified": 1651581570,
+        "narHash": "sha256-GAhxlxsYHAf0dTdku7cEa4CiEIyowDKq3XyDQn+QuB4=",
         "owner": "strykeforce",
         "repo": "deadeye",
-        "rev": "75b538f550f96aaa64f0f0e06a6287e41bd5294d",
+        "rev": "10c61af0169fa0b04a4642d97ac50e999d43736e",
         "type": "github"
       },
       "original": {
         "dir": "daemon",
         "owner": "strykeforce",
-        "ref": "flakify",
         "repo": "deadeye",
         "type": "github"
       }
@@ -95,17 +93,16 @@
       },
       "locked": {
         "dir": "web",
-        "lastModified": 1651535330,
-        "narHash": "sha256-Un8OOlV6vzQHV5ickHWzDt0LORq+kHAwUHMG3cKVQTM=",
+        "lastModified": 1651581570,
+        "narHash": "sha256-GAhxlxsYHAf0dTdku7cEa4CiEIyowDKq3XyDQn+QuB4=",
         "owner": "strykeforce",
         "repo": "deadeye",
-        "rev": "75b538f550f96aaa64f0f0e06a6287e41bd5294d",
+        "rev": "10c61af0169fa0b04a4642d97ac50e999d43736e",
         "type": "github"
       },
       "original": {
         "dir": "web",
         "owner": "strykeforce",
-        "ref": "flakify",
         "repo": "deadeye",
         "type": "github"
       }

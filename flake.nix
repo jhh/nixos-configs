@@ -26,9 +26,9 @@
       flake = false;
     };
 
-    deadeye-admin.url = "github:strykeforce/deadeye/flakify?dir=admin";
-    deadeye-web.url = "github:strykeforce/deadeye/flakify?dir=web";
-    deadeye-daemon.url = "github:strykeforce/deadeye/flakify?dir=daemon";
+    deadeye-admin.url = "github:strykeforce/deadeye?dir=admin";
+    deadeye-web.url = "github:strykeforce/deadeye?dir=web";
+    deadeye-daemon.url = "github:strykeforce/deadeye?dir=daemon";
   };
 
   outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye-web, deadeye-admin, deadeye-daemon, ... } @ flakes:
@@ -88,11 +88,29 @@
           deadeye-admin.nixosModules.default
           deadeye-daemon.nixosModules.default
           ({ config, ... }: {
-            deadeye.admin.enable = true;
-            deadeye.admin.ntServerAddress = "192.168.1.30";
-            deadeye.daemon.enable = true;
-            deadeye.daemon.ntServerAddress = "192.168.1.30";
-            deadeye.web.enable = true;
+            deadeye =
+              let
+                ntServer = "192.168.1.30";
+              in
+              {
+                web.enable = true;
+
+                admin = {
+                  enable = true;
+                  ntServerAddress = ntServer;
+                };
+
+                daemon = {
+                  enable = true;
+                  unitId = "V";
+                  pipeline0 = "deadeye::UprightRectPipeline";
+                  pipeline1 = "deadeye::MinAreaRectPipeline";
+                  pipeline2 = "deadeye::TargetListPipeline";
+                  ntServerAddress = ntServer;
+                  streamAddress = "${(builtins.head config.networking.interfaces.br0.ipv4.addresses).address}";
+                };
+              };
+
           })
         ];
       };
