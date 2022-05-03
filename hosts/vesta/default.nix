@@ -29,7 +29,13 @@
     hostName = "vesta";
     useDHCP = false;
 
-    interfaces.ens18 = {
+    bridges."br0" = {
+      interfaces = [
+        "ens18"
+      ];
+    };
+
+    interfaces.br0 = {
       useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.1.45";
