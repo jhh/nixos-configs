@@ -26,15 +26,13 @@
       flake = false;
     };
 
-    deadeye-admin.url = "github:strykeforce/deadeye?dir=admin";
-    deadeye-admin.inputs.nixpkgs.follows = "nixpkgs";
-    deadeye-web.url = "github:strykeforce/deadeye?dir=web";
-    deadeye-web.inputs.nixpkgs.follows = "nixpkgs";
-    deadeye-daemon.url = "github:strykeforce/deadeye?dir=daemon";
-    deadeye-daemon.inputs.nixpkgs.follows = "nixpkgs";
+    deadeye = {
+      url = "github:strykeforce/deadeye";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye-web, deadeye-admin, deadeye-daemon, ... } @ flakes:
+  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye, ... } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
@@ -87,32 +85,21 @@
 
         vesta = mkSystem [
           ./hosts/vesta
-          deadeye-web.nixosModules.default
-          deadeye-admin.nixosModules.default
-          deadeye-daemon.nixosModules.default
+          deadeye.nixosModules.default
           ({ config, ... }: {
-            deadeye =
-              let
-                ntServer = "192.168.1.30";
-              in
-              {
-                web.enable = true;
-
-                admin = {
-                  enable = true;
-                  ntServerAddress = ntServer;
-                };
-
-                daemon = {
-                  enable = true;
-                  unitId = "V";
-                  pipeline0 = "deadeye::UprightRectPipeline";
-                  pipeline1 = "deadeye::MinAreaRectPipeline";
-                  pipeline2 = "deadeye::TargetListPipeline";
-                  ntServerAddress = ntServer;
-                  streamAddress = "${(builtins.head config.networking.interfaces.br0.ipv4.addresses).address}";
-                };
+            deadeye = {
+              web.enable = true;
+              admin.enable = true;
+              daemon = {
+                enable = true;
+                unitId = "V";
+                pipeline0 = "deadeye::UprightRectPipeline";
+                pipeline1 = "deadeye::MinAreaRectPipeline";
+                pipeline2 = "deadeye::TargetListPipeline";
+                streamAddress = "${(builtins.head config.networking.interfaces.br0.ipv4.addresses).address}";
               };
+              ntServerAddress = "192.168.1.30";
+            };
 
           })
         ];
