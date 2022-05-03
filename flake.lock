@@ -52,11 +52,11 @@
         "wpilib-src": "wpilib-src"
       },
       "locked": {
-        "lastModified": 1651610769,
-        "narHash": "sha256-yVaNbARMvNnM0A6zDwrIEhqs4t1PmxbjIKKEYnuDKdE=",
+        "lastModified": 1651611456,
+        "narHash": "sha256-gQMDfoTjM9EhbjbnkfLYHdVLcRqLgiGKaRV2mAbnqbo=",
         "owner": "strykeforce",
         "repo": "deadeye",
-        "rev": "b6ef2b1263fb516eb630a527623705e57f459523",
+        "rev": "61e12e32c5ab88118a05657a700557ef152694f0",
         "type": "github"
       },
       "original": {
