@@ -35,8 +35,8 @@ in
       gcm = "git switch main";
       gmnff = "git merge --no-ff";
       gst = "git status";
-      # "l." = "ls -a";
-      # "ll." = "ls -al";
+      "l." = "ls -a";
+      "ll." = "ls -al";
     };
 
     shellAliases = {
@@ -46,6 +46,7 @@ in
       drm = "docker images -a -q | xargs docker rmi -f";
       du = "dust";
       ping = "prettyping";
+      git = "hub";
     };
 
     functions = {
