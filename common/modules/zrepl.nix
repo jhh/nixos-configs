@@ -16,7 +16,7 @@ let
     snapshotting = {
       type = "periodic";
       prefix = "zrepl_";
-      interval = "15m";
+      interval = "30m";
     };
     pruning = {
       keep_sender = [
