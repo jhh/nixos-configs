@@ -6,7 +6,7 @@
   };
 
 
-  environment.systemPackages = with pkgs; [ bat file neovim wget curl ];
+  environment.systemPackages = with pkgs; [ bat file vim curl ];
 
   networking.domain = "lan.j3ff.io";
 
