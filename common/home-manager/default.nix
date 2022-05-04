@@ -14,12 +14,12 @@ let
     # httpie # command-line HTTP client
     jq # JSON parsing cli
     lazygit # simple terminal UI for git commands
-    lorri # build changes in shell.nix automatically
-    manix # documentation searcher for nix
+    # lorri # build changes in shell.nix automatically
+    # manix # documentation searcher for nix
     mosh # ssh alternative
     neofetch # command-line system information
-    niv # dependency management for Nix projects
-    nix-diff # show differences between deploys
+    # niv # dependency management for Nix projects
+    # nix-diff # show differences between deploys
     nixpkgs-fmt # formatter for Nix code
     nyancat # the famous rainbow cat!
     prettyping # a nicer ping
@@ -30,8 +30,8 @@ let
   gitPkgs = with pkgs.gitAndTools; [
     diff-so-fancy # git diff with colors
     gh # GitHub CLI
-    git-crypt # git files encryption
-    hub # github command-line client
+    # git-crypt # git files encryption
+    # hub # github command-line client
   ];
 
 in
@@ -61,7 +61,7 @@ rec {
         MANWIDTH = 88;
       };
 
-      sessionPath = lib.optionals pkgs.stdenv.isDarwin [ "$HOME/Library/Python/3.9/bin" ];
+      sessionPath = lib.optional pkgs.stdenv.isDarwin "$HOME/.local/bin/";
 
       packages = defaultPackages ++ gitPkgs;
     };

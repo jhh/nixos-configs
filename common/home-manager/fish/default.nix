@@ -35,6 +35,8 @@ in
       gcm = "git switch main";
       gmnff = "git merge --no-ff";
       gst = "git status";
+      "l." = "ls -a";
+      "ll." = "ls -al";
     };
 
     shellAliases = {
