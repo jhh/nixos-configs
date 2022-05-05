@@ -10,6 +10,7 @@
     # ];
 
     casks = [
+      "alfred"
       "carbon-copy-cloner"
       "dash"
       "firefox"
