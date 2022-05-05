@@ -295,11 +295,11 @@
         "utils": "utils_4"
       },
       "locked": {
-        "lastModified": 1651773307,
-        "narHash": "sha256-hyZVEBjFl3XtFPoHO4wX00B5AvqP5lGP1+wNEOqAovI=",
+        "lastModified": 1651774412,
+        "narHash": "sha256-Wp8OaugarZ5aSSvCkxWK5h0BB4dhd5aHyN3dqXNZI0k=",
         "owner": "jhh",
         "repo": "nt-server-docker",
-        "rev": "b23d3accac6ab5819007ab7a007df90b48420003",
+        "rev": "aebbe0992a1104ec6c3ceaa084ba6944d0a6bf6b",
         "type": "github"
       },
       "original": {
