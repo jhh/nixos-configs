@@ -30,9 +30,14 @@
       url = "github:strykeforce/deadeye";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nt-server = {
+      url = "github:jhh/nt-server-docker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye, ... } @ flakes:
+  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye, nt-server, ... } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
@@ -79,9 +84,16 @@
       };
 
       nixosConfigurations = {
-        luna = mkSystem [ ./hosts/luna ];
         nixos-01 = mkSystem [ ./hosts/nixos-01 ];
         phobos = mkSystem [ ./hosts/phobos ];
+
+        luna = mkSystem [
+          ./hosts/luna
+          nt-server.nixosModules.default
+          ({ config, ... }: {
+            j3ff.networkTables.enable = true;
+          })
+        ];
 
         vesta = mkSystem [
           ./hosts/vesta
