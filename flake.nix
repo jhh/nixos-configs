@@ -110,7 +110,7 @@
                 pipeline2 = "deadeye::TargetListPipeline";
                 streamAddress = "${(builtins.head config.networking.interfaces.br0.ipv4.addresses).address}";
               };
-              ntServerAddress = "192.168.1.30";
+              ntServerAddress = "192.168.1.7"; # luna
             };
 
           })
