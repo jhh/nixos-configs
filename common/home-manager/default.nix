@@ -96,7 +96,7 @@ rec {
       };
 
       nix-index = {
-        enable = true;
+        enable = false;
         enableFishIntegration = pkgs.stdenv.isDarwin;
       };
 
