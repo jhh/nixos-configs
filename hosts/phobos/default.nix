@@ -14,6 +14,8 @@
     smartd.enable = true;
     tailscale.enable = true;
     ups.enable = false;
+    networkTables.enable = true;
+
     zfs = {
       enable = true;
       enableTrim = false;

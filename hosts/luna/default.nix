@@ -20,10 +20,13 @@
     smartd.enable = true;
     tailscale.enable = true;
     ups.enable = true;
+    networkTables.enable = true;
+
     zfs = {
       enable = true;
       enableTrim = false;
     };
+
     zrepl = {
       enable = true;
       filesystems = {

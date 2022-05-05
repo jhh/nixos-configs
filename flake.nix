@@ -57,6 +57,7 @@
               home-manager.extraSpecialArgs = { inherit flakes; };
             })
             ./common
+            nt-server.nixosModules.default
           ] ++ extraModules;
         };
     in
@@ -86,14 +87,7 @@
       nixosConfigurations = {
         nixos-01 = mkSystem [ ./hosts/nixos-01 ];
         phobos = mkSystem [ ./hosts/phobos ];
-
-        luna = mkSystem [
-          ./hosts/luna
-          nt-server.nixosModules.default
-          ({ config, ... }: {
-            j3ff.networkTables.enable = true;
-          })
-        ];
+        luna = mkSystem [ ./hosts/luna ];
 
         vesta = mkSystem [
           ./hosts/vesta
