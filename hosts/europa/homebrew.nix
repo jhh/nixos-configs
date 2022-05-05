@@ -10,6 +10,7 @@
     # ];
 
     casks = [
+      "1password"
       "alfred"
       "carbon-copy-cloner"
       "dash"
@@ -22,7 +23,6 @@
     ];
 
     masApps = {
-      "1Password 7" = 1333542190;
       "Affinity Photo" = 824183456;
       "Infuse 7" = 1136220934;
       "Paprika Recipe Manager 3" = 1303222628;
