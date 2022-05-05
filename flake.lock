@@ -52,11 +52,11 @@
         "wpilib-src": "wpilib-src"
       },
       "locked": {
-        "lastModified": 1651715523,
-        "narHash": "sha256-2vFLh9lezeJdG5fJdjhTVhm1PnVJfkyp/gPAt6DQiPk=",
+        "lastModified": 1651776953,
+        "narHash": "sha256-v6be+QMfXGRIRuLU+fINXC8PA0Em8odi9KgU2dXcFok=",
         "owner": "strykeforce",
         "repo": "deadeye",
-        "rev": "63458d874c86ca1a8944e518c00b7eb7f6c3e9b1",
+        "rev": "c3f9cbd9ab2feda60bf425bd2c8fce5eab9e4b2a",
         "type": "github"
       },
       "original": {
@@ -256,11 +256,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1651558728,
-        "narHash": "sha256-8HzyRnWlgZluUrVFNOfZAOlA1fghpOSezXvxhalGMUo=",
+        "lastModified": 1651726670,
+        "narHash": "sha256-dSGdzB49SEvdOJvrQWfQYkAefewXraHIV08Vz6iDXWQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "cbe587c735b734405f56803e267820ee1559e6c1",
+        "rev": "c777cdf5c564015d5f63b09cc93bef4178b19b01",
         "type": "github"
       },
       "original": {
@@ -295,11 +295,11 @@
         "utils": "utils_4"
       },
       "locked": {
-        "lastModified": 1651774412,
-        "narHash": "sha256-Wp8OaugarZ5aSSvCkxWK5h0BB4dhd5aHyN3dqXNZI0k=",
+        "lastModified": 1651792684,
+        "narHash": "sha256-WvemtQYenAewdK/0sHw54M9jI7hEqppw2X0v3An+c6U=",
         "owner": "jhh",
         "repo": "nt-server-docker",
-        "rev": "aebbe0992a1104ec6c3ceaa084ba6944d0a6bf6b",
+        "rev": "bedbaa38d9bfc241132095e1db2cc16d1bfeceb5",
         "type": "github"
       },
       "original": {
