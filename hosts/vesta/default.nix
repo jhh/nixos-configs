@@ -13,6 +13,20 @@
     mdns.enable = true;
   };
 
+  deadeye = {
+    web.enable = true;
+    admin.enable = true;
+    daemon = {
+      enable = true;
+      unitId = "V";
+      pipeline0 = "deadeye::UprightRectPipeline";
+      pipeline1 = "deadeye::MinAreaRectPipeline";
+      pipeline2 = "deadeye::TargetListPipeline";
+      streamAddress = "${(builtins.head config.networking.interfaces.br0.ipv4.addresses).address}";
+    };
+    ntServerAddress = "192.168.1.7"; # luna
+  };
+
   # Use the GRUB 2 boot loader.
   boot = {
     loader.grub = {

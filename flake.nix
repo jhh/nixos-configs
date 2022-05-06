@@ -57,6 +57,7 @@
               home-manager.extraSpecialArgs = { inherit flakes; };
             })
             ./common
+            deadeye.nixosModules.default
             nt-server.nixosModules.default
           ] ++ extraModules;
         };
@@ -85,31 +86,11 @@
       };
 
       nixosConfigurations = {
-        nixos-01 = mkSystem [ ./hosts/nixos-01 ];
+        # nixos-01 = mkSystem [ ./hosts/nixos-01 ];
         phobos = mkSystem [ ./hosts/phobos ];
         luna = mkSystem [ ./hosts/luna ];
-        deadeye-h = mkSystem [ ./hosts/deadeye/deadeye-h.nix deadeye.nixosModules.default ];
-
-        vesta = mkSystem [
-          ./hosts/vesta
-          deadeye.nixosModules.default
-          ({ config, ... }: {
-            deadeye = {
-              web.enable = true;
-              admin.enable = true;
-              daemon = {
-                enable = true;
-                unitId = "V";
-                pipeline0 = "deadeye::UprightRectPipeline";
-                pipeline1 = "deadeye::MinAreaRectPipeline";
-                pipeline2 = "deadeye::TargetListPipeline";
-                streamAddress = "${(builtins.head config.networking.interfaces.br0.ipv4.addresses).address}";
-              };
-              ntServerAddress = "192.168.1.7"; # luna
-            };
-
-          })
-        ];
+        vesta = mkSystem [ ./hosts/vesta ];
+        deadeye-h = mkSystem [ ./hosts/deadeye/deadeye-h.nix ];
       };
 
 
@@ -125,16 +106,16 @@
           };
         };
 
-        nixos-01 = {
-          hostname = "192.168.1.228";
-          sshUser = "root";
-          fastConnection = true;
+        # nixos-01 = {
+        #   hostname = "192.168.1.228";
+        #   sshUser = "root";
+        #   fastConnection = true;
 
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixos-01;
-          };
-        };
+        #   profiles.system = {
+        #     user = "root";
+        #     path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixos-01;
+        #   };
+        # };
 
         phobos = {
           hostname = "100.64.244.48";
