@@ -88,6 +88,7 @@
         nixos-01 = mkSystem [ ./hosts/nixos-01 ];
         phobos = mkSystem [ ./hosts/phobos ];
         luna = mkSystem [ ./hosts/luna ];
+        deadeye-h = mkSystem [ ./hosts/deadeye/deadeye-h.nix ];
 
         vesta = mkSystem [
           ./hosts/vesta
@@ -154,6 +155,17 @@
           profiles.system = {
             user = "root";
             path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.vesta;
+          };
+        };
+
+        deadeye-h = {
+          hostname = "100.95.246.14";
+          sshUser = "root";
+          fastConnection = false;
+
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.deadeye-h;
           };
         };
       };
