@@ -88,7 +88,7 @@
         nixos-01 = mkSystem [ ./hosts/nixos-01 ];
         phobos = mkSystem [ ./hosts/phobos ];
         luna = mkSystem [ ./hosts/luna ];
-        deadeye-h = mkSystem [ ./hosts/deadeye/deadeye-h.nix ];
+        deadeye-h = mkSystem [ ./hosts/deadeye/deadeye-h.nix deadeye.nixosModules.default ];
 
         vesta = mkSystem [
           ./hosts/vesta
