@@ -85,6 +85,27 @@
         "type": "github"
       }
     },
+    "dyndns": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": "utils_3"
+      },
+      "locked": {
+        "lastModified": 1651843604,
+        "narHash": "sha256-ojW3OQEJt5XSr43f79vrROd+MtqwBulzjctQ1ke2Pyk=",
+        "owner": "jhh",
+        "repo": "dyndns",
+        "rev": "3a92bb7ecdfe2cb86abc08a151a15f41089535dd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jhh",
+        "repo": "dyndns",
+        "type": "github"
+      }
+    },
     "fish-colored-man": {
       "flake": false,
       "locked": {
@@ -171,7 +192,7 @@
     "mvn2nix": {
       "inputs": {
         "nixpkgs": "nixpkgs_5",
-        "utils": "utils_3"
+        "utils": "utils_4"
       },
       "locked": {
         "lastModified": 1629170129,
@@ -292,7 +313,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "utils": "utils_4"
+        "utils": "utils_5"
       },
       "locked": {
         "lastModified": 1651792684,
@@ -330,6 +351,7 @@
         "darwin": "darwin",
         "deadeye": "deadeye",
         "deploy-rs": "deploy-rs",
+        "dyndns": "dyndns",
         "fish-colored-man": "fish-colored-man",
         "fish-nix-env": "fish-nix-env",
         "home-manager": "home-manager",
@@ -402,6 +424,21 @@
     },
     "utils_3": {
       "locked": {
+        "lastModified": 1649676176,
+        "narHash": "sha256-OWKJratjt2RW151VUlJPRALb7OU2S5s+f0vLj4o1bHM=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "a4b154ebbdc88c8498a5c7b01589addc9e9cb678",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "utils_4": {
+      "locked": {
         "lastModified": 1623875721,
         "narHash": "sha256-A8BU7bjS5GirpAUv4QA+QnJ4CceLHkcXdRp4xITDB0s=",
         "owner": "numtide",
@@ -415,7 +452,7 @@
         "type": "github"
       }
     },
-    "utils_4": {
+    "utils_5": {
       "locked": {
         "lastModified": 1649676176,
         "narHash": "sha256-OWKJratjt2RW151VUlJPRALb7OU2S5s+f0vLj4o1bHM=",

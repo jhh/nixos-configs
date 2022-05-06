@@ -11,4 +11,5 @@ in
 {
   "common/modules/secrets/upsmon.conf.age".publicKeys = [ jeff luna ];
   "common/modules/secrets/sasl_passwd.age".publicKeys = [ jeff ] ++ hosts;
+  "common/modules/secrets/aws_secret.age".publicKeys = [ jeff vesta ];
 }

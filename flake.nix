@@ -35,9 +35,14 @@
       url = "github:jhh/nt-server-docker";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dyndns = {
+      url = "github:jhh/dyndns";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye, nt-server, ... } @ flakes:
+  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye, nt-server, dyndns, ... } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
@@ -59,6 +64,7 @@
             ./common
             deadeye.nixosModules.default
             nt-server.nixosModules.default
+            dyndns.nixosModules.default
           ] ++ extraModules;
         };
     in
@@ -89,7 +95,15 @@
         # nixos-01 = mkSystem [ ./hosts/nixos-01 ];
         phobos = mkSystem [ ./hosts/phobos ];
         luna = mkSystem [ ./hosts/luna ];
-        vesta = mkSystem [ ./hosts/vesta ];
+        vesta = mkSystem [
+          ./hosts/vesta
+          ({ config, ... }: {
+            age.secrets.sasl_passwd = {
+              file = ./common/modules/secrets/sasl_passwd.age;
+            };
+            j3ff.dyndns.enable = true;
+          })
+        ];
         deadeye-h = mkSystem [ ./hosts/deadeye/deadeye-h.nix ];
       };
 
