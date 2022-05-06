@@ -106,6 +106,7 @@
         ];
         deadeye-h = mkSystem [ ./hosts/deadeye/deadeye-h.nix ];
         deadeye-i = mkSystem [ ./hosts/deadeye/deadeye-i.nix ];
+        deadeye-j = mkSystem [ ./hosts/deadeye/deadeye-j.nix ];
       };
 
 
@@ -173,6 +174,17 @@
           profiles.system = {
             user = "root";
             path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.deadeye-i;
+          };
+        };
+
+        deadeye-j = {
+          hostname = "100.99.227.108";
+          sshUser = "root";
+          fastConnection = false;
+
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.deadeye-j;
           };
         };
       };
