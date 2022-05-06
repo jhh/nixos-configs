@@ -98,8 +98,8 @@
         vesta = mkSystem [
           ./hosts/vesta
           ({ config, ... }: {
-            age.secrets.sasl_passwd = {
-              file = ./common/modules/secrets/sasl_passwd.age;
+            age.secrets.aws_secret = {
+              file = ./common/modules/secrets/aws_secret.age;
             };
             j3ff.dyndns.enable = true;
           })
