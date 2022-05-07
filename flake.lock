@@ -93,11 +93,11 @@
         "utils": "utils_3"
       },
       "locked": {
-        "lastModified": 1651846755,
-        "narHash": "sha256-zGNz+XmBfJ4ZBnhIuYeX+nVkJaOHpLFYN1ELkCx71cs=",
+        "lastModified": 1651847347,
+        "narHash": "sha256-c29SqrxrxUI5JxEuOQvMfIeqg8jBOUmUHpqC/4ujLpU=",
         "owner": "jhh",
         "repo": "dyndns",
-        "rev": "e4a44c8a58cefa61f750d7705548fb98f81457b4",
+        "rev": "39ef8290fe8c34f2e247c1791e5ba67b73be062c",
         "type": "github"
       },
       "original": {
@@ -176,11 +176,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1651800560,
-        "narHash": "sha256-LUfR0/Fv8DA0uu8Uex2S1QcLiE4B5ylplbXmMs6/YoM=",
+        "lastModified": 1651886851,
+        "narHash": "sha256-kbXOJSf1uho0/7P54nZkJdJY3oAelIjyc6tfiRhaXJI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "538343be863cb0b9e9f1471e6dc09e0e140c7b3d",
+        "rev": "882bd8118bdbff3a6e53e5ced393932b351ce2f6",
         "type": "github"
       },
       "original": {
@@ -316,11 +316,11 @@
         "utils": "utils_5"
       },
       "locked": {
-        "lastModified": 1651792684,
-        "narHash": "sha256-WvemtQYenAewdK/0sHw54M9jI7hEqppw2X0v3An+c6U=",
+        "lastModified": 1651888178,
+        "narHash": "sha256-t1QuJYPmL3JIIH39QvDBAyN0rf+volHjh/uZB3rq4O0=",
         "owner": "jhh",
         "repo": "nt-server-docker",
-        "rev": "bedbaa38d9bfc241132095e1db2cc16d1bfeceb5",
+        "rev": "b634fe7bb57a343b23401c1f7691f12e364978cb",
         "type": "github"
       },
       "original": {
