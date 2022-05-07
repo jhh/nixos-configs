@@ -93,11 +93,11 @@
         "utils": "utils_3"
       },
       "locked": {
-        "lastModified": 1651847347,
-        "narHash": "sha256-c29SqrxrxUI5JxEuOQvMfIeqg8jBOUmUHpqC/4ujLpU=",
+        "lastModified": 1651966533,
+        "narHash": "sha256-NaFYK9kC87CeGeVgmFhs72jaL0KtnetBIFKy0u+rLao=",
         "owner": "jhh",
         "repo": "dyndns",
-        "rev": "39ef8290fe8c34f2e247c1791e5ba67b73be062c",
+        "rev": "2f619209b61f8db65734f7cfec2a1ddb3881809c",
         "type": "github"
       },
       "original": {
