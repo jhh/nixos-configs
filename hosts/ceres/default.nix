@@ -1,9 +1,8 @@
-{ config, pkgs, flakes, ... }:
+{ config, pkgs, ... }:
 {
   imports =
     [
       ./hardware-configuration.nix
-      flakes.nixos-hardware.nixosModules.common-cpu-intel
     ];
 
   j3ff = {
