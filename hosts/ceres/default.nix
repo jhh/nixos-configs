@@ -27,18 +27,13 @@
 
   boot = {
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    kernel.sysctl = {
-      "net.bridge.bridge-nf-call-ip6tables" = 0;
-      "net.bridge.bridge-nf-call-iptables" = 0;
-      "net.bridge.bridge-nf-call-arptables" = 0;
-      "net.bridge.bridge-nf-filter-vlan-tagged" = 0;
-    };
 
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = [ "zfs" ];
+    zfs.devNodes = "/dev/";
   };
 
   networking =
@@ -59,59 +54,42 @@
       };
       defaultGateway = "192.168.1.1";
       nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
-      hostId = "96a5b0e0";
+      hostId = "88c43f5a";
       firewall.enable = false;
+      wireless.enable = false;
     };
-
-  fileSystems."/mnt" =
-    {
-      device = "tank";
-      fsType = "zfs";
-    };
-
-  environment.systemPackages = with pkgs; [
-    firefox
-    killall
-    xclip
-  ];
 
   services.xserver = {
     enable = true;
-    xkbOptions = "ctrl:swapcaps";
-
-    videoDrivers = [ "intel" ];
-    useGlamor = true;
-
     desktopManager = {
       xterm.enable = false;
+      xfce.enable = true;
     };
-
-    displayManager = {
-      defaultSession = "none+i3";
-    };
-
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu #application launcher most people use
-        i3status # gives you the default i3 status bar
-        i3lock #default i3 screen locker
-        i3blocks #if you are planning on using i3blocks over i3status
-      ];
-    };
+    displayManager.defaultSession = "xfce";
   };
 
-  fonts = {
-    fontDir.enable = true;
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
 
-    fonts = [
-      (builtins.path {
-        name = "custom-fonts";
-        path = ../../secret/fonts;
-        recursive = true;
-      })
-    ];
-  };
+  # fileSystems."/mnt" =
+  #   {
+  #     device = "tank";
+  #     fsType = "zfs";
+  #   };
+
+
+
+  # fonts = {
+  #   fontDir.enable = true;
+
+  #   fonts = [
+  #     (builtins.path {
+  #       name = "custom-fonts";
+  #       path = ../../secret/fonts;
+  #       recursive = true;
+  #     })
+  #   ];
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -8,89 +8,55 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "rpool/safe/root";
+    { device = "rpool/nixos";
       fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/nix" =
-    { device = "rpool/local/nix";
+    { device = "rpool/nixos/nix";
       fsType = "zfs";
-    };
-
-  fileSystems."/root" =
-    { device = "rpool/safe/home/root";
-      fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/home" =
     { device = "rpool/safe/home";
       fsType = "zfs";
+      options = [ "zfsutil" ];
+    };
+
+  fileSystems."/root" =
+    { device = "rpool/safe/home/root";
+      fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/home/jeff" =
     { device = "rpool/safe/home/jeff";
       fsType = "zfs";
+      options = [ "zfsutil" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/E220-DC9F";
+    { device = "/dev/disk/by-id/nvme-CT1000P5SSD8_21112D9DA1D1-part3";
       fsType = "vfat";
+      options = [ "X-mount.mkdir" ];
     };
 
-  fileSystems."/mnt/tank" =
-    { device = "tank";
-      fsType = "zfs";
-    };
-
-  fileSystems."/mnt/tank/backup" =
-    { device = "tank/backup";
-      fsType = "zfs";
-    };
-
-  fileSystems."/mnt/tank/backup/eris" =
-    { device = "tank/backup/eris";
-      fsType = "zfs";
-    };
-
-  fileSystems."/mnt/tank/backup/europa" =
-    { device = "tank/backup/europa";
-      fsType = "zfs";
-    };
-
-  fileSystems."/mnt/tank/backup/stuff" =
-    { device = "tank/backup/stuff";
-      fsType = "zfs";
-    };
-
-  fileSystems."/mnt/tank/media" =
-    { device = "tank/media";
-      fsType = "zfs";
-    };
-
-  fileSystems."/mnt/tank/media/movies" =
-    { device = "tank/media/movies";
-      fsType = "zfs";
-    };
-
-  fileSystems."/mnt/tank/media/music" =
-    { device = "tank/media/music";
-      fsType = "zfs";
-    };
-
-  fileSystems."/mnt/tank/media/tv" =
-    { device = "tank/media/tv";
-      fsType = "zfs";
-    };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/c3376a28-5e25-45f8-9935-3c017bc1cf5b"; }
-    ];
+  swapDevices = [
+    { device = "/dev/disk/by-id/nvme-CT1000P5SSD8_21112D9DA1D1-part2";
+      randomEncryption = true;
+    }
+  ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  # high-resolution display
+  hardware.video.hidpi.enable = lib.mkDefault true;
 }
