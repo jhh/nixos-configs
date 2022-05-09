@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  config = lib.mkIf config.j3ff.gui {
+  config = lib.mkIf config.j3ff.gui.enable {
     programs.alacritty = {
       enable = true;
 

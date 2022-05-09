@@ -1,3 +1,4 @@
+systemConfig:
 { config, lib, pkgs, ... }:
 let
 
@@ -39,14 +40,9 @@ rec {
   imports = [
     ./fish
     ./git.nix
-    ./gui
     ./nvim
     # ./starship.nix
-  ];
-
-  options = {
-    j3ff.gui = lib.mkEnableOption "GUI programs";
-  };
+  ] ++ lib.optional systemConfig.j3ff.gui.enable ./gui;
 
   config = {
     home = {

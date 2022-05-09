@@ -10,6 +10,7 @@
   ];
 
   j3ff = {
+    gui.enable = true;
     mail.enable = true;
     prometheus.enable = true;
     smartd.enable = true;
