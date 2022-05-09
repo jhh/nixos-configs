@@ -5,6 +5,10 @@
       ./hardware-configuration.nix
     ];
 
+  environment.systemPackages = with pkgs; [
+    firefox
+  ];
+
   j3ff = {
     mail.enable = true;
     prometheus.enable = true;
