@@ -29,6 +29,8 @@
     video.hidpi.enable = true;
   };
 
+  services.thermald.enable = true;
+
   boot = {
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
