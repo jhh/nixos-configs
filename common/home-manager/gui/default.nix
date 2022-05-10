@@ -54,7 +54,10 @@
     };
   };
 
-  services.gnome-keyring.enable = true;
+  services.gnome-keyring = {
+    enable = true;
+    components = [ "secrets" ];
+  };
 
   # programs.i3status = {
   #   enable = true;
@@ -76,9 +79,9 @@
   # xresources.extraConfig = builtins.readFile ./Xresources;
 
   # Make cursor not tiny on HiDPI screens
-  # xsession.pointerCursor = {
-  #   name = "Vanilla-DMZ";
-  #   package = pkgs.vanilla-dmz;
-  #   size = 128;
-  # };
+  xsession.pointerCursor = {
+    name = "Vanilla-DMZ";
+    package = pkgs.vanilla-dmz;
+    size = 128;
+  };
 }

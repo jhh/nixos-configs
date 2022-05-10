@@ -72,6 +72,8 @@
     displayManager.defaultSession = "xfce";
   };
 
+  services.gnome.gnome-keyring.enable = true;
+
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
