@@ -54,7 +54,7 @@
     };
   };
 
-
+  services.gnome-keyring.enable = true;
 
   # programs.i3status = {
   #   enable = true;
