@@ -43,67 +43,65 @@ rec {
     # ./starship.nix
   ];
 
-  config = {
-    home = {
-      username = "jeff";
-      homeDirectory = if pkgs.stdenv.isDarwin then "/Users/jeff" else "/home/jeff";
+  home = {
+    username = "jeff";
+    homeDirectory = if pkgs.stdenv.isDarwin then "/Users/jeff" else "/home/jeff";
 
-      sessionVariables = {
-        LANG = "en_US.UTF-8";
-        LC_CTYPE = "en_US.UTF-8";
-        LC_ALL = "en_US.UTF-8";
-        EDITOR = "vim";
-        MANWIDTH = 88;
-      };
-
-      sessionPath = lib.optional pkgs.stdenv.isDarwin "$HOME/.local/bin/";
-
-      packages = defaultPackages ++ gitPkgs;
+    sessionVariables = {
+      LANG = "en_US.UTF-8";
+      LC_CTYPE = "en_US.UTF-8";
+      LC_ALL = "en_US.UTF-8";
+      EDITOR = "vim";
+      MANWIDTH = 88;
     };
 
-    programs = {
-      home-manager.enable = true;
+    sessionPath = lib.optional pkgs.stdenv.isDarwin "$HOME/.local/bin/";
 
-      bat.enable = true;
+    packages = defaultPackages ++ gitPkgs;
+  };
 
-      direnv = {
+  programs = {
+    home-manager.enable = true;
+
+    bat.enable = true;
+
+    direnv = {
+      enable = true;
+      nix-direnv = {
         enable = true;
-        nix-direnv = {
-          enable = true;
-        };
       };
-
-      exa = {
-        enable = true;
-        enableAliases = true;
-      };
-
-      gpg = {
-        enable = true;
-        settings = {
-          keyserver = "hkps://keys.openpgp.org";
-        };
-      };
-
-      man = lib.mkIf pkgs.stdenv.isDarwin {
-        enable = true;
-        generateCaches = true;
-      };
-
-      nix-index = {
-        enable = pkgs.stdenv.isLinux;
-        enableFishIntegration = pkgs.stdenv.isDarwin;
-      };
-
-      zoxide = {
-        enable = true;
-        enableFishIntegration = true;
-      };
-
     };
 
-    services = lib.mkIf pkgs.stdenv.isLinux {
-      lorri.enable = true;
+    exa = {
+      enable = true;
+      enableAliases = true;
     };
+
+    gpg = {
+      enable = true;
+      settings = {
+        keyserver = "hkps://keys.openpgp.org";
+      };
+    };
+
+    man = lib.mkIf pkgs.stdenv.isDarwin {
+      enable = true;
+      generateCaches = true;
+    };
+
+    nix-index = {
+      enable = pkgs.stdenv.isLinux;
+      enableFishIntegration = pkgs.stdenv.isDarwin;
+    };
+
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+  };
+
+  services = lib.mkIf pkgs.stdenv.isLinux {
+    lorri.enable = true;
   };
 }
