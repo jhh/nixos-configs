@@ -1,4 +1,3 @@
-systemConfig:
 { config, lib, pkgs, ... }:
 let
 
@@ -42,7 +41,7 @@ rec {
     ./git.nix
     ./nvim
     # ./starship.nix
-  ] ++ lib.optional systemConfig.j3ff.gui.enable ./gui;
+  ];
 
   config = {
     home = {
