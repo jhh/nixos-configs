@@ -21,6 +21,8 @@
     device = "/dev/sda";
   };
 
+  zramSwap.enable = true;
+
   networking = {
     hostName = "eris";
     useNetworkd = true;

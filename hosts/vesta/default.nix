@@ -36,6 +36,11 @@
     };
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = 524288;
+      # https://haydenjames.io/linux-performance-almost-always-add-swap-part2-zram/
+      "vm.vfs_cache_pressure" = 500;
+      "vm.swappiness" = 100;
+      "vm.dirty_background_ratio" = 1;
+      "vm.dirty_ratio" = 50;
     };
   };
 
