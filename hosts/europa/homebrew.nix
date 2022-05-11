@@ -19,6 +19,7 @@
       "jetbrains-toolbox"
       "kaleidoscope"
       "spotify"
+      "tableplus"
       "visual-studio-code"
     ];
 
