@@ -5,8 +5,9 @@ let
   luna = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJUJb6IP7qsp/FPbtVKl1CbX2lOYQDjDcgV0c5qAJv9W";
   phobos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEldSjroPbKUueasCQuy88nE9X9Wt1a4lSbd3XSzvps";
   ceres = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIagSXjSePjzj3d3GdUlH8Xe50CQbBNXLiazCCgIH6mI";
+  eris = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEv0m+EZsTedPMjzq+a/9rl2c3iAdOKwnFQfGLFHb4y4";
 
-  hosts = [ vesta luna phobos ceres ];
+  hosts = [ vesta luna phobos ceres eris ];
 
 in
 {
