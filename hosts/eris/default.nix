@@ -3,6 +3,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./postgresql.nix
       # ./grafana.nix
       # ./prometheus.nix
     ];
