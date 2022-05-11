@@ -1,4 +1,15 @@
 { config, pkgs, ... }: {
-  services.postgresql.enable = true;
-  services.postgresql.package = pkgs.postgresql_14;
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_14;
+
+    ensureUsers = [
+      {
+        name = "jeff";
+        ensurePermissions = {
+          "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
+        };
+      }
+    ];
+  };
 }
