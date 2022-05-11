@@ -14,5 +14,5 @@
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel jeff@j3ff.io" ];
   };
 
-  home-manager.users.jeff = import ../home-manager;
+  home-manager.users.jeff.imports = [ ../home-manager ];
 }
