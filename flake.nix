@@ -114,16 +114,16 @@
 
 
       deploy.nodes = {
-        ceres = {
-          hostname = "192.168.1.9";
-          sshUser = "root";
-          fastConnection = true;
+        # ceres = {
+        #   hostname = "192.168.1.9";
+        #   sshUser = "root";
+        #   fastConnection = true;
 
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ceres;
-          };
-        };
+        #   profiles.system = {
+        #     user = "root";
+        #     path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ceres;
+        #   };
+        # };
 
         eris = {
           hostname = "192.168.1.46";
