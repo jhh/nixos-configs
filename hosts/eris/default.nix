@@ -2,45 +2,29 @@
 {
   imports =
     [
-      flakes.nixos-hardware.nixosModules.common-cpu-intel
       ./hardware-configuration.nix
-      ./grafana.nix
-      ./prometheus.nix
+      # ./grafana.nix
+      # ./prometheus.nix
     ];
 
   j3ff = {
     mail.enable = true;
     mdns.enable = true;
     prometheus.enable = true;
-    smartd.enable = true;
     tailscale.enable = true;
-    ups.enable = true;
-    zfs = {
-      enable = true;
-      enableTrim = true;
-    };
-    zrepl.enable = true;
   };
 
-
-  hardware.cpu.intel.updateMicrocode = true;
-  services.thermald.enable = true;
-  virtualisation.docker.enable = true;
-
-  boot = {
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-    supportedFilesystems = [ "zfs" ];
+  boot.loader.grub = {
+    enable = true;
+    version = 2;
+    device = "/dev/sda";
   };
 
   networking = {
     hostName = "eris";
     useNetworkd = true;
     useDHCP = false;
-    interfaces.eno1 = {
+    interfaces.ens18 = {
       useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.1.46";
@@ -51,16 +35,6 @@
     nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
     hostId = "1d6f98a2";
     firewall.enable = false;
-  };
-
-  fileSystems."/root" = {
-    device = "rpool/safe/home/root";
-    fsType = "zfs";
-  };
-
-  fileSystems."/home/jeff" = {
-    device = "rpool/safe/home/jeff";
-    fsType = "zfs";
   };
 
   # This value determines the NixOS release from which the default

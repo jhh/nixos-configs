@@ -96,6 +96,7 @@
         phobos = mkSystem [ ./hosts/phobos ];
         luna = mkSystem [ ./hosts/luna ];
         ceres = mkSystem [ ./hosts/ceres ];
+        eris = mkSystem [ ./hosts/eris ];
         vesta = mkSystem [
           ./hosts/vesta
           ({ config, ... }: {
@@ -121,6 +122,17 @@
           profiles.system = {
             user = "root";
             path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ceres;
+          };
+        };
+
+        eris = {
+          hostname = "192.168.1.46";
+          sshUser = "root";
+          fastConnection = true;
+
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.eris;
           };
         };
 
