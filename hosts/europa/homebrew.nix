@@ -20,6 +20,7 @@
       "kaleidoscope"
       "spotify"
       "tableplus"
+      "thetimemachinemechanic"
       "visual-studio-code"
     ];
 
