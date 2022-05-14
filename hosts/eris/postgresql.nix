@@ -4,13 +4,19 @@
     package = pkgs.postgresql_14;
     enableTCPIP = true;
 
-    ensureDatabases = [ "jeff" ];
+    ensureDatabases = [ "jeff" "puka" ];
 
     ensureUsers = [
       {
         name = "jeff";
         ensurePermissions = {
           "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
+        };
+      }
+      {
+        name = "puka";
+        ensurePermissions = {
+          "DATABASE puka" = "ALL PRIVILEGES";
         };
       }
     ];
