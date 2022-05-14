@@ -25,6 +25,9 @@
 
       echo backing up /mnt/tank/media/plex
       ${pkgs.rsync}/bin/rsync -av --delete /mnt/tank/media/plex/ sshd@deimos:/mnt/HD/HD_a2/daily/plex
+
+      echo backing up /mnt/tank/backup/postgres
+      ${pkgs.rsync}/bin/rsync -av --delete /mnt/tank/backup/postgres/ sshd@deimos:/mnt/HD/HD_a2/daily/postgres
     '';
   };
 
