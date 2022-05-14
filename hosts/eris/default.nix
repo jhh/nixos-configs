@@ -4,6 +4,7 @@
     [
       ./hardware-configuration.nix
       ./postgresql.nix
+      ./nginx.nix
       # ./grafana.nix
       # ./prometheus.nix
     ];
