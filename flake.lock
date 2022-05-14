@@ -307,22 +307,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
-      "locked": {
-        "lastModified": 1652231724,
-        "narHash": "sha256-MjalcXFZgcgchp4QqnF05JTkFBBGad5hbksA1EKoP98=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "41ff747f882914c1f8c233207ce280ac9d0c867f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nt-server": {
       "inputs": {
         "mvn2nix": "mvn2nix",
@@ -347,20 +331,21 @@
     },
     "puka": {
       "inputs": {
-        "nixpkgs": "nixpkgs_6",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "utils": "utils_6"
       },
       "locked": {
-        "lastModified": 1652538170,
+        "lastModified": 1652539666,
         "narHash": "sha256-kD530uKD+8NRUYZMTKBU5ho/H+FFnvsVsrIlJ0E84xw=",
         "owner": "jhh",
         "repo": "puka",
-        "rev": "ace084149e5768e5508c204bc06c792ebe37db1d",
+        "rev": "f51e6649d8784ade9da61bc08b06ac22a6782f83",
         "type": "github"
       },
       "original": {
         "owner": "jhh",
-        "ref": "nixify",
         "repo": "puka",
         "type": "github"
       }

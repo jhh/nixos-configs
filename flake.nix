@@ -42,7 +42,8 @@
     };
 
     puka = {
-      url = "github:jhh/puka/nixify";
+      url = "github:jhh/puka";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
