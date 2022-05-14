@@ -40,9 +40,13 @@
       url = "github:jhh/dyndns";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    puka = {
+      url = "github:jhh/puka/nixify";
+    };
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye, nt-server, dyndns, ... } @ flakes:
+  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye, nt-server, dyndns, puka, ... } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
@@ -65,6 +69,7 @@
             deadeye.nixosModules.default
             nt-server.nixosModules.default
             dyndns.nixosModules.default
+            puka.nixosModules.default
           ] ++ extraModules;
         };
     in
@@ -96,7 +101,17 @@
         phobos = mkSystem [ ./hosts/phobos ];
         luna = mkSystem [ ./hosts/luna ];
         ceres = mkSystem [ ./hosts/ceres ];
-        eris = mkSystem [ ./hosts/eris ];
+
+        eris = mkSystem [
+          ./hosts/eris
+          ({ config, ... }: {
+            age.secrets.puka_secrets = {
+              file = ./common/modules/secrets/puka_secrets.age;
+            };
+            j3ff.puka.enable = true;
+          })
+        ];
+
         vesta = mkSystem [
           ./hosts/vesta
           ({ config, ... }: {
