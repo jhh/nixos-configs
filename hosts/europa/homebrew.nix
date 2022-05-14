@@ -19,6 +19,7 @@
       "jetbrains-toolbox"
       "kaleidoscope"
       "omnigraffle"
+      "postico"
       "spotify"
       "tableplus"
       "thetimemachinemechanic"
