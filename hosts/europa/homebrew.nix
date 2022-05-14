@@ -26,6 +26,7 @@
 
     masApps = {
       "Affinity Photo" = 824183456;
+      "Affinity Designer" = 824171161;
       "Infuse 7" = 1136220934;
       "Paprika Recipe Manager 3" = 1303222628;
       "Pcalc" = 403504866;
