@@ -18,6 +18,7 @@
       "iterm2"
       "jetbrains-toolbox"
       "kaleidoscope"
+      "omnigraffle"
       "spotify"
       "tableplus"
       "thetimemachinemechanic"
