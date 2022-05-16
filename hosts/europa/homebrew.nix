@@ -19,6 +19,7 @@
       "jetbrains-toolbox"
       "kaleidoscope"
       "omnigraffle"
+      "postgres-unofficial"
       "postico"
       "spotify"
       "tableplus"
