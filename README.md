@@ -20,3 +20,7 @@ $ sudo nixos-rebuild switch --flake .
 $ ln -s flake.nix ~/.config/nixpkgs
 $ home-manager switch
 ```
+
+### Sudo with Touch ID authentication
+
+Edit `/etc/pam.d/sudo` and add `auth sufficient pam_tid.so` to top of file.
