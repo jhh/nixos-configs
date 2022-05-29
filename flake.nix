@@ -4,7 +4,7 @@
   inputs = {
     agenix.url = "github:ryantm/agenix";
     deploy-rs.url = "github:serokell/deploy-rs";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
