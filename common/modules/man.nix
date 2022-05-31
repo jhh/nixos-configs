@@ -9,13 +9,14 @@
     };
   };
 
-  config = lib.mkIf config.j3ff.man.enable {
-    documentation = {
-      man = {
-        enable = true;
-        generateCaches = true;
+  config = let cfg = config.j3ff.man; in
+    lib.mkIf cfg.enable {
+      documentation = {
+        man = {
+          enable = true;
+          generateCaches = true;
+        };
+        dev.enable = true;
       };
-      dev.enable = true;
     };
-  };
 }
