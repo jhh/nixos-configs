@@ -6,17 +6,6 @@
     enable = true;
     recommendedProxySettings = true;
     recommendedOptimisation = true;
-
-    # virtualHosts."puka.j3ff.io" = {
-    #   forceSSL = true;
-    #   useACMEHost = "puka.j3ff.io";
-
-    #   locations = {
-    #     "/" = {
-    #       proxyPass = "http://127.0.0.1:8000";
-    #     };
-    #   };
-    # };
   };
 
   age.secrets.route53_secrets = {
@@ -25,10 +14,13 @@
 
   security.acme = {
     acceptTerms = true;
-    defaults.email = "jeff@j3ff.io";
-    certs."puka.j3ff.io" = {
+    defaults = {
+      email = "jeff@j3ff.io";
       dnsProvider = "route53";
       credentialsFile = "/run/agenix/route53_secrets";
+    };
+    certs."puka.j3ff.io" = {
+      inheritDefaults = true;
     };
   };
 
