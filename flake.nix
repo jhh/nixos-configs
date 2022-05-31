@@ -42,17 +42,12 @@
     };
 
     puka = {
-      url = "github:jhh/puka";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    puka-next = {
       url = "github:jhh/puka/puka-next";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye, nt-server, dyndns, puka, puka-next, ... } @ flakes:
+  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye, nt-server, dyndns, puka, ... } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
@@ -75,7 +70,7 @@
             deadeye.nixosModules.default
             nt-server.nixosModules.default
             dyndns.nixosModules.default
-            # puka.nixosModules.default
+            puka.nixosModules.default
           ] ++ extraModules;
         };
     in
@@ -120,17 +115,11 @@
 
         vesta = mkSystem [
           ./hosts/vesta
-          puka-next.nixosModules.default
           ({ config, ... }: {
             age.secrets.aws_secret = {
               file = ./common/modules/secrets/aws_secret.age;
             };
             j3ff.dyndns.enable = true;
-
-            age.secrets.puka_secrets = {
-              file = ./common/modules/secrets/puka_secrets.age;
-            };
-            j3ff.puka.enable = true;
           })
         ];
         deadeye-h = mkSystem [ ./hosts/deadeye/deadeye-h.nix ];
