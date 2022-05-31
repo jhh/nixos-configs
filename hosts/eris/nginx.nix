@@ -5,6 +5,7 @@
   services.nginx = {
     enable = true;
     recommendedProxySettings = true;
+    recommendedOptimisation = true;
 
     # virtualHosts."puka.j3ff.io" = {
     #   forceSSL = true;
