@@ -3,7 +3,7 @@
   options = {
     j3ff.man.enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
       example = false;
       description = "enable manual pages";
     };

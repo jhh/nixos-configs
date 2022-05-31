@@ -10,6 +10,7 @@
   j3ff = {
     mail.enable = true;
     tailscale.enable = true;
+    man.enable = true;
     mdns.enable = true;
   };
 
