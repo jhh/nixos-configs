@@ -19,9 +19,6 @@
       dnsProvider = "route53";
       credentialsFile = "/run/agenix/route53_secrets";
     };
-    certs."puka.j3ff.io" = {
-      inheritDefaults = true;
-    };
   };
 
 }
