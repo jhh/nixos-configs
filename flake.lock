@@ -388,11 +388,11 @@
         "utils": "utils_6"
       },
       "locked": {
-        "lastModified": 1654009162,
-        "narHash": "sha256-NElDFG2EjZrtO5IswQA1RdFAQMBgi9qmBag/QCrYPIE=",
+        "lastModified": 1654010818,
+        "narHash": "sha256-odQhYZteck6NcoL6+3djLZMjPwWxwOxplOppeFXv6G8=",
         "owner": "jhh",
         "repo": "puka",
-        "rev": "e5fc1ccb3385c9dac74b94811aaf7819e79f56bb",
+        "rev": "b0a6d5473ff7b677f35008880cf4a3bd2b5352ec",
         "type": "github"
       },
       "original": {
