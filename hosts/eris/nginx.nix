@@ -6,16 +6,16 @@
     enable = true;
     recommendedProxySettings = true;
 
-    virtualHosts."puka.j3ff.io" = {
-      forceSSL = true;
-      useACMEHost = "puka.j3ff.io";
+    # virtualHosts."puka.j3ff.io" = {
+    #   forceSSL = true;
+    #   useACMEHost = "puka.j3ff.io";
 
-      locations = {
-        "/" = {
-          proxyPass = "http://127.0.0.1:8000";
-        };
-      };
-    };
+    #   locations = {
+    #     "/" = {
+    #       proxyPass = "http://127.0.0.1:8000";
+    #     };
+    #   };
+    # };
   };
 
   age.secrets.route53_secrets = {
