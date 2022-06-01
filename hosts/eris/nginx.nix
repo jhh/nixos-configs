@@ -6,6 +6,7 @@
     enable = true;
     recommendedProxySettings = true;
     recommendedOptimisation = true;
+    recommendedGzipSettings = true;
   };
 
   age.secrets.route53_secrets = {
