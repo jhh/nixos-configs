@@ -15,7 +15,7 @@
       workgroup = WORKGROUP
       server string = Luna
       netbios name = LUNA
-      security = user 
+      security = user
       min protocol = SMB2
       ea support = yes
 
@@ -24,9 +24,9 @@
       fruit:metadata = stream
       fruit:model = MacSamba
       fruit:veto_appledouble = no
-      fruit:posix_rename = yes 
+      fruit:posix_rename = yes
       fruit:zero_file_id = yes
-      fruit:wipe_intentionally_left_blank_rfork = yes 
+      fruit:wipe_intentionally_left_blank_rfork = yes
       fruit:delete_empty_adfiles = yes
 
       use sendfile = yes
@@ -37,7 +37,7 @@
 
       load printers = no
       printing = bsd
-      printcap name = /dev/null  
+      printcap name = /dev/null
       disable spoolss = yes
     '';
 
@@ -49,14 +49,15 @@
         writeable = "yes";
       };
 
-      tm_europa = {
-        path = "/mnt/tank/backup/tm/europa";
+      ganymede = {
+        path = "/mnt/tank/backup/tm/ganymede";
         "valid users" = "jeff";
         browsable = "no";
         public = "no";
         writeable = "yes";
         "fruit:time machine" = "yes";
       };
+
 
       tm_callisto = {
         path = "/mnt/tank/backup/tm/callisto";
