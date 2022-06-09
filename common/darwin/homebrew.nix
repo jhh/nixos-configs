@@ -3,7 +3,7 @@
 {
   homebrew = {
     enable = true;
-    brewPrefix = "/opt/homebrew/bin";
+    brewPrefix = pkgs.lib.mkIf (config.system == "aarch64-darwin") "/opt/homebrew/bin";
     cleanup = "zap";
 
     # brews = [
