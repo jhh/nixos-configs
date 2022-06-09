@@ -40,7 +40,6 @@ rec {
     ./fish
     ./git.nix
     ./nvim
-    # ./starship.nix
   ];
 
   home = {
