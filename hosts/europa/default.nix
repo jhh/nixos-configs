@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ../../common/homebrew.nix
+      ../../common/darwin
     ];
 
   # List packages installed in system profile. To search by name, run:
