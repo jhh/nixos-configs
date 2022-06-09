@@ -3,6 +3,7 @@
 {
   homebrew = {
     enable = true;
+    brewPrefix = "/opt/homebrew/bin";
     cleanup = "zap";
 
     # brews = [

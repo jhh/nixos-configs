@@ -98,11 +98,12 @@
       };
 
       darwinConfigurations."Ganymede" = darwin.lib.darwinSystem {
-        system = "x86_64-darwin";
+        system = "aarch64-darwin";
         modules = [
-          ./hosts/europa
+          ./hosts/ganymede
           home-manager.darwinModules.home-manager
           ({ config, ... }: {
+            nixpkgs.config.allowBroken = true;
             home-manager.useGlobalPkgs = true;
             home-manager.extraSpecialArgs = { inherit flakes; };
             home-manager.users.jeff = {
