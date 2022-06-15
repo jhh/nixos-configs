@@ -57,6 +57,7 @@ rec {
     sessionPath = lib.optional pkgs.stdenv.isDarwin "$HOME/.local/bin/";
 
     packages = defaultPackages ++ gitPkgs;
+    stateVersion = "22.05";
   };
 
   programs = {
