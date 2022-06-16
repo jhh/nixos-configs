@@ -6,9 +6,9 @@
     brewPrefix = pkgs.lib.mkIf (config.system == "aarch64-darwin") "/opt/homebrew/bin";
     cleanup = "zap";
 
-    # brews = [
-    #   "terminal-notifier"
-    # ];
+    brews = [
+      "php"
+    ];
 
     casks = [
       "1password"
