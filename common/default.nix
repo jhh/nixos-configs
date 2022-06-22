@@ -32,7 +32,10 @@
 
     programs.fish.enable = true;
 
-    services.openssh.enable = true;
+    services.openssh = {
+      enable = true;
+      passwordAuthentication = false;
+    };
 
     services.resolved = {
       enable = true;
