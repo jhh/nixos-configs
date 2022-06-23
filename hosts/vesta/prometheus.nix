@@ -84,6 +84,8 @@
            - alert: InstanceDown
              expr: up == 0
              for: 1m
+           - alert: ServiceFail
+             expr: node_systemd_units{state="failed"} > 0
       ''
     ];
 
