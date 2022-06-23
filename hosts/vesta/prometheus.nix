@@ -55,7 +55,7 @@
           {
             targets = [
               # "ceres:9811"
-              "eris:9811"
+              # "eris:9811"
               "luna:9811"
               "phobos:9811"
             ];
