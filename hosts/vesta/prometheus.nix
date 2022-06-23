@@ -7,7 +7,7 @@
   services.prometheus = {
     enable = true;
     port = 9001;
-    webExternalUrl = "http://vesta.lan.j3ff.io:9001";
+    webExternalUrl = "http://vesta.lan.j3ff.io:${toString config.services.prometheus.port}";
 
     scrapeConfigs = [
       {
@@ -90,14 +90,22 @@
           smtp_from = "alertmanager@j3ff.io";
         };
         route = {
-          receiver = "default";
+          receiver = "pushover";
         };
         receivers = [
           {
-            name = "default";
+            name = "email";
             email_configs = [{
               to = "jeff@j3ff.io";
               require_tls = false;
+            }];
+          }
+
+          {
+            name = "pushover";
+            pushover_configs = [{
+              user_key = "ugdx1vs5quycvqg3stin54ps5jqm3i";
+              token = "ag9wqe95khtkxz1t7rjxvhtxdmfmpv";
             }];
           }
         ];
