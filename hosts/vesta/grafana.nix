@@ -9,6 +9,7 @@
 
   services.nginx = {
     enable = true;
+    recommendedProxySettings = true;
 
     virtualHosts.${config.services.grafana.domain} = {
       locations."/" = {

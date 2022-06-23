@@ -5,8 +5,6 @@
       ./hardware-configuration.nix
       ./postgresql.nix
       ./nginx.nix
-      # ./grafana.nix
-      # ./prometheus.nix
     ];
 
   j3ff = {

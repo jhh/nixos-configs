@@ -7,7 +7,7 @@
   services.prometheus = {
     enable = true;
     port = 9001;
-    webExternalUrl = "http://eris.ts.j3ff.io:9001";
+    webExternalUrl = "http://vesta.lan.j3ff.io:9001";
 
     scrapeConfigs = [
       {
@@ -27,7 +27,7 @@
         job_name = "grafana";
         static_configs = [{
           targets = [
-            "eris:80"
+            "vesta:80"
           ];
         }];
       }
@@ -35,7 +35,7 @@
         job_name = "prometheus";
         static_configs = [{
           targets = [
-            "eris:9001"
+            "vesta:9001"
           ];
         }];
       }
@@ -83,7 +83,7 @@
 
     alertmanager = {
       enable = true;
-      webExternalUrl = "http://eris.ts.j3ff.io:9093";
+      webExternalUrl = "http://vesta.ts.j3ff.io:9093";
       configuration = {
         global = {
           smtp_smarthost = "localhost:25";
