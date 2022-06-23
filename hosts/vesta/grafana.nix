@@ -5,6 +5,19 @@
     port = 2342;
     addr = "127.0.0.1";
     declarativePlugins = with pkgs.grafanaPlugins; [ grafana-piechart-panel ];
+
+    provision = {
+      enable = true;
+      datasources = [
+        {
+          name = "Prometheus";
+          type = "prometheus";
+          access = "proxy";
+          isDefault = true;
+          url = "http://127.0.0.1:${toString config.services.prometheus.port}";
+        }
+      ];
+    };
   };
 
   services.nginx = {
