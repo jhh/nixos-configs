@@ -27,7 +27,7 @@
         job_name = "grafana";
         static_configs = [{
           targets = [
-            "vesta:80"
+            "grafana.j3ff.io:80"
           ];
         }];
       }
