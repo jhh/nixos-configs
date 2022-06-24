@@ -16,4 +16,5 @@ in
   "common/modules/secrets/aws_secret.age".publicKeys = [ jeff vesta ];
   "common/modules/secrets/puka_secrets.age".publicKeys = [ jeff eris vesta ];
   "common/modules/secrets/route53_secrets.age".publicKeys = [ jeff eris ];
+  "common/modules/secrets/pushover_token.age".publicKeys = [ jeff vesta ];
 }
