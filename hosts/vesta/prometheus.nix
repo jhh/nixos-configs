@@ -102,6 +102,8 @@
              expr: node_systemd_units{state="failed"} > 0
            - alert: UpsStatus
              expr: network_ups_tools_ups_status{flag!="OL"} == 1
+           - alert: PiholeStatus
+             expr: pihole_status == 0
       ''
     ];
 
