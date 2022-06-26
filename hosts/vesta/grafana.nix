@@ -4,7 +4,7 @@
     domain = "grafana.j3ff.io";
     port = 2342;
     addr = "127.0.0.1";
-    declarativePlugins = with pkgs.grafanaPlugins; [ grafana-piechart-panel ];
+    declarativePlugins = with pkgs.grafanaPlugins; [ grafana-piechart-panel grafana-clock-panel ];
 
     provision = {
       enable = true;
