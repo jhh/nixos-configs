@@ -30,88 +30,92 @@
     retentionTime = "15d";
     webExternalUrl = "http://prometheus.j3ff.io";
 
-    scrapeConfigs = [
-      {
-        job_name = "node";
-        static_configs = [{
-          targets = [
-            "docker-01:9100"
-            "docker-02:9100"
-            "eris:9002"
-            "luna:9002"
-            "phobos:9002"
-            "pihole-01:9100"
-            "pve-01:9100"
-            "pve-02:9100"
-            "pve-03:9100"
-            "pve-11:9100"
-            "unifi-01:9100"
-            "ups-01:9100"
-            "vesta:9002"
+    scrapeConfigs =
+      let
+        nodePort = toString config.services.prometheus.exporters.node.port;
+      in
+      [
+        {
+          job_name = "node";
+          static_configs = [{
+            targets = [
+              "docker-01:9100"
+              "docker-02:9100"
+              "eris:${nodePort}"
+              "luna:${nodePort}"
+              "phobos:${nodePort}"
+              "pihole-01:9100"
+              "pve-01:9100"
+              "pve-02:9100"
+              "pve-03:9100"
+              "pve-11:9100"
+              "unifi-01:9100"
+              "ups-01:9100"
+              "vesta:${nodePort}"
+            ];
+          }];
+        }
+        {
+          job_name = "grafana";
+          static_configs = [{
+            targets = [
+              "grafana.j3ff.io:80"
+            ];
+          }];
+        }
+        {
+          job_name = "prometheus";
+          static_configs = [{
+            targets = [
+              "vesta:9001"
+            ];
+          }];
+        }
+        {
+          job_name = "pihole";
+          static_configs = [
+            {
+              targets = [
+                "docker-01:9617"
+              ];
+            }
           ];
-        }];
-      }
-      {
-        job_name = "grafana";
-        static_configs = [{
-          targets = [
-            "grafana.j3ff.io:80"
+        }
+        {
+          job_name = "ups";
+          metrics_path = "/ups_metrics";
+          params = { ups = [ "ups" ]; };
+          static_configs = [
+            {
+              targets = [
+                "docker-01:9199"
+              ];
+            }
           ];
-        }];
-      }
-      {
-        job_name = "prometheus";
-        static_configs = [{
-          targets = [
-            "vesta:9001"
+        }
+        {
+          job_name = "unifi";
+          scrape_interval = "30s";
+          static_configs = [
+            {
+              targets = [
+                "docker-01:9130"
+              ];
+            }
           ];
-        }];
-      }
-      {
-        job_name = "pihole";
-        static_configs = [
-          {
-            targets = [
-              "docker-01:9617"
-            ];
-          }
-        ];
-      }
-      {
-        job_name = "ups";
-        metrics_path = "/ups_metrics";
-        params = { ups = [ "ups" ]; };
-        static_configs = [
-          {
-            targets = [
-              "docker-01:9199"
-            ];
-          }
-        ];
-      }
-      {
-        job_name = "unifi";
-        scrape_interval = "30s";
-        static_configs = [
-          {
-            targets = [
-              "docker-01:9130"
-            ];
-          }
-        ];
-      }
-      {
-        job_name = "zrepl";
-        static_configs = [
-          {
-            targets = [
-              "luna:9811"
-              "phobos:9811"
-            ];
-          }
-        ];
-      }
-    ];
+        }
+        {
+          job_name = "zrepl";
+          static_configs = [
+            {
+              targets = [
+                "luna:9811"
+                "phobos:9811"
+              ];
+            }
+          ];
+        }
+      ];
 
     alertmanagers = [{
       static_configs = [{
