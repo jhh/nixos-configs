@@ -7,7 +7,6 @@
       ./rsync.nix
       ./prometheus.nix
       ./grafana.nix
-      ./influxdb.nix
     ];
 
   j3ff = {
