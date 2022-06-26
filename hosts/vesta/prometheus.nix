@@ -73,6 +73,7 @@
       }
       {
         job_name = "unifi";
+        scrape_interval = "30s";
         static_configs = [
           {
             targets = [
