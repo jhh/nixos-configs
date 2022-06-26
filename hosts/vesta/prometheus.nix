@@ -11,6 +11,7 @@
   services.prometheus = {
     enable = true;
     port = 9001;
+    retentionTime = "15d";
     webExternalUrl = "http://vesta.lan.j3ff.io:${toString config.services.prometheus.port}";
 
     scrapeConfigs = [
