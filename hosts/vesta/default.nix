@@ -14,6 +14,7 @@
     tailscale.enable = true;
     man.enable = true;
     mdns.enable = true;
+    prometheus.enable = true;
   };
 
   deadeye = {
