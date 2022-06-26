@@ -8,11 +8,27 @@
 
   age.secrets.pushover_token.file = ../../common/modules/secrets/pushover_token.age;
 
+  services.nginx = {
+    enable = true;
+    recommendedProxySettings = true;
+
+    virtualHosts."prometheus.j3ff.io" = {
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:${toString config.services.prometheus.port}";
+      };
+    };
+    virtualHosts."alertmanager.j3ff.io" = {
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:${toString config.services.prometheus.alertmanager.port}";
+      };
+    };
+  };
+
   services.prometheus = {
     enable = true;
     port = 9001;
     retentionTime = "15d";
-    webExternalUrl = "http://vesta.lan.j3ff.io:${toString config.services.prometheus.port}";
+    webExternalUrl = "http://prometheus.j3ff.io";
 
     scrapeConfigs = [
       {
@@ -121,7 +137,7 @@
 
     alertmanager = {
       enable = true;
-      webExternalUrl = "http://vesta.ts.j3ff.io:9093";
+      webExternalUrl = "http://alertmanager.j3ff.io";
       environmentFile = config.age.secrets.pushover_token.path;
       configuration = {
         global = {
