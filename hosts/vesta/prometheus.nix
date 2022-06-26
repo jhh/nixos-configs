@@ -72,6 +72,16 @@
         ];
       }
       {
+        job_name = "unifi";
+        static_configs = [
+          {
+            targets = [
+              "docker-01:9130"
+            ];
+          }
+        ];
+      }
+      {
         job_name = "zrepl";
         static_configs = [
           {
