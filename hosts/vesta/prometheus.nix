@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+let
+  pushgatewayPort = 9091;
+in
+{
 
   networking.hosts = {
     "100.64.244.48" = [ "phobos" ];
@@ -20,6 +24,11 @@
     virtualHosts."alertmanager.j3ff.io" = {
       locations."/" = {
         proxyPass = "http://127.0.0.1:${toString config.services.prometheus.alertmanager.port}";
+      };
+    };
+    virtualHosts."pushgateway.j3ff.io" = {
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:${toString pushgatewayPort}";
       };
     };
   };
@@ -59,7 +68,7 @@
           job_name = "grafana";
           static_configs = [{
             targets = [
-              "grafana.j3ff.io:80"
+              "localhost:${toString config.services.grafana.port}"
             ];
           }];
         }
@@ -67,7 +76,7 @@
           job_name = "prometheus";
           static_configs = [{
             targets = [
-              "vesta:9001"
+              "localhost:${toString config.services.prometheus.port}"
             ];
           }];
         }
@@ -80,6 +89,13 @@
               ];
             }
           ];
+        }
+        {
+          job_name = "push";
+          honor_labels = true;
+          static_configs = [{
+            targets = [ "localhost:${toString pushgatewayPort}" ];
+          }];
         }
         {
           job_name = "ups";
@@ -119,7 +135,7 @@
 
     alertmanagers = [{
       static_configs = [{
-        targets = [ "localhost:9093" ];
+        targets = [ "localhost:${toString config.services.prometheus.alertmanager.port}" ];
       }];
     }];
 
@@ -170,6 +186,12 @@
           }
         ];
       };
+    };
+
+    pushgateway = {
+      enable = true;
+      web.external-url = "http://pushgateway.j3ff.io";
+      web.listen-address = ":${toString pushgatewayPort}";
     };
   };
 }
