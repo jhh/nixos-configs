@@ -153,6 +153,8 @@ in
              expr: network_ups_tools_ups_status{flag!="OL"} == 1
            - alert: PiholeStatus
              expr: pihole_status == 0
+           - alert: PbsBackupFail
+             expr: time() - pbs_backup_completion_time > 25*3600
       ''
     ];
 
