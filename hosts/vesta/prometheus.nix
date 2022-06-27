@@ -161,6 +161,8 @@ in
               severity: page
           - alert: PbsBackupFail
             expr: time() - pbs_backup_completion_timestamp_seconds > 25*3600
+          - alert: PostgresqlBackupFail
+            expr: postgresql_backup_status == 0
       ''
     ];
 
