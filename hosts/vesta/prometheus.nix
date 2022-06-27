@@ -154,7 +154,7 @@ in
            - alert: PiholeStatus
              expr: pihole_status == 0
            - alert: PbsBackupFail
-             expr: time() - pbs_backup_completion_time > 25*3600
+             expr: time() - pbs_backup_completion_timestamp_seconds > 25*3600
       ''
     ];
 
