@@ -142,19 +142,25 @@ in
     rules = [
       ''
         groups:
-         - name: default
-           rules:
-           - alert: InstanceDown
-             expr: up == 0
-             for: 1m
-           - alert: ServiceFail
-             expr: node_systemd_units{state="failed"} > 0
-           - alert: UpsStatus
-             expr: network_ups_tools_ups_status{flag!="OL"} == 1
-           - alert: PiholeStatus
-             expr: pihole_status == 0
-           - alert: PbsBackupFail
-             expr: time() - pbs_backup_completion_timestamp_seconds > 25*3600
+        - name: default
+          rules:
+          - alert: InstanceDown
+            expr: up == 0
+            for: 1m
+            labels:
+              severity: page
+          - alert: ServiceFail
+            expr: node_systemd_units{state="failed"} > 0
+            labels:
+              severity: page
+          - alert: UpsStatus
+            expr: network_ups_tools_ups_status{flag!="OL"} == 1
+          - alert: PiholeStatus
+            expr: pihole_status == 0
+            labels:
+              severity: page
+          - alert: PbsBackupFail
+            expr: time() - pbs_backup_completion_timestamp_seconds > 25*3600
       ''
     ];
 
@@ -168,7 +174,19 @@ in
           smtp_from = "alertmanager@j3ff.io";
         };
         route = {
-          receiver = "pushover";
+          receiver = "email";
+          repeat_interval = "4h";
+          routes = [
+            {
+              receiver = "pushover";
+              repeat_interval = "15m";
+              matchers = [
+                ''
+                  severity="page"
+                ''
+              ];
+            }
+          ];
         };
         receivers = [
           {
@@ -197,3 +215,7 @@ in
     };
   };
 }
+
+
+
+
