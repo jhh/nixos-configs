@@ -1,4 +1,16 @@
 
+function report_status()
+{
+	cat <<EOF | curl --data-binary @- http://pushgateway.j3ff.io/metrics/job/postgresql_backup/database/$3/type/$2
+# TYPE postgresql_backup_completion_timestamp_seconds gauge
+# HELP postgresql_backup_completion_timestamp_seconds The timestamp of the last successful completion of a Postgresql backup.
+postgresql_backup_completion_timestamp_seconds $(date +%s)
+# TYPE postgresql_backup_status gauge
+# HELP postgresql_backup_status The status of a Postgresql backup.
+postgresql_backup_status $1
+EOF
+}
+
 ###########################
 #### PRE-BACKUP CHECKS ####
 ###########################
@@ -6,6 +18,7 @@
 # Make sure we're running as the required backup user
 if [ "$BACKUP_USER" != "" -a "$(id -un)" != "$BACKUP_USER" ] ; then
 	echo "This script must be run as $BACKUP_USER. Exiting." 1>&2
+	report_status 0 user_check na
 	exit 1
 fi
 
@@ -36,6 +49,7 @@ function perform_backups()
 
 	if ! mkdir -p $FINAL_BACKUP_DIR; then
 		echo "Cannot create backup directory in $FINAL_BACKUP_DIR. Go and fix it!" 1>&2
+		report_status 0 create_backup_dir na
 		exit 1;
 	fi;
 
@@ -53,8 +67,10 @@ function perform_backups()
 		    set -o pipefail
 		    if ! pg_dumpall -g | gzip > $FINAL_BACKUP_DIR"globals".sql.gz.in_progress; then
 		            echo "[!!ERROR!!] Failed to produce globals backup" 1>&2
+					report_status 0 globals globals
 		    else
 		            mv $FINAL_BACKUP_DIR"globals".sql.gz.in_progress $FINAL_BACKUP_DIR"globals".sql.gz
+					report_status 1 globals globals
 		    fi
 		    set +o pipefail
 	else
@@ -86,8 +102,10 @@ function perform_backups()
 		set -o pipefail
 	        if ! pg_dump -Fp -s "$DATABASE" | gzip > $FINAL_BACKUP_DIR"$DATABASE"_SCHEMA.sql.gz.in_progress; then
 	                echo "[!!ERROR!!] Failed to backup database schema of $DATABASE" 1>&2
+					report_status 0 schema_only $DATABASE
 	        else
 	                mv $FINAL_BACKUP_DIR"$DATABASE"_SCHEMA.sql.gz.in_progress $FINAL_BACKUP_DIR"$DATABASE"_SCHEMA.sql.gz
+					report_status 1 schema_only $DATABASE
 	        fi
 	        set +o pipefail
 	done
@@ -116,8 +134,10 @@ function perform_backups()
 			set -o pipefail
 			if ! pg_dump -Fp "$DATABASE" | gzip > $FINAL_BACKUP_DIR"$DATABASE".sql.gz.in_progress; then
 				echo "[!!ERROR!!] Failed to produce plain backup database $DATABASE" 1>&2
+				report_status 0 plain_backup $DATABASE
 			else
 				mv $FINAL_BACKUP_DIR"$DATABASE".sql.gz.in_progress $FINAL_BACKUP_DIR"$DATABASE".sql.gz
+				report_status 1 plain_backup $DATABASE
 			fi
 			set +o pipefail
 
@@ -129,8 +149,10 @@ function perform_backups()
 
 			if ! pg_dump -Fc "$DATABASE" -f $FINAL_BACKUP_DIR"$DATABASE".custom.in_progress; then
 				echo "[!!ERROR!!] Failed to produce custom backup database $DATABASE"
+				report_status 0 custom_backup $DATABASE
 			else
 				mv $FINAL_BACKUP_DIR"$DATABASE".custom.in_progress $FINAL_BACKUP_DIR"$DATABASE".custom
+				report_status 1 custom_backup $DATABASE
 			fi
 		fi
 

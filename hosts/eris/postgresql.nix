@@ -51,7 +51,7 @@
       User = "postgres";
     };
 
-    path = [ pkgs.postgresql_14 pkgs.gzip ];
+    path = [ pkgs.postgresql_14 pkgs.gzip pkgs.curl ];
 
     script = builtins.readFile ./postgres-backup.sh;
   };
