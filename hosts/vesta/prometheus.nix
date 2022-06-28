@@ -142,27 +142,41 @@ in
     rules = [
       ''
         groups:
-        - name: default
+      ''
+      ''
+        - name: default.rules
           rules:
           - alert: InstanceDown
             expr: up == 0
             for: 1m
             labels:
               severity: page
-          - alert: ServiceFail
-            expr: node_systemd_units{state="failed"} > 0
-            labels:
-              severity: page
           - alert: UpsStatus
             expr: network_ups_tools_ups_status{flag!="OL"} == 1
           - alert: PiholeStatus
             expr: pihole_status == 0
+            for: 1m
             labels:
               severity: page
+      ''
+      ''
+        - name: backup.rules
+          rules:
           - alert: PbsBackupFail
             expr: time() - pbs_backup_completion_timestamp_seconds > 25*3600
           - alert: PostgresqlBackupFail
             expr: postgresql_backup_status == 0
+      ''
+      ''
+        - name: node.rules
+          rules:
+          - alert: ServiceFail
+            expr: node_systemd_units{state="failed"} > 0
+            labels:
+              severity: page
+          - alert: DiskWillFillIn7Days
+            expr: predict_linear(node_filesystem_free_bytes{job="node",fstype="ext4"}[1h], 7 * 24 * 3600) < 0
+            for: 5m
       ''
     ];
 
