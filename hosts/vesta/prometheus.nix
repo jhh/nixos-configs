@@ -174,7 +174,9 @@ in
         - name: node.rules
           rules:
           - alert: ServiceFail
-            expr: node_systemd_units{state="failed"} > 0
+            expr: node_systemd_unit_state{state="failed"} > 0
+            annotations:
+              description: Instance {{ $labels.instance }} service {{ $labels.name }} is in failed state.
             labels:
               severity: page
           - alert: DiskWillFillIn1Day
