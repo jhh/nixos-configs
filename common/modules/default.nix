@@ -10,6 +10,7 @@
     ./tailscale.nix
     ./ups.nix
     ./virtualization.nix
+    ./watchtower
     ./zfs.nix
     ./zrepl.nix
   ];

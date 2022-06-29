@@ -5,7 +5,7 @@
     [
       ./hardware-configuration.nix
       ./rsync.nix
-      ./prometheus.nix
+      # ./prometheus.nix
       ./grafana.nix
     ];
 
@@ -15,6 +15,11 @@
     man.enable = true;
     mdns.enable = true;
     prometheus.enable = true;
+    watchtower = {
+      alertmanager.enable = true;
+      prometheus.enable = true;
+      pushgateway.enable = true;
+    };
   };
 
   deadeye = {
