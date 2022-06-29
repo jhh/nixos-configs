@@ -148,9 +148,12 @@ in
           rules:
           - alert: InstanceDown
             expr: up == 0
-            for: 1m
+            for: 5m
             labels:
               severity: page
+            annotations:
+              description: '{{ $labels.instance }} has been down for more than 5 minutes.'
+              summary: 'Instance {{ $labels.instance }} down'
           - alert: UpsStatus
             expr: network_ups_tools_ups_status{flag!="OL"} == 1
           - alert: PiholeStatus
@@ -174,9 +177,15 @@ in
             expr: node_systemd_units{state="failed"} > 0
             labels:
               severity: page
-          - alert: DiskWillFillIn7Days
-            expr: predict_linear(node_filesystem_free_bytes{job="node",fstype="ext4"}[1h], 7 * 24 * 3600) < 0
+          - alert: DiskWillFillIn1Day
+            expr: predict_linear(node_filesystem_free_bytes{job="node",fstype="ext4"}[6h], 24 * 3600) < 0
             for: 5m
+          - alert: DiskSpace
+            expr: node_filesystem_avail_bytes{fstype="ext4"} / node_filesystem_size_bytes{fstype="ext4"} < 0.35
+            for: 5m
+            annotations:
+              description: '{{ $labels.instance }} mountpoint "{{ $labels.mountpoint }}" is > 65% full.'
+              summary: 'Instance {{ $labels.instance }} disk space'
       ''
     ];
 
