@@ -184,6 +184,19 @@ in
 
     };
 
+    services.grafana.provision = {
+      enable = true;
+      datasources = [
+        {
+          name = "Prometheus";
+          type = "prometheus";
+          access = "proxy";
+          isDefault = true;
+          url = "http://127.0.0.1:${toString config.services.prometheus.port}";
+        }
+      ];
+    };
+
     services.nginx = {
       enable = true;
       recommendedProxySettings = true;

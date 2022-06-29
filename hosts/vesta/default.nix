@@ -6,7 +6,7 @@
       ./hardware-configuration.nix
       ./rsync.nix
       # ./prometheus.nix
-      ./grafana.nix
+      # ./grafana.nix
     ];
 
   j3ff = {
@@ -19,6 +19,7 @@
       alertmanager.enable = true;
       prometheus.enable = true;
       pushgateway.enable = true;
+      grafana.enable = true;
     };
   };
 

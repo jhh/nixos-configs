@@ -3,6 +3,7 @@
 {
   imports = [
     ./alertmanager.nix
+    ./grafana.nix
     ./prometheus.nix
     ./pushgateway.nix
   ];
