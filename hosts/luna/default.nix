@@ -64,7 +64,7 @@
   hardware.cpu.intel.updateMicrocode = true;
 
   boot = {
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "zfs.zfs_arc_max=30064771072" ];
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot.enable = true;
