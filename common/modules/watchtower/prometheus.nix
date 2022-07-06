@@ -174,10 +174,10 @@ in
               expr: predict_linear(node_filesystem_free_bytes{job="node",fstype="ext4"}[6h], 24 * 3600) < 0
               for: 5m
             - alert: DiskSpace
-              expr: node_filesystem_avail_bytes{fstype="ext4"} / node_filesystem_size_bytes{fstype="ext4"} < 0.35
+              expr: node_filesystem_avail_bytes{fstype="ext4"} / node_filesystem_size_bytes{fstype="ext4"} < 0.25
               for: 5m
               annotations:
-                description: '{{ $labels.instance }} mountpoint "{{ $labels.mountpoint }}" is > 65% full.'
+                description: '{{ $labels.instance }} mountpoint "{{ $labels.mountpoint }}" is > 75% full.'
                 summary: 'Instance {{ $labels.instance }} disk space'
         ''
         ''
