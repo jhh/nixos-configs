@@ -34,30 +34,31 @@
         "rpool/safe/root" = false;
         "rpool/tank/media<" = true;
         "rpool/tank/share<" = true;
+        "rpool/tank/backup<" = true;
       };
-      extraJobs = [
-        {
-          name = "time_machine";
-          type = "snap";
-          filesystems = {
-            "rpool/tank/backup/tm<" = true;
-          };
-          snapshotting = {
-            type = "periodic";
-            prefix = "zrepl_";
-            interval = "15m";
-          };
-          pruning = {
-            keep = [
-              {
-                type = "grid";
-                regex = "^zrepl_";
-                grid = pkgs.lib.concatStringsSep " | " [ "4x1h(keep=all)" "24x1h" "14x1d" ];
-              }
-            ];
-          };
-        }
-      ];
+      # extraJobs = [
+      #   {
+      #     name = "time_machine";
+      #     type = "snap";
+      #     filesystems = {
+      #       "rpool/tank/backup/tm<" = true;
+      #     };
+      #     snapshotting = {
+      #       type = "periodic";
+      #       prefix = "zrepl_";
+      #       interval = "15m";
+      #     };
+      #     pruning = {
+      #       keep = [
+      #         {
+      #           type = "grid";
+      #           regex = "^zrepl_";
+      #           grid = pkgs.lib.concatStringsSep " | " [ "4x1h(keep=all)" "24x1h" "14x1d" ];
+      #         }
+      #       ];
+      #     };
+      #   }
+      # ];
     };
   };
 
