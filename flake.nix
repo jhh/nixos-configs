@@ -82,21 +82,6 @@
         ];
       };
 
-      darwinConfigurations."Europa" = darwin.lib.darwinSystem {
-        system = "x86_64-darwin";
-        modules = [
-          ./hosts/europa
-          home-manager.darwinModules.home-manager
-          ({ config, ... }: {
-            home-manager.useGlobalPkgs = true;
-            home-manager.extraSpecialArgs = { inherit flakes; };
-            home-manager.users.jeff = {
-              imports = [ ./common/home-manager ];
-            };
-          })
-        ];
-      };
-
       darwinConfigurations."Ganymede" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
