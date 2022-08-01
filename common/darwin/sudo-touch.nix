@@ -55,7 +55,7 @@ in
   };
 
   config = {
-    system.activationScripts.pam.text = ''
+    system.activationScripts.extraActivation.text = ''
       # PAM settings
       echo >&2 "setting up pam..."
       ${mkSudoTouchIdAuthScript cfg.enableSudoTouchIdAuth}
