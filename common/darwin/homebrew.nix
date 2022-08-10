@@ -7,7 +7,6 @@
     cleanup = "zap";
 
     brews = [
-      "php"
     ];
 
     casks = [
