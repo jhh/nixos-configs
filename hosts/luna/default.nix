@@ -48,6 +48,7 @@
             };
           };
           root_fs = "rpool/zrepl";
+          recv.placeholder.encryption = "off";
         }
       ];
     };
