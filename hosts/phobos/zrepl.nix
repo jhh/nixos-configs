@@ -12,17 +12,6 @@
   services.zrepl = {
     enable = true;
     settings = {
-      global = {
-        logging = [{
-          type = "syslog";
-          level = "info";
-          format = "human";
-        }];
-        monitoring = [{
-          type = "prometheus";
-          listen = ":9811";
-        }];
-      };
       jobs = [{
         name = "sink";
         type = "sink";
