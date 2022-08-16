@@ -21,7 +21,6 @@
       enable = true;
       enableTrim = false;
     };
-    zrepl.enable = false; # zrepl server
   };
 
   hardware.cpu.intel.updateMicrocode = true;

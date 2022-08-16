@@ -1,5 +1,14 @@
 { config, pkgs, lib, ... }:
 {
+  j3ff.zrepl = {
+    enable = true;
+    server = "100.78.167.19";
+    filesystems = {
+      "rpool/safe<" = true;
+      "rpool/safe/root" = false;
+      "rpool/tank/share<" = true;
+    };
+  };
   services.zrepl = {
     enable = true;
     settings = {
