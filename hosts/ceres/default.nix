@@ -54,11 +54,11 @@
       interfaces.br0 = {
         useDHCP = false;
         ipv4.addresses = [{
-          address = "192.168.1.9";
+          address = "10.1.0.10";
           prefixLength = 24;
         }];
       };
-      defaultGateway = "192.168.1.1";
+      defaultGateway = "10.1.0.1";
       nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
       hostId = "88c43f5a";
       firewall.enable = false;
@@ -66,7 +66,7 @@
     };
 
   services.xserver = {
-    enable = true;
+    enable = false;
     desktopManager = {
       xterm.enable = false;
       xfce.enable = true;
