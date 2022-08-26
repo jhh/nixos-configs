@@ -8,11 +8,8 @@
       "rpool/safe/root" = false;
       "rpool/tank/share<" = true;
     };
-  };
-  services.zrepl = {
-    enable = true;
-    settings = {
-      jobs = [{
+    extraJobs = [
+      {
         name = "sink";
         type = "sink";
         serve = {
@@ -25,7 +22,8 @@
           };
         };
         root_fs = "rpool/zrepl";
-      }];
-    };
+        recv.placeholder.encryption = "off";
+      }
+    ];
   };
 }
