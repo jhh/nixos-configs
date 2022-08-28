@@ -24,6 +24,20 @@
     zrepl.enable = true;
   };
 
+  deadeye = {
+    web.enable = true;
+    admin.enable = true;
+    daemon = {
+      enable = true;
+      unitId = "C";
+      pipeline0 = "deadeye::UprightRectPipeline";
+      pipeline1 = "deadeye::MinAreaRectPipeline";
+      pipeline2 = "deadeye::TargetListPipeline";
+      streamAddress = "${(builtins.head config.networking.interfaces.br0.ipv4.addresses).address}";
+    };
+    ntServerAddress = "100.78.167.19"; # luna
+  };
+
   hardware = {
     cpu.intel.updateMicrocode = true;
     video.hidpi.enable = true;
