@@ -33,7 +33,7 @@
       pipeline0 = "deadeye::UprightRectPipeline";
       pipeline1 = "deadeye::MinAreaRectPipeline";
       pipeline2 = "deadeye::TargetListPipeline";
-      streamAddress = "${(builtins.head config.networking.interfaces.br0.ipv4.addresses).address}";
+      streamAddress = "100.121.169.6";
     };
     ntServerAddress = "100.78.167.19"; # luna
   };
