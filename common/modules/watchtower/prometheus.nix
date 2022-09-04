@@ -49,7 +49,6 @@ in
                 "pve-02:9100"
                 "pve-03:9100"
                 "pve-11:9100"
-                "unifi-01:9100"
                 "ups-01:9100"
                 "vesta:${nodePort}"
               ];
