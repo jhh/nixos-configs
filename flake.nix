@@ -154,7 +154,7 @@
         };
 
         luna = {
-          hostname = "192.168.1.7";
+          hostname = "10.1.0.7";
           sshUser = "root";
           fastConnection = true;
 

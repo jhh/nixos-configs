@@ -34,7 +34,7 @@
       pipeline2 = "deadeye::TargetListPipeline";
       streamAddress = "${(builtins.head config.networking.interfaces.br0.ipv4.addresses).address}";
     };
-    ntServerAddress = "192.168.1.7"; # luna
+    ntServerAddress = "10.1.0.7"; # luna
   };
 
   # Use the GRUB 2 boot loader.
