@@ -25,6 +25,7 @@
       "spotify"
       "tableplus"
       "thetimemachinemechanic"
+      "transmit"
       "visual-studio-code"
     ];
 
