@@ -6,7 +6,8 @@
       ./hardware-configuration.nix
       ./nfs.nix
       ./plex.nix
-      ./rsync.nix
+      # deimos not installed
+      # ./rsync.nix
       ./samba.nix
     ];
 
