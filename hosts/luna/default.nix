@@ -9,6 +9,7 @@
       # deimos not installed
       # ./rsync.nix
       ./samba.nix
+      ./rclone.nix
     ];
 
   services.thermald.enable = false; # unsupported

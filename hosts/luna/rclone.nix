@@ -12,8 +12,8 @@
     };
 
     script = ''
-      echo backing up /home/jeff/code/jhh/nixos-configs
-      ${pkgs.rclone}/bin/rclone --config ${config.age.secrets.rclone_conf.path} sync /home/jeff/code/jhh/nixos-configs b2:j3ff-nixos-configs --exclude .direnv/ --exclude .git/ --exclude result
+      echo backing up /mnt/tank/backup/git
+      ${pkgs.rclone}/bin/rclone --config ${config.age.secrets.rclone_conf.path} sync /mnt/tank/backup/git b2:j3ff-git
     '';
   };
 
