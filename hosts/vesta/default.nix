@@ -5,8 +5,7 @@
     [
       ./hardware-configuration.nix
       ./rsync.nix
-      # ./prometheus.nix
-      # ./grafana.nix
+      ../luna/rclone.nix
     ];
 
   j3ff = {
