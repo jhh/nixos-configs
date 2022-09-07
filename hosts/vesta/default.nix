@@ -68,12 +68,12 @@
     interfaces.br0 = {
       useDHCP = false;
       ipv4.addresses = [{
-        address = "192.168.1.45";
+        address = "10.1.0.45";
         prefixLength = 24;
       }];
     };
 
-    defaultGateway = "192.168.1.1";
+    defaultGateway = "10.1.0.1";
     nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
     firewall.enable = false;
   };
