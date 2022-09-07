@@ -3,7 +3,6 @@
 {
   homebrew = {
     enable = true;
-    # brewPrefix = pkgs.lib.mkIf (config.system == "aarch64-darwin") "/opt/homebrew/bin";
     onActivation = {
       cleanup = "zap";
       upgrade = true;
