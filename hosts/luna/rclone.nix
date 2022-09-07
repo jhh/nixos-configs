@@ -18,6 +18,12 @@
 
       echo backing up /mnt/tank/media/plex/music
       ${pkgs.rclone}/bin/rclone $RCLONE_OPTS sync /mnt/tank/media/plex/music/Music b2:j3ff-music/iTunes/Music/
+
+      echo backing up /mnt/tank/media/lightroom
+      ${pkgs.rclone}/bin/rclone $RCLONE_OPTS sync /mnt/tank/media/lightroom b2:j3ff-photos/Lightroom/
+
+      echo backing up /mnt/tank/share/homelab
+      ${pkgs.rclone}/bin/rclone $RCLONE_OPTS sync /mnt/tank/share/homelab b2:j3ff-homelab/Io/
     '';
   };
 
