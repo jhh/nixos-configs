@@ -30,11 +30,11 @@
     interfaces.ens18 = {
       useDHCP = false;
       ipv4.addresses = [{
-        address = "192.168.1.46";
+        address = "10.1.0.46";
         prefixLength = 24;
       }];
     };
-    defaultGateway = "192.168.1.1";
+    defaultGateway = "10.1.0.1";
     nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
     hostId = "1d6f98a2";
     firewall.enable = false;
