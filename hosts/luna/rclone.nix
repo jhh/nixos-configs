@@ -7,16 +7,12 @@
   systemd.services.b2-rclone = {
     startAt = "*-*-* 03:20:00";
 
-    environment = {
-      # RSYNC_RSH = "${pkgs.openssh}/bin/ssh";
-    };
-
     script = ''
       echo backing up /mnt/tank/backup/git
-      ${pkgs.rclone}/bin/rclone --config ${config.age.secrets.rclone_conf.path} sync /mnt/tank/backup/git b2:j3ff-git
+      ${pkgs.rclone}/bin/rclone --config ${config.age.secrets.rclone_conf.path} --skip-links sync /mnt/tank/backup/git b2:j3ff-git
 
       echo backing up /mnt/tank/share/jeff
-      ${pkgs.rclone}/bin/rclone --config ${config.age.secrets.rclone_conf.path} sync /mnt/tank/share/jeff b2:j3ff-home/jeff/
+      ${pkgs.rclone}/bin/rclone --config ${config.age.secrets.rclone_conf.path} --skip-links sync /mnt/tank/share/jeff b2:j3ff-home/jeff/
     '';
   };
 
