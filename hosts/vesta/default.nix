@@ -83,6 +83,11 @@
     qemuGuest.enable = true;
   };
 
+  fileSystems."/mnt/pve" = {
+    device = "10.1.0.7:/mnt/tank/proxmox/pve";
+    fsType = "nfs";
+  };
+
   virtualisation.docker.enable = false;
 
   # This value determines the NixOS release from which the default
