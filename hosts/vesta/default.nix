@@ -31,7 +31,7 @@
       pipeline0 = "deadeye::UprightRectPipeline";
       pipeline1 = "deadeye::MinAreaRectPipeline";
       pipeline2 = "deadeye::TargetListPipeline";
-      streamAddress = "${(builtins.head config.networking.interfaces.br0.ipv4.addresses).address}";
+      streamAddress = "${(builtins.head config.networking.interfaces.ens18.ipv4.addresses).address}";
     };
     ntServerAddress = "10.1.0.7"; # luna
   };
@@ -59,13 +59,13 @@
     hostName = "vesta";
     useDHCP = false;
 
-    bridges."br0" = {
-      interfaces = [
-        "ens18"
-      ];
-    };
+    # bridges."br0" = {
+    #   interfaces = [
+    #     "ens18"
+    #   ];
+    # };
 
-    interfaces.br0 = {
+    interfaces.ens18 = {
       useDHCP = false;
       ipv4.addresses = [{
         address = "10.1.0.45";
