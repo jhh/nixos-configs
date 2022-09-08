@@ -143,7 +143,7 @@
         };
 
         eris = {
-          hostname = "192.168.1.46";
+          hostname = "10.1.0.46";
           sshUser = "root";
           fastConnection = true;
 
@@ -187,7 +187,7 @@
 
 
         vesta = {
-          hostname = "192.168.1.45";
+          hostname = "10.1.0.45";
           sshUser = "root";
           fastConnection = true;
 
