@@ -26,10 +26,10 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = lib.mkDefault false;
-  networking.interfaces.br0.useDHCP = lib.mkDefault true;
-  networking.interfaces.docker0.useDHCP = lib.mkDefault true;
-  networking.interfaces.ens18.useDHCP = lib.mkDefault true;
-  networking.interfaces.tailscale0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.ens18.useDHCP = lib.mkDefault true;
+  # networking.interfaces.tailscale0.useDHCP = lib.mkDefault true;
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
