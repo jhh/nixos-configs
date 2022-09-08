@@ -5,7 +5,7 @@
     [
       ./hardware-configuration.nix
       ./rsync.nix
-      # ../luna/rclone.nix
+      ./nfs.nix
     ];
 
   j3ff = {
@@ -81,11 +81,6 @@
   services = {
     fstrim.enable = true;
     qemuGuest.enable = true;
-  };
-
-  fileSystems."/mnt/pve" = {
-    device = "10.1.0.7:/mnt/tank/proxmox/pve";
-    fsType = "nfs";
   };
 
   virtualisation.docker.enable = false;
