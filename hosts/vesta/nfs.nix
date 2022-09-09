@@ -13,7 +13,7 @@
   systemd.automounts = [{
     wantedBy = [ "multi-user.target" ];
     automountConfig = {
-      TimeoutIdleSec = "60";
+      TimeoutIdleSec = "600";
     };
     where = "/mnt/pve";
   }];
