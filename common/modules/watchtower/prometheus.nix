@@ -45,11 +45,8 @@ in
                 "luna:${nodePort}"
                 "phobos:${nodePort}"
                 "pihole-01:9100"
-                "pve-01:9100"
-                "pve-02:9100"
-                "pve-03:9100"
                 "pve-11:9100"
-                "ups-01:9100"
+                # "ups-01:9100"
                 "vesta:${nodePort}"
               ];
             }];
