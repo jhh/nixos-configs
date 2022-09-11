@@ -59,13 +59,12 @@
       };
 
 
-      tm_callisto = {
+      callisto = {
         path = "/mnt/tank/backup/tm/callisto";
-        "valid users" = "tm";
+        "valid users" = "jeff";
         browsable = "no";
         public = "no";
         writeable = "yes";
-        "force user" = "tm";
         "fruit:time machine" = "yes";
       };
     };
