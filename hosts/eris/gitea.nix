@@ -11,6 +11,13 @@
   #   before = [ "systemd-tmpfiles-setup.service" ];
   # }];
 
+  age.secrets.smtp_passwd =
+    {
+      file = ../../common/modules/secrets/smtp_passwd.age;
+      owner = "gitea";
+    };
+
+
   services.gitea = {
     enable = true;
     domain = "j3ff.io";
@@ -18,11 +25,14 @@
     database.type = "postgres";
     settings = {
       mailer = {
-        ENABLED = false; # https://github.com/NixOS/nixpkgs/issues/103446
-        MAILER_TYPE = "sendmail";
+        ENABLED = true;
+        MAILER_TYPE = "smtp";
         FROM = "gitea@j3ff.io";
-        SENDMAIL_PATH = "${pkgs.system-sendmail}/bin/sendmail";
+        HOST = "smtp.fastmail.com:465";
+        IS_TLS_ENABLED = true;
+        USER = "jeff@j3ff.io";
       };
     };
+    mailerPasswordFile = config.age.secrets.smtp_passwd.path;
   };
 }
