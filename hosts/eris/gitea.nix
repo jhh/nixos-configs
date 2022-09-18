@@ -23,6 +23,7 @@
     domain = "j3ff.io";
     rootUrl = "http://eris.ts.j3ff.io:3000/";
     database.type = "postgres";
+    log.level = "Warn";
     settings = {
       mailer = {
         ENABLED = true;
