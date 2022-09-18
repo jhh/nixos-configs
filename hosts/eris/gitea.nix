@@ -16,6 +16,13 @@
     domain = "j3ff.io";
     rootUrl = "http://eris.ts.j3ff.io:3000/";
     database.type = "postgres";
-
+    settings = {
+      mailer = {
+        ENABLED = true;
+        MAILER_TYPE = "sendmail";
+        FROM = "gitea@j3ff.io";
+        SENDMAIL_PATH = "${pkgs.system-sendmail}/bin/sendmail";
+      };
+    };
   };
 }
