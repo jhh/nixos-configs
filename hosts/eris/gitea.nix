@@ -18,7 +18,7 @@
     database.type = "postgres";
     settings = {
       mailer = {
-        ENABLED = true;
+        ENABLED = false; # https://github.com/NixOS/nixpkgs/issues/103446
         MAILER_TYPE = "sendmail";
         FROM = "gitea@j3ff.io";
         SENDMAIL_PATH = "${pkgs.system-sendmail}/bin/sendmail";
