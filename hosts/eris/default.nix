@@ -5,6 +5,7 @@
       ./hardware-configuration.nix
       ./postgresql.nix
       ./nginx.nix
+      ./gitea.nix
     ];
 
   j3ff = {
