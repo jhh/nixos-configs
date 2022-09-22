@@ -3,8 +3,10 @@
 {
   imports = [
     ./homebrew.nix
-    ./sudo-touch.nix
+    # ./sudo-touch.nix
   ];
+
+  security.pam.enableSudoTouchIdAuth = true;
 
   system.defaults.dock = {
     autohide = true;
