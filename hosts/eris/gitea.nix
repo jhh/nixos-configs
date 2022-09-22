@@ -36,7 +36,6 @@ in
     mailerPasswordFile = config.age.secrets.smtp_passwd.path;
     dump = {
       enable = true;
-      type = "tar.bz2";
       backupDir = "${backupDir}/eris";
     };
   };
