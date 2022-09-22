@@ -41,4 +41,13 @@ in
     };
   };
 
+  systemd.services.gitea-dump-prune = {
+
+    startAt = "daily";
+
+    script = ''
+      ${pkgs.findutils}/bin/find ${backupDir}/eris -type f -mtime +5 -exec rm {} \;
+    '';
+  };
+
 }
