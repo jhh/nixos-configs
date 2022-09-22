@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+let
+  backupDir = "/mnt/backup/postgres";
+in
+{
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_14;
@@ -25,7 +29,7 @@
   ##########
   # backups
   ##########
-  fileSystems."/mnt/backup" = {
+  fileSystems."${backupDir}" = {
     device = "luna.lan.j3ff.io:/mnt/tank/backup/postgres";
     fsType = "nfs";
   };
@@ -37,7 +41,7 @@
 
     environment = {
       BACKUP_USER = "postgres";
-      BACKUP_DIR = "/mnt/backup/eris/";
+      BACKUP_DIR = "${backupDir}/eris/";
       ENABLE_CUSTOM_BACKUPS = "yes";
       ENABLE_PLAIN_BACKUPS = "yes";
       ENABLE_GLOBALS_BACKUPS = "yes";
