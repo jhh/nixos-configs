@@ -17,6 +17,7 @@
       "carbon-copy-cloner"
       "dash"
       "discord"
+      "docker"
       "firefox"
       "iterm2"
       "jetbrains-toolbox"
