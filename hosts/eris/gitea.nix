@@ -1,22 +1,21 @@
 { config, pkgs, ... }:
+let
+  backupDir = "/mnt/backup/gitea";
+in
 {
-  # services.rpcbind.enable = true;
-  # systemd.mounts = [{
-  #   type = "nfs";
-  #   mountConfig = {
-  #     Options = "noatime";
-  #   };
-  #   what = "10.1.0.7:/mnt/tank/services/gitea";
-  #   where = "/var/lib/gitea";
-  #   before = [ "systemd-tmpfiles-setup.service" ];
-  # }];
-
   age.secrets.smtp_passwd =
     {
       file = ../../common/modules/secrets/smtp_passwd.age;
       owner = "gitea";
     };
 
+  ##########
+  # backups
+  ##########
+  fileSystems."${backupDir}" = {
+    device = "luna.lan.j3ff.io:/mnt/tank/backup/gitea";
+    fsType = "nfs";
+  };
 
   services.gitea = {
     enable = true;
@@ -35,5 +34,11 @@
       };
     };
     mailerPasswordFile = config.age.secrets.smtp_passwd.path;
+    dump = {
+      enable = true;
+      type = "tar.bz2";
+      backupDir = "${backupDir}/eris";
+    };
   };
+
 }
