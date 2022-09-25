@@ -32,6 +32,12 @@ in
         IS_TLS_ENABLED = true;
         USER = "jeff@j3ff.io";
       };
+      indexer = {
+        REPO_INDEXER_ENABLED = true;
+        REPO_INDEXER_PATH = "indexers/repos.bleve";
+        UPDATE_BUFFER_LEN = 20;
+        MAX_FILE_SIZE = 1048576;
+      };
     };
     mailerPasswordFile = config.age.secrets.smtp_passwd.path;
     dump = {
