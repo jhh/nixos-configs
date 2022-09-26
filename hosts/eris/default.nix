@@ -6,6 +6,7 @@
       ./postgresql.nix
       ./nginx.nix
       ./gitea.nix
+      ./miniflux.nix
     ];
 
   j3ff = {

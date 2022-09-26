@@ -19,4 +19,5 @@ in
   "common/modules/secrets/route53_secrets.age".publicKeys = [ jeff eris ];
   "common/modules/secrets/pushover_token.age".publicKeys = [ jeff vesta ];
   "common/modules/secrets/smtp_passwd.age".publicKeys = [ jeff eris ];
+  "common/modules/secrets/miniflux_secret.age".publicKeys = [ jeff eris ];
 }
