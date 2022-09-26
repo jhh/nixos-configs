@@ -20,7 +20,7 @@ in
   services.gitea = {
     enable = true;
     domain = "j3ff.io";
-    rootUrl = "http://eris.ts.j3ff.io:3000/";
+    rootUrl = "http://gitea.j3ff.io/";
     database.type = "postgres";
     log.level = "Warn";
     settings = {
@@ -43,6 +43,18 @@ in
     dump = {
       enable = true;
       backupDir = "${backupDir}/eris";
+    };
+  };
+
+  services.nginx.virtualHosts."gitea.j3ff.io" = {
+    # forceSSL = true;
+    # enableACME = true;
+    # acmeRoot = null;
+
+    locations = {
+      "/" = {
+        proxyPass = "http://127.0.0.1:3000";
+      };
     };
   };
 
