@@ -24,6 +24,9 @@ in
     database.type = "postgres";
     log.level = "Warn";
     settings = {
+      repository = {
+        DEFAULT_BRANCH = "main";
+      };
       mailer = {
         ENABLED = true;
         MAILER_TYPE = "smtp";
