@@ -20,7 +20,7 @@ in
   services.gitea = {
     enable = true;
     domain = "j3ff.io";
-    rootUrl = "http://gitea.j3ff.io/";
+    rootUrl = "https://gitea.j3ff.io/";
     database.type = "postgres";
     log.level = "Warn";
     settings = {
@@ -47,9 +47,10 @@ in
   };
 
   services.nginx.virtualHosts."gitea.j3ff.io" = {
-    # forceSSL = true;
-    # enableACME = true;
-    # acmeRoot = null;
+    # security.acme is configured for eris globally in nginx.nix
+    forceSSL = true;
+    enableACME = true;
+    acmeRoot = null;
 
     locations = {
       "/" = {
