@@ -43,7 +43,7 @@
 
     puka = {
       url = "github:jhh/puka";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
