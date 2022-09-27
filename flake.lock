@@ -402,17 +402,16 @@
         "utils": "utils_6"
       },
       "locked": {
-        "lastModified": 1664299997,
-        "narHash": "sha256-AkZ1q/93Kg6Qebhls8VsUjHDH/QYVNFZoz8yc7NtXfg=",
+        "lastModified": 1664300851,
+        "narHash": "sha256-BnHycpg+EumeOryfn8+G4IFty7+LfcOWWtFzdFgxs/E=",
         "owner": "jhh",
         "repo": "puka",
-        "rev": "d6952e47c42df273630a2d14fe4965411dc3cd48",
+        "rev": "6ca8ff7960ace97441250383c4fd23a19935e414",
         "type": "github"
       },
       "original": {
         "owner": "jhh",
         "repo": "puka",
-        "rev": "d6952e47c42df273630a2d14fe4965411dc3cd48",
         "type": "github"
       }
     },

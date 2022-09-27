@@ -42,7 +42,7 @@
     };
 
     puka = {
-      url = "github:jhh/puka?rev=d6952e47c42df273630a2d14fe4965411dc3cd48";
+      url = "github:jhh/puka";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
