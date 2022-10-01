@@ -402,11 +402,11 @@
         "utils": "utils_6"
       },
       "locked": {
-        "lastModified": 1664631211,
-        "narHash": "sha256-MU7+B3t2lH11Pqt24bHXsDG3g9BuPZ0cqhNtzrQYQjU=",
+        "lastModified": 1664631456,
+        "narHash": "sha256-09uPBdjjzkuFcQ3CjC2zdo5PlMzNHAN+NZO14KOw0Ec=",
         "owner": "jhh",
         "repo": "puka",
-        "rev": "24a1b71b0dda58cb01e8b66dfa917d659b55ac0b",
+        "rev": "6bd25230eac1d65d3e9c5555a57c928ae368db4b",
         "type": "github"
       },
       "original": {
