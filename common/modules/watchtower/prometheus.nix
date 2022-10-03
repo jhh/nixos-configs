@@ -30,6 +30,10 @@ in
       retentionTime = "15d";
       webExternalUrl = "http://${cfg.domain}";
 
+      globalConfig = {
+        evaluation_interval = "5m";
+      };
+
       scrapeConfigs =
         let
           nodePort = toString config.services.prometheus.exporters.node.port;
@@ -135,7 +139,7 @@ in
             rules:
             - alert: InstanceDown
               expr: up == 0
-              for: 5m
+              for: 10m
               labels:
                 severity: page
               annotations:
@@ -145,7 +149,7 @@ in
               expr: network_ups_tools_ups_status{flag!="OL"} == 1
             - alert: PiholeStatus
               expr: pihole_status == 0
-              for: 1m
+              for: 10m
               labels:
                 severity: page
         ''
@@ -154,24 +158,27 @@ in
             rules:
             - alert: PbsBackupFail
               expr: time() - pbs_backup_completion_timestamp_seconds > 25*3600
+              for: 1h
             - alert: PostgresqlBackupFail
               expr: postgresql_backup_status == 0
+              for: 1h
         ''
         ''
           - name: node.rules
             rules:
             - alert: ServiceFail
               expr: node_systemd_unit_state{state="failed"} > 0
+              for: 10m
               annotations:
                 description: Instance {{ $labels.instance }} service {{ $labels.name }} is in failed state.
               labels:
                 severity: page
             - alert: DiskWillFillIn1Day
               expr: predict_linear(node_filesystem_free_bytes{job="node",fstype="ext4"}[6h], 24 * 3600) < 0
-              for: 5m
+              for: 10m
             - alert: DiskSpace
               expr: node_filesystem_avail_bytes{fstype="ext4"} / node_filesystem_size_bytes{fstype="ext4"} < 0.25
-              for: 5m
+              for: 10m
               annotations:
                 description: '{{ $labels.instance }} mountpoint "{{ $labels.mountpoint }}" is > 75% full.'
                 summary: 'Instance {{ $labels.instance }} disk space'
