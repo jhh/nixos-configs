@@ -102,7 +102,7 @@
         # nixos-01 = mkSystem [ ./hosts/nixos-01 ];
         phobos = mkSystem [ ./hosts/phobos ];
         luna = mkSystem [ ./hosts/luna ];
-        ceres = mkSystem [ ./hosts/ceres ];
+        # ceres = mkSystem [ ./hosts/ceres ];
 
         eris = mkSystem [
           ./hosts/eris
@@ -123,24 +123,24 @@
             j3ff.dyndns.enable = true;
           })
         ];
-        deadeye-h = mkSystem [ ./hosts/deadeye/deadeye-h.nix ];
-        deadeye-i = mkSystem [ ./hosts/deadeye/deadeye-i.nix ];
-        deadeye-j = mkSystem [ ./hosts/deadeye/deadeye-j.nix ];
-        deadeye-k = mkSystem [ ./hosts/deadeye/deadeye-k.nix ];
+        # deadeye-h = mkSystem [ ./hosts/deadeye/deadeye-h.nix ];
+        # deadeye-i = mkSystem [ ./hosts/deadeye/deadeye-i.nix ];
+        # deadeye-j = mkSystem [ ./hosts/deadeye/deadeye-j.nix ];
+        # deadeye-k = mkSystem [ ./hosts/deadeye/deadeye-k.nix ];
       };
 
 
       deploy.nodes = {
-        ceres = {
-          hostname = "100.121.169.6";
-          sshUser = "root";
-          fastConnection = false;
+        # ceres = {
+        #   hostname = "100.121.169.6";
+        #   sshUser = "root";
+        #   fastConnection = false;
 
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ceres;
-          };
-        };
+        #   profiles.system = {
+        #     user = "root";
+        #     path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ceres;
+        #   };
+        # };
 
         eris = {
           hostname = "10.1.0.46";
@@ -197,49 +197,49 @@
           };
         };
 
-        deadeye-h = {
-          hostname = "100.95.246.14";
-          sshUser = "root";
-          fastConnection = false;
+        #   deadeye-h = {
+        #     hostname = "100.95.246.14";
+        #     sshUser = "root";
+        #     fastConnection = false;
 
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.deadeye-h;
-          };
-        };
+        #     profiles.system = {
+        #       user = "root";
+        #       path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.deadeye-h;
+        #     };
+        #   };
 
-        deadeye-i = {
-          hostname = "100.94.177.5";
-          sshUser = "root";
-          fastConnection = false;
+        #   deadeye-i = {
+        #     hostname = "100.94.177.5";
+        #     sshUser = "root";
+        #     fastConnection = false;
 
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.deadeye-i;
-          };
-        };
+        #     profiles.system = {
+        #       user = "root";
+        #       path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.deadeye-i;
+        #     };
+        #   };
 
-        deadeye-j = {
-          hostname = "100.99.227.108";
-          sshUser = "root";
-          fastConnection = false;
+        #   deadeye-j = {
+        #     hostname = "100.99.227.108";
+        #     sshUser = "root";
+        #     fastConnection = false;
 
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.deadeye-j;
-          };
-        };
+        #     profiles.system = {
+        #       user = "root";
+        #       path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.deadeye-j;
+        #     };
+        #   };
 
-        deadeye-k = {
-          hostname = "100.121.82.94";
-          sshUser = "root";
-          fastConnection = false;
+        #   deadeye-k = {
+        #     hostname = "100.121.82.94";
+        #     sshUser = "root";
+        #     fastConnection = false;
 
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.deadeye-k;
-          };
-        };
+        #     profiles.system = {
+        #       user = "root";
+        #       path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.deadeye-k;
+        #     };
+        #   };
       };
 
       # This is highly advised, and will prevent many possible mistakes
