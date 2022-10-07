@@ -6,20 +6,16 @@ let
     bottom # alternative to htop & ytop
     du-dust # more intuitive version of du in rust
     duf # disk usage/free utility
+    fast-cli # cli for fast.com
     fd # "find" for files
     fortune # print a random, hopefully interesting, adage
     fzf #  command-line fuzzy finder
     glow # markdown previewer
     htop # interactive process viewer
-    # httpie # command-line HTTP client
     jq # JSON parsing cli
     lazygit # simple terminal UI for git commands
-    # lorri # build changes in shell.nix automatically
-    # manix # documentation searcher for nix
     mosh # ssh alternative
     neofetch # command-line system information
-    # niv # dependency management for Nix projects
-    # nix-diff # show differences between deploys
     nixpkgs-fmt # formatter for Nix code
     nyancat # the famous rainbow cat!
     prettyping # a nicer ping
