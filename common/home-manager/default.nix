@@ -6,7 +6,6 @@ let
     bottom # alternative to htop & ytop
     du-dust # more intuitive version of du in rust
     duf # disk usage/free utility
-    fast-cli # cli for fast.com
     fd # "find" for files
     fortune # print a random, hopefully interesting, adage
     fzf #  command-line fuzzy finder
@@ -21,7 +20,7 @@ let
     prettyping # a nicer ping
     ripgrep # search in files
     tealdeer # fast version of tldr
-  ];
+  ] ++ lib.optional pkgs.stdenv.isLinux fast-cli;
 
   gitPkgs = with pkgs.gitAndTools; [
     diff-so-fancy # git diff with colors
