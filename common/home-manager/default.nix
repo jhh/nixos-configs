@@ -20,7 +20,9 @@ let
     prettyping # a nicer ping
     ripgrep # search in files
     tealdeer # fast version of tldr
-  ] ++ lib.optional pkgs.stdenv.isLinux fast-cli;
+  ]
+  ++ lib.optional pkgs.stdenv.isLinux fast-cli
+  ++ lib.optional pkgs.stdenv.isDarwin cookiecutter;
 
   gitPkgs = with pkgs.gitAndTools; [
     diff-so-fancy # git diff with colors
