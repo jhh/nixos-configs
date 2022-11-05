@@ -49,6 +49,12 @@
         writeable = "yes";
       };
 
+      Music = {
+        path = "/mnt/tank/media/plex/music/Music";
+        public = "yes";
+        writeable = "no";
+      };
+
       ganymede = {
         path = "/mnt/tank/backup/tm/ganymede";
         "valid users" = "jeff";
