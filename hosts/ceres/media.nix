@@ -6,7 +6,10 @@
     fsType = "nfs";
   };
 
-  services.sonarr.enable = true;
+  services.sonarr = {
+    enable = true;
+    user = config.users.users.media;
+  };
 
   services.nginx = {
     enable = true;
