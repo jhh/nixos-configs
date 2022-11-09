@@ -3,5 +3,5 @@
 { flakes, config, pkgs, ... }:
 
 {
-  imports = [ ./jeff.nix ./root.nix ];
+  imports = [ ./jeff.nix ./media.nix ./root.nix ];
 }
