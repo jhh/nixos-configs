@@ -3,6 +3,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./sonarr.nix
     ];
 
   j3ff = {
@@ -23,6 +24,7 @@
 
   networking = {
     hostName = "ceres";
+    useNetworkd = true;
     useDHCP = false;
 
     interfaces.ens18 = {
