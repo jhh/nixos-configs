@@ -5,10 +5,16 @@
     agenix.url = "github:ryantm/agenix";
     deploy-rs.url = "github:serokell/deploy-rs";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager/release-22.05";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     darwin = {
@@ -47,7 +53,7 @@
     };
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, darwin, deploy-rs, deadeye, nt-server, dyndns, puka, ... } @ flakes:
+  outputs = { self, agenix, nixpkgs, nixpkgs-unstable, home-manager, home-manager-unstable, darwin, deploy-rs, deadeye, nt-server, dyndns, puka, ... } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
@@ -102,7 +108,25 @@
         # nixos-01 = mkSystem [ ./hosts/nixos-01 ];
         phobos = mkSystem [ ./hosts/phobos ];
         luna = mkSystem [ ./hosts/luna ];
-        ceres = mkSystem [ ./hosts/ceres ];
+
+        ceres = nixpkgs-unstable.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          modules = [
+            agenix.nixosModule
+            home-manager-unstable.nixosModules.home-manager
+            ({ config, ... }: {
+              system.configurationRevision = self.sourceInfo.rev;
+              services.getty.greetingLine =
+                "<<< Welcome to NixOS ${config.system.nixos.label} @ ${self.sourceInfo.rev} - \\l >>>";
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit flakes; };
+            })
+            ./common
+            ./hosts/ceres
+          ];
+        };
+        # ceres = mkSystem [ ./hosts/ceres ];
 
         eris = mkSystem [
           ./hosts/eris
