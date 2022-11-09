@@ -3,7 +3,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./sonarr.nix
+      ./media.nix
     ];
 
   j3ff = {
