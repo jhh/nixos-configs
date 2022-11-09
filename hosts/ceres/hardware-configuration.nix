@@ -5,58 +5,29 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "rpool/nixos";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
+    {
+      device = "/dev/disk/by-uuid/6c107705-cb38-4580-b607-72e9d5ab9274";
+      fsType = "ext4";
     };
 
-  fileSystems."/nix" =
-    { device = "rpool/nixos/nix";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
-    };
+  swapDevices = [ ];
 
-  fileSystems."/home" =
-    { device = "rpool/safe/home";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
-    };
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.ens18.useDHCP = lib.mkDefault true;
 
-  fileSystems."/root" =
-    { device = "rpool/safe/home/root";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
-    };
-
-  fileSystems."/home/jeff" =
-    { device = "rpool/safe/home/jeff";
-      fsType = "zfs";
-      options = [ "zfsutil" ];
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-id/nvme-CT1000P5SSD8_21112D9DA1D1-part3";
-      fsType = "vfat";
-      options = [ "X-mount.mkdir" ];
-    };
-
-  swapDevices = [
-    { device = "/dev/disk/by-id/nvme-CT1000P5SSD8_21112D9DA1D1-part2";
-      randomEncryption = true;
-    }
-  ];
-
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  # high-resolution display
-  hardware.video.hidpi.enable = lib.mkDefault true;
 }

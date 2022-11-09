@@ -102,7 +102,7 @@
         # nixos-01 = mkSystem [ ./hosts/nixos-01 ];
         phobos = mkSystem [ ./hosts/phobos ];
         luna = mkSystem [ ./hosts/luna ];
-        # ceres = mkSystem [ ./hosts/ceres ];
+        ceres = mkSystem [ ./hosts/ceres ];
 
         eris = mkSystem [
           ./hosts/eris
@@ -131,16 +131,16 @@
 
 
       deploy.nodes = {
-        # ceres = {
-        #   hostname = "100.121.169.6";
-        #   sshUser = "root";
-        #   fastConnection = false;
+        ceres = {
+          hostname = "10.1.0.44";
+          sshUser = "root";
+          fastConnection = true;
 
-        #   profiles.system = {
-        #     user = "root";
-        #     path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ceres;
-        #   };
-        # };
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ceres;
+          };
+        };
 
         eris = {
           hostname = "10.1.0.46";
