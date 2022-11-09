@@ -8,7 +8,7 @@
 
   services.sonarr = {
     enable = true;
-    user = config.users.users.media;
+    user = "media";
   };
 
   services.nginx = {
