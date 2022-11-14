@@ -12,7 +12,7 @@
 
     services.tailscale.enable = true;
 
-    systemd.services."systemd-networkd-wait-online" = {
+    systemd.services."systemd-networkd-wait-online" = lib.mkIf config.networking.useNetworkd {
       serviceConfig = {
         ExecStart = [
           "" # systemd will clear the ExecStart list
