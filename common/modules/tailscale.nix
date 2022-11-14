@@ -11,5 +11,14 @@
     ];
 
     services.tailscale.enable = true;
+
+    systemd.services."systemd-networkd-wait-online" = {
+      serviceConfig = {
+        ExecStart = [
+          "" # systemd will clear the ExecStart list
+          "${pkgs.systemd}/lib/systemd/systemd-networkd-wait-online --timeout=120 --ignore=tailscale0"
+        ];
+      };
+    };
   };
 }
