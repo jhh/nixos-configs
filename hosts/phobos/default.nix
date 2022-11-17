@@ -26,7 +26,6 @@
   hardware.cpu.intel.updateMicrocode = true;
 
   boot = {
-    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [
       "console=tty1"
       "console=ttyS1,115200"
