@@ -43,14 +43,12 @@ in
             job_name = "node";
             static_configs = [{
               targets = [
-                "docker-01:9100"
                 "docker-02:9100"
                 "eris:${nodePort}"
                 "luna:${nodePort}"
                 "phobos:${nodePort}"
                 "pihole:9100"
                 "pve-11:9100"
-                # "ups-01:9100"
                 "vesta:${nodePort}"
               ];
             }];
