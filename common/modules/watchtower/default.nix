@@ -7,5 +7,6 @@
     ./prometheus.nix
     ./pushgateway.nix
     ./pihole-exporter.nix
+    ./unifi-exporter.nix
   ];
 }

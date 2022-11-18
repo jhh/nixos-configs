@@ -21,6 +21,7 @@
       grafana.enable = true;
       exporters = {
         pihole.enable = true;
+        unifi.enable = true;
       };
     };
   };

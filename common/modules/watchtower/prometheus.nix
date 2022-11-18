@@ -102,11 +102,11 @@ in
           }
           {
             job_name = "unifi";
-            scrape_interval = "30s";
+            scrape_interval = "2m";
             static_configs = [
               {
                 targets = [
-                  "docker-01:9130"
+                  "localhost:${toString config.services.prometheus.exporters.unifi-poller.port}"
                 ];
               }
             ];
