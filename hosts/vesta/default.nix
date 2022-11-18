@@ -19,6 +19,9 @@
       prometheus.enable = true;
       pushgateway.enable = true;
       grafana.enable = true;
+      exporters = {
+        pihole.enable = true;
+      };
     };
   };
 

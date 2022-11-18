@@ -6,5 +6,6 @@
     ./grafana.nix
     ./prometheus.nix
     ./pushgateway.nix
+    ./pihole-exporter.nix
   ];
 }

@@ -76,7 +76,7 @@ in
             static_configs = [
               {
                 targets = [
-                  "docker-01:9617"
+                  "localhost:${toString config.services.prometheus.exporters.pihole.port}"
                 ];
               }
             ];
