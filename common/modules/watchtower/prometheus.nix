@@ -93,7 +93,7 @@ in
             static_configs = [
               {
                 targets = [
-                  "docker-01:9199"
+                  "localhost:9199"
                 ];
               }
             ];
