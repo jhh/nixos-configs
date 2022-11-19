@@ -11,6 +11,11 @@ in
     fsType = "nfs";
   };
 
+  fileSystems."/mnt/media/movies" = {
+    device = "luna.lan.j3ff.io:/mnt/tank/media/plex/movies";
+    fsType = "nfs";
+  };
+
   # sonarr
 
   services.sonarr = {
@@ -18,6 +23,15 @@ in
     user = mediaUser;
     group = mediaGroup;
   };
+
+  # radarr
+
+  services.radarr = {
+    enable = true;
+    user = mediaUser;
+    group = mediaGroup;
+  };
+
 
   # sabnzbd
 
@@ -54,6 +68,14 @@ in
       locations = {
         "/" = {
           proxyPass = "http://127.0.0.1:8989";
+        };
+      };
+    };
+
+    "radarr.j3ff.io" = {
+      locations = {
+        "/" = {
+          proxyPass = "http://127.0.0.1:7878";
         };
       };
     };
