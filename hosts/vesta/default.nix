@@ -20,6 +20,7 @@
       pushgateway.enable = true;
       grafana.enable = true;
       exporters = {
+        nut.enable = true;
         pihole.enable = true;
         unifi.enable = true;
       };

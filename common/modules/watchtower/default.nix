@@ -4,6 +4,7 @@
   imports = [
     ./alertmanager.nix
     ./grafana.nix
+    ./nut-exporter.nix
     ./prometheus.nix
     ./pushgateway.nix
     ./pihole-exporter.nix
