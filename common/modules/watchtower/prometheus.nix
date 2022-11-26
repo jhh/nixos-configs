@@ -70,16 +70,6 @@ in
             }];
           }
           {
-            job_name = "pihole";
-            static_configs = [
-              {
-                targets = [
-                  "localhost:${toString config.services.prometheus.exporters.pihole.port}"
-                ];
-              }
-            ];
-          }
-          {
             job_name = "push";
             honor_labels = true;
             static_configs = [{
@@ -120,7 +110,16 @@ in
               }
             ];
           }
-        ];
+        ] ++ lib.optional config.j3ff.watchtower.exporters.pihole.enable {
+          job_name = "pihole";
+          static_configs = [
+            {
+              targets = [
+                "localhost:${toString config.services.prometheus.exporters.pihole.port}"
+              ];
+            }
+          ];
+        };
 
       alertmanagers = [{
         static_configs = [{
