@@ -206,7 +206,7 @@ in
 
     services.grafana.provision = {
       enable = true;
-      datasources = [
+      datasources.settings.datasources = [
         {
           name = "Prometheus";
           type = "prometheus";
