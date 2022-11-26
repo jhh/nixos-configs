@@ -57,7 +57,7 @@ in
             job_name = "grafana";
             static_configs = [{
               targets = [
-                "localhost:${toString config.services.grafana.port}"
+                "localhost:${toString config.services.grafana.settings.server.http_port}"
               ];
             }];
           }
