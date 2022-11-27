@@ -18,6 +18,7 @@
       security = user
       min protocol = SMB2
       ea support = yes
+      logging = 0
 
       vfs objects = fruit streams_xattr
       fruit:aapl = yes
