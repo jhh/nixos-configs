@@ -19,9 +19,11 @@ in
   config = lib.mkIf cfg.enable {
     services.grafana = {
       enable = true;
-      domain = cfg.domain;
-      port = 2342;
-      addr = "127.0.0.1";
+      settings.server = {
+        domain = cfg.domain;
+        http_port = 2342;
+        http_addr = "127.0.0.1";
+      };
       declarativePlugins = with pkgs.grafanaPlugins; [ grafana-piechart-panel grafana-clock-panel ];
     };
 
@@ -31,7 +33,7 @@ in
 
       virtualHosts.${cfg.domain} = {
         locations."/" = {
-          proxyPass = "http://127.0.0.1:${toString config.services.grafana.port}";
+          proxyPass = "http://127.0.0.1:${toString config.services.grafana.settings.server.http_port}";
           proxyWebsockets = true;
         };
       };

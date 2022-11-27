@@ -57,7 +57,7 @@ in
             job_name = "grafana";
             static_configs = [{
               targets = [
-                "localhost:${toString config.services.grafana.port}"
+                "localhost:${toString config.services.grafana.settings.server.http_port}"
               ];
             }];
           }
@@ -68,16 +68,6 @@ in
                 "localhost:${toString config.services.prometheus.port}"
               ];
             }];
-          }
-          {
-            job_name = "pihole";
-            static_configs = [
-              {
-                targets = [
-                  "localhost:${toString config.services.prometheus.exporters.pihole.port}"
-                ];
-              }
-            ];
           }
           {
             job_name = "push";
@@ -120,7 +110,16 @@ in
               }
             ];
           }
-        ];
+        ] ++ lib.optional config.j3ff.watchtower.exporters.pihole.enable {
+          job_name = "pihole";
+          static_configs = [
+            {
+              targets = [
+                "localhost:${toString config.services.prometheus.exporters.pihole.port}"
+              ];
+            }
+          ];
+        };
 
       alertmanagers = [{
         static_configs = [{
@@ -206,7 +205,7 @@ in
 
     services.grafana.provision = {
       enable = true;
-      datasources = [
+      datasources.settings.datasources = [
         {
           name = "Prometheus";
           type = "prometheus";

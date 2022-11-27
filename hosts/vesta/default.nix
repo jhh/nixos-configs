@@ -21,17 +21,17 @@
       grafana.enable = true;
       exporters = {
         nut.enable = true;
-        pihole.enable = true;
+        pihole.enable = false;
         unifi.enable = true;
       };
     };
   };
 
   deadeye = {
-    web.enable = true;
-    admin.enable = true;
+    web.enable = false;
+    admin.enable = false;
     daemon = {
-      enable = true;
+      enable = false;
       unitId = "V";
       pipeline0 = "deadeye::UprightRectPipeline";
       pipeline1 = "deadeye::MinAreaRectPipeline";
