@@ -22,8 +22,8 @@ in
     domain = "j3ff.io";
     rootUrl = "https://gitea.j3ff.io/";
     database.type = "postgres";
-    log.level = "Warn";
     settings = {
+      log.LEVEL = "Warn";
       repository = {
         DEFAULT_BRANCH = "main";
       };
