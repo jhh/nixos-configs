@@ -11,5 +11,6 @@
 
   home-manager.users.root = {
     programs.bash.enable = true;
+    home.stateVersion = "22.05";
   };
 }
