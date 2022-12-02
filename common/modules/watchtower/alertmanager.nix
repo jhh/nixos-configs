@@ -57,6 +57,8 @@ in
             pushover_configs = [{
               user_key = "ugdx1vs5quycvqg3stin54ps5jqm3i";
               token = "$PUSHOVER_TOKEN";
+              retry = "1h";
+              expire = "4h";
             }];
           }
         ];
