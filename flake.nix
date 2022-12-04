@@ -94,7 +94,7 @@
           ./hosts/ganymede
           home-manager.darwinModules.home-manager
           ({ config, ... }: {
-            nixpkgs.config.allowBroken = true;
+            nixpkgs.config.allowBroken = false;
             home-manager.useGlobalPkgs = true;
             home-manager.extraSpecialArgs = { inherit flakes; };
             home-manager.users.jeff = {
