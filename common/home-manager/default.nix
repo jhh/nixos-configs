@@ -99,6 +99,6 @@ rec {
   };
 
   services = lib.mkIf pkgs.stdenv.isLinux {
-    lorri.enable = true;
+    lorri.enable = false;
   };
 }
