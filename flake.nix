@@ -19,7 +19,7 @@
 
     darwin = {
       url = "github:lnl7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     fish-colored-man = {
@@ -92,7 +92,7 @@
         system = "aarch64-darwin";
         modules = [
           ./hosts/ganymede
-          home-manager.darwinModules.home-manager
+          home-manager-unstable.darwinModules.home-manager
           ({ config, ... }: {
             nixpkgs.config.allowBroken = false;
             home-manager.useGlobalPkgs = true;
