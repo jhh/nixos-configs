@@ -22,11 +22,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    fish-colored-man = {
-      url = "github:decors/fish-colored-man";
-      flake = false;
-    };
-
     fish-nix-env = {
       url = "github:lilyball/nix-env.fish";
       flake = false;

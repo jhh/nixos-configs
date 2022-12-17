@@ -2,8 +2,8 @@
 let
   defaultPlugins = [
     {
-      name = "colored-man";
-      src = flakes.fish-colored-man;
+      name = "colored-man-pages";
+      src = pkgs.fishPlugins.colored-man-pages.src;
     }
 
     {
@@ -11,19 +11,6 @@ let
       src = pkgs.fishPlugins.fzf-fish.src;
     }
   ];
-
-  darwinPlugins =
-    if pkgs.stdenv.isDarwin then [
-      {
-        name = "foreign-env";
-        src = pkgs.fishPlugins.foreign-env.src;
-      }
-
-      {
-        name = "nix-env";
-        src = flakes.fish-nix-env;
-      }
-    ] else [ ];
 
 in
 {
@@ -57,10 +44,8 @@ in
       };
     };
 
-    plugins = defaultPlugins ++ darwinPlugins;
+    plugins = defaultPlugins;
 
-    # fzf.fish plugin ctrl-R keybind is overwritten by vanilla fzf, so rebind
-    # interactiveShellInit = builtins.readFile ./interactiveShellInit.fish;
     interactiveShellInit = ''
       ### Add nix binary paths to the PATH
       # Perhaps someday will be fixed in nix or nix-darwin itself
@@ -87,11 +72,6 @@ in
           eval (/opt/homebrew/bin/brew shellenv)
       end
     '';
-
-    # shellInit =
-    #   lib.optionalString pkgs.stdenv.isDarwin ''
-    #     fenv export NIX_PATH=\$HOME/.nix-defexpr/channels\''${NIX_PATH:+:}\$NIX_PATH
-    #   '';
   };
 
   home.file = {
