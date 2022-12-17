@@ -46,7 +46,7 @@ in
       drm = "docker images -a -q | xargs docker rmi -f";
       du = "dust";
       ping = "prettyping";
-      git = "hub";
+      # git = "hub";
     };
 
     functions = {
