@@ -11,6 +11,7 @@
   environment.systemPackages =
     [
       pkgs.coreutils
+      pkgs.findutils
     ];
 
   # Auto upgrade nix package and the daemon service.
