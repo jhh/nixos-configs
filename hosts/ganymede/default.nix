@@ -9,7 +9,9 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
-    [ pkgs.vim pkgs.git ];
+    [
+      pkgs.coreutils
+    ];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -17,7 +19,6 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   nix = {
-    package = pkgs.nixFlakes;
     extraOptions = ''
       auto-optimise-store = true
       experimental-features = nix-command flakes
