@@ -88,7 +88,7 @@
     qemuGuest.enable = true;
   };
 
-  virtualisation.docker.enable = false;
+  virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
