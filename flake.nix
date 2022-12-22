@@ -58,7 +58,7 @@
         nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ strykeforce.overlay ]; })
+            # ({ config, pkgs, ... }: { nixpkgs.overlays = [ strykeforce.overlay ]; })
             agenix.nixosModule
             home-manager.nixosModules.home-manager
             ({ config, ... }: {
@@ -74,7 +74,7 @@
             nt-server.nixosModules.default
             dyndns.nixosModules.default
             puka.nixosModules.default
-            strykeforce.nixosModules.default
+            strykeforce.nixosModule
           ] ++ extraModules;
         };
     in
