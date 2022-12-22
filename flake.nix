@@ -46,9 +46,11 @@
       url = "github:jhh/puka";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    strykeforce.url = "path:/Users/jeff/Code/strykeforce/strykeforce.org";
   };
 
-  outputs = { self, agenix, nixpkgs, nixpkgs-unstable, home-manager, home-manager-unstable, darwin, deploy-rs, deadeye, nt-server, dyndns, puka, ... } @ flakes:
+  outputs = { self, agenix, nixpkgs, nixpkgs-unstable, home-manager, home-manager-unstable, darwin, deploy-rs, deadeye, nt-server, dyndns, puka, strykeforce, ... } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
@@ -72,6 +74,7 @@
             nt-server.nixosModules.default
             dyndns.nixosModules.default
             puka.nixosModules.default
+            strykeforce.nixosModules.default
           ] ++ extraModules;
         };
     in

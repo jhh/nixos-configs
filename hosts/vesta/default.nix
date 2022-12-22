@@ -8,6 +8,11 @@
       ./nfs.nix
     ];
 
+  strykeforce.services.website = {
+    enable = true;
+    settingsModule = "website.settings.test";
+  };
+
   j3ff = {
     mail.enable = true;
     tailscale.enable = true;
