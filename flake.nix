@@ -47,7 +47,7 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    strykeforce.url = "path:/Users/jeff/Code/strykeforce/strykeforce.org";
+    strykeforce.url = "path:/home/jeff/code/strykeforce/strykeforce.org";
   };
 
   outputs = { self, agenix, nixpkgs, nixpkgs-unstable, home-manager, home-manager-unstable, darwin, deploy-rs, deadeye, nt-server, dyndns, puka, strykeforce, ... } @ flakes:
@@ -58,7 +58,7 @@
         nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           modules = [
-            # ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-nut ]; })
+            ({ config, pkgs, ... }: { nixpkgs.overlays = [ strykeforce.overlay ]; })
             agenix.nixosModule
             home-manager.nixosModules.home-manager
             ({ config, ... }: {

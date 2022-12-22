@@ -561,13 +561,13 @@
         "poetry2nix": "poetry2nix_2"
       },
       "locked": {
-        "lastModified": 1671714138,
-        "narHash": "sha256-psGNcCadNFhQ4g+Do6gF1eFP0lYxwjPvcWn5ECNiiNI=",
-        "path": "/Users/jeff/Code/strykeforce/strykeforce.org",
+        "lastModified": 1671733547,
+        "narHash": "sha256-b5q0MCLnti2ZtQ4/W3T98EzJylnyaPv/QxKbJC6ZfdA=",
+        "path": "/home/jeff/code/strykeforce/strykeforce.org",
         "type": "path"
       },
       "original": {
-        "path": "/Users/jeff/Code/strykeforce/strykeforce.org",
+        "path": "/home/jeff/code/strykeforce/strykeforce.org",
         "type": "path"
       }
     },
