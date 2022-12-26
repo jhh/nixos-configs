@@ -50,6 +50,13 @@
         writeable = "yes";
       };
 
+      Lightroom = {
+        path = "/mnt/tank/media/lightroom";
+        "valid users" = "jeff";
+        public = "no";
+        writeable = "yes";
+      };
+
       Music = {
         path = "/mnt/tank/media/plex/music/Music";
         public = "yes";
