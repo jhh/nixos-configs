@@ -10,7 +10,7 @@
 
   strykeforce.services.website = {
     enable = true;
-    settingsModule = "website.settings.test";
+    settingsModule = "website.settings.production";
   };
 
   j3ff = {

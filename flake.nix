@@ -142,6 +142,9 @@
             age.secrets.aws_secret = {
               file = ./common/modules/secrets/aws_secret.age;
             };
+            age.secrets.stryker_website_secrets = {
+              file = ./common/modules/secrets/strykeforce_website_secrets.age;
+            };
             j3ff.dyndns.enable = true;
           })
         ];
