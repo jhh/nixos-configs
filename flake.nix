@@ -112,13 +112,19 @@
           modules = [
             agenix.nixosModule
             home-manager-unstable.nixosModules.home-manager
-            ({ config, ... }: {
-              system.configurationRevision = self.sourceInfo.rev;
+            ({ config, pkgs, ... }: {
               services.getty.greetingLine =
                 "<<< Welcome to NixOS ${config.system.nixos.label} @ ${self.sourceInfo.rev} - \\l >>>";
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit flakes; };
+
+              system.configurationRevision = self.sourceInfo.rev;
+              system.activationScripts.diff = ''
+                if [[ -e /run/current-system ]]; then
+                  ${pkgs.nix}/bin/nix store diff-closures /run/current-system "$systemConfig"
+                fi
+              '';
             })
             ./common
             ./hosts/ceres
