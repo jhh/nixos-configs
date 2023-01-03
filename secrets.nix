@@ -20,5 +20,6 @@ in
   "common/modules/secrets/pushover_token.age".publicKeys = [ jeff vesta ];
   "common/modules/secrets/smtp_passwd.age".publicKeys = [ jeff eris ];
   "common/modules/secrets/miniflux_secret.age".publicKeys = [ jeff eris ];
+  "common/modules/secrets/minio_secret.age".publicKeys = [ jeff luna ];
   "common/modules/secrets/unifi_passwd.age".publicKeys = [ jeff vesta ];
 }

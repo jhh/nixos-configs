@@ -4,10 +4,9 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./minio.nix
       ./nfs.nix
       ./plex.nix
-      # deimos not installed
-      # ./rsync.nix
       ./samba.nix
       ./rclone.nix
     ];
