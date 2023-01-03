@@ -9,11 +9,16 @@
       ./miniflux.nix
     ];
 
+  age.secrets.puka_secrets = {
+    file = ../../common/modules/secrets/puka_secrets.age;
+  };
+
   j3ff = {
     mail.enable = true;
     man.enable = false;
     mdns.enable = true;
     prometheus.enable = true;
+    puka.enable = true;
     tailscale.enable = true;
   };
 
