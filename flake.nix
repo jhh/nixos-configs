@@ -135,6 +135,9 @@
           extraModules = [
             ./hosts/pallas
             ({ config, pkgs, ... }: {
+              age.secrets.stryker_website_secrets = {
+                file = common/modules/secrets/strykeforce_website_secrets.age;
+              };
               strykeforce.services.website = {
                 enable = true;
                 settingsModule = "website.settings.production";
