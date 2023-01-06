@@ -132,30 +132,12 @@
         luna = mkSystem { extraModules = [ ./hosts/luna ]; };
         phobos = mkSystem { extraModules = [ ./hosts/phobos ]; };
         vesta = mkSystem { extraModules = [ ./hosts/vesta ]; };
-
-        ceres = nixpkgs-unstable.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          modules = [
-            agenix.nixosModule
-            home-manager-unstable.nixosModules.home-manager
-            ({ config, pkgs, ... }: {
-              services.getty.greetingLine =
-                "<<< Welcome to NixOS ${config.system.nixos.label} @ ${self.sourceInfo.rev} - \\l >>>";
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit flakes; };
-
-              system.configurationRevision = self.sourceInfo.rev;
-              system.activationScripts.diff = ''
-                if [[ -e /run/current-system ]]; then
-                  ${pkgs.nix}/bin/nix store diff-closures /run/current-system "$systemConfig"
-                fi
-              '';
-            })
-            ./common
-            ./hosts/ceres
-          ];
-        };
+        ceres = mkSystem
+          {
+            packages = nixpkgs-unstable;
+            homeManager = home-manager-unstable;
+            extraModules = [ ./hosts/ceres ];
+          };
       };
 
 
