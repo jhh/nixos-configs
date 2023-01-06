@@ -15,13 +15,9 @@
     };
 
     environment.systemPackages = with pkgs; [
-      age
       bat
       file
-      minisign
-      neovim
       nfs-utils
-      nodejs-16_x
     ];
 
     networking.domain = "lan.j3ff.io";

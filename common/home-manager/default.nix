@@ -7,21 +7,17 @@ let
     du-dust # more intuitive version of du in rust
     duf # disk usage/free utility
     fd # "find" for files
-    fortune # print a random, hopefully interesting, adage
     fzf #  command-line fuzzy finder
     glow # markdown previewer
     htop # interactive process viewer
     jq # JSON parsing cli
     lazygit # simple terminal UI for git commands
-    mosh # ssh alternative
     neofetch # command-line system information
     nixpkgs-fmt # formatter for Nix code
-    nyancat # the famous rainbow cat!
     prettyping # a nicer ping
     ripgrep # search in files
     tealdeer # fast version of tldr
   ]
-  ++ lib.optional pkgs.stdenv.isLinux fast-cli
   ++ lib.optional pkgs.stdenv.isDarwin cookiecutter;
 
   gitPkgs = with pkgs.gitAndTools; [
