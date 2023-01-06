@@ -130,6 +130,7 @@
       nixosConfigurations = {
         eris = mkSystem { extraModules = [ ./hosts/eris ]; };
         luna = mkSystem { extraModules = [ ./hosts/luna ]; };
+        pallas = mkSystem { extraModules = [ ./hosts/pallas ]; };
         phobos = mkSystem { extraModules = [ ./hosts/phobos ]; };
         vesta = mkSystem { extraModules = [ ./hosts/vesta ]; };
         ceres = mkSystem
@@ -172,6 +173,17 @@
           profiles.system = {
             user = "root";
             path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.luna;
+          };
+        };
+
+        pallas = {
+          hostname = "10.1.0.47";
+          sshUser = "root";
+          fastConnection = true;
+
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.pallas;
           };
         };
 
