@@ -50,15 +50,34 @@
     strykeforce.url = "path:/home/jeff/code/strykeforce/strykeforce.org";
   };
 
-  outputs = { self, agenix, nixpkgs, nixpkgs-unstable, home-manager, home-manager-unstable, darwin, deploy-rs, deadeye, nt-server, dyndns, puka, strykeforce, ... } @ flakes:
+  outputs =
+    { self
+    , agenix
+    , darwin
+    , deadeye
+    , deploy-rs
+    , dyndns
+    , home-manager
+    , home-manager-unstable
+    , nixpkgs
+    , nixpkgs-unstable
+    , nt-server
+    , puka
+    , strykeforce
+    , ...
+    } @ flakes:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
-      mkSystem = extraModules:
-        nixpkgs.lib.nixosSystem rec {
+      mkSystem =
+        { packages ? nixpkgs
+        , homeManager ? home-manager
+        , extraModules
+        }:
+        packages.lib.nixosSystem rec {
           system = "x86_64-linux";
           modules = [
-            # ({ config, pkgs, ... }: { nixpkgs.overlays = [ strykeforce.overlay ]; })
+            # ({ config, pkgs, ... }: {  packages.overlays = [ strykeforce.overlay ]; })
             agenix.nixosModule
             home-manager.nixosModules.home-manager
             ({ config, ... }: {
@@ -109,10 +128,10 @@
       };
 
       nixosConfigurations = {
-        eris = mkSystem [ ./hosts/eris ];
-        luna = mkSystem [ ./hosts/luna ];
-        phobos = mkSystem [ ./hosts/phobos ];
-        vesta = mkSystem [ ./hosts/vesta ];
+        eris = mkSystem { extraModules = [ ./hosts/eris ]; };
+        luna = mkSystem { extraModules = [ ./hosts/luna ]; };
+        phobos = mkSystem { extraModules = [ ./hosts/phobos ]; };
+        vesta = mkSystem { extraModules = [ ./hosts/vesta ]; };
 
         ceres = nixpkgs-unstable.lib.nixosSystem rec {
           system = "x86_64-linux";
