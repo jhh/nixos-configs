@@ -130,7 +130,19 @@
       nixosConfigurations = {
         eris = mkSystem { extraModules = [ ./hosts/eris ]; };
         luna = mkSystem { extraModules = [ ./hosts/luna ]; };
-        pallas = mkSystem { extraModules = [ ./hosts/pallas ]; };
+
+        pallas = mkSystem {
+          extraModules = [
+            ./hosts/pallas
+            ({ config, pkgs, ... }: {
+              strykeforce.services.website = {
+                enable = true;
+                settingsModule = "website.settings.production";
+              };
+            })
+          ];
+        };
+
         phobos = mkSystem { extraModules = [ ./hosts/phobos ]; };
         vesta = mkSystem { extraModules = [ ./hosts/vesta ]; };
         ceres = mkSystem
