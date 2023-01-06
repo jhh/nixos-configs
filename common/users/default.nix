@@ -8,4 +8,5 @@
     ./media.nix
     ./root.nix
   ];
+  users.mutableUsers = false;
 }
