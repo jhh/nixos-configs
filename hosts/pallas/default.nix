@@ -20,7 +20,7 @@
       }];
     };
 
-    defaultGateway = "192.168.1.1";
+    defaultGateway = "10.1.0.1";
     nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
     firewall.enable = false;
   };
