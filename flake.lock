@@ -472,16 +472,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1672747515,
-        "narHash": "sha256-V8VcxlA4mnI0pMduj5SXiAhozEnunUucs/e9upBARbg=",
-        "owner": "jhh",
+        "lastModified": 1673094946,
+        "narHash": "sha256-CpRp4rueekOV0wFj+9y2M91YKBj6dhzEvYtpgquLYmU=",
+        "owner": "nix-community",
         "repo": "poetry2nix",
-        "rev": "159010e5d3ac6ccc283a3cc7d082c5baf5ea6f12",
+        "rev": "7df4a7de27c5affa789c44661c0debb94bef68de",
         "type": "github"
       },
       "original": {
-        "owner": "jhh",
-        "ref": "build-systems",
+        "owner": "nix-community",
         "repo": "poetry2nix",
         "type": "github"
       }
@@ -562,8 +561,8 @@
         "poetry2nix": "poetry2nix_2"
       },
       "locked": {
-        "lastModified": 1673021348,
-        "narHash": "sha256-cqps66K2IVCIwOpCGpSkwVSPa/TZU8RznKhAeoMwNmQ=",
+        "lastModified": 1673130855,
+        "narHash": "sha256-cHHrSRIoY34I4oXX+wz0B5fVhI33YNocwQQuejXXuAs=",
         "path": "/home/jeff/code/strykeforce/strykeforce.org",
         "type": "path"
       },
