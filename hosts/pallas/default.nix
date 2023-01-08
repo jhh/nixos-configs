@@ -1,6 +1,9 @@
 { config, pkgs, ... }: {
 
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./postgresql.nix
+  ];
 
   boot.cleanTmpDir = true;
   zramSwap.enable = true;
