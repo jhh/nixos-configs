@@ -25,11 +25,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1672753581,
-        "narHash": "sha256-EIi2tqHoje5cE9WqH23ZghW28NOOWSUM7tcxKE1U9KI=",
+        "lastModified": 1673295039,
+        "narHash": "sha256-AsdYgE8/GPwcelGgrntlijMg4t3hLFJFCRF3tL5WVjA=",
         "owner": "lnl7",
         "repo": "nix-darwin",
-        "rev": "3db1d870b04b13411f56ab1a50cd32b001f56433",
+        "rev": "87b9d090ad39b25b2400029c64825fc2a8868943",
         "type": "github"
       },
       "original": {
@@ -561,14 +561,18 @@
         "poetry2nix": "poetry2nix_2"
       },
       "locked": {
-        "lastModified": 1673270616,
-        "narHash": "sha256-AmQqWbtUV4Tjt/GwvLu8GGfISrqe+NVB9IBtejDPAVo=",
-        "path": "/home/jeff/code/strykeforce/strykeforce.org",
-        "type": "path"
+        "lastModified": 1673298250,
+        "narHash": "sha256-pHx4+ekwQuiMYcuc9db7kVPxfkC8GKA6MYv2PNYSpdY=",
+        "owner": "strykeforce",
+        "repo": "strykeforce.org",
+        "rev": "1d25b20d8171891bfc46d6cd0c085c7e553e3fed",
+        "type": "github"
       },
       "original": {
-        "path": "/home/jeff/code/strykeforce/strykeforce.org",
-        "type": "path"
+        "owner": "strykeforce",
+        "ref": "v4.0.0",
+        "repo": "strykeforce.org",
+        "type": "github"
       }
     },
     "tinyfsm-src": {

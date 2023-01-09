@@ -47,7 +47,7 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    strykeforce.url = "path:/home/jeff/code/strykeforce/strykeforce.org";
+    strykeforce.url = "github:strykeforce/strykeforce.org/v4.0.0";
   };
 
   outputs =
