@@ -6,6 +6,9 @@ in
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_14;
+    settings = {
+      unix_socket_directories = "/run/postgresql";
+    };
   };
 
 }
