@@ -9,6 +9,15 @@ in
     settings = {
       unix_socket_directories = "/run/postgresql";
     };
+
+    identMap = ''
+      strykeforce strykeforce strykeforce
+      strykeforce jeff        strykeforce
+    '';
+
+    authentication = ''
+      local strykeforce all peer map=strykeforce
+    '';
   };
 
   services.postgresqlBackup = {
