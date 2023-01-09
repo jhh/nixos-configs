@@ -561,8 +561,8 @@
         "poetry2nix": "poetry2nix_2"
       },
       "locked": {
-        "lastModified": 1673266552,
-        "narHash": "sha256-VjzAdlvYinYoIR5HJLdfrdNd6sTzyJZJnTMoC/th6Co=",
+        "lastModified": 1673270616,
+        "narHash": "sha256-AmQqWbtUV4Tjt/GwvLu8GGfISrqe+NVB9IBtejDPAVo=",
         "path": "/home/jeff/code/strykeforce/strykeforce.org",
         "type": "path"
       },
