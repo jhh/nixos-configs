@@ -11,4 +11,10 @@ in
     };
   };
 
+  services.postgresqlBackup = {
+    enable = true;
+    databases = [ "strykeforce" ];
+    pgdumpOptions = "--clean";
+  };
+
 }
