@@ -16,7 +16,7 @@
   };
 
   strykeforce.services.website = {
-    enable = true;
+    enable = false;
     settingsModule = "website.settings.production";
   };
 
