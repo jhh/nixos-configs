@@ -12,6 +12,7 @@ in
 
     identMap = ''
       strykeforce strykeforce strykeforce
+      strykeforce postgres    strykeforce
       strykeforce jeff        strykeforce
     '';
 
