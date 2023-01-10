@@ -10,15 +10,15 @@ in
       unix_socket_directories = "/run/postgresql";
     };
 
-    identMap = ''
-      strykeforce strykeforce strykeforce
-      strykeforce postgres    strykeforce
-      strykeforce jeff        strykeforce
-    '';
+    # identMap = ''
+    #   strykeforce strykeforce strykeforce
+    #   strykeforce postgres    strykeforce
+    #   strykeforce jeff        strykeforce
+    # '';
 
-    authentication = ''
-      local strykeforce all peer map=strykeforce
-    '';
+    # authentication = ''
+    #   local strykeforce all peer map=strykeforce
+    # '';
   };
 
   services.postgresqlBackup = {
