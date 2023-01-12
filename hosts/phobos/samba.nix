@@ -24,7 +24,7 @@
 
       use sendfile = yes
       socket options = IPTOS_LOWDELAY TCP_NODELAY
-      hosts allow = 192.168.3.0/24 100.64.0.0/10
+      hosts allow = 192.168.3.0/24 100.64.0.0/10 100.69.0.0/10
       guest account = nobody
       map to guest = bad user
 
