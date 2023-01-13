@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ./nfs.nix
+      ./rclone.nix
       ./samba.nix
       ./zrepl.nix
     ];
