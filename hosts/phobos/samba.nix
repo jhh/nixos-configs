@@ -46,6 +46,7 @@
         path = "/mnt/tank/share/strykeforce";
         public = "yes";
         writeable = "yes";
+        "guest ok" = "yes";
       };
     };
   };
