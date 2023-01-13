@@ -21,7 +21,7 @@ let
 in
 {
   "common/modules/secrets/upsmon.conf.age".publicKeys = [ jeff luna ceres ];
-  "common/modules/secrets/rclone.conf.age".publicKeys = [ jeff luna vesta ];
+  "common/modules/secrets/rclone.conf.age".publicKeys = [ jeff luna phobos vesta ];
   "common/modules/secrets/sasl_passwd.age".publicKeys = [ jeff ] ++ hosts;
   "common/modules/secrets/aws_secret.age".publicKeys = [ jeff vesta ];
   "common/modules/secrets/puka_secrets.age".publicKeys = [ jeff eris vesta ];
