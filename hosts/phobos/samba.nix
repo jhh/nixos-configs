@@ -1,6 +1,13 @@
 { config, pkgs, ... }:
 {
 
+  users.users.jerry = {
+    isNormalUser = true;
+    home = "/home/jerry";
+    description = "Jerry Culp";
+    hashedPassword = "$y$j9T$3OHmH5sCtzdckdk0eBwEN1$czyKEtxf/kv24.B3Amyc0uFQCSKQv7FQ1Tzu421YD56";
+  };
+
   services.samba = {
     enable = true;
     securityType = "user";
