@@ -117,6 +117,7 @@
           ./hosts/ganymede
           home-manager-unstable.darwinModules.home-manager
           ({ config, ... }: {
+            nixpkgs.config.allowUnfree = true;
             nixpkgs.config.allowBroken = false;
             home-manager.useGlobalPkgs = true;
             home-manager.extraSpecialArgs = { inherit flakes; };
