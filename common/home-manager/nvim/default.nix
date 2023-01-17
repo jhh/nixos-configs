@@ -16,6 +16,7 @@ let
 
   # https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/development/tools/parsing/tree-sitter/grammars
   treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
+    tree-sitter-bash
     tree-sitter-comment
     tree-sitter-fish
     tree-sitter-html
