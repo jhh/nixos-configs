@@ -141,6 +141,7 @@
               };
               strykeforce.services.website = {
                 enable = true;
+                ssl = false;
                 settingsModule = "website.settings.production";
               };
             })
