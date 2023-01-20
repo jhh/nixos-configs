@@ -17,4 +17,33 @@ in
     pgdumpOptions = "--clean";
   };
 
+  age.secrets.pgadmin_passwd = {
+    file = ../../common/modules/secrets/pgadmin_passwd.age;
+    owner = "pgadmin";
+    group = "pgadmin";
+  };
+
+  services.pgadmin = {
+    enable = true;
+    initialEmail = "jeff@j3ff.io";
+    initialPasswordFile = "${config.age.secrets.pgadmin_passwd.path}";
+  };
+
+  services.nginx = {
+    enable = true;
+    recommendedProxySettings = true;
+    recommendedOptimisation = true;
+
+
+    virtualHosts."pgadmin.j3ff.io" = {
+
+      locations = {
+        "/" = {
+          proxyPass = "http://127.0.0.1:5050";
+        };
+
+      };
+    };
+  };
+
 }

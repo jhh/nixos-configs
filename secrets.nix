@@ -28,6 +28,7 @@ in
   "common/modules/secrets/strykeforce_website_secrets.age".publicKeys = [ jeff pallas vesta ];
   "common/modules/secrets/route53_secrets.age".publicKeys = [ jeff eris ];
   "common/modules/secrets/pushover_token.age".publicKeys = [ jeff vesta ];
+  "common/modules/secrets/pgadmin_passwd.age".publicKeys = [ jeff pallas ];
   "common/modules/secrets/smtp_passwd.age".publicKeys = [ jeff eris ];
   "common/modules/secrets/miniflux_secret.age".publicKeys = [ jeff eris ];
   "common/modules/secrets/minio_secret.age".publicKeys = [ jeff luna ];
