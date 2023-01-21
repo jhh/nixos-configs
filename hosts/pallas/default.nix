@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./postgresql.nix
+    ./strykeforce-website.nix
   ];
 
   boot.cleanTmpDir = true;
