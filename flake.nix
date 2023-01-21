@@ -143,13 +143,31 @@
                 enable = true;
                 ssl = false;
                 settingsModule = "website.settings.production";
+                allowedHosts = "strykeforce.j3ff.io pallas.j3ff.io";
+              };
+              services.nginx.virtualHosts."strykeforce.j3ff.io" = {
+                locations = {
+                  "/" = {
+                    proxyPass = "http://127.0.0.1:8000";
+                  };
+
+                  "/media/" = {
+                    alias = "/var/lib/strykeforce/media/";
+                    extraConfig = ''
+                      expires max;
+                      add_header Cache-Control public;
+                    '';
+                  };
+                };
               };
             })
           ];
         };
 
-        phobos = mkSystem { extraModules = [ ./hosts/phobos ]; };
-        vesta = mkSystem { extraModules = [ ./hosts/vesta ]; };
+        phobos = mkSystem
+          { extraModules = [ ./hosts/phobos ]; };
+        vesta = mkSystem
+          { extraModules = [ ./hosts/vesta ]; };
         ceres = mkSystem
           {
             packages = nixpkgs-unstable;
