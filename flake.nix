@@ -77,7 +77,7 @@
         packages.lib.nixosSystem rec {
           system = "x86_64-linux";
           modules = [
-            # ({ config, pkgs, ... }: {  packages.overlays = [ strykeforce.overlay ]; })
+            ({ config, pkgs, ... }: { packages.overlays = [ strykeforce.overlays.default ]; })
             agenix.nixosModule
             home-manager.nixosModules.home-manager
             ({ config, ... }: {
@@ -134,6 +134,7 @@
         pallas = mkSystem { extraModules = [ ./hosts/pallas ]; };
         phobos = mkSystem { extraModules = [ ./hosts/phobos ]; };
         vesta = mkSystem { extraModules = [ ./hosts/vesta ]; };
+
         ceres = mkSystem {
           packages = nixpkgs-unstable;
           homeManager = home-manager-unstable;
