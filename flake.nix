@@ -47,7 +47,8 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    strykeforce.url = "github:strykeforce/strykeforce.org/students";
+    # strykeforce.url = "github:strykeforce/strykeforce.org/students";
+    strykeforce.url = "github:strykeforce/strykeforce.org";
   };
 
   outputs =
@@ -76,8 +77,8 @@
         }:
         packages.lib.nixosSystem rec {
           system = "x86_64-linux";
+          specialArgs.strykeforce = strykeforce;
           modules = [
-            ({ config, pkgs, ... }: { packages.overlays = [ strykeforce.overlays.default ]; })
             agenix.nixosModule
             home-manager.nixosModules.home-manager
             ({ config, ... }: {
@@ -99,7 +100,7 @@
             nt-server.nixosModules.default
             dyndns.nixosModules.default
             puka.nixosModules.default
-            strykeforce.nixosModule
+            strykeforce.nixosModules.default
           ] ++ extraModules;
         };
     in

@@ -1,4 +1,9 @@
-{ config, pkgs, ... }: {
+{ strykeforce, config, pkgs, ... }:
+let
+
+  strykeforce-manage = strykeforce.packages.x86_64-linux.manage;
+in
+{
 
   imports = [
     ./hardware-configuration.nix
@@ -9,7 +14,12 @@
   boot.cleanTmpDir = true;
   zramSwap.enable = true;
 
-  environment.systemPackages = with pkgs; [ bat git nixfmt ];
+  environment.systemPackages = with pkgs; [
+    bat
+    git
+    nixfmt
+    strykeforce-manage
+  ];
 
   networking = {
     hostName = "pallas";
