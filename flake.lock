@@ -561,15 +561,16 @@
         "poetry2nix": "poetry2nix_2"
       },
       "locked": {
-        "lastModified": 1674500268,
-        "narHash": "sha256-1VwiRUbegnuHieg7b/rC0QBqvh3KKJHdTYJlYjb5b8M=",
+        "lastModified": 1674561888,
+        "narHash": "sha256-PZ8dnFbLExONVRfKDyQyxK7Jn9QhcO5KC3RKyeJVgTk=",
         "owner": "strykeforce",
         "repo": "strykeforce.org",
-        "rev": "356152fc0b36e71d5287a9b5685cb4124471971c",
+        "rev": "240443bb01ea20de315b9e13cc18b1e1b8e59f2b",
         "type": "github"
       },
       "original": {
         "owner": "strykeforce",
+        "ref": "nix",
         "repo": "strykeforce.org",
         "type": "github"
       }
