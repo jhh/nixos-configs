@@ -1,7 +1,7 @@
 { strykeforce, config, pkgs, ... }:
 let
 
-  strykeforce-manage = strykeforce.packages.x86_64-linux.manage;
+  strykeforce-manage = strykeforce.packages.${pkgs.system}.manage;
 in
 {
 
