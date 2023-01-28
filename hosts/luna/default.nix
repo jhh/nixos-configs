@@ -4,7 +4,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./minio.nix
       ./nfs.nix
       ./plex.nix
       ./samba.nix
