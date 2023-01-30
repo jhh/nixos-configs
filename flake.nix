@@ -78,7 +78,7 @@
           system = "x86_64-linux";
           specialArgs.strykeforce = strykeforce;
           modules = [
-            agenix.nixosModule
+            agenix.nixosModules.default
             home-manager.nixosModules.home-manager
             ({ config, ... }: {
               services.getty.greetingLine =
