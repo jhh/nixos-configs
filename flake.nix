@@ -85,6 +85,7 @@
             ({ config, ... }: {
               services.getty.greetingLine =
                 "<<< Welcome to NixOS ${config.system.nixos.label} @ ${self.sourceInfo.rev} - \\l >>>";
+              services.getty.autologinUser = packages.lib.mkDefault "root";
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit flakes; };
