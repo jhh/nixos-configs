@@ -12,6 +12,7 @@
     mdns.enable = true;
     prometheus.enable = true;
     tailscale.enable = true;
+    services.fava-gencon.enable = true;
   };
 
   boot.loader.grub = {

@@ -48,6 +48,7 @@
     };
 
     strykeforce.url = "github:strykeforce/strykeforce.org";
+    fava-gencon.url = "github:jhh/fava-gencon";
   };
 
   outputs =
@@ -64,6 +65,7 @@
     , nt-server
     , puka
     , strykeforce
+    , fava-gencon
     , ...
     } @ flakes:
     let
@@ -100,6 +102,7 @@
             dyndns.nixosModules.default
             puka.nixosModules.default
             strykeforce.nixosModules.default
+            fava-gencon.nixosModules.default
           ] ++ extraModules;
         };
     in
