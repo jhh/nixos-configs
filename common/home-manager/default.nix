@@ -31,7 +31,7 @@ in
 rec {
   imports = [
     ./fish
-    ./git.nix
+    ./git
     ./nvim
   ];
 

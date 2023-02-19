@@ -61,13 +61,6 @@ in
       dc = "diff --cached";
     };
 
-    ignores = [
-      ".envrc"
-      ".direnv"
-      ".nvimlog"
-      ".vaultpw"
-      "*.jvmopts"
-      "*.swp"
-    ];
+    ignores = import ./ignore.nix;
   };
 }
