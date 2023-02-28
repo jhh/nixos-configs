@@ -135,7 +135,6 @@
       nixosConfigurations = {
         eris = mkSystem { extraModules = [ ./hosts/eris ]; };
         luna = mkSystem { extraModules = [ ./hosts/luna ]; };
-        pallas = mkSystem { extraModules = [ ./hosts/pallas ]; };
         phobos = mkSystem { extraModules = [ ./hosts/phobos ]; };
         vesta = mkSystem { extraModules = [ ./hosts/vesta ]; };
 
@@ -143,6 +142,12 @@
           packages = nixpkgs-unstable;
           homeManager = home-manager-unstable;
           extraModules = [ ./hosts/ceres ];
+        };
+
+        pallas = mkSystem {
+          packages = nixpkgs-unstable;
+          homeManager = home-manager-unstable;
+          extraModules = [ ./hosts/pallas ];
         };
       };
 
