@@ -91,8 +91,8 @@
       }];
     };
 
-    interfaces.enp6s0f0.useDHCP = false;
-    interfaces.enp6s0f1.useDHCP = false;
+    interfaces.enp5s0f0.useDHCP = false;
+    interfaces.enp5s0f1.useDHCP = false;
 
     defaultGateway = "10.1.0.1";
     nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4" ];
