@@ -10,7 +10,7 @@
     script = ''
       RCLONE_OPTS="--config ${config.age.secrets.rclone_conf.path} --skip-links --fast-list --transfers=32 -v"
 
-      echo backing up /mnt/tank/backup/git
+      echo backing up /mnt/tank/share/strykeforce
       ${pkgs.rclone}/bin/rclone $RCLONE_OPTS sync /mnt/tank/share/strykeforce b2:j3ff-strykeforce
     '';
   };
