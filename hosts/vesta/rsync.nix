@@ -14,6 +14,4 @@
       ${pkgs.rsync}/bin/rsync -az /home/jeff jeff@$BACKUP_HOST:backup/vesta/
     '';
   };
-
 }
-

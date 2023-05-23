@@ -11,6 +11,7 @@
   age.secrets.aws_secret = {
     file = ../../common/modules/secrets/aws_secret.age;
   };
+
   age.secrets.stryker_website_secrets = {
     file = ../../common/modules/secrets/strykeforce_website_secrets.age;
   };
@@ -110,5 +111,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
-
 }
