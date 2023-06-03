@@ -19,7 +19,7 @@
       file
       # proxmox-backup-client
       nfs-utils
-      nodejs-16_x
+      nodejs
     ];
 
     networking.domain = "lan.j3ff.io";
