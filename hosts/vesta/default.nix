@@ -22,7 +22,7 @@
   };
 
   j3ff = {
-    dyndns.enable = true;
+    dyndns.enable = false;
     mail.enable = true;
     tailscale.enable = true;
     man.enable = true;
