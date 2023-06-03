@@ -11,7 +11,7 @@ in
     ./strykeforce-website.nix
   ];
 
-  boot.cleanTmpDir = true;
+  boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
 
   environment.systemPackages = with pkgs; [

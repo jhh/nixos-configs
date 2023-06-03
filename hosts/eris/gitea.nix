@@ -19,11 +19,13 @@ in
 
   services.gitea = {
     enable = true;
-    domain = "j3ff.io";
-    rootUrl = "https://gitea.j3ff.io/";
     database.type = "postgres";
     settings = {
       log.LEVEL = "Warn";
+      server = {
+        ROOT_URL = "https://gitea.j3ff.io/";
+        DOMAIN = "j3ff.io";
+      };
       repository = {
         DEFAULT_BRANCH = "main";
       };
