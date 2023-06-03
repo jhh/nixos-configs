@@ -94,7 +94,7 @@ in
             static_configs = [
               {
                 targets = [
-                  "localhost:${toString config.services.prometheus.exporters.unifi-poller.port}"
+                  "localhost:${toString config.services.prometheus.exporters.unpoller.port}"
                 ];
               }
             ];

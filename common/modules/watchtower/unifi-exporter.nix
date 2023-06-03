@@ -13,11 +13,11 @@ in
   config = lib.mkIf cfg.enable {
     age.secrets.unifi_passwd = {
       file = ../secrets/unifi_passwd.age;
-      owner = "${toString config.services.prometheus.exporters.unifi-poller.user}";
-      group = "${toString config.services.prometheus.exporters.unifi-poller.group}";
+      owner = "${toString config.services.prometheus.exporters.unpoller.user}";
+      group = "${toString config.services.prometheus.exporters.unpoller.group}";
     };
 
-    services.prometheus.exporters.unifi-poller = {
+    services.prometheus.exporters.unpoller = {
       enable = true;
       controllers = [
         {
