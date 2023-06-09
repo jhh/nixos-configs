@@ -20,7 +20,7 @@
     smartd.enable = true;
     tailscale.enable = true;
     ups.enable = true;
-    networkTables.enable = true;
+    networkTables.enable = false;
 
     zfs = {
       enable = true;
