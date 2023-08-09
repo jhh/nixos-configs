@@ -48,6 +48,7 @@
       # package = pkgs.nixFlakes;
       extraOptions = ''
         experimental-features = nix-command flakes
+        cores = 0
       '';
 
       settings = {
