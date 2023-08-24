@@ -668,11 +668,11 @@
         "poetry2nix": "poetry2nix_2"
       },
       "locked": {
-        "lastModified": 1692884971,
-        "narHash": "sha256-BOwGMIGrYCJj3+w9xvgyXr/0ELkcspSwBJfSfe1uBiE=",
+        "lastModified": 1692885570,
+        "narHash": "sha256-H2w1L7MghJ96/SbufS7WvYvxU8oet6aYpY2hv5Unmv0=",
         "owner": "strykeforce",
         "repo": "strykeforce.org",
-        "rev": "13a2e8da5212a2a13efe78e9f7cd3a1d6001d5ee",
+        "rev": "4fd86877a710d35adb745329b45531318c8946b7",
         "type": "github"
       },
       "original": {
