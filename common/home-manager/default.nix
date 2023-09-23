@@ -65,7 +65,7 @@ rec {
       };
     };
 
-    eza = {
+    exa = {
       enable = true;
       enableAliases = true;
     };
