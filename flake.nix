@@ -91,11 +91,6 @@
               home-manager.extraSpecialArgs = { inherit flakes; };
 
               system.configurationRevision = self.sourceInfo.rev;
-              system.activationScripts.diff = ''
-                if [[ -e /run/current-system ]]; then
-                  ${pkgs.nix}/bin/nix store diff-closures /run/current-system "$systemConfig"
-                fi
-              '';
             })
             ./common
             deadeye.nixosModules.default

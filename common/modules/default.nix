@@ -8,6 +8,7 @@
     ./prometheus.nix
     ./smartd.nix
     ./tailscale.nix
+    ./upgrade-diff.nix
     ./ups.nix
     ./virtualization.nix
     ./watchtower
