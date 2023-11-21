@@ -13,9 +13,7 @@ in
     ensureUsers = [
       {
         name = "jeff";
-        ensurePermissions = {
-          "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
-        };
+        # ensureDBOwnership = true;
       }
     ];
 
