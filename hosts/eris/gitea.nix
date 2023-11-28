@@ -31,16 +31,15 @@ in
       };
       mailer = {
         ENABLED = true;
-        MAILER_TYPE = "smtp";
+        PROTOCOL = "smtps";
         FROM = "gitea@j3ff.io";
-        HOST = "smtp.fastmail.com:465";
-        IS_TLS_ENABLED = true;
+        SMTP_ADDR = "smtp.fastmail.com";
+        SMTP_PORT = 465;
         USER = "jeff@j3ff.io";
       };
       indexer = {
         REPO_INDEXER_ENABLED = true;
         REPO_INDEXER_PATH = "indexers/repos.bleve";
-        UPDATE_BUFFER_LEN = 20;
         MAX_FILE_SIZE = 1048576;
       };
     };
