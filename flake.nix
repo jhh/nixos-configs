@@ -32,11 +32,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nt-server = {
-      url = "github:jhh/nt-server-docker";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     dyndns = {
       url = "github:jhh/dyndns";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,7 +57,6 @@
     , home-manager-unstable
     , nixpkgs
     , nixpkgs-unstable
-    , nt-server
     , puka
     , strykeforce
     , fava-gencon
@@ -94,7 +88,6 @@
             })
             ./common
             deadeye.nixosModules.default
-            nt-server.nixosModules.default
             dyndns.nixosModules.default
             puka.nixosModules.default
             strykeforce.nixosModules.default
