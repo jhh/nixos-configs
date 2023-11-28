@@ -40,7 +40,12 @@
         prefixLength = 24;
       }];
     };
-    defaultGateway = "10.1.0.1";
+
+    defaultGateway = {
+      address = "10.1.0.1";
+      interface = "ens18";
+    };
+
     nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
     hostId = "1d6f98a2";
     firewall.enable = false;

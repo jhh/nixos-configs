@@ -54,7 +54,10 @@
 
     interfaces.enp8s0.useDHCP = true;
 
-    defaultGateway = "192.168.3.1";
+    defaultGateway = {
+      address = "192.168.3.1";
+      interface = "enp7s0";
+    };
     nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
     hostId = "2b7703b8";
     firewall.enable = false;

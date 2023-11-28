@@ -91,7 +91,11 @@
       }];
     };
 
-    defaultGateway = "10.1.0.1";
+    defaultGateway = {
+      address = "10.1.0.1";
+      interface = "ens18";
+    };
+
     nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
     firewall.enable = false;
   };
