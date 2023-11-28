@@ -543,11 +543,11 @@
         "utils": "utils_4"
       },
       "locked": {
-        "lastModified": 1666783244,
-        "narHash": "sha256-T+/QyN60lyNBh5B2xENOaZcQn/YuEdrtPgZFWP+wQk0=",
+        "lastModified": 1701181904,
+        "narHash": "sha256-OnaR2Wc5/M5Vs0rhzE8Gd+meh3ZK7245P+7hjSHQmh8=",
         "owner": "jhh",
         "repo": "puka",
-        "rev": "f8add0951dffea3e31fda8790a2f1ed8956f1e23",
+        "rev": "052ea359764c76850e62c364c465ca114d70f15c",
         "type": "github"
       },
       "original": {
