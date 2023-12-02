@@ -52,7 +52,7 @@
       '';
 
       settings = {
-        auto-optimise-store = true;
+        auto-optimise-store = pkgs.stdenv.isLinux;
         trusted-users = [ "root" "jeff" ];
       };
 
