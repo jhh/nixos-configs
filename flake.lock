@@ -578,11 +578,11 @@
         "poetry2nix": "poetry2nix"
       },
       "locked": {
-        "lastModified": 1701559241,
-        "narHash": "sha256-Ka+Yz1VdGme6/yxOjMcTaGlDkPxUIFQrmZ0vrugoBnU=",
+        "lastModified": 1701559578,
+        "narHash": "sha256-ggR+CWFRYnSO0fZa7qHdwAT+eG4tQXtdtx2O6wbSNd8=",
         "owner": "jhh",
         "repo": "puka",
-        "rev": "eaf569566c4a84400a1ef7d0eed7fa1e6434e277",
+        "rev": "cfceb81f99eb9cd346f5a03a242343de9ccbc280",
         "type": "github"
       },
       "original": {
