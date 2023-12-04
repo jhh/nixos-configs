@@ -71,6 +71,11 @@ in
       if test -x /opt/homebrew/bin/brew
           eval (/opt/homebrew/bin/brew shellenv)
       end
+
+      if test -x ~/.ghcup/bin
+          fish_add_path ~/.ghcup/bin
+      end
+
     '';
   };
 
