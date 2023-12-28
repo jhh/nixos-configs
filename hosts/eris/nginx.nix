@@ -18,8 +18,7 @@
     defaults = {
       email = "jeff@j3ff.io";
       dnsProvider = "route53";
-      credentialsFile = "/run/agenix/route53_secrets";
+      environmentFile = config.age.secrets.route53_secrets.path;
     };
   };
-
 }
