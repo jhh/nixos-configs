@@ -5,8 +5,10 @@
     [
       ./hardware-configuration.nix
       ./nfs.nix
+      ./postgresql.nix
       ./rclone.nix
       ./samba.nix
+      ./strykeforce-website.nix
       ./zrepl.nix
     ];
 
