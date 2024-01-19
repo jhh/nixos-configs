@@ -29,7 +29,6 @@
 
     deadeye = {
       url = "github:strykeforce/deadeye";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     dyndns = {

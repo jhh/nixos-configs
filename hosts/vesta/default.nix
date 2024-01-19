@@ -42,10 +42,10 @@
   };
 
   deadeye = {
-    web.enable = false;
-    admin.enable = false;
+    web.enable = true;
+    admin.enable = true;
     daemon = {
-      enable = false;
+      enable = true;
       unitId = "V";
       pipeline0 = "deadeye::UprightRectPipeline";
       pipeline1 = "deadeye::MinAreaRectPipeline";
