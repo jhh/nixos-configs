@@ -60,7 +60,7 @@ in
           direnv hook fish | source
       end
 
-      set --local WPI_YEAR 2022
+      set --local WPI_YEAR 2024
       if test -d ~/wpilib/$WPI_YEAR
           abbr --add --global pathweaver ~/wpilib/$WPI_YEAR/tools/PathWeaver.py
           abbr --add --global outlineviewer ~/wpilib/$WPI_YEAR/tools/OutlineViewer.py
