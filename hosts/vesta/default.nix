@@ -52,7 +52,7 @@
       pipeline2 = "deadeye::TargetListPipeline";
       streamAddress = "${(builtins.head config.networking.interfaces.ens18.ipv4.addresses).address}";
     };
-    ntServerAddress = "127.0.0.1"; # luna
+    ntServerAddress = "10.27.67.2"; # roborio
   };
 
   # Use the GRUB 2 boot loader.
