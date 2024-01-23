@@ -6,7 +6,7 @@
     enable = true;
     ssl = false;
     settingsModule = "website.settings.production";
-    allowedHosts = "strykeforce.j3ff.io";
+    allowedHosts = "*";
   };
 
   services.nginx.virtualHosts."strykeforce.j3ff.io" = {
