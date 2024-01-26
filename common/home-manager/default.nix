@@ -94,7 +94,7 @@ rec {
 
   };
 
-  services = lib.mkIf pkgs.stdenv.isLinux {
-    lorri.enable = false;
+  services = {
+    syncthing.enable = true;
   };
 }
