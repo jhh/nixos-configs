@@ -95,6 +95,9 @@ rec {
   };
 
   services = {
-    syncthing.enable = true;
+    syncthing = {
+      enable = true;
+      extraOptions = lib.mkIf pkgs.stdenv.isLinux [ "--gui-address=0.0.0.0:8384" ];
+    };
   };
 }
