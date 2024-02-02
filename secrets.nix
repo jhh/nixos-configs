@@ -8,6 +8,7 @@ let
   pallas = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBBJqyGp7HYRXGGZ2zIT9V56AIr+8yrHpmGxBmE7KFQa";
   phobos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEldSjroPbKUueasCQuy88nE9X9Wt1a4lSbd3XSzvps";
   vesta = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAGgUVfRwIOyNKefOH6zXIPthvvEu/xObNRG6nSS1ht8";
+  titan = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDMU/kxkkMvbR2VHaAhHwY6XNwKOEHcwC+YtOAcEqh1e";
 
   hosts = [
     ceres
@@ -16,6 +17,7 @@ let
     pallas
     phobos
     vesta
+    titan
   ];
 
 in
