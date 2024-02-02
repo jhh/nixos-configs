@@ -26,7 +26,7 @@
 
     security.sudo.wheelNeedsPassword = false;
     i18n.defaultLocale = "en_US.UTF-8";
-    time.timeZone = "America/Detroit";
+    time.timeZone = "US/Michigan";
 
     programs.fish.enable = true;
 

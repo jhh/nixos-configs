@@ -125,6 +125,7 @@
         pallas = mkSystem { extraModules = [ ./hosts/pallas ]; };
         phobos = mkSystem { extraModules = [ ./hosts/phobos ]; };
         vesta = mkSystem { extraModules = [ ./hosts/vesta ]; };
+        titan = mkSystem { extraModules = [ ./hosts/titan ]; };
 
         ceres = mkSystem {
           packages = nixpkgs-unstable;
