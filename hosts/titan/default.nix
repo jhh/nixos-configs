@@ -7,6 +7,7 @@
       ./rsync.nix
     ];
 
+  networking.hostName = "titan";
 
   j3ff = {
     mail.enable = true;
