@@ -21,6 +21,8 @@
 
   virtualisation.vmware.guest.enable = true;
 
+  environment.systemPackages = with pkgs; [ vscode-extensions.ms-vscode-remote.remote-ssh ];
+
   services = {
     fstrim.enable = true;
   };
