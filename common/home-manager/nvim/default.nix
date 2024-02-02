@@ -62,6 +62,7 @@ let
     vim-fugitive # https://github.com/tpope/vim-fugitive
     vim-nix # https://github.com/LnL7/vim-nix
     vim-surround # https://github.com/tpope/vim-surround
+    vim-just # https://github.com/NoahTheDuke/vim-just/
     {
       plugin = vim-test; # https://github.com/vim-test/vim-test
       config = ''
