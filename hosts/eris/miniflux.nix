@@ -2,7 +2,7 @@
 
   age.secrets.miniflux_secret =
     {
-      file = ../../common/modules/secrets/miniflux_secret.age;
+      file = ../../secrets/miniflux_secret.age;
     };
 
   services.miniflux = {

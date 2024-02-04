@@ -5,7 +5,7 @@ in
 {
   age.secrets.smtp_passwd =
     {
-      file = ../../common/modules/secrets/smtp_passwd.age;
+      file = ../../secrets/smtp_passwd.age;
       owner = "gitea";
     };
 

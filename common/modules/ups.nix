@@ -15,7 +15,7 @@
     systemd.services.upsdrv.enable = false;
 
     age.secrets.upsmon = {
-      file = ./secrets/upsmon.conf.age;
+      file = ../../secrets/upsmon.conf.age;
       path = "/etc/nut/upsmon.conf";
     };
 

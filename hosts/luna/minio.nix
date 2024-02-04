@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   age.secrets.minio_secret = {
-    file = ../../common/modules/secrets/minio_secret.age;
+    file = ../../secrets/minio_secret.age;
   };
 
   services.minio = {

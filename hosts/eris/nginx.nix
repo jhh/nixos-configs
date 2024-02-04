@@ -10,7 +10,7 @@
   };
 
   age.secrets.route53_secrets = {
-    file = ../../common/modules/secrets/route53_secrets.age;
+    file = ../../secrets/route53_secrets.age;
   };
 
   security.acme = {

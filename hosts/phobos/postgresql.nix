@@ -20,7 +20,7 @@ in
   };
 
   age.secrets.pgadmin_passwd = pkgs.lib.mkIf config.services.pgadmin.enable {
-    file = ../../common/modules/secrets/pgadmin_passwd.age;
+    file = ../../secrets/pgadmin_passwd.age;
     owner = "pgadmin";
     group = "pgadmin";
   };
