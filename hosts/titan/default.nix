@@ -29,6 +29,20 @@
 
   virtualisation.docker.enable = true;
 
+  fileSystems."/host" = {
+    fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
+    device = ".host:/";
+    options = [
+      "umask=22"
+      "uid=1000"
+      "gid=100"
+      "allow_other"
+      "auto_unmount"
+      "defaults"
+    ];
+  };
+
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
