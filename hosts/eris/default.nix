@@ -10,7 +10,7 @@
     ];
 
   age.secrets.puka_secrets = {
-    file = ../../common/modules/secrets/puka_secrets.age;
+    file = ../../secrets/puka_secrets.age;
   };
 
   j3ff = {

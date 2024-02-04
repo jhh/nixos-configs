@@ -12,7 +12,7 @@ in
 
   config = lib.mkIf cfg.enable {
     age.secrets.unifi_passwd = {
-      file = ../secrets/unifi_passwd.age;
+      file = ../../../secrets/unifi_passwd.age;
       owner = "${toString config.services.prometheus.exporters.unpoller.user}";
       group = "${toString config.services.prometheus.exporters.unpoller.group}";
     };

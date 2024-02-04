@@ -23,7 +23,7 @@
     };
 
     age.secrets.sasl_passwd = {
-      file = ./secrets/sasl_passwd.age;
+      file = ../../secrets/sasl_passwd.age;
     };
 
     systemd.services.postfix.preStart = ''

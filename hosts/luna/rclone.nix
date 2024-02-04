@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   age.secrets.rclone_conf = {
-    file = ../../common/modules/secrets/rclone.conf.age;
+    file = ../../secrets/rclone.conf.age;
   };
 
   systemd.services.b2-rclone = {

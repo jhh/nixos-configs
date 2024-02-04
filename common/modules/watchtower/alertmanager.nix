@@ -17,7 +17,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    age.secrets.pushover_token.file = ../secrets/pushover_token.age;
+    age.secrets.pushover_token.file = ../../../secrets/pushover_token.age;
 
     services.prometheus.alertmanager = {
       enable = true;
