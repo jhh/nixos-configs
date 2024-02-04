@@ -4,11 +4,21 @@ NixOS Configs for Homelab
 
 ## NixOS
 
+Uses [deploy-rs](https://github.com/serokell/deploy-rs) to deploy to multiple hosts.
+
+### All hosts
+
 ```sh
-$ sudo ./deploy [host|all] command
+$ deploy
 ```
 
-_or, for local machine..._
+### Specific hosts
+
+```sh
+$ deploy .#host
+```
+
+_or, optionally for local machine..._
 
 ```sh
 $ sudo nixos-rebuild switch --flake .
@@ -17,10 +27,5 @@ $ sudo nixos-rebuild switch --flake .
 ## macOS
 
 ```sh
-$ ln -s flake.nix ~/.config/nixpkgs
-$ home-manager switch
+$ darwin-rebuild switch --flake .
 ```
-
-### Sudo with Touch ID authentication
-
-Edit `/etc/pam.d/sudo` and add `auth sufficient pam_tid.so` to top of file.
