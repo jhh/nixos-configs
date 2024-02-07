@@ -70,11 +70,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1707152793,
-        "narHash": "sha256-Q05evEeEYUpYgZvvA5AduDFBGmqhRjsZxJHH2kTRlhE=",
+        "lastModified": 1707327006,
+        "narHash": "sha256-UeTpbNG+ADGEGANLe5p4pOya8Jq6gSMsD2r7zYvYaZc=",
         "owner": "strykeforce",
         "repo": "deadeye",
-        "rev": "e0fd766fc0e9541a38b4e57cfe25caaab0de2548",
+        "rev": "277c824b48097ea0c87e653cf652eb33dd43ab8f",
         "type": "github"
       },
       "original": {
@@ -593,11 +593,11 @@
         "poetry2nix": "poetry2nix_2"
       },
       "locked": {
-        "lastModified": 1706987316,
-        "narHash": "sha256-r7GMw7BA/vNZva7ykrWm86DXVlNVoP1I58pujRYNDlY=",
+        "lastModified": 1707326957,
+        "narHash": "sha256-za3bhDO5jNwZ5jaHT6z81Of+VxYTZ730GntP+GPFyLg=",
         "owner": "strykeforce",
         "repo": "strykeforce.org",
-        "rev": "26d9007c1b8480a4c0cac6858d4d3ebc9716aaf1",
+        "rev": "a64040b09b075a5860c86867327f4dc014c6286e",
         "type": "github"
       },
       "original": {
