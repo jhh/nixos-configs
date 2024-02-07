@@ -27,10 +27,6 @@
       flake = false;
     };
 
-    deadeye = {
-      url = "github:strykeforce/deadeye";
-    };
-
     dyndns = {
       url = "github:jhh/dyndns";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,7 +34,6 @@
 
     puka = {
       url = "github:jhh/puka";
-      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     strykeforce.url = "github:strykeforce/strykeforce.org";
@@ -49,7 +44,6 @@
     { self
     , agenix
     , darwin
-    , deadeye
     , deploy-rs
     , dyndns
     , home-manager
@@ -86,7 +80,6 @@
               system.configurationRevision = self.sourceInfo.rev;
             })
             ./common
-            deadeye.nixosModules.default
             dyndns.nixosModules.default
             puka.nixosModules.default
             strykeforce.nixosModules.default

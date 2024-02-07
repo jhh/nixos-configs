@@ -41,20 +41,6 @@
     };
   };
 
-  deadeye = {
-    web.enable = false;
-    admin.enable = false;
-    daemon = {
-      enable = false;
-      unitId = "V";
-      pipeline0 = "deadeye::UprightRectPipeline";
-      pipeline1 = "deadeye::MinAreaRectPipeline";
-      pipeline2 = "deadeye::TargetListPipeline";
-      streamAddress = "${(builtins.head config.networking.interfaces.ens18.ipv4.addresses).address}";
-    };
-    ntServerAddress = "10.27.67.2"; # roborio
-  };
-
   # Use the GRUB 2 boot loader.
   boot = {
     loader.grub = {

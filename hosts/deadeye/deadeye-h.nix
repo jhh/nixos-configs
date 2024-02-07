@@ -10,19 +10,6 @@
     tailscale.enable = true;
     mdns.enable = true;
   };
-  deadeye = {
-    web.enable = true;
-    admin.enable = true;
-    daemon = {
-      enable = true;
-      unitId = "H";
-      pipeline0 = "deadeye::UprightRectPipeline";
-      pipeline1 = "deadeye::MinAreaRectPipeline";
-      pipeline2 = "deadeye::TargetListPipeline";
-      streamAddress = "${(builtins.head config.networking.interfaces.ens18.ipv4.addresses).address}";
-    };
-    ntServerAddress = "192.168.3.20"; # phobos
-  };
 
   # Use the GRUB 2 boot loader.
   boot = {
