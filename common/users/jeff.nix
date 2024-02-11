@@ -17,4 +17,6 @@
     ../home-manager
     "${vscode-server}/modules/vscode-server/home.nix"
   ] ++ lib.optional config.j3ff.gui.enable ../home-manager/gui;
+
+  services.vscode-server.enable = true; # only for linux users
 }
