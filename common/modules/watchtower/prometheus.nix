@@ -19,6 +19,7 @@ in
   config = lib.mkIf cfg.enable {
 
     networking.hosts = {
+      "10.1.0.2" = [ "pihole" ];
       "100.64.244.48" = [ "phobos" ];
       "100.88.59.15" = [ "pve-11" ];
       "100.124.210.30" = [ "docker-02" ];
