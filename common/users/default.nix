@@ -1,6 +1,6 @@
 # common/users/default.nix
 
-{ flakes, config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [

@@ -60,7 +60,7 @@
     , fava-gencon
     , vscode-server
     , ...
-    } @ flakes:
+    }:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
@@ -71,7 +71,8 @@
         }:
         packages.lib.nixosSystem rec {
           system = "x86_64-linux";
-          specialArgs.strykeforce = strykeforce;
+          # specialArgs.strykeforce = strykeforce;
+          specialArgs = { inherit vscode-server strykeforce; };
           modules = [
             agenix.nixosModules.default
             homeManager.nixosModules.home-manager
@@ -81,7 +82,6 @@
               services.getty.autologinUser = packages.lib.mkDefault "root";
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit flakes; };
 
               system.configurationRevision = self.sourceInfo.rev;
             })
@@ -110,7 +110,6 @@
             nixpkgs.config.allowUnfree = true;
             nixpkgs.config.allowBroken = false;
             home-manager.useGlobalPkgs = true;
-            home-manager.extraSpecialArgs = { inherit flakes; };
             home-manager.users.jeff = {
               imports = [ ./common/home-manager ];
             };
@@ -124,18 +123,7 @@
         pallas = mkSystem { extraModules = [ ./hosts/pallas ]; };
         phobos = mkSystem { extraModules = [ ./hosts/phobos ]; };
         titan = mkSystem { extraModules = [ ./hosts/titan ]; };
-
-        vesta = mkSystem {
-          extraModules = [
-            ./hosts/vesta
-            ({ config, ... }: {
-              home-manager.users.jeff = {
-                imports = [ "${vscode-server}/modules/vscode-server/home.nix" ];
-                services.vscode-server.enable = true;
-              };
-            })
-          ];
-        };
+        vesta = mkSystem { extraModules = [ ./hosts/vesta ]; };
 
         ceres = mkSystem {
           packages = nixpkgs-unstable;

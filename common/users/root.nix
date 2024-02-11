@@ -1,6 +1,6 @@
 # common/users/root.nix
 
-{ flakes, config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   users.users.root = {

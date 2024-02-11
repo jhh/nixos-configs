@@ -1,6 +1,6 @@
 # common/users/jeff.nix
 
-{ flakes, config, pkgs, lib, ... }:
+{ config, pkgs, lib, vscode-server, ... }:
 
 {
   users.users.jeff = {
@@ -13,5 +13,8 @@
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel jeff@j3ff.io" ];
   };
 
-  home-manager.users.jeff.imports = [ ../home-manager ] ++ lib.optional config.j3ff.gui.enable ../home-manager/gui;
+  home-manager.users.jeff.imports = [
+    ../home-manager
+    "${vscode-server}/modules/vscode-server/home.nix"
+  ] ++ lib.optional config.j3ff.gui.enable ../home-manager/gui;
 }

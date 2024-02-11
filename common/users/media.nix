@@ -1,6 +1,6 @@
 # common/users/media.nix
 
-{ flakes, config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   users = {

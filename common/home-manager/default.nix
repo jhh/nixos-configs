@@ -95,6 +95,8 @@ rec {
   };
 
   services = {
+    vscode-server.enable = true;
+
     syncthing = {
       enable = false;
       extraOptions = lib.mkIf pkgs.stdenv.isLinux [ "--gui-address=0.0.0.0:8384" ];
