@@ -1,11 +1,14 @@
-{ config, pkgs, ... }:
+{ config, modulesPath, pkgs, ... }:
 
 {
   imports =
     [
+      (modulesPath + "/virtualisation/proxmox-lxc.nix")
       ./rsync.nix
-      # ./nfs.nix
     ];
+
+  boot.tmp.cleanOnBoot = true;
+  networking.firewall.enable = false;
 
   age.secrets.stryker_website_secrets = {
     file = ../../secrets/strykeforce_website_secrets.age;
