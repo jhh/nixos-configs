@@ -137,6 +137,8 @@
         let
           sshUser = "root";
           fastConnection = true;
+
+          systemFor = host: deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.${host};
         in
         {
           ceres = {
@@ -145,14 +147,13 @@
 
             profiles.system = {
               user = "root";
-              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ceres;
+              path = systemFor "ceres";
             };
           };
 
           eris = {
             hostname = "10.1.0.46";
-            sshUser = "root";
-            fastConnection = true;
+            inherit sshUser fastConnection;
 
             profiles.system = {
               user = "root";
@@ -162,8 +163,7 @@
 
           luna = {
             hostname = "10.1.0.7";
-            sshUser = "root";
-            fastConnection = true;
+            inherit sshUser fastConnection;
 
             profiles.system = {
               user = "root";
@@ -173,8 +173,7 @@
 
           pallas = {
             hostname = "10.1.0.47";
-            sshUser = "root";
-            fastConnection = true;
+            inherit sshUser fastConnection;
 
             profiles.system = {
               user = "root";
@@ -184,7 +183,7 @@
 
           phobos = {
             hostname = "100.64.244.48";
-            sshUser = "root";
+            inherit sshUser;
 
             profiles.system = {
               user = "root";
@@ -195,8 +194,7 @@
 
           vesta = {
             hostname = "10.1.0.45";
-            sshUser = "root";
-            fastConnection = true;
+            inherit sshUser fastConnection;
 
             profiles.system = {
               user = "root";
