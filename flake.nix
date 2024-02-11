@@ -133,73 +133,77 @@
 
       };
 
-      deploy.nodes = {
-        ceres = {
-          hostname = "10.1.0.44";
+      deploy.nodes =
+        let
           sshUser = "root";
           fastConnection = true;
+        in
+        {
+          ceres = {
+            hostname = "10.1.0.44";
+            inherit sshUser fastConnection;
 
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ceres;
+            profiles.system = {
+              user = "root";
+              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.ceres;
+            };
+          };
+
+          eris = {
+            hostname = "10.1.0.46";
+            sshUser = "root";
+            fastConnection = true;
+
+            profiles.system = {
+              user = "root";
+              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.eris;
+            };
+          };
+
+          luna = {
+            hostname = "10.1.0.7";
+            sshUser = "root";
+            fastConnection = true;
+
+            profiles.system = {
+              user = "root";
+              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.luna;
+            };
+          };
+
+          pallas = {
+            hostname = "10.1.0.47";
+            sshUser = "root";
+            fastConnection = true;
+
+            profiles.system = {
+              user = "root";
+              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.pallas;
+            };
+          };
+
+          phobos = {
+            hostname = "100.64.244.48";
+            sshUser = "root";
+
+            profiles.system = {
+              user = "root";
+              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.phobos;
+            };
+          };
+
+
+          vesta = {
+            hostname = "10.1.0.45";
+            sshUser = "root";
+            fastConnection = true;
+
+            profiles.system = {
+              user = "root";
+              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.vesta;
+            };
           };
         };
-
-        eris = {
-          hostname = "10.1.0.46";
-          sshUser = "root";
-          fastConnection = true;
-
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.eris;
-          };
-        };
-
-        luna = {
-          hostname = "10.1.0.7";
-          sshUser = "root";
-          fastConnection = true;
-
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.luna;
-          };
-        };
-
-        pallas = {
-          hostname = "10.1.0.47";
-          sshUser = "root";
-          fastConnection = true;
-
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.pallas;
-          };
-        };
-
-        phobos = {
-          hostname = "100.64.244.48";
-          sshUser = "root";
-
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.phobos;
-          };
-        };
-
-
-        vesta = {
-          hostname = "10.1.0.45";
-          sshUser = "root";
-          fastConnection = true;
-
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.vesta;
-          };
-        };
-      };
 
       # This is highly advised, and will prevent many possible mistakes
       checks = builtins.mapAttrs
