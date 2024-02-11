@@ -17,6 +17,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -53,6 +58,7 @@
     , puka
     , strykeforce
     , fava-gencon
+    , vscode-server
     , ...
     } @ flakes:
     let
@@ -117,8 +123,19 @@
         luna = mkSystem { extraModules = [ ./hosts/luna ]; };
         pallas = mkSystem { extraModules = [ ./hosts/pallas ]; };
         phobos = mkSystem { extraModules = [ ./hosts/phobos ]; };
-        vesta = mkSystem { extraModules = [ ./hosts/vesta ]; };
         titan = mkSystem { extraModules = [ ./hosts/titan ]; };
+
+        vesta = mkSystem {
+          extraModules = [
+            ./hosts/vesta
+            ({ config, ... }: {
+              home-manager.users.jeff = {
+                imports = [ "${vscode-server}/modules/vscode-server/home.nix" ];
+                services.vscode-server.enable = true;
+              };
+            })
+          ];
+        };
 
         ceres = mkSystem {
           packages = nixpkgs-unstable;
