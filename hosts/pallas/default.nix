@@ -6,8 +6,8 @@ in
 
   imports = [
     (modulesPath + "/virtualisation/proxmox-lxc.nix")
-    ./aws.nix
     ./postgresql.nix
+    ./strykeforce-sync.nix
     ./strykeforce-website.nix
   ];
 
