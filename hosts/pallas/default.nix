@@ -6,12 +6,12 @@ in
 
   imports = [
     (modulesPath + "/virtualisation/proxmox-lxc.nix")
+    ./aws.nix
     ./postgresql.nix
     ./strykeforce-website.nix
   ];
 
   boot.tmp.cleanOnBoot = true;
-
   networking.firewall.enable = false;
 
   environment.systemPackages = with pkgs; [

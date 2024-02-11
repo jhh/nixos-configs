@@ -8,10 +8,6 @@
       ./nfs.nix
     ];
 
-  age.secrets.aws_secret = {
-    file = ../../secrets/aws_secret.age;
-  };
-
   age.secrets.stryker_website_secrets = {
     file = ../../secrets/strykeforce_website_secrets.age;
   };

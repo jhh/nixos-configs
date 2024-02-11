@@ -25,7 +25,7 @@ in
   "upsmon.conf.age".publicKeys = [ jeff luna ceres ];
   "rclone.conf.age".publicKeys = [ jeff luna phobos vesta ];
   "sasl_passwd.age".publicKeys = [ jeff ] ++ hosts;
-  "aws_secret.age".publicKeys = [ jeff vesta ];
+  "aws_secret.age".publicKeys = [ jeff pallas ];
   "puka_secrets.age".publicKeys = [ jeff eris vesta ];
   "strykeforce_website_secrets.age".publicKeys = [ jeff pallas phobos vesta ];
   "route53_secrets.age".publicKeys = [ jeff eris ];
