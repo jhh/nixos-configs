@@ -3,18 +3,12 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
       ./rsync.nix
       ./nfs.nix
     ];
 
   age.secrets.stryker_website_secrets = {
     file = ../../secrets/strykeforce_website_secrets.age;
-  };
-
-  strykeforce.services.website = {
-    enable = false;
-    settingsModule = "website.settings.production";
   };
 
   j3ff = {
@@ -37,57 +31,7 @@
     };
   };
 
-  # Use the GRUB 2 boot loader.
-  boot = {
-    loader.grub = {
-      enable = true;
-      device = "/dev/sda";
-    };
-    kernel.sysctl = {
-      "fs.inotify.max_user_watches" = 524288;
-      # https://haydenjames.io/linux-performance-almost-always-add-swap-part2-zram/
-      "vm.vfs_cache_pressure" = 500;
-      "vm.swappiness" = 100;
-      "vm.dirty_background_ratio" = 1;
-      "vm.dirty_ratio" = 50;
-    };
-  };
-
-  zramSwap.enable = true;
-
-  networking = {
-    hostName = "vesta";
-    useDHCP = false;
-
-    # bridges."br0" = {
-    #   interfaces = [
-    #     "ens18"
-    #   ];
-    # };
-
-    interfaces.ens18 = {
-      useDHCP = false;
-      ipv4.addresses = [{
-        address = "10.1.0.45";
-        prefixLength = 24;
-      }];
-    };
-
-    defaultGateway = {
-      address = "10.1.0.1";
-      interface = "ens18";
-    };
-
-    nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
-    firewall.enable = false;
-  };
-
-  services = {
-    fstrim.enable = true;
-    qemuGuest.enable = true;
-  };
-
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
