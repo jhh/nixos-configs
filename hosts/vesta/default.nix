@@ -4,7 +4,7 @@
   imports =
     [
       ./rsync.nix
-      ./nfs.nix
+      # ./nfs.nix
     ];
 
   age.secrets.stryker_website_secrets = {
