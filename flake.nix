@@ -138,74 +138,52 @@
           sshUser = "root";
           fastConnection = true;
 
-          systemFor = host: deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.${host};
+          systemFor = host: {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.${host};
+          };
         in
         {
           ceres = {
             hostname = "10.1.0.44";
             inherit sshUser fastConnection;
-
-            profiles.system = {
-              user = "root";
-              path = systemFor "ceres";
-            };
+            profiles.system = systemFor "ceres";
           };
 
           eris = {
             hostname = "10.1.0.46";
             inherit sshUser fastConnection;
-
-            profiles.system = {
-              user = "root";
-              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.eris;
-            };
+            profiles.system = systemFor "eris";
           };
 
           luna = {
             hostname = "10.1.0.7";
             inherit sshUser fastConnection;
-
-            profiles.system = {
-              user = "root";
-              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.luna;
-            };
+            profiles.system = systemFor "luna";
           };
 
           pallas = {
             hostname = "10.1.0.47";
             inherit sshUser fastConnection;
-
-            profiles.system = {
-              user = "root";
-              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.pallas;
-            };
+            profiles.system = systemFor "pallas";
           };
 
           phobos = {
             hostname = "100.64.244.48";
             inherit sshUser;
-
-            profiles.system = {
-              user = "root";
-              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.phobos;
-            };
+            profiles.system = systemFor "phobos";
           };
-
 
           vesta = {
             hostname = "10.1.0.45";
             inherit sshUser fastConnection;
-
-            profiles.system = {
-              user = "root";
-              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.vesta;
-            };
+            profiles.system = systemFor "vesta";
           };
-        };
 
-      # This is highly advised, and will prevent many possible mistakes
-      checks = builtins.mapAttrs
-        (system: deployLib: deployLib.deployChecks self.deploy)
-        deploy-rs.lib;
+          # This is highly advised, and will prevent many possible mistakes
+          checks = builtins.mapAttrs
+            (system: deployLib: deployLib.deployChecks self.deploy)
+            deploy-rs.lib;
+        };
     };
 }
