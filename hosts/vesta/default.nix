@@ -14,7 +14,7 @@
   j3ff = {
     dyndns.enable = false;
     mail.enable = true;
-    tailscale.enable = true;
+    tailscale.enable = false;
     man.enable = true;
     mdns.enable = true;
     prometheus.enable = true;
