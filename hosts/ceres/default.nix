@@ -6,6 +6,10 @@
       ./media.nix
     ];
 
+  system.name = "ceres";
+  boot.tmp.cleanOnBoot = true;
+  networking.firewall.enable = false;
+
   j3ff = {
     mail.enable = true;
     man.enable = false;
@@ -14,9 +18,6 @@
     tailscale.enable = false;
     services.fava-gencon.enable = false;
   };
-
-  boot.tmp.cleanOnBoot = true;
-  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

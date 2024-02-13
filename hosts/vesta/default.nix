@@ -7,6 +7,7 @@
       ./rsync.nix
     ];
 
+  system.name = "vesta";
   boot.tmp.cleanOnBoot = true;
   networking.firewall.enable = false;
 
