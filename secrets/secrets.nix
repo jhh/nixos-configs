@@ -2,8 +2,8 @@ let
   jeff = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel";
 
   # ssh-keyscan <host>
-  ceres = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFzrT7SvMHVmqP9olCUcS4WsCy4xnJ41RXdPNK8KDRrG";
-  eris = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEv0m+EZsTedPMjzq+a/9rl2c3iAdOKwnFQfGLFHb4y4";
+  ceres = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICTUy7vfg/hbidaq9TGvUDE9PDMa+pa/BvUNUK9ZrSCw";
+  eris = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICTUy7vfg/hbidaq9TGvUDE9PDMa+pa/BvUNUK9ZrSCw";
   luna = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJUJb6IP7qsp/FPbtVKl1CbX2lOYQDjDcgV0c5qAJv9W";
   pallas = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICTUy7vfg/hbidaq9TGvUDE9PDMa+pa/BvUNUK9ZrSCw";
   phobos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEldSjroPbKUueasCQuy88nE9X9Wt1a4lSbd3XSzvps";
@@ -22,7 +22,7 @@ let
 
 in
 {
-  "upsmon.conf.age".publicKeys = [ jeff luna ceres ];
+  "upsmon.conf.age".publicKeys = [ jeff luna ];
   "rclone.conf.age".publicKeys = [ jeff luna phobos vesta ];
   "sasl_passwd.age".publicKeys = [ jeff ] ++ hosts;
   "aws_secret.age".publicKeys = [ jeff pallas ];
