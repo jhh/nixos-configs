@@ -120,7 +120,6 @@
       nixosConfigurations = {
         eris = mkSystem { extraModules = [ ./hosts/eris ]; };
         luna = mkSystem { extraModules = [ ./hosts/luna ]; };
-        nixos-01 = mkSystem { extraModules = [ ./hosts/nixos-01 ]; };
         pallas = mkSystem { extraModules = [ ./hosts/pallas ]; };
         phobos = mkSystem { extraModules = [ ./hosts/phobos ]; };
         titan = mkSystem { extraModules = [ ./hosts/titan ]; };
@@ -161,12 +160,6 @@
             hostname = "10.1.0.7";
             inherit sshUser fastConnection;
             profiles.system = systemFor "luna";
-          };
-
-          nixos-01 = {
-            hostname = "10.1.0.3";
-            inherit sshUser fastConnection;
-            profiles.system = systemFor "nixos-01";
           };
 
           pallas = {
