@@ -1,3 +1,6 @@
+set -o errexit
+set -o nounset
+set -o pipefail
 
 function report_status()
 {
@@ -76,39 +79,6 @@ function perform_backups()
 	else
 		echo "None"
 	fi
-
-
-	###########################
-	### SCHEMA-ONLY BACKUPS ###
-	###########################
-
-	for SCHEMA_ONLY_DB in ${SCHEMA_ONLY_LIST//,/ }
-	do
-	        SCHEMA_ONLY_CLAUSE="$SCHEMA_ONLY_CLAUSE or datname ~ '$SCHEMA_ONLY_DB'"
-	done
-
-	SCHEMA_ONLY_QUERY="select datname from pg_database where false $SCHEMA_ONLY_CLAUSE order by datname;"
-
-	echo -e "\n\nPerforming schema-only backups"
-	echo -e "--------------------------------------------\n"
-
-	SCHEMA_ONLY_DB_LIST=`psql -At -c "$SCHEMA_ONLY_QUERY" postgres`
-
-	echo -e "The following databases were matched for schema-only backup:\n${SCHEMA_ONLY_DB_LIST}\n"
-
-	for DATABASE in $SCHEMA_ONLY_DB_LIST
-	do
-	        echo "Schema-only backup of $DATABASE"
-		set -o pipefail
-	        if ! pg_dump -Fp -s "$DATABASE" | gzip > $FINAL_BACKUP_DIR"$DATABASE"_SCHEMA.sql.gz.in_progress; then
-	                echo "[!!ERROR!!] Failed to backup database schema of $DATABASE" 1>&2
-					report_status 0 schema_only $DATABASE
-	        else
-	                mv $FINAL_BACKUP_DIR"$DATABASE"_SCHEMA.sql.gz.in_progress $FINAL_BACKUP_DIR"$DATABASE"_SCHEMA.sql.gz
-					report_status 1 schema_only $DATABASE
-	        fi
-	        set +o pipefail
-	done
 
 
 	###########################

@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
 let
   backupDir = "/mnt/backup/postgres";
+  postgresqlPkg = pkgs.postgresql_16;
 in
 {
   services.postgresql = {
     enable = true;
-    package = pkgs.postgresql_16;
+    package = postgresqlPkg;
     enableTCPIP = true;
 
     # ensureDatabases = [ "jeff" ];
@@ -34,9 +35,7 @@ in
 
 
   systemd.services.postgres-backup = {
-
     enable = false;
-
     startAt = "daily";
 
     environment = {
@@ -48,15 +47,16 @@ in
       DAY_OF_WEEK_TO_KEEP = "5";
       DAYS_TO_KEEP = "7";
       WEEKS_TO_KEEP = "4";
+      USERNAME = "postgres";
+      HOSTNAME = "localhost";
 
     };
+
+    path = [ postgresqlPkg pkgs.gzip pkgs.curl ];
 
     serviceConfig = {
       User = "postgres";
+      ExecStart = pkgs.writeShellScript "postgres-backup" (builtins.readFile ./postgres-backup.sh);
     };
-
-    path = [ pkgs.postgresql_16 pkgs.gzip pkgs.curl ];
-
-    script = builtins.readFile ./postgres-backup.sh;
   };
 }
