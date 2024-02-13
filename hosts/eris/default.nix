@@ -22,7 +22,7 @@
     man.enable = false;
     mdns.enable = true;
     prometheus.enable = true;
-    puka.enable = false;
+    puka.enable = true;
     tailscale.enable = false;
   };
 
