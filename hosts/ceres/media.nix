@@ -6,16 +6,6 @@ let
 in
 {
 
-  fileSystems."/mnt/media/tv" = {
-    device = "luna.lan.j3ff.io:/mnt/tank/media/plex/tv";
-    fsType = "nfs";
-  };
-
-  fileSystems."/mnt/media/movies" = {
-    device = "luna.lan.j3ff.io:/mnt/tank/media/plex/movies";
-    fsType = "nfs";
-  };
-
   # sonarr
 
   services.sonarr = {
@@ -39,18 +29,10 @@ in
     "d '${sabnzbdDataDir}' 0700 ${mediaUser} ${mediaGroup} - -"
   ];
 
-  systemd.services.sabnzbd = {
-    description = "SABnzbd binary newsreader";
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
-
-    serviceConfig = {
-      Type = "simple";
-      User = mediaUser;
-      Group = mediaGroup;
-      ExecStart = "${pkgs.sabnzbd}/bin/sabnzbd --config-file ${sabnzbdDataDir}/sabnzbd.ini --disable-file-log --logging 1 --browser 0";
-      Restart = "on-failure";
-    };
+  services.sabnzbd = {
+    enable = true;
+    user = mediaUser;
+    group = mediaGroup;
   };
 
   # nginx
