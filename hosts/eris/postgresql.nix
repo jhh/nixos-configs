@@ -5,20 +5,20 @@ in
 {
   services.postgresql = {
     enable = true;
-    package = pkgs.postgresql_14;
+    package = pkgs.postgresql_16;
     enableTCPIP = true;
 
-    ensureDatabases = [ "jeff" ];
+    # ensureDatabases = [ "jeff" ];
 
-    ensureUsers = [
-      {
-        name = "jeff";
-        # ensureDBOwnership = true;
-      }
-    ];
+    # ensureUsers = [
+    #   {
+    #     name = "jeff";
+    #     # ensureDBOwnership = true;
+    #   }
+    # ];
 
     authentication = ''
-      host all all 192.168.1.0/24 md5
+      host all all 10.1.0.0/24 md5
     '';
     # psql, \password
     # ALTER USER jeff CREATEDB
@@ -27,13 +27,15 @@ in
   ##########
   # backups
   ##########
-  fileSystems."${backupDir}" = {
-    device = "luna.lan.j3ff.io:/mnt/tank/backup/postgres";
-    fsType = "nfs";
-  };
+  # fileSystems."${backupDir}" = {
+  #   device = "luna.lan.j3ff.io:/mnt/tank/backup/postgres";
+  #   fsType = "nfs";
+  # };
 
 
   systemd.services.postgres-backup = {
+
+    enable = false;
 
     startAt = "daily";
 
@@ -53,7 +55,7 @@ in
       User = "postgres";
     };
 
-    path = [ pkgs.postgresql_14 pkgs.gzip pkgs.curl ];
+    path = [ pkgs.postgresql_16 pkgs.gzip pkgs.curl ];
 
     script = builtins.readFile ./postgres-backup.sh;
   };

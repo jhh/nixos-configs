@@ -9,14 +9,6 @@ in
       owner = "gitea";
     };
 
-  ##########
-  # backups
-  ##########
-  fileSystems."${backupDir}" = {
-    device = "luna.lan.j3ff.io:/mnt/tank/backup/gitea";
-    fsType = "nfs";
-  };
-
   services.gitea = {
     enable = true;
     database.type = "postgres";
@@ -43,9 +35,11 @@ in
         MAX_FILE_SIZE = 1048576;
       };
     };
+
     mailerPasswordFile = config.age.secrets.smtp_passwd.path;
+
     dump = {
-      enable = true;
+      enable = false;
       backupDir = "${backupDir}/eris";
     };
   };
@@ -64,7 +58,7 @@ in
   };
 
   systemd.services.gitea-dump-prune = {
-
+    enable = false;
     startAt = "daily";
 
     script = ''
