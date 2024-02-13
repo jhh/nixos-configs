@@ -16,7 +16,9 @@
   home-manager.users.jeff.imports = [
     ../home-manager
     "${vscode-server}/modules/vscode-server/home.nix"
+    ({ ... }: {
+      services.vscode-server.enable = true; # only for linux users jeff
+    })
   ] ++ lib.optional config.j3ff.gui.enable ../home-manager/gui;
 
-  services.vscode-server.enable = true; # only for linux users
 }
