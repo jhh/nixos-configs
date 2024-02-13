@@ -6,7 +6,7 @@
       ./postgresql.nix
       ./nginx.nix
       ./gitea.nix
-      # ./miniflux.nix
+      ./miniflux.nix
     ];
 
   system.name = "eris";
