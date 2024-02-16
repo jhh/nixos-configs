@@ -162,11 +162,12 @@
             profiles.system = systemFor "luna";
           };
 
-          pallas = {
-            hostname = "10.1.0.47";
-            inherit sshUser fastConnection;
-            profiles.system = systemFor "pallas";
-          };
+          # deploy from strykeforce.org repo
+          # pallas = {
+          #   hostname = "10.1.0.47";
+          #   inherit sshUser fastConnection;
+          #   profiles.system = systemFor "pallas";
+          # };
 
           phobos = {
             hostname = "100.64.244.48";
