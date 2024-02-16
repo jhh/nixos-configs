@@ -37,10 +37,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    puka = {
-      url = "github:jhh/puka";
-    };
-
+    puka.url = "github:jhh/puka";
     strykeforce.url = "github:strykeforce/strykeforce.org";
     fava-gencon.url = "github:jhh/fava-gencon";
   };
