@@ -35,6 +35,10 @@
     };
   };
 
+  documentation.nixos.enable = true;
+  documentation.nixos.includeAllModules = true;
+  documentation.nixos.options.warningsAreErrors = false;
+
   # virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
