@@ -33,7 +33,9 @@ rec {
     ./fish
     ./git
     ./nvim
+    ./sonos
   ];
+  # ] ++ lib.optional pkgs.stdenv.isDarwin ./sonos;
 
   home = {
     username = "jeff";
