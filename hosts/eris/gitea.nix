@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  backupDir = "/mnt/backup/gitea";
+  backupDir = "/var/backup/gitea";
 in
 {
   age.secrets.smtp_passwd =
@@ -39,7 +39,7 @@ in
     mailerPasswordFile = config.age.secrets.smtp_passwd.path;
 
     dump = {
-      enable = false;
+      enable = true;
       backupDir = "${backupDir}/eris";
     };
   };
