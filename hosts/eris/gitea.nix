@@ -40,7 +40,7 @@ in
 
     dump = {
       enable = true;
-      backupDir = "${backupDir}/eris";
+      inherit backupDir;
     };
   };
 
@@ -58,11 +58,11 @@ in
   };
 
   systemd.services.gitea-dump-prune = {
-    enable = false;
+    enable = true;
     startAt = "daily";
 
     script = ''
-      ${pkgs.findutils}/bin/find ${backupDir}/eris -type f -mtime +5 -exec rm {} \;
+      ${pkgs.findutils}/bin/find ${backupDir} -type f -mtime +5 -exec rm {} \;
     '';
   };
 
