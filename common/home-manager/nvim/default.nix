@@ -102,7 +102,6 @@ in
       nodePackages.prettier
       nodePackages.pyright
       nodePackages.vscode-langservers-extracted
-      rnix-lsp
       tree-sitter
     ];
 
