@@ -67,10 +67,7 @@ rec {
       };
     };
 
-    eza = {
-      enable = true;
-      enableAliases = true;
-    };
+    eza.enable = true;
 
     gpg = {
       enable = true;
