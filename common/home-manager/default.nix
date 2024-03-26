@@ -19,7 +19,7 @@ let
     ripgrep # search in files
     tealdeer # fast version of tldr
   ]
-  ++ lib.optionals pkgs.stdenv.isDarwin [ awscli2 cookiecutter ];
+  ++ lib.optionals pkgs.stdenv.isDarwin [ cookiecutter ];
 
   gitPkgs = with pkgs.gitAndTools; [
     diff-so-fancy # git diff with colors
