@@ -4,7 +4,6 @@ let
   defaultPackages = with pkgs; [
     asciinema # record the terminal
     bottom # alternative to htop & ytop
-    devenv # https://devenv.sh/
     du-dust # more intuitive version of du in rust
     duf # disk usage/free utility
     fd # "find" for files
