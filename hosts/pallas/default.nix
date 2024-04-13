@@ -15,6 +15,16 @@ in
   boot.tmp.cleanOnBoot = true;
   networking.firewall.enable = false;
 
+  nix.settings = {
+    substituters = [
+      "https://strykeforce.cachix.org"
+    ];
+
+    trusted-public-keys = [
+      "strykeforce.cachix.org-1:+ux184cQfS4lruf/lIzs9WDMtOkJIZI2FQHfz5QEIrE="
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     strykeforce-manage
   ];
