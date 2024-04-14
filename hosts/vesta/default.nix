@@ -35,6 +35,16 @@
     };
   };
 
+  nix.settings = {
+    substituters = [
+      "https://strykeforce.cachix.org"
+    ];
+
+    trusted-public-keys = [
+      "strykeforce.cachix.org-1:+ux184cQfS4lruf/lIzs9WDMtOkJIZI2FQHfz5QEIrE="
+    ];
+  };
+
   documentation.nixos.enable = true;
   documentation.nixos.includeAllModules = true;
   documentation.nixos.options.warningsAreErrors = false;
