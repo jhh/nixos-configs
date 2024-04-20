@@ -27,11 +27,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    fish-nix-env = {
-      url = "github:lilyball/nix-env.fish";
-      flake = false;
-    };
-
     dyndns = {
       url = "github:jhh/dyndns";
       inputs.nixpkgs.follows = "nixpkgs";

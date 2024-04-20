@@ -123,22 +123,6 @@
         "type": "github"
       }
     },
-    "fish-nix-env": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1638213644,
-        "narHash": "sha256-RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=",
-        "owner": "lilyball",
-        "repo": "nix-env.fish",
-        "rev": "7b65bd228429e852c8fdfa07601159130a818cfa",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lilyball",
-        "repo": "nix-env.fish",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -540,7 +524,6 @@
         "deploy-rs": "deploy-rs",
         "dyndns": "dyndns",
         "fava-gencon": "fava-gencon",
-        "fish-nix-env": "fish-nix-env",
         "home-manager": "home-manager_2",
         "home-manager-unstable": "home-manager-unstable",
         "nixpkgs": "nixpkgs_4",
