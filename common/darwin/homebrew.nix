@@ -25,6 +25,7 @@
       "omnigraffle"
       "postgres-unofficial"
       "postico"
+      "pyfa"
       "spotify"
       "tableplus"
       "thetimemachinemechanic"
