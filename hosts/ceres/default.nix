@@ -16,7 +16,7 @@
     mdns.enable = true;
     prometheus.enable = true;
     tailscale.enable = false;
-    services.fava-gencon.enable = false;
+    services.fava-yoyodyne.enable = false;
   };
 
   # This value determines the NixOS release from which the default

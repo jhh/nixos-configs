@@ -105,7 +105,7 @@
         "type": "github"
       }
     },
-    "fava-gencon": {
+    "fava-yoyodyne": {
       "inputs": {
         "nixpkgs": "nixpkgs_3"
       },
@@ -113,13 +113,13 @@
         "lastModified": 1714567294,
         "narHash": "sha256-2li1uoVH++WDu6mOOQxAq7qqSOPkrNP38NbOz7WWFwk=",
         "owner": "jhh",
-        "repo": "fava-gencon",
+        "repo": "fava-yoyodyne",
         "rev": "463f88c6dadc8807394ef77ce03aa635bd8eb2ee",
         "type": "github"
       },
       "original": {
         "owner": "jhh",
-        "repo": "fava-gencon",
+        "repo": "fava-yoyodyne",
         "type": "github"
       }
     },
@@ -523,7 +523,7 @@
         "darwin": "darwin_2",
         "deploy-rs": "deploy-rs",
         "dyndns": "dyndns",
-        "fava-gencon": "fava-gencon",
+        "fava-yoyodyne": "fava-yoyodyne",
         "home-manager": "home-manager_2",
         "home-manager-unstable": "home-manager-unstable",
         "nixpkgs": "nixpkgs_4",

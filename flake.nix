@@ -34,7 +34,7 @@
 
     puka.url = "github:jhh/puka";
     strykeforce.url = "github:strykeforce/strykeforce.org";
-    fava-gencon.url = "github:jhh/fava-gencon";
+    fava-yoyodyne.url = "github:jhh/fava-yoyodyne";
   };
 
   outputs =
@@ -49,7 +49,7 @@
     , nixpkgs-unstable
     , puka
     , strykeforce
-    , fava-gencon
+    , fava-yoyodyne
     , vscode-server
     , ...
     }:
@@ -81,7 +81,7 @@
             dyndns.nixosModules.default
             puka.nixosModules.default
             strykeforce.nixosModules.default
-            fava-gencon.nixosModules.default
+            fava-yoyodyne.nixosModules.default
           ] ++ extraModules;
         };
     in
