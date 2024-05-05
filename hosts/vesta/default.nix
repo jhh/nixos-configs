@@ -29,7 +29,7 @@
       grafana.enable = true;
       exporters = {
         nut.enable = true;
-        pihole.enable = false;
+        pihole.enable = true;
         unifi.enable = true;
       };
     };
