@@ -21,7 +21,7 @@
 
       services.avahi = {
         enable = cfg.enable;
-        nssmdns = true;
+        nssmdns4 = true;
         publish = {
           enable = true;
           addresses = true;
