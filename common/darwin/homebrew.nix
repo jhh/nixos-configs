@@ -6,6 +6,7 @@
     onActivation = {
       cleanup = "zap";
       upgrade = true;
+      autoUpdate = true;
     };
 
     brews = [
