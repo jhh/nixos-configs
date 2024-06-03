@@ -8,7 +8,6 @@
       ./postgresql.nix
       ./rclone.nix
       ./samba.nix
-      ./strykeforce-website.nix
       ./zrepl.nix
     ];
 
