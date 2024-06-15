@@ -7,12 +7,12 @@ let
     '';
   };
 
-  custom-plugins = pkgs.callPackage ./custom-plugins.nix {
-    inherit (pkgs.vimUtils) buildVimPlugin;
-    inherit (pkgs) fetchFromGitHub;
-  };
+  # custom-plugins = pkgs.callPackage ./custom-plugins.nix {
+  #   inherit (pkgs.vimUtils) buildVimPlugin;
+  #   inherit (pkgs) fetchFromGitHub;
+  # };
 
-  plugins = pkgs.vimPlugins // custom-plugins;
+  plugins = pkgs.vimPlugins; # // custom-plugins;
 
   # https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/development/tools/parsing/tree-sitter/grammars
   treesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
@@ -34,7 +34,6 @@ let
   ]);
 
   vimPlugins = with plugins; [
-    beancount-nvim # https://github.com/polarmutex/beancount.nvim
     luasnip # https://github.com/l3mon4d3/luasnip
     cmp_luasnip # https://github.com/saadparwaiz1/cmp_luasnip
     cmp-nvim-lsp # https://github.com/hrsh7th/cmp-nvim-lsp
@@ -100,7 +99,6 @@ in
       gcc
       neovim-remote
       nodePackages.prettier
-      nodePackages.pyright
       nodePackages.vscode-langservers-extracted
       tree-sitter
     ];
