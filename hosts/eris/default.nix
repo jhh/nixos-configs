@@ -3,10 +3,11 @@
   imports =
     [
       (modulesPath + "/virtualisation/proxmox-lxc.nix")
-      ./postgresql.nix
-      ./nginx.nix
       ./gitea.nix
       ./miniflux.nix
+      ./nginx.nix
+      ./paperless.nix
+      ./postgresql.nix
     ];
 
   system.name = "eris";

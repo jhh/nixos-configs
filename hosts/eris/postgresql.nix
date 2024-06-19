@@ -7,7 +7,7 @@
 
   services.postgresqlBackup = {
     enable = true;
-    databases = [ "gitea" "miniflux" "puka" ];
+    databases = [ "gitea" "miniflux" "paperless" "puka" ];
     pgdumpOptions = "--clean";
   };
 

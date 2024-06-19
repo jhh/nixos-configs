@@ -22,17 +22,18 @@ let
 
 in
 {
-  "upsmon.conf.age".publicKeys = [ jeff luna ];
-  "rclone.conf.age".publicKeys = [ jeff luna phobos vesta ];
-  "sasl_passwd.age".publicKeys = [ jeff ] ++ hosts;
   "aws_secret.age".publicKeys = [ jeff pallas ];
-  "puka_secrets.age".publicKeys = [ jeff eris vesta ];
-  "strykeforce_website_secrets.age".publicKeys = [ jeff pallas phobos vesta ];
-  "route53_secrets.age".publicKeys = [ jeff eris ];
-  "pushover_token.age".publicKeys = [ jeff vesta ];
-  "pgadmin_passwd.age".publicKeys = [ jeff pallas ];
-  "smtp_passwd.age".publicKeys = [ jeff eris ];
   "miniflux_secret.age".publicKeys = [ jeff eris ];
   "minio_secret.age".publicKeys = [ jeff luna ];
+  "paperless_passwd.age".publicKeys = [ jeff eris ];
+  "pgadmin_passwd.age".publicKeys = [ jeff pallas ];
+  "puka_secrets.age".publicKeys = [ jeff eris vesta ];
+  "pushover_token.age".publicKeys = [ jeff vesta ];
+  "rclone.conf.age".publicKeys = [ jeff luna phobos vesta ];
+  "route53_secrets.age".publicKeys = [ jeff eris ];
+  "sasl_passwd.age".publicKeys = [ jeff ] ++ hosts;
+  "smtp_passwd.age".publicKeys = [ jeff eris ];
+  "strykeforce_website_secrets.age".publicKeys = [ jeff pallas phobos vesta ];
   "unifi_passwd.age".publicKeys = [ jeff vesta ];
+  "upsmon.conf.age".publicKeys = [ jeff luna ];
 }
