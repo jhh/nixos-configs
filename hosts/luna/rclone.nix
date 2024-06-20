@@ -24,6 +24,9 @@
 
       echo backing up /mnt/tank/share/homelab
       ${pkgs.rclone}/bin/rclone $RCLONE_OPTS sync /mnt/tank/share/homelab b2:j3ff-homelab/Io/
+
+      echo backing up /mnt/tank/media/paperless
+      ${pkgs.rclone}/bin/rclone $RCLONE_OPTS sync /mnt/tank/media/paperless b2:j3ff-paperless
     '';
   };
 
