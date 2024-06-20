@@ -24,7 +24,7 @@
     mdns.enable = true;
     prometheus.enable = true;
     puka.enable = true;
-    tailscale.enable = false;
+    tailscale.enable = true;
   };
 
   # This value determines the NixOS release from which the default
