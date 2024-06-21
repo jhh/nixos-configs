@@ -5,6 +5,7 @@ let
   # 3. create bindmount in proxmox admin console
   # 4. configure and start paperless
   mediaDir = "/mnt/paperless/media";
+  backupDir = "/mnt/paperless/backup";
   dbName = "paperless";
 in
 {
@@ -53,6 +54,25 @@ in
       "/" = {
         proxyPass = "http://127.0.0.1:${toString config.services.paperless.port}";
       };
+    };
+  };
+
+  systemd.timers."paperless-dump" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "daily";
+      Unit = "paperless-dump.service";
+    };
+  };
+
+  systemd.services."paperless-dump" = {
+    script = ''
+      set -eu
+      ${config.services.paperless.dataDir}/paperless-manage document_exporter --no-progress-bar ${backupDir}
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = config.services.paperless.user;
     };
   };
 }

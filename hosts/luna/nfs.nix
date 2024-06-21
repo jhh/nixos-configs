@@ -7,7 +7,7 @@
       /mnt/tank/backup/postgres      10.1.0.0/24(rw,insecure,sync,no_subtree_check)
       /mnt/tank/backup/gitea         10.1.0.0/24(rw,insecure,sync,no_subtree_check,no_root_squash)
       /mnt/tank/share/homelab        10.1.0.0/24(rw,insecure,sync,no_subtree_check)
-      /mnt/tank/share/paperless      10.1.0.0/24(rw,insecure,sync,no_subtree_check)
+      /mnt/tank/backup/paperless     10.1.0.0/24(rw,insecure,sync,no_subtree_check)
       /mnt/tank/media/paperless      10.1.0.0/24(rw,insecure,sync,no_subtree_check)
       /mnt/tank/media/plex           10.1.0.0/24(rw,insecure,sync,no_subtree_check,crossmnt)
       /mnt/tank/proxmox/pbs          10.1.0.9(rw,insecure,sync,no_subtree_check)
