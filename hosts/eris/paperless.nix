@@ -26,6 +26,7 @@ in
       PAPERLESS_URL = "https://paperless.j3ff.io";
       PAPERLESS_PROXY_SSL_HEADER = ''["HTTP_X_FORWARDED_PROTO", "https"]'';
       PAPERLESS_ACCOUNT_SESSION_REMEMBER = true;
+      PAPERLESS_OCR_SKIP_ARCHIVE_FILE = "with_text";
     };
   };
 
