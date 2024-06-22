@@ -24,6 +24,8 @@ in
       PAPERLESS_DBHOST = "/run/postgresql";
       PAPERLESS_DATE_ORDER = "MDY";
       PAPERLESS_URL = "https://paperless.j3ff.io";
+      PAPERLESS_PROXY_SSL_HEADER = ''["HTTP_X_FORWARDED_PROTO", "https"]'';
+      PAPERLESS_ACCOUNT_SESSION_REMEMBER = true;
     };
   };
 
