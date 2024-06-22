@@ -23,6 +23,7 @@ in
     settings = {
       PAPERLESS_DBHOST = "/run/postgresql";
       PAPERLESS_DATE_ORDER = "MDY";
+      PAPERLESS_URL = "https://paperless.j3ff.io";
     };
   };
 
@@ -54,7 +55,12 @@ in
       "/" = {
         proxyPass = "http://127.0.0.1:${toString config.services.paperless.port}";
         recommendedProxySettings = true;
+        # https://github.com/paperless-ngx/paperless-ngx/wiki/Using-a-Reverse-Proxy-with-Paperless-ngx#nginx
         proxyWebsockets = true;
+        extraConfig = ''
+          proxy_redirect off;
+          add_header Referrer-Policy "strict-origin-when-cross-origin";
+        '';
       };
     };
   };
