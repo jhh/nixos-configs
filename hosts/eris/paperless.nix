@@ -71,7 +71,7 @@ in
   systemd.timers."paperless-dump" = {
     wantedBy = [ "timers.target" ];
     timerConfig = {
-      OnCalendar = "daily";
+      OnCalendar = "*-*-* 00/4:13:00"; # every 4 hours at 13 min past
       Unit = "paperless-dump.service";
     };
   };
