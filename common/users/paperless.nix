@@ -6,12 +6,12 @@
 
   users.users.paperless = {
     isSystemUser = true;
-    uid = 315;
-    home = "/var/lib/paperless";
+    uid = config.ids.uids.paperless;
+    home = config.services.paperless.dataDir;
     group = "paperless";
     hashedPasswordFile = config.age.secrets.paperless_passwd.path;
   };
 
-  users.groups.paperless = { gid = 315; };
+  users.groups.paperless = { gid = config.ids.gids.paperless; };
 
 }
