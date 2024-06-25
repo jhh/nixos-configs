@@ -10,7 +10,6 @@
     home = "/var/lib/paperless";
     group = "paperless";
     hashedPasswordFile = config.age.secrets.paperless_passwd.path;
-    extraGroups = [ "media" ];
   };
 
   users.groups.paperless = { gid = 315; };
