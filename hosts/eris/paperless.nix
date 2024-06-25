@@ -74,21 +74,15 @@ in
     };
   };
 
-  systemd.timers."paperless-dump" = {
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnCalendar = "*-*-* 00/4:13:00"; # every 4 hours at 13 min past
-      Unit = "paperless-dump.service";
-    };
-  };
-
   systemd.services."paperless-dump" = {
+    startAt = "*-*-* 00/4:13:00"; # every 4 hours at 13 min past
+
     script = ''
       set -eu
       ${config.services.paperless.dataDir}/paperless-manage document_exporter --no-progress-bar ${backupDir}
     '';
+
     serviceConfig = {
-      Type = "oneshot";
       User = config.services.paperless.user;
     };
   };

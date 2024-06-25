@@ -29,7 +29,7 @@ in
   "pgadmin_passwd.age".publicKeys = [ jeff pallas ];
   "puka_secrets.age".publicKeys = [ jeff eris vesta ];
   "pushover_token.age".publicKeys = [ jeff vesta ];
-  "rclone.conf.age".publicKeys = [ jeff luna phobos vesta ];
+  "rclone.conf.age".publicKeys = [ jeff ] ++ hosts;
   "route53_secrets.age".publicKeys = [ jeff eris ];
   "sasl_passwd.age".publicKeys = [ jeff ] ++ hosts;
   "smtp_passwd.age".publicKeys = [ jeff eris ];
