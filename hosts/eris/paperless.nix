@@ -17,15 +17,6 @@ in
     file = ../../secrets/paperless_admin_passwd.age;
   };
 
-  age.secrets.paperless_passwd = {
-    file = ../../secrets/paperless_passwd.age;
-  };
-
-
-  users.users.${config.services.paperless.user} = {
-    hashedPasswordFile = config.age.secrets.paperless_passwd.path;
-    extraGroups = [ "media" ];
-  };
 
   services.paperless = {
     enable = true;
@@ -100,7 +91,7 @@ in
     '';
 
     serviceConfig = {
-      User = config.services.paperless.user;
+      User = "paperless";
     };
   };
 }

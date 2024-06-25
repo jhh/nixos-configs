@@ -26,7 +26,7 @@ in
   "miniflux_secret.age".publicKeys = [ jeff eris ];
   "minio_secret.age".publicKeys = [ jeff luna ];
   "paperless_admin_passwd.age".publicKeys = [ jeff eris ];
-  "paperless_passwd.age".publicKeys = [ jeff eris ];
+  "paperless_passwd.age".publicKeys = [ jeff ] ++ hosts;
   "pgadmin_passwd.age".publicKeys = [ jeff pallas ];
   "puka_secrets.age".publicKeys = [ jeff eris vesta ];
   "pushover_token.age".publicKeys = [ jeff vesta ];

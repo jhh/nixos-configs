@@ -7,7 +7,6 @@
       ./plex.nix
       ./samba.nix
       ./rclone.nix
-      ./tmpfiles.nix
     ];
 
   services.thermald.enable = false; # unsupported
