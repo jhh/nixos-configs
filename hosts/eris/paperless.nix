@@ -13,18 +13,26 @@ let
   });
 in
 {
+  age.secrets.paperless_admin_passwd = {
+    file = ../../secrets/paperless_admin_passwd.age;
+  };
+
   age.secrets.paperless_passwd = {
     file = ../../secrets/paperless_passwd.age;
   };
 
-  users.users.${config.services.paperless.user}.extraGroups = [ "media" ];
+
+  users.users.${config.services.paperless.user} = {
+    hashedPasswordFile = config.age.secrets.paperless_passwd.path;
+    extraGroups = [ "media" ];
+  };
 
   services.paperless = {
     enable = true;
     package = paperless-ngx;
     inherit mediaDir;
     consumptionDirIsPublic = true;
-    passwordFile = config.age.secrets.paperless_passwd.path;
+    passwordFile = config.age.secrets.paperless_admin_passwd.path;
     settings = {
       PAPERLESS_DBHOST = "/run/postgresql";
       PAPERLESS_DATE_ORDER = "MDY";
@@ -72,6 +80,15 @@ in
         '';
       };
     };
+  };
+
+  services.vsftpd = {
+    enable = true;
+    writeEnable = true;
+    localUsers = true;
+    userlist = [ "paperless" ];
+    chrootlocalUser = true;
+    allowWriteableChroot = true;
   };
 
   systemd.services."paperless-dump" = {
