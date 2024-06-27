@@ -44,7 +44,6 @@
       "Reeder 5" = 1529448980;
       "Slack for Desktop" = 803453959;
       "Tailscale" = 1475387142;
-      "Twitter" = 1482454543;
     };
   };
 }
