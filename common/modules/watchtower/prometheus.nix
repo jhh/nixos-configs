@@ -21,8 +21,6 @@ in
     networking.hosts = {
       "10.1.0.2" = [ "pihole" ];
       "100.64.244.48" = [ "phobos" ];
-      "100.88.59.15" = [ "pve-11" ];
-      "100.124.210.30" = [ "docker-02" ];
     };
 
     services.prometheus = {
@@ -44,12 +42,11 @@ in
             job_name = "node";
             static_configs = [{
               targets = [
-                # "docker-02:9100"
                 "eris:${nodePort}"
+                "ceres:${nodePort}"
                 "luna:${nodePort}"
                 "phobos:${nodePort}"
                 "pihole:9100"
-                # "pve-11:9100"
                 "vesta:${nodePort}"
               ];
             }];
