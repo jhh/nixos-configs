@@ -141,7 +141,7 @@ in
                 description: '{{ $labels.instance }} has been down for more than 5 minutes.'
                 summary: 'Instance {{ $labels.instance }} down'
             - alert: UpsStatus
-              expr: network_ups_tools_ups_status{flag!="OL"} == 1
+              expr: changes(network_ups_tools_ups_status[5m])
             - alert: PiholeStatus
               expr: pihole_status == 0
               for: 10m
