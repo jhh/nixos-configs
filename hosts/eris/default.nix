@@ -25,6 +25,7 @@
     prometheus.enable = true;
     puka.enable = true;
     tailscale.enable = true;
+    services.fava-yoyodyne.enable = true;
   };
 
   # This value determines the NixOS release from which the default
