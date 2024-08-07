@@ -87,7 +87,7 @@ in
 
     script = ''
       set -eu
-      ${config.services.paperless.dataDir}/paperless-manage document_exporter --no-progress-bar ${backupDir}
+      ${config.services.paperless.dataDir}/paperless-manage document_exporter --delete --no-progress-bar ${backupDir}
     '';
 
     serviceConfig = {
