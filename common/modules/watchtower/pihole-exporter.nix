@@ -14,7 +14,6 @@ in
     services.prometheus.exporters.pihole = {
       enable = true;
       piholeHostname = "10.1.0.2";
-      interval = "30s";
     };
   };
 }
