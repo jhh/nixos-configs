@@ -57,14 +57,14 @@
         writeable = "no";
       };
 
-      ganymede = {
-        path = "/mnt/tank/backup/tm/ganymede";
-        "valid users" = "jeff";
-        browsable = "no";
-        public = "no";
-        writeable = "yes";
-        "fruit:time machine" = "yes";
-      };
+      # ganymede = {
+      #   path = "/mnt/tank/backup/tm/ganymede";
+      #   "valid users" = "jeff";
+      #   browsable = "no";
+      #   public = "no";
+      #   writeable = "yes";
+      #   "fruit:time machine" = "yes";
+      # };
 
 
       callisto = {
@@ -81,6 +81,7 @@
         "valid users" = "jeff";
         "force user" = "jeff";
         public = "no";
+        browsable = "no";
         writeable = "yes";
         "fruit:aapl" = "yes";
         "fruit:time machine" = "yes";
