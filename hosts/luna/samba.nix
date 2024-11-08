@@ -96,7 +96,7 @@
         <?xml version="1.0" standalone='no'?>
         <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
         <service-group>
-          <name>Time Machine on Luna</name>
+          <name>Luna</name>
           <service>
             <type>_smb._tcp</type>
             <port>445</port>
