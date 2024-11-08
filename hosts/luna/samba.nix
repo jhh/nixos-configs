@@ -21,25 +21,19 @@
       logging = 0
 
       vfs objects = fruit streams_xattr
-      fruit:aapl = yes
       fruit:metadata = stream
       fruit:model = MacSamba
       fruit:veto_appledouble = no
-      fruit:posix_rename = yes
-      fruit:zero_file_id = yes
+      fruit:nfs_aces = no
       fruit:wipe_intentionally_left_blank_rfork = yes
       fruit:delete_empty_adfiles = yes
+      fruit:posix_rename = yes
 
-      use sendfile = yes
-      socket options = IPTOS_LOWDELAY TCP_NODELAY
       hosts allow = 10.1.0.0/24 100.64.0.0/10
       guest account = nobody
       map to guest = bad user
 
       load printers = no
-      printing = bsd
-      printcap name = /dev/null
-      disable spoolss = yes
     '';
 
     shares = {
@@ -81,6 +75,44 @@
         writeable = "yes";
         "fruit:time machine" = "yes";
       };
+
+      TimeMachine = {
+        path = "/mnt/tank/backup/tm/share";
+        "valid users" = "jeff";
+        "force user" = "jeff";
+        public = "no";
+        writeable = "yes";
+        "fruit:aapl" = "yes";
+        "fruit:time machine" = "yes";
+        "vfs objects" = "catia fruit streams_xattr";
+      };
+    };
+  };
+
+  # Ensure Time Machine can discover the share without `tmutil`
+  services.avahi = {
+    extraServiceFiles = {
+      timemachine = ''
+        <?xml version="1.0" standalone='no'?>
+        <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+        <service-group>
+          <name>Time Machine on Luna</name>
+          <service>
+            <type>_smb._tcp</type>
+            <port>445</port>
+          </service>
+            <service>
+            <type>_device-info._tcp</type>
+            <port>0</port>
+            <txt-record>model=TimeCapsule8,119</txt-record>
+          </service>
+          <service>
+            <type>_adisk._tcp</type>
+            <txt-record>dk0=adVN=TimeMachine,adVF=0x82</txt-record>
+            <txt-record>sys=waMa=0,adVF=0x100</txt-record>
+          </service>
+        </service-group>
+      '';
     };
   };
 
