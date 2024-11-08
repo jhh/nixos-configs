@@ -85,6 +85,7 @@
         writeable = "yes";
         "fruit:aapl" = "yes";
         "fruit:time machine" = "yes";
+        "fruit:time machine max size" = "1T";
         "vfs objects" = "catia fruit streams_xattr";
       };
     };
