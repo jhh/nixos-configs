@@ -77,7 +77,7 @@
         "fruit:time machine" = "yes";
       };
 
-      TimeMachine = {
+      "Time Capsule" = {
         path = "/mnt/tank/backup/tm/share";
         "valid users" = "jeff";
         "force user" = "jeff";
@@ -110,7 +110,7 @@
           </service>
           <service>
             <type>_adisk._tcp</type>
-            <txt-record>dk0=adVN=TimeMachine,adVF=0x82</txt-record>
+            <txt-record>dk0=adVN=Time Capsule,adVF=0x82</txt-record>
             <txt-record>sys=waMa=0,adVF=0x100</txt-record>
           </service>
         </service-group>
