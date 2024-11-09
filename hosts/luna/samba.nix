@@ -21,6 +21,7 @@
       logging = 0
 
       vfs objects = fruit streams_xattr
+      fruit:aapl = yes
       fruit:metadata = stream
       fruit:model = MacSamba
       fruit:veto_appledouble = no
@@ -83,10 +84,9 @@
         public = "no";
         browsable = "no";
         writeable = "yes";
-        "fruit:aapl" = "yes";
         "fruit:time machine" = "yes";
         "fruit:time machine max size" = "1T";
-        "vfs objects" = "catia fruit streams_xattr";
+        "vfs objects" = "fruit streams_xattr";
       };
     };
   };
