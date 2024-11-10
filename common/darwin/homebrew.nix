@@ -10,6 +10,7 @@
     };
 
     brews = [
+      "uv"
     ];
 
     casks = [
