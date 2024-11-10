@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   pluginWithConfig = plugin: {
     plugin = plugin;
@@ -73,12 +73,11 @@ let
 
   vimPluginsWithConfig = with pkgs.vimPlugins;
     map pluginWithConfig [
-      # nvim-lspconfig # https://github.com/neovim/nvim-lspconfig
       nvim-cmp # https://github.com/hrsh7th/nvim-cmp
       treesitter # https://github.com/nvim-treesitter/nvim-treesitter
       telescope-nvim # https://github.com/nvim-telescope/telescope.nvim
       # which-key-nvim # https://github.com/folke/which-key.nvim
-    ];
+    ] ++ lib.optional pkgs.stdenv.isLinux nvim-lspconfig; # https://github.com/neovim/nvim-lspconfig
 in
 {
   xdg.configFile."nvim/lua".source = ./lua;
