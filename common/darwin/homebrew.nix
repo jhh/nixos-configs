@@ -15,7 +15,6 @@
 
     casks = [
       "1password"
-      "alfred"
       "carbon-copy-cloner"
       "dash"
       "discord"
@@ -27,7 +26,6 @@
       "omnigraffle"
       "postgres-unofficial"
       "postico"
-      "pyfa"
       "spotify"
       "tableplus"
       "thetimemachinemechanic"
