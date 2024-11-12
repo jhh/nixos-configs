@@ -45,7 +45,7 @@
     nixpkgs.config.allowUnfree = true;
 
     nix = {
-      package = pkgs.nixVersions.latest;
+      package = pkgs.nixVersions.git;
       extraOptions = ''
         experimental-features = nix-command flakes
         cores = 0
