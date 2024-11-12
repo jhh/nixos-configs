@@ -12,6 +12,7 @@
     _1password-cli
     coreutils
     findutils
+    just
   ];
 
   # Auto upgrade nix package and the daemon service.
