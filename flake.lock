@@ -257,11 +257,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731535640,
-        "narHash": "sha256-2EckCJn4wxran/TsRiCOFcmVpep2m9EBKl99NBh2GnM=",
+        "lastModified": 1731604581,
+        "narHash": "sha256-Qq2YZZaDTB3FZLWU/Hgh1uuWlUBl3cMLGB99bm7rFUM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "35b055009afd0107b69c286fca34d2ad98940d57",
+        "rev": "1d0862ee2d7c6f6cd720d6f32213fa425004be10",
         "type": "github"
       },
       "original": {
@@ -731,11 +731,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1731614060,
-        "narHash": "sha256-BR/ZZKfytychAKyUmO5eXkb04hpQsyAFtvHL65hiUVs=",
+        "lastModified": 1731581740,
+        "narHash": "sha256-w6sfzJ9wkNEup9ECtlKJ8tyL2/ceVelFz2ZzfEZwqos=",
         "ref": "refs/heads/main",
-        "rev": "d4dade856c5d41ae8c2989fb5426597ec4127765",
-        "revCount": 42,
+        "rev": "f1a85f64f64a9fe0d2f8b05bd72732115e12e24a",
+        "revCount": 36,
         "type": "git",
         "url": "file:///home/jeff/code/jhh/todo"
       },
