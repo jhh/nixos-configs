@@ -731,11 +731,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1731609339,
-        "narHash": "sha256-9gyK5IRL8HNAllBEgyB47FkuuTtM1x0mLA4bA8/+Fhc=",
+        "lastModified": 1731614060,
+        "narHash": "sha256-BR/ZZKfytychAKyUmO5eXkb04hpQsyAFtvHL65hiUVs=",
         "ref": "refs/heads/main",
-        "rev": "0ffcfc74065e9dc5dc0ea8af1f40cbe8fbf0447e",
-        "revCount": 40,
+        "rev": "d4dade856c5d41ae8c2989fb5426597ec4127765",
+        "revCount": 42,
         "type": "git",
         "url": "file:///home/jeff/code/jhh/todo"
       },
