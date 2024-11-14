@@ -19,12 +19,12 @@
     ];
   };
 
-  services.nginx = {
+  services.nginx = lib.mkIf config.services.todo.enable {
     enable = true;
     recommendedProxySettings = true;
     recommendedOptimisation = true;
     recommendedGzipSettings = true;
-    virtualHosts."todo.j3ff.io" = lib.mkIf config.services.todo.enable {
+    virtualHosts."todo.j3ff.io" = {
       locations = {
         "/" = {
           proxyPass = "http://127.0.0.1:8000";
