@@ -21,6 +21,9 @@
 
   services.nginx = {
     enable = true;
+    recommendedProxySettings = true;
+    recommendedOptimisation = true;
+    recommendedGzipSettings = true;
     virtualHosts."todo.j3ff.io" = lib.mkIf config.services.todo.enable {
       locations = {
         "/" = {
