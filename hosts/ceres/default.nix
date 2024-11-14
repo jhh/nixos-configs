@@ -6,7 +6,10 @@
       ./media.nix
     ];
 
-  system.name = "ceres";
+  networking.hostName = "ceres";
+  networking.domain = "lan.j3ff.io";
+  proxmoxLXC.manageHostName = true;
+
   boot.tmp.cleanOnBoot = true;
   networking.firewall.enable = false;
 
