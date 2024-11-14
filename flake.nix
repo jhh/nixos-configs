@@ -114,6 +114,7 @@
         luna = mkSystem { extraModules = [ ./hosts/luna ]; };
         pallas = mkSystem { extraModules = [ ./hosts/pallas ]; };
         phobos = mkSystem { extraModules = [ ./hosts/phobos ]; };
+        styx = mkSystem { extraModules = [ ./hosts/styx ]; };
         titan = mkSystem { extraModules = [ ./hosts/titan ]; };
         vesta = mkSystem { extraModules = [ ./hosts/vesta ]; };
 
@@ -152,6 +153,12 @@
             hostname = "10.1.0.7";
             inherit sshUser fastConnection;
             profiles.system = systemFor "luna";
+          };
+
+          styx = {
+            hostname = "10.1.0.49";
+            inherit sshUser fastConnection;
+            profiles.system = systemFor "styx";
           };
 
           # deploy from strykeforce.org repo
