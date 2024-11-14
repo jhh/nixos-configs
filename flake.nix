@@ -35,6 +35,7 @@
     puka.url = "github:jhh/puka";
     strykeforce.url = "github:strykeforce/strykeforce.org";
     fava-yoyodyne.url = "github:jhh/fava-yoyodyne";
+    todo.url = "/home/jeff/code/jhh/todo";
   };
 
   outputs =
@@ -51,6 +52,7 @@
     , strykeforce
     , fava-yoyodyne
     , vscode-server
+    , todo
     , ...
     }:
     let
@@ -82,6 +84,7 @@
             puka.nixosModules.default
             strykeforce.nixosModules.default
             fava-yoyodyne.nixosModules.default
+            todo.nixosModules.default
           ] ++ extraModules;
         };
     in

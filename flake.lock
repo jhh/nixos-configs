@@ -447,6 +447,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_7": {
+      "locked": {
+        "lastModified": 1731139594,
+        "narHash": "sha256-IigrKK3vYRpUu+HEjPL/phrfh7Ox881er1UEsZvw9Q4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "76612b17c0ce71689921ca12d9ffdc9c23ce40b2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "poetry2nix": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -517,6 +533,27 @@
         "type": "github"
       }
     },
+    "pyproject-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "todo",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1731223003,
+        "narHash": "sha256-hFf8/IeZKPUubMC452Mm+JiAEnvcw/a4Cvn2bcpeJqs=",
+        "owner": "nix-community",
+        "repo": "pyproject.nix",
+        "rev": "359dd9cd562730bbd31ab164832aae4dacd9c302",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "pyproject.nix",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -530,6 +567,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "puka": "puka",
         "strykeforce": "strykeforce",
+        "todo": "todo",
         "vscode-server": "vscode-server"
       }
     },
@@ -686,6 +724,26 @@
         "type": "github"
       }
     },
+    "todo": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_7",
+        "pyproject-nix": "pyproject-nix",
+        "uv2nix": "uv2nix"
+      },
+      "locked": {
+        "lastModified": 1731601058,
+        "narHash": "sha256-hHtJUZr+HxkbfTFjZ7pmyt6ExTt4JGDJ46VmWutJTVQ=",
+        "ref": "refs/heads/main",
+        "rev": "8cc0db79cd9b43989a7a09d6aba7abb758c04ed6",
+        "revCount": 38,
+        "type": "git",
+        "url": "file:///home/jeff/code/jhh/todo"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/jeff/code/jhh/todo"
+      }
+    },
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
@@ -760,6 +818,31 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "uv2nix": {
+      "inputs": {
+        "nixpkgs": [
+          "todo",
+          "nixpkgs"
+        ],
+        "pyproject-nix": [
+          "todo",
+          "pyproject-nix"
+        ]
+      },
+      "locked": {
+        "lastModified": 1731375416,
+        "narHash": "sha256-foYwh+QEgda8EuymxOydvkv5nVaVsPW7yN0/CLLDCM0=",
+        "owner": "adisbladis",
+        "repo": "uv2nix",
+        "rev": "3f1bfa56f3acd32762690a1b6362f75d30748cab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "adisbladis",
+        "repo": "uv2nix",
         "type": "github"
       }
     },

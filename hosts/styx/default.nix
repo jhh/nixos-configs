@@ -4,6 +4,8 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./postgresql.nix
+      ./todo.nix
     ];
 
   j3ff = {
