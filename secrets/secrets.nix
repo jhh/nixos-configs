@@ -37,6 +37,7 @@ in
   "sasl_passwd.age".publicKeys = [ jeff ] ++ hosts;
   "smtp_passwd.age".publicKeys = [ jeff eris ];
   "strykeforce_website_secrets.age".publicKeys = [ jeff pallas phobos vesta ];
+  "todo_secrets.age".publicKeys = [ jeff eris styx ];
   "unifi_passwd.age".publicKeys = [ jeff vesta ];
   "upsmon.conf.age".publicKeys = [ jeff luna ];
 }
