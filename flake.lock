@@ -731,17 +731,17 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1731581740,
-        "narHash": "sha256-w6sfzJ9wkNEup9ECtlKJ8tyL2/ceVelFz2ZzfEZwqos=",
+        "lastModified": 1731614060,
+        "narHash": "sha256-BR/ZZKfytychAKyUmO5eXkb04hpQsyAFtvHL65hiUVs=",
         "ref": "refs/heads/main",
-        "rev": "f1a85f64f64a9fe0d2f8b05bd72732115e12e24a",
-        "revCount": 36,
+        "rev": "d4dade856c5d41ae8c2989fb5426597ec4127765",
+        "revCount": 42,
         "type": "git",
-        "url": "file:///home/jeff/code/jhh/todo"
+        "url": "https://gitea.j3ff.io/jeff/todo.git"
       },
       "original": {
         "type": "git",
-        "url": "file:///home/jeff/code/jhh/todo"
+        "url": "https://gitea.j3ff.io/jeff/todo.git"
       }
     },
     "treefmt-nix": {

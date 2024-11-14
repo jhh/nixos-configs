@@ -35,7 +35,7 @@
     puka.url = "github:jhh/puka";
     strykeforce.url = "github:strykeforce/strykeforce.org";
     fava-yoyodyne.url = "github:jhh/fava-yoyodyne";
-    todo.url = "/home/jeff/code/jhh/todo";
+    todo.url = "git+https://gitea.j3ff.io/jeff/todo.git";
   };
 
   outputs =
