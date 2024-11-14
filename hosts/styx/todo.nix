@@ -18,4 +18,15 @@
       }
     ];
   };
+
+  services.nginx = {
+    enable = true;
+    virtualHosts."todo.j3ff.io" = lib.mkIf config.services.todo.enable {
+      locations = {
+        "/" = {
+          proxyPass = "http://127.0.0.1:8000";
+        };
+      };
+    };
+  };
 }
