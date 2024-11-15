@@ -50,11 +50,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731454423,
-        "narHash": "sha256-TtwvgFxUa0wyptLhQbKaixgNW1UXf3+TDqfX3Kp63oM=",
+        "lastModified": 1731642829,
+        "narHash": "sha256-vG+O2RZRzYZ8BUMNNJ+BLSj6PUoGW7taDQbp6QNJ3Xo=",
         "owner": "lnl7",
         "repo": "nix-darwin",
-        "rev": "6c71c49e2448e51ad830ed211024e6d0edc50116",
+        "rev": "f86f158efd4bab8dce3e207e4621f1df3a760b7a",
         "type": "github"
       },
       "original": {
@@ -731,11 +731,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1731614060,
-        "narHash": "sha256-BR/ZZKfytychAKyUmO5eXkb04hpQsyAFtvHL65hiUVs=",
+        "lastModified": 1731669814,
+        "narHash": "sha256-5aDADdfb23Ah9SoZxgkRtYtw3jjYJl2IzltYjGl22VQ=",
         "ref": "refs/heads/main",
-        "rev": "d4dade856c5d41ae8c2989fb5426597ec4127765",
-        "revCount": 42,
+        "rev": "fa123e9364520771e34ed9af9daf82cf88046afd",
+        "revCount": 46,
         "type": "git",
         "url": "https://gitea.j3ff.io/jeff/todo.git"
       },
