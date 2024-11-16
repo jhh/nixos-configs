@@ -19,6 +19,14 @@
     ];
   };
 
+  systemd.services.postgresql.postStart = lib.mkIf config.services.todo.enable ''
+    $PSQL -d todo -tA << END_INPUT
+      ALTER DATABASE todo SET client_encoding TO 'UTF8';
+      ALTER DATABASE todo SET default_transaction_isolation TO 'read committed';
+      ALTER DATABASE todo SET timezone TO 'UTC';
+    END_INPUT
+  '';
+
   services.nginx = lib.mkIf config.services.todo.enable {
     enable = true;
     recommendedProxySettings = true;
