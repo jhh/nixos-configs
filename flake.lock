@@ -257,11 +257,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731832479,
-        "narHash": "sha256-icDDuYwJ0avTMZTxe1qyU/Baht5JOqw4pb5mWpR+hT0=",
+        "lastModified": 1731880681,
+        "narHash": "sha256-FmYTkIyPBUxSWgA7DPIVTsCCMvSSbs56yOtHpLNSnKg=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5056a1cf0ce7c2a08ab50713b6c4af77975f6111",
+        "rev": "aecd341dfead1c3ef7a3c15468ecd71e8343b7c6",
         "type": "github"
       },
       "original": {
@@ -401,11 +401,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1731652201,
-        "narHash": "sha256-XUO0JKP1hlww0d7mm3kpmIr4hhtR4zicg5Wwes9cPMg=",
+        "lastModified": 1731797254,
+        "narHash": "sha256-df3dJApLPhd11AlueuoN0Q4fHo/hagP75LlM5K1sz9g=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c21b77913ea840f8bcf9adf4c41cecc2abffd38d",
+        "rev": "e8c38b73aeb218e27163376a2d617e61a2ad9b59",
         "type": "github"
       },
       "original": {
@@ -731,11 +731,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1731856851,
-        "narHash": "sha256-rpNkpt5+E0AxIPnP/wtaHXU64E+21DS3IjP4lxdQHw0=",
+        "lastModified": 1731882400,
+        "narHash": "sha256-K/v47OUzb7+Gv4IWmwxpwaPvb0blKnx7FqfHG0+wRcg=",
         "ref": "refs/heads/main",
-        "rev": "e115dfaaebcd5d3e684b82a12f06dcc82765f56a",
-        "revCount": 65,
+        "rev": "f77f7a9275580e4ad451c970c39e3a0cb0f768c1",
+        "revCount": 67,
         "type": "git",
         "url": "https://gitea.j3ff.io/jeff/todo.git"
       },
