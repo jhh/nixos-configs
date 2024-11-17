@@ -731,11 +731,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1731883005,
-        "narHash": "sha256-RWv0mNpPH7Cxo32x7EqUNKHC8i3B3fMHemtF3wiLwr0=",
+        "lastModified": 1731883638,
+        "narHash": "sha256-IHZqFtL5UQYqJ8aWROVtTpNvtK9ZlS4tZF+gkVpWtd4=",
         "ref": "refs/heads/main",
-        "rev": "2bd51234a3c9c97c4bc8606bab748fa5f0dd9fa6",
-        "revCount": 68,
+        "rev": "613235a1bf13333734add32cb7c4b24f1b4f330f",
+        "revCount": 69,
         "type": "git",
         "url": "https://gitea.j3ff.io/jeff/todo.git"
       },
