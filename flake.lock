@@ -449,11 +449,11 @@
     },
     "nixpkgs_7": {
       "locked": {
-        "lastModified": 1731139594,
-        "narHash": "sha256-IigrKK3vYRpUu+HEjPL/phrfh7Ox881er1UEsZvw9Q4=",
+        "lastModified": 1731319897,
+        "narHash": "sha256-PbABj4tnbWFMfBp6OcUK5iGy1QY+/Z96ZcLpooIbuEI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "76612b17c0ce71689921ca12d9ffdc9c23ce40b2",
+        "rev": "dc460ec76cbff0e66e269457d7b728432263166c",
         "type": "github"
       },
       "original": {
@@ -541,11 +541,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731223003,
-        "narHash": "sha256-hFf8/IeZKPUubMC452Mm+JiAEnvcw/a4Cvn2bcpeJqs=",
+        "lastModified": 1731586143,
+        "narHash": "sha256-oS4E2nFkTfAdr9bXEyp7ZOTOdKPU3Hy3gRTJg6bUMVw=",
         "owner": "nix-community",
         "repo": "pyproject.nix",
-        "rev": "359dd9cd562730bbd31ab164832aae4dacd9c302",
+        "rev": "3768b95bf7de200f6b19f32e8adf74eb8c55aa40",
         "type": "github"
       },
       "original": {
@@ -731,11 +731,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1731707845,
-        "narHash": "sha256-TiDH0styeji80b7EsoiNm4OYiJ5y58DyWJKY7jqiV1s=",
+        "lastModified": 1731849606,
+        "narHash": "sha256-CMGwUmtVMIzjYeBoZM2aKHZiAGaOd7y7KgeiqUapJ7k=",
         "ref": "refs/heads/main",
-        "rev": "994be812f582659acced2370b47de00d74f3c449",
-        "revCount": 52,
+        "rev": "df243ef9c9ea9c5a61ed09f0dded2f0aec514b86",
+        "revCount": 61,
         "type": "git",
         "url": "https://gitea.j3ff.io/jeff/todo.git"
       },
@@ -833,11 +833,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731375416,
-        "narHash": "sha256-foYwh+QEgda8EuymxOydvkv5nVaVsPW7yN0/CLLDCM0=",
+        "lastModified": 1731632697,
+        "narHash": "sha256-btm+Mzd7srULhc3vDKvKY2udk3mI3H3jkDm4Iddm4pQ=",
         "owner": "adisbladis",
         "repo": "uv2nix",
-        "rev": "3f1bfa56f3acd32762690a1b6362f75d30748cab",
+        "rev": "22eb29ca536814a49adbdd26526134c31fac99fa",
         "type": "github"
       },
       "original": {
