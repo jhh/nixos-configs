@@ -85,7 +85,7 @@
         browsable = "no";
         writeable = "yes";
         "fruit:time machine" = "yes";
-        "fruit:time machine max size" = "1T";
+        "fruit:time machine max size" = "2T";
         "vfs objects" = "fruit streams_xattr";
       };
     };
