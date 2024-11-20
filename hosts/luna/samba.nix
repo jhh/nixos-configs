@@ -58,25 +58,6 @@
         writeable = "no";
       };
 
-      # ganymede = {
-      #   path = "/mnt/tank/backup/tm/ganymede";
-      #   "valid users" = "jeff";
-      #   browsable = "no";
-      #   public = "no";
-      #   writeable = "yes";
-      #   "fruit:time machine" = "yes";
-      # };
-
-
-      callisto = {
-        path = "/mnt/tank/backup/tm/callisto";
-        "valid users" = "jeff";
-        browsable = "no";
-        public = "no";
-        writeable = "yes";
-        "fruit:time machine" = "yes";
-      };
-
       "Time Capsule" = {
         path = "/mnt/tank/backup/tm/share";
         "valid users" = "jeff";
