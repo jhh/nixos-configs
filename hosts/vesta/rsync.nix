@@ -11,7 +11,7 @@
 
     script = ''
       echo backing up /home/jeff
-      ${pkgs.rsync}/bin/rsync -az /home/jeff jeff@$BACKUP_HOST:backup/vesta/
+      ${pkgs.rsync}/bin/rsync -az --delete /home/jeff jeff@$BACKUP_HOST:backup/vesta/
     '';
   };
 }
