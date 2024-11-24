@@ -15,6 +15,10 @@ in
   boot.tmp.cleanOnBoot = true;
   networking.firewall.enable = false;
 
+  networking.hostName = "pallas";
+  networking.domain = "lan.j3ff.io";
+  proxmoxLXC.manageHostName = true;
+
   nix.settings = {
     substituters = [
       "https://strykeforce.cachix.org"
