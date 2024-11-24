@@ -10,34 +10,33 @@
 
   services.samba = {
     enable = true;
-    securityType = "user";
-    extraConfig = ''
-      workgroup = WORKGROUP
-      server string = Luna
-      netbios name = LUNA
-      security = user
-      min protocol = SMB2
-      ea support = yes
-      logging = 0
+    settings.global = {
+      "workgroup" = "WORKGROUP";
+      "server string" = "Luna";
+      "netbios name" = "LUNA";
+      "security" = "user";
+      "min protocol" = "SMB2";
+      "ea support" = "yes";
+      "logging" = "0";
 
-      vfs objects = fruit streams_xattr
-      fruit:aapl = yes
-      fruit:metadata = stream
-      fruit:model = MacSamba
-      fruit:veto_appledouble = no
-      fruit:nfs_aces = no
-      fruit:wipe_intentionally_left_blank_rfork = yes
-      fruit:delete_empty_adfiles = yes
-      fruit:posix_rename = yes
+      "vfs objects" = "fruit streams_xattr";
+      "fruit:aapl" = "yes";
+      "fruit:metadata" = "stream";
+      "fruit:model" = "MacSamba";
+      "fruit:veto_appledouble" = "no";
+      "fruit:nfs_aces" = "no";
+      "fruit:wipe_intentionally_left_blank_rfork" = "yes";
+      "fruit:delete_empty_adfiles" = "yes";
+      "fruit:posix_rename" = "yes";
 
-      hosts allow = 10.1.0.0/24 100.64.0.0/10
-      guest account = nobody
-      map to guest = bad user
+      "hosts allow" = "10.1.0.0/24 100.64.0.0/10";
+      "guest account" = "nobody";
+      "map to guest" = "bad user";
 
-      load printers = no
-    '';
+      "load printers" = "no";
+    };
 
-    shares = {
+    settings = {
       Jeff = {
         path = "/mnt/tank/share/jeff";
         "valid users" = "jeff";
