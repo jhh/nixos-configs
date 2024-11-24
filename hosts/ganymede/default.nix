@@ -28,6 +28,9 @@
       extra-platforms = x86_64-darwin aarch64-darwin
     '';
     settings.trusted-users = [ "root" "jeff" ];
+    gc.automatic = true;
+    gc.options = "--delete-older-than 14d";
+    optimise.automatic = true;
   };
 
   # Create /etc/bashrc that loads the nix-darwin environment.
