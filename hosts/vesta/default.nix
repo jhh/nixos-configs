@@ -11,6 +11,10 @@
   boot.tmp.cleanOnBoot = true;
   networking.firewall.enable = false;
 
+  networking.hostName = "vesta";
+  networking.domain = "lan.j3ff.io";
+  proxmoxLXC.manageHostName = true;
+
   age.secrets.stryker_website_secrets = {
     file = ../../secrets/strykeforce_website_secrets.age;
   };

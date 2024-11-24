@@ -14,6 +14,10 @@
   boot.tmp.cleanOnBoot = true;
   networking.firewall.enable = false;
 
+  networking.hostName = "eris";
+  networking.domain = "lan.j3ff.io";
+  proxmoxLXC.manageHostName = true;
+
   age.secrets.puka_secrets = {
     file = ../../secrets/puka_secrets.age;
   };

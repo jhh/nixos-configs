@@ -8,9 +8,9 @@ let
   backupDir = "/mnt/paperless/backup";
   dbName = "paperless";
 
-  paperless-ngx = pkgs.paperless-ngx.overridePythonAttrs (old: {
-    disabledTests = old.disabledTests ++ [ "test_rtl_language_detection" ];
-  });
+  # paperless-ngx = pkgs.paperless-ngx.overridePythonAttrs (old: {
+  #   disabledTests = old.disabledTests ++ [ "test_rtl_language_detection" ];
+  # });
 in
 {
   age.secrets.paperless_admin_passwd = {
@@ -20,7 +20,7 @@ in
 
   services.paperless = {
     enable = true;
-    package = paperless-ngx;
+    # package = paperless-ngx;
     inherit mediaDir;
     consumptionDirIsPublic = true;
     passwordFile = config.age.secrets.paperless_admin_passwd.path;
