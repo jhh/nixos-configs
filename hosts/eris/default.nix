@@ -8,6 +8,7 @@
       ./nginx.nix
       ./paperless.nix
       ./postgresql.nix
+      ./upkeep.nix
     ];
 
   system.name = "eris";

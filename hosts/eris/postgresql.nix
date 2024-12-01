@@ -8,7 +8,7 @@
   services.postgresqlBackup = {
     enable = true;
     startAt = "*-*-* 01:13:00";
-    databases = [ "gitea" "miniflux" "paperless" "puka" ];
+    databases = [ "gitea" "miniflux" "paperless" "puka" "upkeep" ];
     pgdumpOptions = "--clean";
   };
 

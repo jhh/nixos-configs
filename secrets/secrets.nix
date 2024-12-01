@@ -39,5 +39,6 @@ in
   "strykeforce_website_secrets.age".publicKeys = [ jeff pallas phobos vesta ];
   "todo_secrets.age".publicKeys = [ jeff eris styx ];
   "unifi_passwd.age".publicKeys = [ jeff vesta ];
+  "upkeep_secrets.age".publicKeys = [ jeff eris styx ];
   "upsmon.conf.age".publicKeys = [ jeff luna ];
 }

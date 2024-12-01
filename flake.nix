@@ -29,13 +29,30 @@
 
     dyndns = {
       url = "github:jhh/dyndns";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    puka.url = "github:jhh/puka";
+    puka = {
+      url = "github:jhh/puka";
+      # inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    upkeep = {
+      url = "github:jhh/upkeep";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    fava-yoyodyne = {
+      url = "github:jhh/fava-yoyodyne";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    todo = {
+      url = "git+https://gitea.j3ff.io/jeff/todo.git";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     strykeforce.url = "github:strykeforce/strykeforce.org";
-    fava-yoyodyne.url = "github:jhh/fava-yoyodyne";
-    todo.url = "git+https://gitea.j3ff.io/jeff/todo.git";
   };
 
   outputs =
@@ -53,6 +70,7 @@
     , fava-yoyodyne
     , vscode-server
     , todo
+    , upkeep
     , ...
     }:
     let
@@ -85,6 +103,7 @@
             strykeforce.nixosModules.default
             fava-yoyodyne.nixosModules.default
             todo.nixosModules.default
+            upkeep.nixosModules.default
           ] ++ extraModules;
         };
     in
