@@ -6,6 +6,7 @@
 
   services.upkeep = {
     enable = true;
+    port = 8001;
     secrets = [ config.age.secrets.upkeep_secrets.path ];
   };
 
@@ -35,7 +36,7 @@
     virtualHosts."upkeep.j3ff.io" = {
       locations = {
         "/" = {
-          proxyPass = "http://127.0.0.1:8000";
+          proxyPass = "http://127.0.0.1:${toString config.services.upkeep.port}";
         };
       };
     };

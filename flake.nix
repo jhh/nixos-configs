@@ -34,7 +34,7 @@
 
     puka = {
       url = "github:jhh/puka";
-      # inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     upkeep = {
