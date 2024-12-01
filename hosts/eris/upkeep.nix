@@ -33,7 +33,13 @@
     recommendedProxySettings = true;
     recommendedOptimisation = true;
     recommendedGzipSettings = true;
+
     virtualHosts."upkeep.j3ff.io" = {
+      # security.acme is configured for eris globally in nginx.nix
+      forceSSL = true;
+      enableACME = true;
+      acmeRoot = null;
+
       locations = {
         "/" = {
           proxyPass = "http://127.0.0.1:${toString config.services.upkeep.port}";
