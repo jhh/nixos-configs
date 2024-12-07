@@ -837,11 +837,11 @@
         "uv2nix": "uv2nix_2"
       },
       "locked": {
-        "lastModified": 1733613865,
-        "narHash": "sha256-x1FK6ipfsjwoYZ2eYh5ONY4gv7KItAq6A/sJs9XV3i4=",
+        "lastModified": 1733614011,
+        "narHash": "sha256-kaD9VVDZohJcMI4F8GDw8ENjmqQ6Vh9NR9Gp3Xp08NE=",
         "owner": "jhh",
         "repo": "upkeep",
-        "rev": "2f11f49d1c414998c5931fecc5544c03247e2911",
+        "rev": "e569d3f98c3623df71d0b7a770368ddb4d485601",
         "type": "github"
       },
       "original": {
