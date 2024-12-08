@@ -355,11 +355,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1733392399,
-        "narHash": "sha256-kEsTJTUQfQFIJOcLYFt/RvNxIK653ZkTBIs4DG+cBns=",
+        "lastModified": 1733581040,
+        "narHash": "sha256-Qn3nPMSopRQJgmvHzVqPcE3I03zJyl8cSbgnnltfFDY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d0797a04b81caeae77bcff10a9dde78bc17f5661",
+        "rev": "22c3f2cf41a0e70184334a958e6b124fb0ce3e01",
         "type": "github"
       },
       "original": {
@@ -614,11 +614,11 @@
         "poetry2nix": "poetry2nix_2"
       },
       "locked": {
-        "lastModified": 1733141561,
-        "narHash": "sha256-mKHSudBGTjISlr17hom3B2L4/R/C4hth2ggMGVcTlgc=",
+        "lastModified": 1733615118,
+        "narHash": "sha256-O1q1VnJlPjXp3qlC2IHgJ1gK2UVoJQWBIgfdxxqjIPg=",
         "owner": "strykeforce",
         "repo": "strykeforce.org",
-        "rev": "d7f535b7dbc7feba2b7f6f2577b0a34ccff0433c",
+        "rev": "2b67814020f27503f86e567fa6a8d19ed7c6d392",
         "type": "github"
       },
       "original": {
@@ -837,11 +837,11 @@
         "uv2nix": "uv2nix_2"
       },
       "locked": {
-        "lastModified": 1733614355,
-        "narHash": "sha256-f1hP9sThK7nCytU9ms406gPCOB8Wmz4wJ2DCs7wnj0I=",
+        "lastModified": 1733680576,
+        "narHash": "sha256-NL4hP/OEWBI/qUyVPJKcEkIoOeXPlATe2Zi9SRKdme0=",
         "owner": "jhh",
         "repo": "upkeep",
-        "rev": "ad4f77961d9e633dbb32e0c7e2308178eed860be",
+        "rev": "8913dbc1d600b9dd037cee40955403bcfca36a3e",
         "type": "github"
       },
       "original": {
