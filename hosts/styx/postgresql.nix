@@ -12,7 +12,7 @@
   };
 
   services.pgadmin = {
-    enable = true;
+    enable = false;
     initialEmail = "jeff@j3ff.io";
     initialPasswordFile = "${config.age.secrets.pgadmin_passwd.path}";
   };
