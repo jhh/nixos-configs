@@ -8,6 +8,7 @@
       ./nginx.nix
       ./paperless.nix
       ./postgresql.nix
+      ./puka.nix
       ./upkeep.nix
     ];
 
@@ -28,7 +29,6 @@
     man.enable = false;
     mdns.enable = true;
     prometheus.enable = true;
-    puka.enable = true;
     tailscale.enable = true;
     services.fava-yoyodyne.enable = true;
   };
