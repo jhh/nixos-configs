@@ -19,6 +19,7 @@ in
 
     shellAbbrs = {
       gcb = "git checkout -b";
+      gbd = "git branch -d";
       gcm = "git switch main";
       gmnff = "git merge --no-ff";
       gst = "git status";
