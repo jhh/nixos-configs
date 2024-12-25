@@ -394,11 +394,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1735142893,
-        "narHash": "sha256-9Cp8/VbKf7XDdi/50sbXdFV+9Ga0ftk+BQpBQ3F4yDs=",
+        "lastModified": 1735143479,
+        "narHash": "sha256-ODrO+b028ISjAwBZkRLjYACu0SW3zA+dPy027Rjsjmw=",
         "owner": "jhh",
         "repo": "puka",
-        "rev": "504daa1b45b21af22b6342e660d8adc024305ab0",
+        "rev": "5d900fb7edb89fb1b2d0fe19a276b9406f9a2215",
         "type": "github"
       },
       "original": {
