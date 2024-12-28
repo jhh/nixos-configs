@@ -9,6 +9,7 @@
     defaultEditor = true;
 
     plugins = with pkgs.vimPlugins; [
+      copilot-vim
       formatter-nvim
       lazygit-nvim
       mini-nvim
@@ -27,6 +28,7 @@
       nil
       nixfmt-rfc-style
       ripgrep
+      ruff
       stylua
     ];
 

@@ -1,19 +1,21 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-vim.opt.number = true
-vim.opt.mouse = "a"
-vim.opt.showmode = false
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.opt.tabstop = 2 -- Number of spaces a <Tab> counts for
 vim.opt.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
 vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.softtabstop = 2 -- Number of spaces a <Tab> counts for while editing
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.cmd([[colorscheme tokyonight-night]])
 
+require("mini.basics").setup({
+	basic = true,
+	extra_ui = true,
+	win_borders = "bold",
+})
 require("mini.icons").setup()
+require("mini.notify").setup()
 require("mini.pairs").setup()
 require("mini.statusline").setup()
+require("mini.starter").setup()
 require("mini.surround").setup()
 
 require("telescope").setup()
@@ -56,6 +58,9 @@ require("formatter").setup({
 		nix = {
 			require("formatter.filetypes.nix").nixfmt,
 		},
+    python = {
+			require("formatter.filetypes.python").ruff,
+    }
 	},
 })
 
@@ -95,5 +100,12 @@ vim.lsp.config["luals"] = {
 	},
 }
 
+vim.lsp.config["ruff"] = {
+	cmd = { "ruff", "server" },
+	filetypes = { "python" },
+	root_markers = { "pyproject.toml" },
+}
+
 vim.lsp.enable("nil")
 vim.lsp.enable("luals")
+vim.lsp.enable("ruff")
