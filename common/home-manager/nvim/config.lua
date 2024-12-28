@@ -39,6 +39,34 @@ wk.add({
     { "gs", "<cmd>Telescope grep_string<cr>", desc = "Find string under cursor" }
 })
 
-require('nvim-treesitter.configs').setup({
+require('nvim-treesitter.configs').setup({})
 
-})
+vim.lsp.config['nil'] = {
+  cmd = { 'nil' },
+  filetypes = { 'nix' },
+  root_markers = { 'flake.nix' },
+}
+
+vim.lsp.config['luals'] = {
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+  root_markers = { '.git' },
+  settings = {
+	  Lua = {
+		  runtime = {
+			  version = 'LuaJIT',
+		  },
+		  workspace = {
+			checkThirdParty = false,
+			library = {
+				vim.env.VIMRUNTIME
+			},
+		  }
+	  }
+  }
+}
+
+vim.lsp.enable('nil')
+vim.lsp.enable('luals')
+
+
