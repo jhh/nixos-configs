@@ -32,6 +32,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     puka = {
       url = "github:jhh/puka";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -56,13 +61,14 @@
   };
 
   outputs =
-    { self
+    inputs@{ self
     , agenix
     , darwin
     , deploy-rs
     , dyndns
     , home-manager
     , home-manager-unstable
+    , neovim-nightly-overlay
     , nixpkgs
     , nixpkgs-unstable
     , puka
@@ -75,6 +81,10 @@
     }:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
+
+      overlays = [
+        neovim-nightly-overlay.overlays.default
+      ];
 
       mkSystem =
         { packages ? nixpkgs
@@ -94,6 +104,7 @@
               services.getty.autologinUser = packages.lib.mkDefault "root";
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+	      home-manager.extraSpecialArgs = { inherit inputs; };
 
               system.configurationRevision = self.sourceInfo.rev;
             })
@@ -124,8 +135,11 @@
             nixpkgs.config.allowUnfree = true;
             nixpkgs.config.allowBroken = false;
             home-manager.useGlobalPkgs = true;
+	    home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.jeff = {
-              imports = [ ./common/home-manager ];
+              imports = [
+	      ./common/home-manager
+	      ];
             };
           })
         ];

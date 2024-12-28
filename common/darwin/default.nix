@@ -7,11 +7,11 @@
 
   security.pam.enableSudoTouchIdAuth = true;
 
-  system.defaults.dock = {
-    autohide = false;
-    mru-spaces = false;
-    orientation = "left";
-  };
+  # system.defaults.dock = {
+  #   autohide = false;
+  #   mru-spaces = false;
+  #   orientation = "left";
+  # };
 
   system.defaults.CustomUserPreferences = {
     "com.microsoft.VSCode" = {

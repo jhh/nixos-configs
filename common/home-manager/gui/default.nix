@@ -25,7 +25,6 @@
   #---------------------------------------------------------------------
 
   # home.sessionVariables = {
-  #   EDITOR = "nvim";
   #   PAGER = "less -FirSwX";
   #   MANPAGER = "less -FirSwX";
   # };
