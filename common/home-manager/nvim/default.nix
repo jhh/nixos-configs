@@ -1,4 +1,5 @@
-{ pkgs, specialArgs,  ... }: {
+{ pkgs, specialArgs, ... }:
+{
   programs.neovim = {
     package = specialArgs.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     enable = true;
@@ -24,8 +25,9 @@
       fd
       lua-language-server
       nil
-      nixfmt
+      nixfmt-rfc-style
       ripgrep
+      stylua
     ];
 
     extraLuaConfig = builtins.readFile ./config.lua;
