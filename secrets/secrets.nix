@@ -24,21 +24,68 @@ let
 
 in
 {
-  "aws_secret.age".publicKeys = [ jeff pallas ];
-  "miniflux_secret.age".publicKeys = [ jeff eris ];
-  "minio_secret.age".publicKeys = [ jeff luna ];
-  "paperless_admin_passwd.age".publicKeys = [ jeff eris ];
+  "aws_secret.age".publicKeys = [
+    jeff
+    pallas
+  ];
+  "miniflux_secret.age".publicKeys = [
+    jeff
+    eris
+  ];
+  "minio_secret.age".publicKeys = [
+    jeff
+    luna
+  ];
+  "paperless_admin_passwd.age".publicKeys = [
+    jeff
+    eris
+  ];
   "paperless_passwd.age".publicKeys = [ jeff ] ++ hosts;
-  "pgadmin_passwd.age".publicKeys = [ jeff eris ];
-  "puka_secrets.age".publicKeys = [ jeff eris vesta ];
-  "pushover_token.age".publicKeys = [ jeff vesta ];
+  "pgadmin_passwd.age".publicKeys = [
+    jeff
+    eris
+  ];
+  "puka_secrets.age".publicKeys = [
+    jeff
+    eris
+    vesta
+  ];
+  "pushover_token.age".publicKeys = [
+    jeff
+    vesta
+  ];
   "rclone.conf.age".publicKeys = [ jeff ] ++ hosts;
-  "route53_secrets.age".publicKeys = [ jeff eris ];
+  "route53_secrets.age".publicKeys = [
+    jeff
+    eris
+  ];
   "sasl_passwd.age".publicKeys = [ jeff ] ++ hosts;
-  "smtp_passwd.age".publicKeys = [ jeff eris ];
-  "strykeforce_website_secrets.age".publicKeys = [ jeff pallas phobos vesta ];
-  "todo_secrets.age".publicKeys = [ jeff eris styx ];
-  "unifi_passwd.age".publicKeys = [ jeff vesta ];
-  "upkeep_secrets.age".publicKeys = [ jeff eris styx ];
-  "upsmon.conf.age".publicKeys = [ jeff luna ];
+  "smtp_passwd.age".publicKeys = [
+    jeff
+    eris
+  ];
+  "strykeforce_website_secrets.age".publicKeys = [
+    jeff
+    pallas
+    phobos
+    vesta
+  ];
+  "todo_secrets.age".publicKeys = [
+    jeff
+    eris
+    styx
+  ];
+  "unifi_passwd.age".publicKeys = [
+    jeff
+    vesta
+  ];
+  "upkeep_secrets.age".publicKeys = [
+    jeff
+    eris
+    styx
+  ];
+  "upsmon.conf.age".publicKeys = [
+    jeff
+    luna
+  ];
 }

@@ -1,5 +1,10 @@
 # common/modules/watchtower/alertmanager.nix
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.j3ff.watchtower.alertmanager;
 in
@@ -46,20 +51,24 @@ in
         receivers = [
           {
             name = "email";
-            email_configs = [{
-              to = "jeff@j3ff.io";
-              require_tls = false;
-            }];
+            email_configs = [
+              {
+                to = "jeff@j3ff.io";
+                require_tls = false;
+              }
+            ];
           }
 
           {
             name = "pushover";
-            pushover_configs = [{
-              user_key = "ugdx1vs5quycvqg3stin54ps5jqm3i";
-              token = "$PUSHOVER_TOKEN";
-              retry = "1h";
-              expire = "4h";
-            }];
+            pushover_configs = [
+              {
+                user_key = "ugdx1vs5quycvqg3stin54ps5jqm3i";
+                token = "$PUSHOVER_TOKEN";
+                retry = "1h";
+                expire = "4h";
+              }
+            ];
           }
         ];
       };

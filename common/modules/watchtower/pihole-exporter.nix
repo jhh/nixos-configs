@@ -1,5 +1,10 @@
 # common/modules/watchtower/prometheus.nix
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.j3ff.watchtower.exporters.pihole;
 in

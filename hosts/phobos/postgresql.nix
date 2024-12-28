@@ -36,7 +36,6 @@ in
     recommendedProxySettings = true;
     recommendedOptimisation = true;
 
-
     virtualHosts."pgadmin.j3ff.io" = pkgs.lib.mkIf config.services.pgadmin.enable {
 
       locations = {

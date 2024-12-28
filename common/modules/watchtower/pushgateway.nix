@@ -1,5 +1,10 @@
 # common/modules/watchtower/alertmanager.nix
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.j3ff.watchtower.pushgateway;
 in

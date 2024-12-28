@@ -1,6 +1,12 @@
 # common/users/jeff.nix
 
-{ config, pkgs, lib, vscode-server, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  vscode-server,
+  ...
+}:
 
 {
   users.users.jeff = {
@@ -9,16 +15,25 @@
     shell = pkgs.fish;
     home = "/home/jeff";
     description = "Jeff Hutchison";
-    extraGroups = [ "docker" "strykeforce" "wheel" ];
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel jeff@j3ff.io" ];
+    extraGroups = [
+      "docker"
+      "strykeforce"
+      "wheel"
+    ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel jeff@j3ff.io"
+    ];
   };
 
   home-manager.users.jeff.imports = [
     ../home-manager
     "${vscode-server}/modules/vscode-server/home.nix"
-    ({ ... }: {
-      services.vscode-server.enable = true; # only for linux users jeff
-    })
+    (
+      { ... }:
+      {
+        services.vscode-server.enable = true; # only for linux users jeff
+      }
+    )
   ] ++ lib.optional config.j3ff.gui.enable ../home-manager/gui;
 
 }

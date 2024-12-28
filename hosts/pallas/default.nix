@@ -1,4 +1,10 @@
-{ strykeforce, config, modulesPath, pkgs, ... }:
+{
+  strykeforce,
+  config,
+  modulesPath,
+  pkgs,
+  ...
+}:
 let
   strykeforce-manage = strykeforce.packages.${pkgs.system}.manage;
 in

@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
 
   age.secrets.puka_secrets = {
     file = ../../secrets/puka_secrets.age;

@@ -1,11 +1,15 @@
-{ config, modulesPath, pkgs, ... }:
+{
+  config,
+  modulesPath,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      (modulesPath + "/virtualisation/proxmox-lxc.nix")
-      ./rsync.nix
-    ];
+  imports = [
+    (modulesPath + "/virtualisation/proxmox-lxc.nix")
+    ./rsync.nix
+  ];
 
   system.name = "vesta";
   boot.tmp.cleanOnBoot = true;

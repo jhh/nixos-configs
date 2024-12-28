@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
 
   services.postgresql = {
     enable = true;
@@ -25,6 +31,5 @@
       };
     };
   };
-
 
 }

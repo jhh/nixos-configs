@@ -3,11 +3,10 @@ let
   backupDir = "/var/backup/gitea";
 in
 {
-  age.secrets.smtp_passwd =
-    {
-      file = ../../secrets/smtp_passwd.age;
-      owner = "gitea";
-    };
+  age.secrets.smtp_passwd = {
+    file = ../../secrets/smtp_passwd.age;
+    owner = "gitea";
+  };
 
   services.gitea = {
     enable = true;

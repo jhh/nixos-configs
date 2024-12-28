@@ -34,7 +34,6 @@ in
     recommendedProxySettings = true;
     recommendedOptimisation = true;
 
-
     virtualHosts."pgadmin.j3ff.io" = {
 
       locations = {

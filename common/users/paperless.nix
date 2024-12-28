@@ -12,6 +12,8 @@
     hashedPasswordFile = config.age.secrets.paperless_passwd.path;
   };
 
-  users.groups.paperless = { gid = config.ids.gids.paperless; };
+  users.groups.paperless = {
+    gid = config.ids.gids.paperless;
+  };
 
 }

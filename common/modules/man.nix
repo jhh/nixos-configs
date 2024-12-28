@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   options = {
     j3ff.man.enable = lib.mkOption {
@@ -9,7 +14,10 @@
     };
   };
 
-  config = let cfg = config.j3ff.man; in
+  config =
+    let
+      cfg = config.j3ff.man;
+    in
     lib.mkIf cfg.enable {
       documentation = {
         man = {

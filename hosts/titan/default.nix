@@ -1,11 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./rsync.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./rsync.nix
+  ];
 
   networking.hostName = "titan";
 
@@ -39,7 +38,6 @@
       "defaults"
     ];
   };
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

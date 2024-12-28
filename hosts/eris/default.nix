@@ -1,16 +1,20 @@
-{ config, modulesPath, pkgs, ... }:
 {
-  imports =
-    [
-      (modulesPath + "/virtualisation/proxmox-lxc.nix")
-      ./gitea.nix
-      ./miniflux.nix
-      ./nginx.nix
-      ./paperless.nix
-      ./postgresql.nix
-      ./puka.nix
-      ./upkeep.nix
-    ];
+  config,
+  modulesPath,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    (modulesPath + "/virtualisation/proxmox-lxc.nix")
+    ./gitea.nix
+    ./miniflux.nix
+    ./nginx.nix
+    ./paperless.nix
+    ./postgresql.nix
+    ./puka.nix
+    ./upkeep.nix
+  ];
 
   system.name = "eris";
   boot.tmp.cleanOnBoot = true;

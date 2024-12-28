@@ -8,15 +8,14 @@ let
   backupDir = "/mnt/paperless/backup";
   dbName = "paperless";
 
-  # paperless-ngx = pkgs.paperless-ngx.overridePythonAttrs (old: {
-  #   disabledTests = old.disabledTests ++ [ "test_rtl_language_detection" ];
-  # });
 in
+# paperless-ngx = pkgs.paperless-ngx.overridePythonAttrs (old: {
+#   disabledTests = old.disabledTests ++ [ "test_rtl_language_detection" ];
+# });
 {
   age.secrets.paperless_admin_passwd = {
     file = ../../secrets/paperless_admin_passwd.age;
   };
-
 
   services.paperless = {
     enable = true;

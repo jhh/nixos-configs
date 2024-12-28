@@ -1,5 +1,10 @@
 # common/services/prometheus.nix
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   options = {
     j3ff.prometheus.enable = lib.mkEnableOption "Prometheus monitoring";

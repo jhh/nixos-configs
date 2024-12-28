@@ -2,7 +2,10 @@
 { pkgs, lib, ... }:
 
 {
-  imports = [ ./users ./modules ];
+  imports = [
+    ./users
+    ./modules
+  ];
 
   options = {
     j3ff.gui.enable = lib.mkEnableOption "GUI";
@@ -53,7 +56,10 @@
 
       settings = {
         auto-optimise-store = pkgs.stdenv.isLinux;
-        trusted-users = [ "root" "jeff" ];
+        trusted-users = [
+          "root"
+          "jeff"
+        ];
       };
 
       gc = {

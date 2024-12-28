@@ -10,7 +10,9 @@
       shell = null;
       isSystemUser = true;
     };
-    groups.media = { gid = 994; };
+    groups.media = {
+      gid = 994;
+    };
   };
 
 }

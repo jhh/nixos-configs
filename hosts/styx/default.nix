@@ -1,12 +1,16 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./postgresql.nix
-      ./todo.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./postgresql.nix
+    ./todo.nix
+  ];
 
   j3ff = {
     mail.enable = true;
@@ -30,22 +34,27 @@
 
     interfaces.ens18 = {
       useDHCP = false;
-      ipv4.addresses = [{
-        address = "10.1.0.49";
-        prefixLength = 24;
-      }];
+      ipv4.addresses = [
+        {
+          address = "10.1.0.49";
+          prefixLength = 24;
+        }
+      ];
     };
     defaultGateway = {
       address = "10.1.0.1";
       interface = "ens18";
     };
 
-    nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4" ];
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
     firewall.enable = false;
   };
-
 
   system.stateVersion = "24.05";
 
 }
-

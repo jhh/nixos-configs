@@ -34,4 +34,3 @@
 
 # restore files with something like
 # rclone --config /run/agenix/rclone_conf copy b2:j3ff-paperless .
-

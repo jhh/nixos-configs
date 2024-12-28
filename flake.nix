@@ -61,23 +61,24 @@
   };
 
   outputs =
-    inputs@{ self
-    , agenix
-    , darwin
-    , deploy-rs
-    , dyndns
-    , home-manager
-    , home-manager-unstable
-    , neovim-nightly-overlay
-    , nixpkgs
-    , nixpkgs-unstable
-    , puka
-    , strykeforce
-    , fava-yoyodyne
-    , vscode-server
-    , todo
-    , upkeep
-    , ...
+    inputs@{
+      self,
+      agenix,
+      darwin,
+      deploy-rs,
+      dyndns,
+      home-manager,
+      home-manager-unstable,
+      neovim-nightly-overlay,
+      nixpkgs,
+      nixpkgs-unstable,
+      puka,
+      strykeforce,
+      fava-yoyodyne,
+      vscode-server,
+      todo,
+      upkeep,
+      ...
     }:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
@@ -87,9 +88,10 @@
       ];
 
       mkSystem =
-        { packages ? nixpkgs
-        , homeManager ? home-manager
-        , extraModules
+        {
+          packages ? nixpkgs,
+          homeManager ? home-manager,
+          extraModules,
         }:
         packages.lib.nixosSystem rec {
           system = "x86_64-linux";
@@ -98,16 +100,18 @@
           modules = [
             agenix.nixosModules.default
             homeManager.nixosModules.home-manager
-            ({ config, ... }: {
-              services.getty.greetingLine =
-                "<<< Welcome to NixOS ${config.system.nixos.label} @ ${self.sourceInfo.rev} - \\l >>>";
-              services.getty.autologinUser = packages.lib.mkDefault "root";
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-	      home-manager.extraSpecialArgs = { inherit inputs; };
+            (
+              { config, ... }:
+              {
+                services.getty.greetingLine = "<<< Welcome to NixOS ${config.system.nixos.label} @ ${self.sourceInfo.rev} - \\l >>>";
+                services.getty.autologinUser = packages.lib.mkDefault "root";
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = { inherit inputs; };
 
-              system.configurationRevision = self.sourceInfo.rev;
-            })
+                system.configurationRevision = self.sourceInfo.rev;
+              }
+            )
             ./common
             dyndns.nixosModules.default
             puka.nixosModules.default
@@ -131,17 +135,20 @@
         modules = [
           ./hosts/ganymede
           home-manager-unstable.darwinModules.home-manager
-          ({ config, ... }: {
-            nixpkgs.config.allowUnfree = true;
-            nixpkgs.config.allowBroken = false;
-            home-manager.useGlobalPkgs = true;
-	    home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.jeff = {
-              imports = [
-	      ./common/home-manager
-	      ];
-            };
-          })
+          (
+            { config, ... }:
+            {
+              nixpkgs.config.allowUnfree = true;
+              nixpkgs.config.allowBroken = false;
+              home-manager.useGlobalPkgs = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.jeff = {
+                imports = [
+                  ./common/home-manager
+                ];
+              };
+            }
+          )
         ];
       };
 
@@ -218,8 +225,6 @@
         };
 
       # This is highly advised, and will prevent many possible mistakes
-      checks = builtins.mapAttrs
-        (system: deployLib: deployLib.deployChecks self.deploy)
-        deploy-rs.lib;
+      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 }

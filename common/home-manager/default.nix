@@ -1,24 +1,30 @@
-{ config, lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 let
 
-  defaultPackages = with pkgs; [
-    asciinema # record the terminal
-    bottom # alternative to htop & ytop
-    du-dust # more intuitive version of du in rust
-    duf # disk usage/free utility
-    fd # "find" for files
-    fzf #  command-line fuzzy finder
-    glow # markdown previewer
-    htop # interactive process viewer
-    jq # JSON parsing cli
-    lazygit # simple terminal UI for git commands
-    neofetch # command-line system information
-    nixpkgs-fmt # formatter for Nix code
-    prettyping # a nicer ping
-    ripgrep # search in files
-    tealdeer # fast version of tldr
-  ]
-  ++ lib.optionals pkgs.stdenv.isDarwin [ cookiecutter ];
+  defaultPackages =
+    with pkgs;
+    [
+      asciinema # record the terminal
+      bottom # alternative to htop & ytop
+      du-dust # more intuitive version of du in rust
+      duf # disk usage/free utility
+      fd # "find" for files
+      fzf # command-line fuzzy finder
+      glow # markdown previewer
+      htop # interactive process viewer
+      jq # JSON parsing cli
+      lazygit # simple terminal UI for git commands
+      neofetch # command-line system information
+      nixpkgs-fmt # formatter for Nix code
+      prettyping # a nicer ping
+      ripgrep # search in files
+      tealdeer # fast version of tldr
+    ]
+    ++ lib.optionals pkgs.stdenv.isDarwin [ cookiecutter ];
 
   gitPkgs = with pkgs.gitAndTools; [
     diff-so-fancy # git diff with colors
@@ -28,7 +34,7 @@ let
   ];
 
 in
-rec {
+{
   imports = [
     ./fish
     ./git

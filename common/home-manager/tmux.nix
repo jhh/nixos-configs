@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   tmuxConf = ''
     bind-key r source-file ~/.config/tmux/tmux.conf \; display-message "tmux.conf reloaded"
@@ -62,7 +67,12 @@ in
         start_directory = "${home}/code/strykeforce/deadeye/daemon";
         panes = [
           { focus = true; }
-          { shell_command = [ "cd build" "./src/deadeyed" ]; }
+          {
+            shell_command = [
+              "cd build"
+              "./src/deadeyed"
+            ];
+          }
         ];
       }
       {

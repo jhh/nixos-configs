@@ -1,9 +1,18 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   cfg = config.j3ff.zrepl;
 
-  grid =
-    lib.concatStringsSep " | " [ "1x1h(keep=all)" "24x1h" "30x1d" "6x1w" ];
+  grid = lib.concatStringsSep " | " [
+    "1x1h(keep=all)"
+    "24x1h"
+    "30x1d"
+    "6x1w"
+  ];
 
   backups = {
     name = "backups";
@@ -27,11 +36,13 @@ let
           inherit grid;
         }
       ];
-      keep_receiver = [{
-        type = "grid";
-        regex = "^zrepl_";
-        inherit grid;
-      }];
+      keep_receiver = [
+        {
+          type = "grid";
+          regex = "^zrepl_";
+          inherit grid;
+        }
+      ];
     };
   };
 
@@ -69,15 +80,19 @@ in
       enable = true;
       settings = {
         global = {
-          logging = [{
-            type = "syslog";
-            level = "info";
-            format = "human";
-          }];
-          monitoring = [{
-            type = "prometheus";
-            listen = ":9811";
-          }];
+          logging = [
+            {
+              type = "syslog";
+              level = "info";
+              format = "human";
+            }
+          ];
+          monitoring = [
+            {
+              type = "prometheus";
+              listen = ":9811";
+            }
+          ];
         };
 
         jobs = [ (backups // { filesystems = cfg.filesystems; }) ] ++ cfg.extraJobs;

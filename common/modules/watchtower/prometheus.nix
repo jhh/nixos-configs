@@ -1,5 +1,10 @@
 # common/modules/watchtower/prometheus.nix
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.j3ff.watchtower.prometheus;
 in
@@ -40,44 +45,54 @@ in
         [
           {
             job_name = "node";
-            static_configs = [{
-              targets = [
-                "eris:${nodePort}"
-                "ceres:${nodePort}"
-                "luna:${nodePort}"
-                "phobos:${nodePort}"
-                "pihole:9100"
-                "vesta:${nodePort}"
-              ];
-            }];
+            static_configs = [
+              {
+                targets = [
+                  "eris:${nodePort}"
+                  "ceres:${nodePort}"
+                  "luna:${nodePort}"
+                  "phobos:${nodePort}"
+                  "pihole:9100"
+                  "vesta:${nodePort}"
+                ];
+              }
+            ];
           }
           {
             job_name = "grafana";
-            static_configs = [{
-              targets = [
-                "localhost:${toString config.services.grafana.settings.server.http_port}"
-              ];
-            }];
+            static_configs = [
+              {
+                targets = [
+                  "localhost:${toString config.services.grafana.settings.server.http_port}"
+                ];
+              }
+            ];
           }
           {
             job_name = "prometheus";
-            static_configs = [{
-              targets = [
-                "localhost:${toString config.services.prometheus.port}"
-              ];
-            }];
+            static_configs = [
+              {
+                targets = [
+                  "localhost:${toString config.services.prometheus.port}"
+                ];
+              }
+            ];
           }
           {
             job_name = "push";
             honor_labels = true;
-            static_configs = [{
-              targets = [ "localhost:${toString config.j3ff.watchtower.pushgateway.port}" ];
-            }];
+            static_configs = [
+              {
+                targets = [ "localhost:${toString config.j3ff.watchtower.pushgateway.port}" ];
+              }
+            ];
           }
           {
             job_name = "ups";
             metrics_path = "/ups_metrics";
-            params = { ups = [ "ups" ]; };
+            params = {
+              ups = [ "ups" ];
+            };
             static_configs = [
               {
                 targets = [
@@ -108,7 +123,8 @@ in
               }
             ];
           }
-        ] ++ lib.optional config.j3ff.watchtower.exporters.pihole.enable {
+        ]
+        ++ lib.optional config.j3ff.watchtower.exporters.pihole.enable {
           job_name = "pihole";
           static_configs = [
             {
@@ -119,11 +135,15 @@ in
           ];
         };
 
-      alertmanagers = [{
-        static_configs = [{
-          targets = [ "localhost:${toString config.services.prometheus.alertmanager.port}" ];
-        }];
-      }];
+      alertmanagers = [
+        {
+          static_configs = [
+            {
+              targets = [ "localhost:${toString config.services.prometheus.alertmanager.port}" ];
+            }
+          ];
+        }
+      ];
 
       rules = [
         ''

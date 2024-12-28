@@ -1,5 +1,10 @@
 # common/modules/watchtower/grafana.nix
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.j3ff.watchtower.grafana;
 in
@@ -24,7 +29,10 @@ in
         http_port = 2342;
         http_addr = "127.0.0.1";
       };
-      declarativePlugins = with pkgs.grafanaPlugins; [ grafana-piechart-panel grafana-clock-panel ];
+      declarativePlugins = with pkgs.grafanaPlugins; [
+        grafana-piechart-panel
+        grafana-clock-panel
+      ];
     };
 
     services.nginx = {

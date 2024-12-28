@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   options = {
     j3ff.smartd.enable = lib.mkEnableOption "SMART disk monitoring";
@@ -20,11 +25,15 @@
       enable = true;
       notifications.test = true;
       defaults.autodetected = lib.concatStringsSep " " [
-        "-s" "(L/../01/./02|S/../../2/01)"
+        "-s"
+        "(L/../01/./02|S/../../2/01)"
         "-a"
-        "-o" "off"
-        "-n" "never"
-        "-W" "2,40,45"
+        "-o"
+        "off"
+        "-n"
+        "never"
+        "-W"
+        "2,40,45"
       ];
     };
   };

@@ -1,10 +1,14 @@
-{ config, modulesPath, pkgs, ... }:
 {
-  imports =
-    [
-      (modulesPath + "/virtualisation/proxmox-lxc.nix")
-      ./media.nix
-    ];
+  config,
+  modulesPath,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    (modulesPath + "/virtualisation/proxmox-lxc.nix")
+    ./media.nix
+  ];
 
   nixpkgs.config.permittedInsecurePackages = [
     "aspnetcore-runtime-wrapped-6.0.36"

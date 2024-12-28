@@ -1,10 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   j3ff = {
     tailscale.enable = true;
@@ -40,14 +39,20 @@
 
     interfaces.ens18 = {
       useDHCP = false;
-      ipv4.addresses = [{
-        address = "192.168.3.11";
-        prefixLength = 24;
-      }];
+      ipv4.addresses = [
+        {
+          address = "192.168.3.11";
+          prefixLength = 24;
+        }
+      ];
     };
 
     defaultGateway = "192.168.3.1";
-    nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "8.8.8.8"
+    ];
     firewall.enable = false;
   };
 

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   inherit (pkgs) writeShellScript;
 
@@ -27,10 +32,22 @@ in
           type = "dropdown";
           placeholder = "Speaker (Studio)";
           data = [
-            { title = "Studio"; value = "Studio"; }
-            { title = "Living Room"; value = "Living Room"; }
-            { title = "Porch"; value = "Porch"; }
-            { title = "Sonos Move"; value = "Sonos Move"; }
+            {
+              title = "Studio";
+              value = "Studio";
+            }
+            {
+              title = "Living Room";
+              value = "Living Room";
+            }
+            {
+              title = "Porch";
+              value = "Porch";
+            }
+            {
+              title = "Sonos Move";
+              value = "Sonos Move";
+            }
           ];
         };
       in

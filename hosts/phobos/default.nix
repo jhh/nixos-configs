@@ -1,14 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./nfs.nix
-      ./rclone.nix
-      ./samba.nix
-      ./zrepl.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./nfs.nix
+    ./rclone.nix
+    ./samba.nix
+    ./zrepl.nix
+  ];
 
   j3ff = {
     mail.enable = true;
@@ -45,10 +44,12 @@
 
     interfaces.enp7s0 = {
       useDHCP = false;
-      ipv4.addresses = [{
-        address = "192.168.3.20";
-        prefixLength = 24;
-      }];
+      ipv4.addresses = [
+        {
+          address = "192.168.3.20";
+          prefixLength = 24;
+        }
+      ];
     };
 
     interfaces.enp8s0.useDHCP = true;
@@ -57,7 +58,11 @@
       address = "192.168.3.1";
       interface = "enp7s0";
     };
-    nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "8.8.8.8"
+    ];
     hostId = "2b7703b8";
     firewall.enable = false;
   };

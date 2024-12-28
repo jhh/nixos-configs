@@ -22,7 +22,6 @@ in
     group = mediaGroup;
   };
 
-
   # sabnzbd
 
   systemd.tmpfiles.rules = [
@@ -36,7 +35,6 @@ in
   };
 
   # nginx
-
 
   services.nginx = {
     enable = true;

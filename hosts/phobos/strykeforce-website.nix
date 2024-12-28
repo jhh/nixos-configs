@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   # added phobos in sercrets.nix
   age.secrets.stryker_website_secrets = {
     file = ../../secrets/strykeforce_website_secrets.age;

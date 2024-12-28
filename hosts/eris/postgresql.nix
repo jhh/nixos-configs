@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
 
   services.postgresql = {
     enable = true;
@@ -8,7 +14,13 @@
   services.postgresqlBackup = {
     enable = true;
     startAt = "*-*-* 01:13:00";
-    databases = [ "gitea" "miniflux" "paperless" "puka" "upkeep" ];
+    databases = [
+      "gitea"
+      "miniflux"
+      "paperless"
+      "puka"
+      "upkeep"
+    ];
     pgdumpOptions = "--clean";
   };
 

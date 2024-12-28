@@ -1,9 +1,9 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
-  age.secrets.miniflux_secret =
-    {
-      file = ../../secrets/miniflux_secret.age;
-    };
+  age.secrets.miniflux_secret = {
+    file = ../../secrets/miniflux_secret.age;
+  };
 
   services.miniflux = {
     enable = true;

@@ -1,13 +1,12 @@
 { config, pkgs, ... }:
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./nfs.nix
-      ./plex.nix
-      ./samba.nix
-      ./rclone.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./nfs.nix
+    ./plex.nix
+    ./samba.nix
+    ./rclone.nix
+  ];
 
   services.thermald.enable = false; # unsupported
   virtualisation.docker.enable = false;
@@ -61,7 +60,6 @@
     loader.systemd-boot.enable = true;
   };
 
-
   environment.etc."mdadm.conf".text = ''
     MAILADDR root
   '';
@@ -72,7 +70,10 @@
 
     bonds = {
       bond0 = {
-        interfaces = [ "enp4s0f0" "enp4s0f1" ];
+        interfaces = [
+          "enp4s0f0"
+          "enp4s0f1"
+        ];
         driverOptions = {
           miimon = "100";
           mode = "802.3ad";
@@ -83,10 +84,12 @@
 
     interfaces.bond0 = {
       useDHCP = false;
-      ipv4.addresses = [{
-        address = "10.1.0.7";
-        prefixLength = 24;
-      }];
+      ipv4.addresses = [
+        {
+          address = "10.1.0.7";
+          prefixLength = 24;
+        }
+      ];
     };
 
     interfaces.enp5s0f0.useDHCP = false;
@@ -97,7 +100,12 @@
       interface = "bond0";
     };
 
-    nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4" ];
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
     hostId = "1200ccec";
     firewall.enable = false;
   };

@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
 
   age.secrets.todo_secrets = {
     file = ../../secrets/todo_secrets.age;

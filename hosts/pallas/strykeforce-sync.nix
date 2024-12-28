@@ -26,7 +26,12 @@
     let
       sync-script = pkgs.writeShellApplication {
         name = "strykeforce-sync";
-        runtimeInputs = with pkgs; [ awscli2 gzip postgresql_15 rclone ];
+        runtimeInputs = with pkgs; [
+          awscli2
+          gzip
+          postgresql_15
+          rclone
+        ];
 
         text = ''
           if [ "$EUID" -ne 0 ]

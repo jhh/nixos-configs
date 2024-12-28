@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
 
   users.users.nginx.extraGroups = [ "acme" ];
 
