@@ -45,8 +45,8 @@ wk.add({
 	{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Status" },
 	--
 	{ "gs", "<cmd>Telescope grep_string<cr>", desc = "Find string under cursor" },
-  --
-  { "<leader>d", "<plug>DashSearch", desc = "Dash Search" },
+	--
+	{ "<leader>d", "<plug>DashSearch", desc = "Dash Search" },
 })
 
 require("nvim-treesitter.configs").setup({})
@@ -62,9 +62,9 @@ require("formatter").setup({
 		nix = {
 			require("formatter.filetypes.nix").nixfmt,
 		},
-    python = {
+		python = {
 			require("formatter.filetypes.python").ruff,
-    }
+		},
 	},
 })
 
@@ -79,6 +79,17 @@ autocmd("BufWritePost", {
 --
 -- LSP
 --
+vim.lsp.config("*", {
+	capabilities = {
+		textDocument = {
+			semanticTokens = {
+				multilineTokenSupport = true,
+			},
+		},
+	},
+	root_markers = { ".git" },
+})
+
 vim.lsp.config["nil"] = {
 	cmd = { "nil" },
 	filetypes = { "nix" },
@@ -110,13 +121,13 @@ vim.lsp.config["ruff"] = {
 	root_markers = { "pyproject.toml" },
 }
 
-vim.lsp.config["basedpyright"] = {
-  cmd = { "basedpyright-langserver", "--stdio" },
-  filetypes = { "python" },
-  root_markers = { "pyproject.toml" },
+vim.lsp.config["pyright"] = {
+	cmd = { "pyright-langserver", "--stdio" },
+	filetypes = { "python" },
+	root_markers = { "pyproject.toml" },
 }
 
 vim.lsp.enable("nil")
 vim.lsp.enable("luals")
 -- vim.lsp.enable("ruff")
-vim.lsp.enable("basedpyright")
+vim.lsp.enable("pyright")

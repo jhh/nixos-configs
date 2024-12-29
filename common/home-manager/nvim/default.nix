@@ -24,7 +24,7 @@
     ];
 
     extraPackages = with pkgs; [
-      basedpyright
+      pyright
       fd
       lua-language-server
       nil
