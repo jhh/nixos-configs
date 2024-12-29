@@ -43,6 +43,8 @@ wk.add({
 	{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Status" },
 	--
 	{ "gs", "<cmd>Telescope grep_string<cr>", desc = "Find string under cursor" },
+  --
+  { "<leader>d", "<plug>DashSearch", desc = "Dash Search" },
 })
 
 require("nvim-treesitter.configs").setup({})

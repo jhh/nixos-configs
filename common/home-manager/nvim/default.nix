@@ -10,6 +10,7 @@
 
     plugins = with pkgs.vimPlugins; [
       copilot-vim
+      dash-vim
       formatter-nvim
       lazygit-nvim
       mini-nvim
