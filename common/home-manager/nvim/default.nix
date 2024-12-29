@@ -1,7 +1,7 @@
 { pkgs, specialArgs, ... }:
 {
   programs.neovim = {
-    package = specialArgs.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+    # package = specialArgs.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     enable = true;
     viAlias = true;
     vimAlias = true;
@@ -14,6 +14,7 @@
       formatter-nvim
       lazygit-nvim
       mini-nvim
+      nvim-lspconfig
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
       telescope-file-browser-nvim
@@ -24,7 +25,7 @@
     ];
 
     extraPackages = with pkgs; [
-      pyright
+      basedpyright
       fd
       lua-language-server
       nil

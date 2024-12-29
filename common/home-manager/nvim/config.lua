@@ -7,11 +7,6 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.cmd([[colorscheme tokyonight-night]])
 
 require("mini.ai").setup()
-require("mini.basics").setup({
-	basic = true,
-	extra_ui = true,
-	win_borders = "bold",
-})
 require("mini.bracketed").setup()
 require("mini.icons").setup()
 require("mini.notify").setup()
@@ -19,11 +14,22 @@ require("mini.pairs").setup()
 require("mini.statusline").setup()
 require("mini.starter").setup()
 require("mini.surround").setup()
+require("mini.basics").setup({
+	basic = true,
+	extra_ui = true,
+	win_borders = "bold",
+})
 
-require("telescope").setup()
-require("telescope").load_extension("fzf")
+local telescope = require("telescope")
+telescope.setup()
+telescope.load_extension("fzf")
 
 local wk = require("which-key")
+wk.setup({
+	preset = "modern",
+	delay = 500,
+})
+
 wk.add({
 	{ "<leader>f", group = "find" },
 	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
@@ -79,27 +85,14 @@ autocmd("BufWritePost", {
 --
 -- LSP
 --
-vim.lsp.config("*", {
-	capabilities = {
-		textDocument = {
-			semanticTokens = {
-				multilineTokenSupport = true,
-			},
-		},
-	},
-	root_markers = { ".git" },
+local lspconfig = require("lspconfig")
+lspconfig.nil_ls.setup({})
+
+lspconfig.basedpyright.setup({
+	root_dir = lspconfig.util.root_pattern("pyproject.toml", ".git"),
 })
 
-vim.lsp.config["nil"] = {
-	cmd = { "nil" },
-	filetypes = { "nix" },
-	root_markers = { "flake.nix" },
-}
-
-vim.lsp.config["luals"] = {
-	cmd = { "lua-language-server" },
-	filetypes = { "lua" },
-	root_markers = { ".git" },
+lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
 			runtime = {
@@ -113,21 +106,57 @@ vim.lsp.config["luals"] = {
 			},
 		},
 	},
-}
+})
 
-vim.lsp.config["ruff"] = {
-	cmd = { "ruff", "server" },
-	filetypes = { "python" },
-	root_markers = { "pyproject.toml" },
-}
-
-vim.lsp.config["pyright"] = {
-	cmd = { "pyright-langserver", "--stdio" },
-	filetypes = { "python" },
-	root_markers = { "pyproject.toml" },
-}
-
-vim.lsp.enable("nil")
-vim.lsp.enable("luals")
+-- vim.lsp.config("*", {
+-- 	capabilities = {
+-- 		textDocument = {
+-- 			semanticTokens = {
+-- 				multilineTokenSupport = true,
+-- 			},
+-- 		},
+-- 	},
+-- 	root_markers = { ".git" },
+-- })
+--
+-- vim.lsp.config["nil"] = {
+-- 	cmd = { "nil" },
+-- 	filetypes = { "nix" },
+-- 	root_markers = { "flake.nix" },
+-- }
+--
+-- vim.lsp.config["luals"] = {
+-- 	cmd = { "lua-language-server" },
+-- 	filetypes = { "lua" },
+-- 	root_markers = { ".git" },
+-- 	settings = {
+-- 		Lua = {
+-- 			runtime = {
+-- 				version = "LuaJIT",
+-- 			},
+-- 			workspace = {
+-- 				checkThirdParty = false,
+-- 				library = {
+-- 					vim.env.VIMRUNTIME,
+-- 				},
+-- 			},
+-- 		},
+-- 	},
+-- }
+--
+-- vim.lsp.config["ruff"] = {
+-- 	cmd = { "ruff", "server" },
+-- 	filetypes = { "python" },
+-- 	root_markers = { "pyproject.toml" },
+-- }
+--
+-- vim.lsp.config["pyright"] = {
+-- 	cmd = { "pyright-langserver", "--stdio" },
+-- 	filetypes = { "python" },
+-- 	root_markers = { "pyproject.toml" },
+-- }
+--
+-- vim.lsp.enable("nil")
+-- vim.lsp.enable("luals")
 -- vim.lsp.enable("ruff")
-vim.lsp.enable("pyright")
+-- vim.lsp.enable("pyright")
