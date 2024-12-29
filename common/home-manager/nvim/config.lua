@@ -6,11 +6,13 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.cmd([[colorscheme tokyonight-night]])
 
+require("mini.ai").setup()
 require("mini.basics").setup({
 	basic = true,
 	extra_ui = true,
 	win_borders = "bold",
 })
+require("mini.bracketed").setup()
 require("mini.icons").setup()
 require("mini.notify").setup()
 require("mini.pairs").setup()
@@ -108,6 +110,13 @@ vim.lsp.config["ruff"] = {
 	root_markers = { "pyproject.toml" },
 }
 
+vim.lsp.config["basedpyright"] = {
+  cmd = { "basedpyright-langserver", "--stdio" },
+  filetypes = { "python" },
+  root_markers = { "pyproject.toml" },
+}
+
 vim.lsp.enable("nil")
 vim.lsp.enable("luals")
-vim.lsp.enable("ruff")
+-- vim.lsp.enable("ruff")
+vim.lsp.enable("basedpyright")
