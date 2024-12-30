@@ -29,8 +29,6 @@ let
   gitPkgs = with pkgs.gitAndTools; [
     diff-so-fancy # git diff with colors
     gh # GitHub CLI
-    hub # github command-line client
-    # git-crypt # git files encryption
   ];
 
 in

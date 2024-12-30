@@ -15,9 +15,6 @@ let
       github = {
         user = "jhh";
       };
-      hub = {
-        protocol = "ssh";
-      };
       init = {
         defaultBranch = "main";
       };
