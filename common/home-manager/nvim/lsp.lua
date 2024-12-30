@@ -19,13 +19,9 @@ lspconfig.basedpyright.setup({
 	},
 })
 
-lspconfig.ruff.setup({
-	init_options = {
-		settings = {
-			-- Ruff language server settings go here
-		},
-	},
-})
+lspconfig.ruff.setup({})
+
+lspconfig.tailwindcss.setup({})
 
 lspconfig.lua_ls.setup({
 	settings = {

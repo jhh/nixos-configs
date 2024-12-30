@@ -17,6 +17,7 @@
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
+      tailwind-tools-nvim
       telescope-file-browser-nvim
       telescope-fzf-native-nvim
       telescope-nvim
@@ -34,6 +35,7 @@
       ripgrep
       ruff
       stylua
+      tailwindcss-language-server
     ];
 
     extraLuaConfig =

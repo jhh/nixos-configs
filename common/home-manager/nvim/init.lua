@@ -6,6 +6,11 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.cmd([[colorscheme tokyonight-night]])
 
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+vim.opt.foldenable = false -- Enable folding by default
+
 require("mini.ai").setup()
 require("mini.bracketed").setup()
 require("mini.git").setup()
@@ -20,6 +25,8 @@ require("mini.basics").setup({
 	extra_ui = true,
 	win_borders = "bold",
 })
+require("tailwind-tools").setup({})
+require("nvim-treesitter.configs").setup({})
 
 -- Get the current MANPATH from the shell
 -- local current_manpath = vim.fn.system("manpath -q"):gsub("%s+$", "")

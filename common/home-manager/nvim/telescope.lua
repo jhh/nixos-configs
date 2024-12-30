@@ -32,11 +32,10 @@ wk.add({
 	{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Status" },
 	--
 	{ "<leader>e", group = "editor" },
-	{ "<leader>eu", "<cmd>telescope undo<cr>", desc = "undo history" },
+	{ "<leader>ea", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "LSP code action" },
+	{ "<leader>eu", "<cmd>Telescope undo<cr>", desc = "undo history" },
 	{ "<leader>ed", "<plug>DashSearch", desc = "Dash Search" },
 	--
 	{ "gs", "<cmd>Telescope grep_string<cr>", desc = "Find string under cursor" },
 	--
 })
-
-require("nvim-treesitter.configs").setup({})
