@@ -32,10 +32,10 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    # neovim-nightly-overlay = {
+    #   url = "github:nix-community/neovim-nightly-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # };
 
     puka = {
       url = "github:jhh/puka";
@@ -78,7 +78,7 @@
       dyndns,
       home-manager,
       home-manager-unstable,
-      neovim-nightly-overlay,
+      # neovim-nightly-overlay,
       nixpkgs,
       nixpkgs-unstable,
       puka,
@@ -92,9 +92,9 @@
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
-      overlays = [
-        neovim-nightly-overlay.overlays.default
-      ];
+      # overlays = [
+      #   neovim-nightly-overlay.overlays.default
+      # ];
 
       mkSystem =
         {
@@ -102,7 +102,7 @@
           homeManager ? home-manager,
           extraModules,
         }:
-        packages.lib.nixosSystem rec {
+        packages.lib.nixosSystem {
           system = "x86_64-linux";
           # specialArgs.strykeforce = strykeforce;
           specialArgs = { inherit vscode-server strykeforce; };
