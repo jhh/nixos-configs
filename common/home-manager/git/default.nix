@@ -27,8 +27,10 @@ let
         cmd = ''
           ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
         '';
+        trustExitCode = true;
       };
       difftool.prompt = false;
+
       merge = {
         tool = "Kaleidoscope";
       };
