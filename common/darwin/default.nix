@@ -1,9 +1,9 @@
 # common/darwin/default.nix
 { ... }:
 {
-  # imports = [
-  #   ./homebrew.nix
-  # ];
+  imports = [
+    ./homebrew.nix
+  ];
 
   security.pam.enableSudoTouchIdAuth = true;
 
