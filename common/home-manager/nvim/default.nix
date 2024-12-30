@@ -20,6 +20,7 @@
       telescope-file-browser-nvim
       telescope-fzf-native-nvim
       telescope-nvim
+      telescope-undo-nvim
       tokyonight-nvim
       which-key-nvim
     ];

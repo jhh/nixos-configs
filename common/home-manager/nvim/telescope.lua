@@ -31,9 +31,12 @@ wk.add({
 	{ "<leader>gl", "<cmd>Telescope git_branches<cr>", desc = "Branches (log)" },
 	{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Status" },
 	--
+	{ "<leader>e", group = "editor" },
+	{ "<leader>eu", "<cmd>telescope undo<cr>", desc = "undo history" },
+	{ "<leader>ed", "<plug>DashSearch", desc = "Dash Search" },
+	--
 	{ "gs", "<cmd>Telescope grep_string<cr>", desc = "Find string under cursor" },
 	--
-	{ "<leader>d", "<plug>DashSearch", desc = "Dash Search" },
 })
 
 require("nvim-treesitter.configs").setup({})
