@@ -35,6 +35,15 @@
       stylua
     ];
 
-    extraLuaConfig = builtins.readFile ./config.lua;
+    extraLuaConfig =
+      let
+        initLua = pkgs.concatText "init.lua" [
+          ./init.lua
+          ./formatter.lua
+          ./lsp.lua
+          ./telescope.lua
+        ];
+      in
+      builtins.readFile initLua;
   };
 }
