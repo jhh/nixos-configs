@@ -34,6 +34,7 @@ let
 in
 {
   imports = [
+    ./bat
     ./fish
     ./git
     ./nvim

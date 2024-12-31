@@ -18,7 +18,6 @@
     };
 
     environment.systemPackages = with pkgs; [
-      bat
       file
       # proxmox-backup-client
       nfs-utils
