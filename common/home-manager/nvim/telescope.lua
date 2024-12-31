@@ -32,9 +32,10 @@ wk.add({
 	{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Status" },
 	--
 	{ "<leader>e", group = "editor" },
-	{ "<leader>ea", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "LSP code action" },
+	{ "<leader>ea", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "LSP Code Actions" },
+	{ "<leader>ed", "<cmd>lua MiniDiff.toggle_overlay()<cr>", desc = "Toggle Diffs" },
+	{ "<leader>es", "<plug>DashSearch", desc = "Dash Search" },
 	{ "<leader>eu", "<cmd>Telescope undo<cr>", desc = "undo history" },
-	{ "<leader>ed", "<plug>DashSearch", desc = "Dash Search" },
 	--
 	{ "gs", "<cmd>Telescope grep_string<cr>", desc = "Find string under cursor" },
 	--
