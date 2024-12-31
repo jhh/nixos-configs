@@ -38,6 +38,7 @@ in
     ./git
     ./nvim
     ./sonos
+    ./starship
   ];
   # ] ++ lib.optional pkgs.stdenv.isDarwin ./sonos;
 

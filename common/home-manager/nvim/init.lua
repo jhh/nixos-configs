@@ -17,7 +17,7 @@ vim.cmd.xnoremap("<leader>p", '"_dP')
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("i", "jk", "<Esc>", { silent = true })
 
-vim.cmd("colorscheme tokyonight-night")
+vim.cmd("colorscheme tokyonight")
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
