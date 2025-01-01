@@ -19,11 +19,6 @@ vim.keymap.set("i", "jk", "<Esc>", { silent = true })
 
 vim.cmd("colorscheme tokyonight")
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
--- vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
-vim.opt.foldenable = false -- Enable folding by default
-
 require("mini.ai").setup()
 require("mini.bracketed").setup()
 require("mini.diff").setup()
@@ -42,12 +37,3 @@ require("mini.basics").setup({
 })
 require("tailwind-tools").setup({})
 require("nvim-treesitter.configs").setup({})
-
--- Get the current MANPATH from the shell
--- local current_manpath = vim.fn.system("manpath -q"):gsub("%s+$", "")
-
--- Add Nix manpaths
--- local nix_manpath = vim.fn.system("nix-env -q --out-path | awk '{print $2 \"/share/man\"}' | tr '\\n' ':'"):gsub("%s+$", "")
-
--- Update MANPATH
--- vim.env.MANPATH = current_manpath -- .. ":" .. nix_manpath

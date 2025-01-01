@@ -1,4 +1,4 @@
-{ pkgs, specialArgs, ... }:
+{ pkgs, ... }:
 {
   programs.neovim = {
     # package = specialArgs.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
@@ -41,8 +41,9 @@
     extraLuaConfig =
       let
         initLua = pkgs.concatText "init.lua" [
-          ./init.lua
+          ./fold.lua
           ./formatter.lua
+          ./init.lua
           ./lsp.lua
           ./telescope.lua
         ];
