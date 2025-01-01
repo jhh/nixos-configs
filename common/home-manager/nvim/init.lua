@@ -1,8 +1,8 @@
-vim.opt.tabstop = 2 -- Number of spaces a <Tab> counts for
-vim.opt.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
+vim.opt.tabstop = 4 -- Number of spaces a <Tab> counts for
+vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent
 vim.opt.expandtab = true -- Use spaces instead of tabs
-vim.opt.softtabstop = 2 -- Number of spaces a <Tab> counts for while editing
-vim.opt.scrolloff = 2 -- Number of lines to keep above and below the cursor
+vim.opt.softtabstop = 4 -- Number of spaces a <Tab> counts for while editing
+vim.opt.scrolloff = 4 -- Number of lines to keep above and below the cursor
 -- line numbers
 vim.wo.number = true
 vim.wo.relativenumber = true
