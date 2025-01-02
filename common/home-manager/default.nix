@@ -24,7 +24,7 @@ let
       ripgrep # search in files
       tealdeer # fast version of tldr
     ]
-    ++ lib.optionals pkgs.stdenv.isDarwin [ cookiecutter ];
+    ++ lib.optionals pkgs.stdenv.isDarwin [ cookiecutter nodejs ];
 
   gitPkgs = with pkgs.gitAndTools; [
     diff-so-fancy # git diff with colors
