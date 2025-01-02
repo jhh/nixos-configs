@@ -2,7 +2,7 @@
 {
   programs.neovim = {
     # package = specialArgs.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-    enable = true;
+    enable = pkgs.stdenv.isLinux;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;

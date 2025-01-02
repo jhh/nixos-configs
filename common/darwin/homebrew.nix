@@ -11,6 +11,7 @@
 
     brews = [
       "uv"
+      "neovim"
     ];
 
     casks = [

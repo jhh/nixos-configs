@@ -54,7 +54,7 @@ in
       MANWIDTH = 88;
     };
 
-    sessionPath = lib.optional pkgs.stdenv.isDarwin "$HOME/.local/bin/";
+    sessionPath = lib.optionals pkgs.stdenv.isDarwin [ "/opt/homebrew/bin" "$HOME/.local/bin/" ];
 
     packages = defaultPackages ++ gitPkgs;
     stateVersion = "22.05";
