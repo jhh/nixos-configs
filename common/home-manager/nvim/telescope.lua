@@ -13,13 +13,12 @@ wk.setup({
 
 wk.add({
 	{ "<leader>f", group = "find" },
-	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 	{ "<leader>fc", "<cmd>Telescope commands<cr>", desc = "Commands" },
 	{ "<leader>fe", "<cmd>Telescope file_browser path=%:p:h<cr>", desc = "File Browser" },
 	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Files" },
 	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
 	{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
-	{ "<leader>fm", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+	{ "<leader>fm", "<cmd>Telescope man_pages sections=ALL<cr>", desc = "Man Pages" },
 	{ "<leader>fr", "<cmd>Telescope git_files<cr>", desc = "Git Files (repo)" },
 	{ "<leader>ft", "<cmd>Telescope treesitter<cr>", desc = "Treesitter Symbols" },
 	{ "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current Buffer" },
@@ -39,4 +38,5 @@ wk.add({
 	--
 	{ "gs", "<cmd>Telescope grep_string<cr>", desc = "Find string under cursor" },
 	--
+	{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 })
