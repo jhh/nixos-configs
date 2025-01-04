@@ -16,9 +16,10 @@
     };
 
     settings.container.disabled = lib.elem osConfig.networking.hostName [
-      "vesta"
-      "eris"
       "ceres"
+      "eris"
+      "pallas"
+      "vesta"
     ];
   };
 }
