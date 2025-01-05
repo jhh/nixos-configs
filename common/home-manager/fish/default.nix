@@ -66,15 +66,5 @@ in
       source = ./catppuccin_eza.yml;
     };
 
-    "Library/Application Support/com.mitchellh.ghostty/config" = {
-      text = ''
-      theme = catppuccin-mocha
-      font-family = "MonoLisa Regular"
-      font-family-bold = "MonoLisa Bold"
-      font-family-italic = "MonoLisa Regular Italic"
-      font-family-bold-italic = "MonoLisa Bold Italic"
-      font-feature = "calt"
-      '';
-    };
   };
 }

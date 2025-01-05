@@ -133,7 +133,7 @@
     in
     {
       devShells.x86_64-linux.default = pkgs.mkShell {
-        buildInputs = [
+        packages = [
           deploy-rs.packages.x86_64-linux.deploy-rs
           agenix.packages.x86_64-linux.agenix
         ];
@@ -154,6 +154,12 @@
               home-manager.users.jeff = {
                 imports = [
                   ./common/home-manager
+                  (
+                    { ... }:
+                    {
+                      j3ff.gui.ghostty.enable = true;
+                    }
+                  )
                 ];
               };
             }

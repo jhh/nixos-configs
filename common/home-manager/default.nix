@@ -40,6 +40,7 @@ in
     ./nvim
     ./sonos
     ./starship
+    ./ghostty.nix
   ];
   # ] ++ lib.optional pkgs.stdenv.isDarwin ./sonos;
 
