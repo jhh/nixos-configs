@@ -48,9 +48,22 @@ in
       let
         initFish = builtins.concatStringsSep "\n" [
           (builtins.readFile ./config.fish)
-          (builtins.readFile ./tokyonight.fish)
         ];
       in
       initFish;
+  };
+
+  home.sessionVariables = {
+    EZA_CONFIG_DIR = ".config/eza";
+  };
+
+  home.file = {
+    ".config/fish/themes/Catppuccin Mocha.theme" = {
+      source = ./catppuccin_mocha.theme;
+    };
+
+    ".config/eza/theme.yml" = {
+      source = ./catppuccin_eza.yml;
+    };
   };
 }

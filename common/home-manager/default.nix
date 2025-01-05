@@ -72,7 +72,11 @@ in
       };
     };
 
-    eza.enable = true;
+    eza = {
+      enable = true;
+      enableFishIntegration = true;
+      icons = "never";
+    };
 
     gpg = {
       enable = true;
