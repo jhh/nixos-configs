@@ -3,7 +3,7 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "Tokyo Night";
+      theme = "Catppuccin Mocha";
     };
 
     extraPackages = with pkgs.bat-extras; [
@@ -13,6 +13,10 @@
     themes = {
       "Tokyo Night" = {
         src = ./tokyonight_night.tmTheme;
+      };
+
+      "Catppuccin Mocha" = {
+        src = ./catppuccin_mocha.tmTheme;
       };
     };
 
