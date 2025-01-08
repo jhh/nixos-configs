@@ -7,6 +7,7 @@
     enable = true;
     ssl = false;
     settingsModule = "website.settings.production";
+    secrets = [ config.age.secrets.stryker_website_secrets.path ];
     allowedHosts = "*";
   };
 
