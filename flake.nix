@@ -91,6 +91,7 @@
     }:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
+      pkgs-darwin = nixpkgs.legacyPackages."aarch64-darwin";
 
       # overlays = [
       #   neovim-nightly-overlay.overlays.default
@@ -136,6 +137,14 @@
         packages = [
           deploy-rs.packages.x86_64-linux.deploy-rs
           agenix.packages.x86_64-linux.agenix
+          pkgs.nixfmt-rfc-style
+        ];
+      };
+
+      devShells.aarch64-darwin.default = pkgs-darwin.mkShell {
+        packages = [
+          agenix.packages.aarch64-darwin.agenix
+          pkgs-darwin.nixfmt-rfc-style
         ];
       };
 
