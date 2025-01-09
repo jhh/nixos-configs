@@ -27,10 +27,15 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    dyndns = {
-      url = "github:jhh/dyndns";
+    nh = {
+      url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    # dyndns = {
+    #   url = "github:jhh/dyndns";
+    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # };
 
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
@@ -75,10 +80,11 @@
       agenix,
       darwin,
       deploy-rs,
-      dyndns,
+      # dyndns,
       home-manager,
       home-manager-unstable,
       # neovim-nightly-overlay,
+      nh,
       nixpkgs,
       nixpkgs-unstable,
       puka,
@@ -113,6 +119,9 @@
             (
               { config, ... }:
               {
+                environment.systemPackages = [
+                  nh.packages.x86_64-linux.nh
+                ];
                 services.getty.greetingLine = "<<< Welcome to NixOS ${config.system.nixos.label} @ ${self.sourceInfo.rev} - \\l >>>";
                 services.getty.autologinUser = packages.lib.mkDefault "root";
                 home-manager.useGlobalPkgs = true;
@@ -123,7 +132,7 @@
               }
             )
             ./common
-            dyndns.nixosModules.default
+            # dyndns.nixosModules.default
             puka.nixosModules.default
             strykeforce.nixosModules.default
             fava-yoyodyne.nixosModules.default
@@ -156,6 +165,9 @@
           (
             { config, ... }:
             {
+              environment.systemPackages = [
+                nh.packages.aarch64-darwin.nh
+              ];
               nixpkgs.config.allowUnfree = true;
               nixpkgs.config.allowBroken = false;
               home-manager.useGlobalPkgs = true;
