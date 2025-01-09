@@ -32,11 +32,6 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    # dyndns = {
-    #   url = "github:jhh/dyndns";
-    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
-    # };
-
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     #   inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -80,7 +75,6 @@
       agenix,
       darwin,
       deploy-rs,
-      # dyndns,
       home-manager,
       home-manager-unstable,
       # neovim-nightly-overlay,
@@ -132,7 +126,6 @@
               }
             )
             ./common
-            # dyndns.nixosModules.default
             puka.nixosModules.default
             strykeforce.nixosModules.default
             fava-yoyodyne.nixosModules.default
