@@ -32,7 +32,7 @@ in
         "font-family-bold-italic = ${cfg.font} Bold Italic"
         "font-feature = calt"
         "theme = ${cfg.theme}"
-        "keybind = global:cmd+grave_accent=toggle_quick_terminal"
+        "keybind = global:opt+grave_accent=toggle_quick_terminal"
 
       ];
     };
