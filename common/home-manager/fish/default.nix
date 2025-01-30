@@ -17,7 +17,7 @@ in
 
     shellAbbrs = {
       gcb = "git checkout -b";
-      gcu = "git pull && nix flake update --commit-lock-file";
+      gpu = "git pull && nix flake update --commit-lock-file";
       gbd = "git branch -d";
       gcm = "git switch main";
       gmnff = "git merge --no-ff";
