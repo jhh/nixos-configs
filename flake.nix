@@ -146,6 +146,7 @@
       devShells.aarch64-darwin.default = pkgs-darwin.mkShell {
         packages = [
           agenix.packages.aarch64-darwin.agenix
+          pkgs-darwin.nil
           pkgs-darwin.nixfmt-rfc-style
         ];
       };
