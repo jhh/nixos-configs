@@ -1,8 +1,5 @@
 {
   flake,
-  inputs,
-  perSystem,
-  pkgs,
   ...
 }:
 
@@ -15,32 +12,14 @@
     # ./todo.nix
   ];
 
-  # j3ff = {
-  #   mail.enable = true;
-  #   tailscale.enable = false;
-  #   man.enable = true;
-  #   mdns.enable = true;
-  # };
+  networking.hostName = "styx";
 
-  networking = {
-    hostName = "styx";
-    useDHCP = false;
-
-    interfaces.ens18 = {
-      useDHCP = false;
-      ipv4.addresses = [
-        {
-          address = "10.1.0.49";
-          prefixLength = 24;
-        }
-      ];
-    };
-    defaultGateway = {
-      address = "10.1.0.1";
-      interface = "ens18";
-    };
-  };
+  networking.interfaces.ens18.ipv4.addresses = [
+    {
+      address = "10.1.0.49";
+      prefixLength = 24;
+    }
+  ];
 
   system.stateVersion = "24.05";
-
 }
