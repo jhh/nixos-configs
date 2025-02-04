@@ -10,5 +10,7 @@ inputs.treefmt-nix.lib.mkWrapper pkgs {
   programs.stylua.enable = true;
   programs.yamlfmt.enable = true;
 
-  settings.global.excludes = [ "secrets/*.age" ];
+  settings = {
+    global.excludes = [ "*.{age,gif,png,svg,env,envrc,gitignore}" ];
+  };
 }
