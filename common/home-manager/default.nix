@@ -24,7 +24,10 @@ let
       ripgrep # search in files
       tealdeer # fast version of tldr
     ]
-    ++ lib.optionals pkgs.stdenv.isDarwin [ cookiecutter nodejs ];
+    ++ lib.optionals pkgs.stdenv.isDarwin [
+      cookiecutter
+      nodejs
+    ];
 
   gitPkgs = with pkgs.gitAndTools; [
     diff-so-fancy # git diff with colors
@@ -55,7 +58,10 @@ in
       MANWIDTH = 88;
     };
 
-    sessionPath = lib.optionals pkgs.stdenv.isDarwin [ "/opt/homebrew/bin" "$HOME/.local/bin/" ];
+    sessionPath = lib.optionals pkgs.stdenv.isDarwin [
+      "/opt/homebrew/bin"
+      "$HOME/.local/bin/"
+    ];
 
     packages = defaultPackages ++ gitPkgs;
     stateVersion = "22.05";

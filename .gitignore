@@ -1,5 +1,6 @@
-result*
-.gcroots
-.DS_Store
-.nvimlog
-*.swp
+# direnv
+.direnv/
+
+# nix
+result
+result-*
