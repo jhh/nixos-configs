@@ -28,4 +28,6 @@
   ];
 
   home-manager.users.jeff.services.vscode-server.enable = true;
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
 }
