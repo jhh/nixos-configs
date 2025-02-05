@@ -1,13 +1,14 @@
 {
   inputs,
   config,
+  flake,
   pkgs,
   ...
 }:
 {
   imports = [
     inputs.agenix.nixosModules.default
-    inputs.home-manager.nixosModules.home-manager
+    flake.modules.common.default
   ];
 
   environment.systemPackages = with pkgs; [
@@ -43,6 +44,25 @@
     rootAlias = "jeff@j3ff.io";
   };
 
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+      randomizedDelaySec = "1h";
+    };
+
+    settings = {
+      substituters = [
+        "https://strykeforce.cachix.org"
+      ];
+
+      trusted-public-keys = [
+        "strykeforce.cachix.org-1:+ux184cQfS4lruf/lIzs9WDMtOkJIZI2FQHfz5QEIrE="
+      ];
+    };
+  };
+
   age.secrets.sasl_passwd = {
     file = ../../secrets/sasl_passwd.age;
   };
@@ -61,20 +81,4 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel jeff@j3ff.io"
     ];
   };
-
-  users.users.jeff = {
-    isNormalUser = true;
-    uid = 1000;
-    shell = pkgs.fish;
-    home = "/home/jeff";
-    description = "Jeff Hutchison";
-    extraGroups = [
-      "wheel"
-    ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel jeff@j3ff.io"
-    ];
-  };
-
-  home-manager.users.jeff.imports = [ inputs.self.homeModules.jeff ];
 }

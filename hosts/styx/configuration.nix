@@ -7,9 +7,8 @@
   imports = [
     ./hardware-configuration.nix
     flake.modules.nixos.hardware-proxmox-vm
-    flake.modules.nixos.server
-    # ./postgresql.nix
-    # ./todo.nix
+    flake.modules.nixos.j3ff-server
+    flake.modules.nixos.jeff
   ];
 
   networking.hostName = "styx";
@@ -21,5 +20,5 @@
     }
   ];
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }
