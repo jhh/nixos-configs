@@ -6,7 +6,6 @@
   imports = [
     flake.modules.nixos.hardware-proxmox-lxc
     flake.modules.nixos.j3ff-server
-    flake.modules.nixos.jeff
   ];
 
   networking.hostName = "pluto";
