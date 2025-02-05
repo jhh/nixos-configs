@@ -10,7 +10,6 @@ let
     {
       core = {
         editor = "vim";
-        pager = "diff-so-fancy | less --tabs=4 -RFX";
       };
       github = {
         user = "jhh";
@@ -48,6 +47,7 @@ in
 {
   programs.git = {
     enable = true;
+    diff-so-fancy.enable = true;
     userName = "Jeff Hutchison";
     userEmail = "jeff@jeffhutchison.com";
     signing = {
