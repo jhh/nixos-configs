@@ -12,12 +12,14 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    file
     ghostty.terminfo
     mailutils
   ];
 
   networking = {
     domain = "lan.j3ff.io";
+    search = [ "lan.j3ff.io" ];
 
     nameservers = [
       "1.1.1.1"
@@ -42,6 +44,16 @@
     relayHost = "smtp.fastmail.com";
     relayPort = 587;
     rootAlias = "jeff@j3ff.io";
+  };
+
+  services.prometheus = {
+    exporters = {
+      node = {
+        enable = true;
+        enabledCollectors = [ "systemd" ];
+        port = 9002;
+      };
+    };
   };
 
   nix = {

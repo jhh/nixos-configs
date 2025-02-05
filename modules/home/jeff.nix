@@ -6,6 +6,10 @@
     ./nvim
   ];
 
+  home.sessionVariables = {
+    MANWIDTH = 88;
+  };
+
   home.packages = with pkgs; [
     bottom
     du-dust
