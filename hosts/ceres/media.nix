@@ -35,14 +35,6 @@ in
   };
 
   # nginx
-
-  services.nginx = {
-    enable = true;
-    recommendedProxySettings = true;
-    recommendedOptimisation = true;
-    recommendedGzipSettings = true;
-  };
-
   services.nginx.virtualHosts = {
     "sonarr.j3ff.io" = {
       locations = {
@@ -68,9 +60,4 @@ in
       };
     };
   };
-
-  networking.firewall.allowedTCPPorts = [
-    443
-    80
-  ];
 }
