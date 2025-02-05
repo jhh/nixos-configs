@@ -85,6 +85,7 @@
   '';
 
   services.tailscale.enable = true;
+  services.tailscale.openFirewall = true;
 
   users.users.root = {
     # https://start.1password.com/open/i?a=7Z533SZAYZCNVL764G5INOV75Q&v=lwpxghrefna57cr6nw7mr3bybm&i=v6cyausjzre6hjypvdsfhlkbty&h=my.1password.com
@@ -92,5 +93,17 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel jeff@j3ff.io"
     ];
+  };
+
+  users = {
+    users.media = {
+      uid = 994;
+      group = "media";
+      shell = null;
+      isSystemUser = true;
+    };
+    groups.media = {
+      gid = 994;
+    };
   };
 }
