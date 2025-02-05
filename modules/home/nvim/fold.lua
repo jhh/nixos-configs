@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "htmldjango", "html" },
 	callback = function()
 		vim.opt_local.foldmethod = "indent"
-        vim.opt_local.foldlevel = 99
+		vim.opt_local.foldlevel = 99
 	end,
 	group = "FileTypeFolds",
 })
@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		vim.opt_local.foldmethod = "expr"
 		vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
-        vim.opt_local.foldlevel= 99
+		vim.opt_local.foldlevel = 99
 	end,
 	group = "FileTypeFolds",
 })
@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		vim.opt_local.foldmethod = "expr"
 		vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
-        vim.opt_local.foldlevel= 99
+		vim.opt_local.foldlevel = 99
 	end,
 	group = "FileTypeFolds",
 })
