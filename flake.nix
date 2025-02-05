@@ -14,6 +14,9 @@
     home-manager.url = "github:nix-community/home-manager?ref=release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    puka.url = "github:jhh/puka";
+    puka.inputs.nixpkgs.follows = "nixpkgs";
+
     srvos.url = "github:nix-community/srvos";
     srvos.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -22,6 +25,9 @@
 
     nixos-vscode-server.url = "github:nix-community/nixos-vscode-server";
     nixos-vscode-server.inputs.nixpkgs.follows = "nixpkgs";
+
+    upkeep.url = "github:jhh/upkeep";
+    upkeep.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: inputs.blueprint { inherit inputs; };

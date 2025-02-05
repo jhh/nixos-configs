@@ -3,13 +3,6 @@
 
   users.users.nginx.extraGroups = [ "acme" ];
 
-  services.nginx = {
-    enable = true;
-    recommendedProxySettings = true;
-    recommendedOptimisation = true;
-    recommendedGzipSettings = true;
-  };
-
   age.secrets.route53_secrets = {
     file = ../../secrets/route53_secrets.age;
   };
