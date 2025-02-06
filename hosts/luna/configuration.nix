@@ -103,6 +103,21 @@
     hostId = "1200ccec";
   };
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      hinfo = true;
+      userServices = true;
+      workstation = true;
+    };
+    extraServiceFiles = {
+      ssh = "${pkgs.avahi}/etc/avahi/services/ssh.service";
+    };
+  };
+
   fileSystems."/root" = {
     device = "rpool/safe/home/root";
     fsType = "zfs";
