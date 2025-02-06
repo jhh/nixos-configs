@@ -1,9 +1,4 @@
-{
-  flake,
-  pkgs,
-  ...
-}:
-
+{ flake, ... }:
 {
   imports = [
     flake.modules.darwin.default
@@ -12,11 +7,5 @@
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
-
-  # Used for backwards compatibility, please read the changelog before changing.
-  # $ darwin-rebuild changelog
   system.stateVersion = 4;
-
-  environment.shells = [ pkgs.fish ];
-
 }
