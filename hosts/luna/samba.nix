@@ -10,6 +10,7 @@
 
   services.samba = {
     enable = true;
+    openFirewall = true;
     settings.global = {
       "workgroup" = "WORKGROUP";
       "server string" = "Luna";
