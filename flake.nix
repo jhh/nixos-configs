@@ -23,6 +23,9 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-darwin.url = "github:Lnl7/nix-darwin?ref=nix-darwin-24.11";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     nixos-vscode-server.url = "github:nix-community/nixos-vscode-server";
     nixos-vscode-server.inputs.nixpkgs.follows = "nixpkgs";
 
