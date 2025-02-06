@@ -9,7 +9,7 @@
   imports = [
     flake.modules.nixos.hardware-proxmox-lxc
     inputs.srvos.nixosModules.mixins-nginx
-    flake.modules.nixos.j3ff-server
+    flake.modules.nixos.server-j3ff
     inputs.strykeforce.nixosModules.default
     ./postgresql.nix
     ./strykeforce-sync.nix

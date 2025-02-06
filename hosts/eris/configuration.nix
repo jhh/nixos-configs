@@ -10,7 +10,7 @@
     inputs.srvos.nixosModules.mixins-nginx
     inputs.puka.nixosModules.default
     inputs.upkeep.nixosModules.default
-    flake.modules.nixos.j3ff-server
+    flake.modules.nixos.server-j3ff
     ./gitea.nix
     ./miniflux.nix
     ./nginx.nix

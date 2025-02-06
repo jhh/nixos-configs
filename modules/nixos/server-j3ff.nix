@@ -2,6 +2,7 @@
   inputs,
   config,
   flake,
+  lib,
   pkgs,
   ...
 }:
@@ -75,6 +76,13 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel jeff@j3ff.io"
     ];
+  };
+
+  users.users.jeff = lib.mkDefault {
+    isNormalUser = true;
+    createHome = false;
+    useDefaultShell = false;
+    uid = 1000;
   };
 
   users = {

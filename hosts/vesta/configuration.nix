@@ -7,10 +7,10 @@
 {
   imports = [
     flake.modules.nixos.hardware-proxmox-lxc
-    flake.modules.nixos.j3ff-server
+    flake.modules.nixos.server-j3ff
     inputs.srvos.nixosModules.mixins-nginx
     flake.modules.nixos.watchtower
-    flake.modules.nixos.jeff
+    flake.modules.nixos.home-manager-jeff
   ];
 
   networking.hostName = "vesta";

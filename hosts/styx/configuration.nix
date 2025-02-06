@@ -7,8 +7,8 @@
   imports = [
     ./hardware-configuration.nix
     flake.modules.nixos.hardware-proxmox-vm
-    flake.modules.nixos.j3ff-server
-    flake.modules.nixos.jeff
+    flake.modules.nixos.server-j3ff
+    flake.modules.nixos.home-manager-jeff
   ];
 
   networking.hostName = "styx";
