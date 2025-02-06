@@ -1,6 +1,7 @@
 {
   flake,
   inputs,
+  lib,
   pkgs,
   ...
 }:
@@ -69,6 +70,7 @@
   networking = {
     hostName = "luna";
     useDHCP = false;
+    firewall.enable = lib.mkForce false;
 
     bonds = {
       bond0 = {
