@@ -1,10 +1,5 @@
 # common/modules/watchtower/alertmanager.nix
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.j3ff.watchtower.pushgateway;
 in
@@ -35,13 +30,9 @@ in
       web.listen-address = ":${toString cfg.port}";
     };
 
-    services.nginx = {
-      enable = true;
-      recommendedProxySettings = true;
-      virtualHosts."${cfg.domain}" = {
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:${toString cfg.port}";
-        };
+    services.nginx.virtualHosts."${cfg.domain}" = {
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:${toString cfg.port}";
       };
     };
   };

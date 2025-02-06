@@ -1,5 +1,6 @@
 {
   flake,
+  inputs,
   pkgs,
   ...
 }:
@@ -7,6 +8,7 @@
   imports = [
     flake.modules.nixos.hardware-proxmox-lxc
     flake.modules.nixos.j3ff-server
+    inputs.srvos.nixosModules.mixins-nginx
     flake.modules.nixos.watchtower
     flake.modules.nixos.jeff
   ];

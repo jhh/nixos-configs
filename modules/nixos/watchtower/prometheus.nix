@@ -1,10 +1,5 @@
 # common/modules/watchtower/prometheus.nix
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.j3ff.watchtower.prometheus;
 in
@@ -238,13 +233,9 @@ in
       ];
     };
 
-    services.nginx = {
-      enable = true;
-      recommendedProxySettings = true;
-      virtualHosts."${cfg.domain}" = {
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:${toString config.services.prometheus.port}";
-        };
+    services.nginx.virtualHosts."${cfg.domain}" = {
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:${toString config.services.prometheus.port}";
       };
     };
   };

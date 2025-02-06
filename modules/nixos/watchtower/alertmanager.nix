@@ -74,13 +74,9 @@ in
       };
     };
 
-    services.nginx = {
-      enable = true;
-      recommendedProxySettings = true;
-      virtualHosts."${cfg.domain}" = {
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:${toString config.services.prometheus.alertmanager.port}";
-        };
+    services.nginx.virtualHosts."${cfg.domain}" = {
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:${toString config.services.prometheus.alertmanager.port}";
       };
     };
   };
