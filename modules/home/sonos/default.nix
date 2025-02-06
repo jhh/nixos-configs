@@ -1,28 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-let
-  inherit (pkgs) writeShellScript;
-
-  sonosCommand = title: command: {
-    executable = true;
-    text = ''
-      #!${pkgs.runtimeShell} -eu
-      # @raycast.title ${title}
-      # @raycast.schemaVersion 1
-      # @raycast.mode silent
-      # @raycast.packageName Sonos Scripts
-      # @raycast.icon ${./sonos.png}
-      # @raycast.needsConfirmation false
-      # @raycast.author Jeff Hutchison
-      ${pkgs.soco-cli}/bin/sonos --use-local-speaker-list ${command}
-    '';
-
-  };
-in
+{ pkgs, ... }:
 {
   home.file = {
     # ".config/raycast-scripts/play-wfuv" = sonosCommand "Play WFUV in Studio" "Studio play_favorite WFUV";
