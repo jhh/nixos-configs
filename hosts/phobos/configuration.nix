@@ -8,7 +8,6 @@
 {
   imports = [
     inputs.srvos.nixosModules.server
-    inputs.srvos.nixosModules.mixins-nginx
     inputs.srvos.nixosModules.mixins-systemd-boot
     flake.modules.nixos.server-j3ff
     flake.modules.nixos.smartd

@@ -1,6 +1,18 @@
-{ config, pkgs, ... }:
+{
+  config,
+  flake,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
+    inputs.srvos.nixosModules.server
+    inputs.srvos.nixosModules.mixins-systemd-boot
+    flake.modules.nixos.server-j3ff
+    flake.modules.nixos.smartd
+    flake.modules.nixos.zfs
+    flake.modules.nixos.zrepl
     ./hardware-configuration.nix
     ./nfs.nix
     ./plex.nix
@@ -8,22 +20,19 @@
     ./rclone.nix
   ];
 
+  nixpkgs.hostPlatform = "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = true;
+
+  boot = {
+    kernelParams = [ "zfs.zfs_arc_max=30064771072" ];
+  };
+
+  services.getty.autologinUser = "root";
   services.thermald.enable = false; # unsupported
+
   virtualisation.docker.enable = false;
 
   j3ff = {
-    mail.enable = true;
-    mdns.enable = true;
-    prometheus.enable = true;
-    smartd.enable = true;
-    tailscale.enable = true;
-    ups.enable = true;
-
-    zfs = {
-      enable = true;
-      enableTrim = false;
-    };
-
     zrepl = {
       enable = true;
       filesystems = {
@@ -49,15 +58,6 @@
         }
       ];
     };
-  };
-
-  hardware.cpu.intel.updateMicrocode = true;
-
-  boot = {
-    # kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    kernelParams = [ "zfs.zfs_arc_max=30064771072" ];
-    loader.efi.canTouchEfiVariables = true;
-    loader.systemd-boot.enable = true;
   };
 
   environment.etc."mdadm.conf".text = ''
@@ -100,14 +100,7 @@
       interface = "bond0";
     };
 
-    nameservers = [
-      "1.1.1.1"
-      "1.0.0.1"
-      "8.8.8.8"
-      "8.8.4.4"
-    ];
     hostId = "1200ccec";
-    firewall.enable = false;
   };
 
   fileSystems."/root" = {
