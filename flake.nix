@@ -11,6 +11,9 @@
     blueprint.url = "github:numtide/blueprint";
     blueprint.inputs.nixpkgs.follows = "nixpkgs";
 
+    deploy-rs.url = "github:serokell/deploy-rs";
+    deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager?ref=release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -36,5 +39,40 @@
     upkeep.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs: inputs.blueprint { inherit inputs; };
+  outputs =
+    inputs:
+    inputs.blueprint { inherit inputs; }
+    // {
+      deploy.nodes =
+        let
+          inherit (inputs.nixpkgs) lib;
+          nodeFor =
+            hostname:
+            {
+              sshUser ? "root",
+              fastConnection ? true,
+            }:
+            {
+              ${hostname} = {
+                inherit hostname fastConnection sshUser;
+                profiles.system = {
+                  user = "root";
+                  path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.${hostname};
+                };
+              };
+            };
+        in
+        lib.concatMapAttrs nodeFor {
+          ceres = { };
+          eris = { };
+          luna = { };
+          pallas = { };
+          pluto = { };
+          phobos = {
+            fastConnection = false;
+          };
+          styx = { };
+          vesta = { };
+        };
+    };
 }
