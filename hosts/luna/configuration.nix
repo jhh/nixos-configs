@@ -1,5 +1,4 @@
 {
-  config,
   flake,
   inputs,
   pkgs,
@@ -33,6 +32,8 @@
   virtualisation.docker.enable = false;
 
   j3ff = {
+    ups.enable = true;
+
     zrepl = {
       enable = true;
       filesystems = {
