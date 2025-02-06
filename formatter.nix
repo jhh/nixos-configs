@@ -11,6 +11,6 @@ inputs.treefmt-nix.lib.mkWrapper pkgs {
   programs.yamlfmt.enable = true;
 
   settings = {
-    global.excludes = [ "*.{age,gif,png,svg,env,envrc,gitignore}" ];
+    global.excludes = [ "*.{age,gif,png,svg,env,envrc,gitignore,tmTheme,sublime-syntax,theme}" ];
   };
 }
