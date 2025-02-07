@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
-  programs.neovim = {
+  programs.neovim = lib.mkIf pkgs.stdenv.isLinux {
     # package = specialArgs.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-    enable = pkgs.stdenv.isLinux;
+    enable = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
