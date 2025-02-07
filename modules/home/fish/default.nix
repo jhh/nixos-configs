@@ -49,9 +49,12 @@ in
 
     interactiveShellInit =
       let
-        initFish = builtins.concatStringsSep "\n" [
-          (builtins.readFile ./config.fish)
-        ];
+        initFish = builtins.concatStringsSep "\n" (
+          [
+            (builtins.readFile ./config.fish)
+          ]
+          ++ (lib.optional pkgs.stdenv.isDarwin "eval (/opt/homebrew/bin/brew shellenv)")
+        );
       in
       initFish;
   };
