@@ -44,6 +44,28 @@
         "type": "github"
       }
     },
+    "blueprint_2": {
+      "inputs": {
+        "nixpkgs": [
+          "strykeforce",
+          "nixpkgs"
+        ],
+        "systems": "systems_5"
+      },
+      "locked": {
+        "lastModified": 1724053269,
+        "narHash": "sha256-DinmPyxmUSLjBUYMe3eK0GKykwe33vWbVTmp7++P4Ng=",
+        "owner": "numtide",
+        "repo": "blueprint",
+        "rev": "766302be9063650ca6578e5ba09cc4260b0da29c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "blueprint",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -114,24 +136,6 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "rev": "cfacdce06f30d2b68473a46042957675eebb3401",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "flake-utils_2": {
-      "inputs": {
-        "systems": "systems_5"
-      },
-      "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
         "type": "github"
       },
       "original": {
@@ -468,7 +472,7 @@
     },
     "strykeforce": {
       "inputs": {
-        "flake-utils": "flake-utils_2",
+        "blueprint": "blueprint_2",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -477,11 +481,11 @@
         "uv2nix": "uv2nix_2"
       },
       "locked": {
-        "lastModified": 1738587444,
-        "narHash": "sha256-W0TGLHcQDJo40XFGvWECIqyzBlFy/lbyt1lYOUrzgX8=",
+        "lastModified": 1738945049,
+        "narHash": "sha256-r0lQA/7mpWspKU2M6etcZKfgAApCU4c6I+Hi1bJgK3U=",
         "owner": "strykeforce",
         "repo": "strykeforce.org",
-        "rev": "fa8a4a5143bb848618ed3ce3dc65dfdb68152982",
+        "rev": "c83f2b8e7b7ade4e96ab645c0e88b1ab65da980d",
         "type": "github"
       },
       "original": {
@@ -663,11 +667,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1738200085,
-        "narHash": "sha256-Lwb86tkHoeJdjYaAHYZPkUZJoWXNHb5IQjzDyd4Vxno=",
+        "lastModified": 1738850824,
+        "narHash": "sha256-C/k6Lf+T+GqLwgy/RPMrGHvYzXPcnJaE9F8zmAeh8sk=",
         "owner": "adisbladis",
         "repo": "uv2nix",
-        "rev": "fd41fdec2fed599ba884bc2706c2263f01e2183c",
+        "rev": "31b316a8ee16d18c1ff4bbd9ee370cd289388f15",
         "type": "github"
       },
       "original": {
