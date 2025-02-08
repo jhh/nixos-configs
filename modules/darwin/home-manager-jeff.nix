@@ -20,13 +20,9 @@
     flake.homeModules.jeff
     flake.homeModules.ghostty
     flake.homeModules.sonos
-    (
-      { ... }:
-      {
-        j3ff.gui.ghostty.enable = true;
-        programs.awscli.enable = true;
-      }
-    )
+    ({
+      j3ff.gui.ghostty.enable = true;
+    })
   ];
 
   home-manager.useGlobalPkgs = true;
