@@ -246,11 +246,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1738824222,
-        "narHash": "sha256-U3SNq+waitGIotmgg/Et3J7o4NvUtP2gb2VhME5QXiw=",
+        "lastModified": 1738961098,
+        "narHash": "sha256-yWNBf6VDW38tl179FEuJ0qukthVfB02kv+mRsfUsWC0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "550e11f27ba790351d390d9eca3b80ad0f0254e7",
+        "rev": "a3eaf5e8eca7cab680b964138fb79073704aca75",
         "type": "github"
       },
       "original": {
@@ -482,11 +482,11 @@
         "uv2nix": "uv2nix_2"
       },
       "locked": {
-        "lastModified": 1738974307,
-        "narHash": "sha256-AKb7yhDBULxI/RSD3j76hzdmnEXMLWkViUAYjZd/AnE=",
+        "lastModified": 1738977386,
+        "narHash": "sha256-9FC0t6GCe7/xI3L3+76nt6xwyCXXOY+tIov7PhFdWwA=",
         "owner": "strykeforce",
         "repo": "strykeforce.org",
-        "rev": "253078ccaed095f2339bb80dd938a286cd18f8a3",
+        "rev": "2240d7d58b19429b8e68894b658366bfa895a1ea",
         "type": "github"
       },
       "original": {
