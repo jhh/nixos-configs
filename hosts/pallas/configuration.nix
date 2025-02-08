@@ -10,7 +10,7 @@
     flake.modules.nixos.hardware-proxmox-lxc
     inputs.srvos.nixosModules.mixins-nginx
     flake.modules.nixos.server-j3ff
-    inputs.strykeforce.nixosModules.default
+    inputs.strykeforce.nixosModules.strykeforce-website
     ./postgresql.nix
     ./strykeforce-sync.nix
     ./strykeforce-website.nix
@@ -18,10 +18,6 @@
 
   networking.hostName = "pallas";
   nixpkgs.hostPlatform = "x86_64-linux";
-
-  environment.systemPackages = with pkgs; [
-    perSystem.strykeforce.manage
-  ];
 
   system.stateVersion = "21.11";
 }
