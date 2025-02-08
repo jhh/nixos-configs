@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  flake,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
     inputs.home-manager.darwinModules.home-manager
@@ -12,13 +17,18 @@
   };
 
   home-manager.users.jeff.imports = [
-    inputs.self.homeModules.jeff
-    inputs.self.homeModules.ghostty
-    inputs.self.homeModules.sonos
+    flake.homeModules.jeff
+    flake.homeModules.ghostty
+    flake.homeModules.sonos
+    (
+      { ... }:
+      {
+        j3ff.gui.ghostty.enable = true;
+        programs.awscli.enable = true;
+      }
+    )
   ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-
-  home-manager.users.jeff.config.j3ff.gui.ghostty.enable = true;
 }
