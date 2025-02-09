@@ -1,7 +1,7 @@
 {
   flake,
   inputs,
-  pkgs,
+  lib,
   ...
 }:
 {
@@ -21,6 +21,7 @@
   ];
 
   networking.hostName = "eris";
+  networking.firewall.enable = lib.mkForce false;
   nixpkgs.hostPlatform = "x86_64-linux";
 
   system.stateVersion = "23.11";
