@@ -32,9 +32,6 @@
     nixos-vscode-server.url = "github:nix-community/nixos-vscode-server";
     nixos-vscode-server.inputs.nixpkgs.follows = "nixpkgs";
 
-    strykeforce.url = "github:strykeforce/strykeforce.org";
-    strykeforce.inputs.nixpkgs.follows = "nixpkgs";
-
     upkeep.url = "github:jhh/upkeep";
     upkeep.inputs.nixpkgs.follows = "nixpkgs";
   };
