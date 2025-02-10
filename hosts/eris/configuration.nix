@@ -8,7 +8,7 @@
   imports = [
     flake.modules.nixos.hardware-proxmox-lxc
     inputs.srvos.nixosModules.mixins-nginx
-    inputs.puka.nixosModules.default
+    inputs.puka.nixosModules.puka
     inputs.upkeep.nixosModules.default
     flake.modules.nixos.server-j3ff
     ./gitea.nix
