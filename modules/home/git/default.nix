@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-
+{ lib, pkgs, ... }:
 let
   gitConfig = lib.mkMerge [
     {

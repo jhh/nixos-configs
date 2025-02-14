@@ -1,5 +1,4 @@
 [
-  ".envrc"
   ".direnv"
   ".vaultpw"
   "*.jvmopts"
