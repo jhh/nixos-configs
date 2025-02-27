@@ -2,15 +2,38 @@
 let
   gitConfig = lib.mkMerge [
     {
-      core = {
-        editor = "vim";
+      core.editor = "vim";
+      github.user = "jhh";
+    }
+    {
+      # https://blog.gitbutler.com/how-git-core-devs-configure-git/
+      column.ui = "auto";
+      branch.sort = "-committerdate";
+      tag.sort = "version:refname";
+      init.defaultBranch = "main";
+      diff = {
+        algorithm = "histogram";
+        colorMoved = "plain";
+        mnemonicPrefix = true;
+        renames = true;
       };
-      github = {
-        user = "jhh";
+      push = {
+        default = "simple";
+        autoSetupRemote = true;
+        followTags = true;
       };
-      init = {
-        defaultBranch = "main";
+      fetch = {
+        prune = true;
+        pruneTags = true;
+        all = true;
       };
+      rebase = {
+        autosquash = true;
+        interactive = true;
+        updateRefs = true;
+      };
+      merge.conflictStyle = "zdiff3";
+      pull.rebase = true;
     }
     (lib.mkIf pkgs.stdenv.isDarwin {
       diff = {
