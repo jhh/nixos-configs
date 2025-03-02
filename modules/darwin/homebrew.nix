@@ -27,6 +27,7 @@
       "omnigraffle"
       "postgres-unofficial"
       "postico"
+      "qlmarkdown"
       "spotify"
       "tableplus"
       "thetimemachinemechanic"
