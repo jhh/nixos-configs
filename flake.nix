@@ -17,7 +17,7 @@
     home-manager.url = "github:nix-community/home-manager?ref=release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    puka.url = "github:jhh/puka";
+    puka.url = "github:jhh/puka/5a94a34ac2e1a8240e0e9c4aba65f589b13bdb40";
     puka.inputs.nixpkgs.follows = "nixpkgs";
 
     srvos.url = "github:nix-community/srvos";
