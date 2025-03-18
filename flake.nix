@@ -38,7 +38,10 @@
 
   outputs =
     inputs:
-    inputs.blueprint { inherit inputs; }
+    inputs.blueprint {
+      inherit inputs;
+      nixpkgs.config.allowUnfree = true;
+    }
     // {
       deploy.nodes =
         let

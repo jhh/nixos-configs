@@ -57,11 +57,6 @@
     };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowBroken = false;
-  };
-
   nix = {
     gc = {
       automatic = true;
