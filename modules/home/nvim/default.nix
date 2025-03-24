@@ -9,7 +9,6 @@
     defaultEditor = true;
 
     plugins = with pkgs.vimPlugins; [
-      copilot-vim
       dash-vim
       formatter-nvim
       lazygit-nvim
