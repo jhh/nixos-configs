@@ -47,7 +47,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/7c6655d1-e9f0-4ae1-9f93-e9fd9a45d089"; }
+    { device = "/dev/md/luna:swap"; }
   ];
 
 }
