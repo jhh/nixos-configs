@@ -46,8 +46,8 @@
     fsType = "vfat";
   };
 
-  swapDevices = [
-    { device = "/dev/md/luna:swap"; }
-  ];
+  # swapDevices = [
+  #   { device = "/dev/md/luna:swap"; }
+  # ];
 
 }
