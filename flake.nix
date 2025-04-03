@@ -65,11 +65,11 @@
           ceres = { };
           eris = { };
           luna = { };
-          pluto = { };
+          # pluto = { };
           phobos = {
             fastConnection = false;
           };
-          styx = { };
+          # styx = { };
           vesta = { };
         };
 
