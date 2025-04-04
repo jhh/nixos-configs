@@ -254,17 +254,17 @@ in
           - name: unifi.rules
             rules:
             - alert: SpeedTestRunDate
-              expr: time() - unifipoller_device_speedtest_rundate_seconds > 25 * 3600
+              expr: time() - unpoller_device_speedtest_rundate_seconds > 25 * 3600
               for: 15m
               annotations:
                 description: Last Unifi speed test run was > 25 hours ago.
             - alert: SpeedTestDownload
-              expr: unifipoller_device_speedtest_download < 850
+              expr: unpoller_device_speedtest_download < 850
               for: 15m
               annotations:
                 description: Unifi speed test download < 850 Mb/s
             - alert: SpeedTestUpload
-              expr: unifipoller_device_speedtest_upload < 850
+              expr: unpoller_device_speedtest_upload < 850
               for: 15m
               annotations:
                 description: Unifi speed test upload < 850 Mb/s
