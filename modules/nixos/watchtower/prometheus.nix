@@ -80,6 +80,9 @@ in
                 targets = [
                   "localhost:${toString config.services.grafana.settings.server.http_port}"
                 ];
+                labels = {
+                  datacenter = "cloyster";
+                };
               }
             ];
           }
@@ -90,6 +93,9 @@ in
                 targets = [
                   "localhost:${toString config.services.prometheus.port}"
                 ];
+                labels = {
+                  datacenter = "cloyster";
+                };
               }
             ];
           }
@@ -99,6 +105,9 @@ in
             static_configs = [
               {
                 targets = [ "localhost:${toString config.j3ff.watchtower.pushgateway.port}" ];
+                labels = {
+                  datacenter = "cloyster";
+                };
               }
             ];
           }
@@ -113,6 +122,9 @@ in
                 targets = [
                   "localhost:9199"
                 ];
+                labels = {
+                  datacenter = "cloyster";
+                };
               }
             ];
           }
@@ -124,6 +136,9 @@ in
                 targets = [
                   "localhost:${toString config.services.prometheus.exporters.unpoller.port}"
                 ];
+                labels = {
+                  datacenter = "cloyster";
+                };
               }
             ];
           }
@@ -133,8 +148,18 @@ in
               {
                 targets = [
                   "luna:9811"
+                ];
+                labels = {
+                  datacenter = "cloyster";
+                };
+              }
+              {
+                targets = [
                   "phobos:9811"
                 ];
+                labels = {
+                  datacenter = "gembrit";
+                };
               }
             ];
           }
@@ -146,6 +171,9 @@ in
               targets = [
                 "localhost:${toString config.services.prometheus.exporters.pihole.port}"
               ];
+              labels = {
+                datacenter = "cloyster";
+              };
             }
           ];
         };
