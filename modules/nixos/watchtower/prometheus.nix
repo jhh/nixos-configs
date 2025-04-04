@@ -2,6 +2,7 @@
 { config, lib, ... }:
 let
   cfg = config.j3ff.watchtower.prometheus;
+  debNodePort = "9100";
 in
 {
   options = {
@@ -21,6 +22,10 @@ in
     networking.hosts = {
       "10.1.0.2" = [ "pihole" ];
       "100.64.244.48" = [ "phobos" ];
+      "10.1.0.12" = [ "pbs-1" ];
+      "100.114.102.106" = [ "pbs-2" ];
+      "10.1.0.9" = [ "pve-1" ];
+      "10.1.0.11" = [ "pve-2" ];
     };
 
     services.prometheus = {
@@ -47,10 +52,24 @@ in
                   "eris:${nodePort}"
                   "ceres:${nodePort}"
                   "luna:${nodePort}"
-                  "phobos:${nodePort}"
-                  "pihole:9100"
+                  "pbs-1:${debNodePort}"
+                  "pihole:${debNodePort}"
+                  "pve-1:${debNodePort}"
+                  "pve-2:${debNodePort}"
                   "vesta:${nodePort}"
                 ];
+                labels = {
+                  datacenter = "cloyster";
+                };
+              }
+              {
+                targets = [
+                  "pbs-2:${debNodePort}"
+                  "phobos:${nodePort}"
+                ];
+                labels = {
+                  datacenter = "gembrit";
+                };
               }
             ];
           }
