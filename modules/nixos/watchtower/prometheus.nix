@@ -216,6 +216,11 @@ in
               annotations:
                 description: '{{ $labels.instance }} mountpoint "{{ $labels.mountpoint }}" is > 75% full.'
                 summary: 'Instance {{ $labels.instance }} disk space'
+            - alert: AptUpgradesPending
+              expr: sum without(arch) (apt_upgrades_pending) > 0
+              for: 10m
+              annotations:
+                summary: 'Instance {{ $labels.instance }} has apt upgrades pending'
         ''
         ''
           - name: unifi.rules
