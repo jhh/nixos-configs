@@ -30,7 +30,8 @@ in
       webExternalUrl = "http://${cfg.domain}";
 
       globalConfig = {
-        evaluation_interval = "5m";
+        evaluation_interval = "1m";
+        scrape_interval = "30s";
       };
 
       scrapeConfigs =
@@ -149,7 +150,7 @@ in
             rules:
             - alert: InstanceDown
               expr: up == 0
-              for: 10m
+              for: 5m
               labels:
                 severity: page
               annotations:
@@ -163,7 +164,7 @@ in
                 severity: page
             - alert: PiholeStatus
               expr: pihole_status == 0
-              for: 10m
+              for: 5m
               labels:
                 severity: page
         ''
