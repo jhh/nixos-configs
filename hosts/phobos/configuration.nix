@@ -10,7 +10,7 @@
     inputs.srvos.nixosModules.server
     inputs.srvos.nixosModules.mixins-systemd-boot
     flake.modules.nixos.server-j3ff
-    flake.modules.nixos.smartd
+    flake.modules.nixos.smartctl-exporter
     flake.modules.nixos.zfs
     flake.modules.nixos.zrepl
     ./hardware-configuration.nix

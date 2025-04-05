@@ -112,6 +112,28 @@ in
             ];
           }
           {
+            job_name = "smartctl";
+            scrape_interval = "1m";
+            static_configs = [
+              {
+                targets = [
+                  "luna:${toString config.services.prometheus.exporters.smartctl.port}"
+                ];
+                labels = {
+                  datacenter = "cloyster";
+                };
+              }
+              {
+                targets = [
+                  "phobos:${toString config.services.prometheus.exporters.smartctl.port}"
+                ];
+                labels = {
+                  datacenter = "gembrit";
+                };
+              }
+            ];
+          }
+          {
             job_name = "ups";
             metrics_path = "/ups_metrics";
             params = {
@@ -191,6 +213,7 @@ in
       ruleFiles = [
         ./node-rules.yml
         ./push-rules.yml
+        ./smartctl-rules.yml
         ./unifi-rules.yml
         ./ups-rules.yml
       ] ++ lib.optional config.j3ff.watchtower.exporters.pihole.enable ./pihole-rules;
