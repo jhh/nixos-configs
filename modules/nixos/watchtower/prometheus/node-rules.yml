@@ -49,3 +49,17 @@ groups:
           severity: info
         annotations:
           summary: Instance {{ $labels.instance }} has uptime > 30 days
+      - alert: ZfsOfflinePool
+        expr: node_zfs_zpool_state{state!="online"} > 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: Instance {{ $labels.instance }} has ZFS offline pool ({{ $labels.state }})
+      - alert: HostNetworkBondDegraded
+        expr: ((node_bonding_active - node_bonding_slaves) != 0)
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: Host Network Bond Degraded (instance {{ $labels.instance }})
