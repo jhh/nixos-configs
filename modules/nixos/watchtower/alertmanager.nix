@@ -35,16 +35,12 @@ in
         };
         route = {
           receiver = "email";
-          repeat_interval = "4h";
+          repeat_interval = "12h";
           routes = [
             {
               receiver = "pushover";
-              repeat_interval = "15m";
-              matchers = [
-                ''
-                  severity="page"
-                ''
-              ];
+              repeat_interval = "4h";
+              matchers = [ ''severity="page"'' ];
             }
           ];
         };
