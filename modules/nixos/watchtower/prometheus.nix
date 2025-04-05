@@ -239,16 +239,15 @@ in
               expr: predict_linear(node_filesystem_free_bytes{job="node",fstype="ext4"}[6h], 24 * 3600) < 0
               for: 10m
             - alert: DiskSpace
-              expr: node_filesystem_avail_bytes{fstype="ext4"} / node_filesystem_size_bytes{fstype="ext4"} < 0.25
+              expr: node_filesystem_avail_bytes{fstype!~"ramfs|tmpfs|fuse.*"} / node_filesystem_size_bytes{fstype!~"ramfs|tmpfs|fuse.*"} < 0.15
               for: 10m
               annotations:
-                description: '{{ $labels.instance }} mountpoint "{{ $labels.mountpoint }}" is > 75% full.'
-                summary: 'Instance {{ $labels.instance }} disk space'
+                description: '{{ $labels.instance }} mountpoint "{{ $labels.mountpoint }}" is > 85% full.'
             - alert: AptUpgradesPending
               expr: sum without(arch) (apt_upgrades_pending) > 0
               for: 10m
               annotations:
-                summary: 'Instance {{ $labels.instance }} has apt upgrades pending'
+                description: 'Instance {{ $labels.instance }} has apt upgrades pending'
         ''
         ''
           - name: unifi.rules
