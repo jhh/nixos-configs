@@ -7,3 +7,10 @@ groups:
         expr: network_ups_tools_ups_status{flag="OB"} == 1
         labels:
           severity: critical
+      - alert: UpsLessThan15MinutesOfBatteryTimeRemaining
+        expr: predict_linear(network_ups_tools_battery_charge[2m], 15 * 60) <= 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: UPS battery is almost empty (< 15 Minutes remaining)
