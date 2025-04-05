@@ -5,7 +5,7 @@
     ./alertmanager.nix
     ./grafana.nix
     ./nut-exporter.nix
-    ./prometheus.nix
+    ./prometheus
     ./pushgateway.nix
     ./pihole-exporter.nix
     ./unifi-exporter.nix

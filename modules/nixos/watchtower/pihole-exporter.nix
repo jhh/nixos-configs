@@ -14,6 +14,7 @@ in
     services.prometheus.exporters.pihole = {
       enable = true;
       piholeHostname = "10.1.0.2";
+      extraFlags = [ "-pihole_admin_context /" ];
     };
   };
 }

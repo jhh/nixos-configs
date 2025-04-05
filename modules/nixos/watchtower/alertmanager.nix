@@ -1,10 +1,5 @@
 # common/modules/watchtower/alertmanager.nix
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, ... }:
 let
   cfg = config.j3ff.watchtower.alertmanager;
 in

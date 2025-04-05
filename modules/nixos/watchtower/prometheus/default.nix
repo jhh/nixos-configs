@@ -188,87 +188,12 @@ in
         }
       ];
 
-      rules = [
-        ''
-          groups:
-        ''
-        ''
-          - name: default.rules
-            rules:
-            - alert: InstanceDown
-              expr: up == 0
-              for: 5m
-              labels:
-                severity: page
-              annotations:
-                description: '{{ $labels.instance }} has been down for more than 5 minutes.'
-                summary: 'Instance {{ $labels.instance }} down'
-            - alert: UpsStatus
-              expr: changes(network_ups_tools_ups_status[5m]) > 0
-            - alert: UpsOnBattery
-              expr: network_ups_tools_ups_status{flag="OB"} == 1
-              labels:
-                severity: page
-            - alert: PiholeStatus
-              expr: pihole_status == 0
-              for: 5m
-              labels:
-                severity: page
-        ''
-        ''
-          - name: backup.rules
-            rules:
-            - alert: PbsBackupFail
-              expr: time() - pbs_backup_completion_timestamp_seconds > 25*3600
-              for: 1h
-            - alert: PostgresqlBackupFail
-              expr: postgresql_backup_status == 0
-              for: 1h
-        ''
-        ''
-          - name: node.rules
-            rules:
-            - alert: ServiceFail
-              expr: node_systemd_unit_state{state="failed"} > 0
-              for: 10m
-              annotations:
-                description: Instance {{ $labels.instance }} service {{ $labels.name }} is in failed state.
-              labels:
-                severity: page
-            - alert: DiskWillFillIn1Day
-              expr: predict_linear(node_filesystem_free_bytes{job="node",fstype="ext4"}[6h], 24 * 3600) < 0
-              for: 10m
-            - alert: DiskSpace
-              expr: node_filesystem_avail_bytes{fstype!~"ramfs|tmpfs|fuse.*"} / node_filesystem_size_bytes{fstype!~"ramfs|tmpfs|fuse.*"} < 0.15
-              for: 10m
-              annotations:
-                description: '{{ $labels.instance }} mountpoint "{{ $labels.mountpoint }}" is > 85% full.'
-            - alert: AptUpgradesPending
-              expr: sum without(arch) (apt_upgrades_pending) > 0
-              for: 10m
-              annotations:
-                description: 'Instance {{ $labels.instance }} has apt upgrades pending'
-        ''
-        ''
-          - name: unifi.rules
-            rules:
-            - alert: SpeedTestRunDate
-              expr: time() - unpoller_device_speedtest_rundate_seconds > 25 * 3600
-              for: 15m
-              annotations:
-                description: Last Unifi speed test run was > 25 hours ago.
-            - alert: SpeedTestDownload
-              expr: unpoller_device_speedtest_download < 850
-              for: 15m
-              annotations:
-                description: Unifi speed test download < 850 Mb/s
-            - alert: SpeedTestUpload
-              expr: unpoller_device_speedtest_upload < 850
-              for: 15m
-              annotations:
-                description: Unifi speed test upload < 850 Mb/s
-        ''
-      ];
+      ruleFiles = [
+        ./node-rules.yml
+        ./push-rules.yml
+        ./unifi-rules.yml
+        ./ups-rules.yml
+      ] ++ lib.optional config.j3ff.watchtower.exporters.pihole.enable ./pihole-rules;
 
     };
 

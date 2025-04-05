@@ -1,0 +1,8 @@
+groups:
+  - name: pihole_rules
+    rules:
+      - alert: PiholeStatus
+        expr: pihole_status == 0
+        for: 5m
+        labels:
+          severity: page
