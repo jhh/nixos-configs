@@ -17,16 +17,22 @@ groups:
         annotations:
           description: Instance {{ $labels.instance }} service {{ $labels.name }} is in failed state.
       - alert: DiskWillFillIn1Day
-        expr: predict_linear(node_filesystem_free_bytes{job="node",fstype="ext4"}[6h], 24 * 3600) < 0
+        expr: predict_linear(node_filesystem_free_bytes{job="node",fstype=~"ext4|zfs"}[6h], 24 * 3600) < 0
         for: 10m
+        labels:
+          severity: warning
       - alert: DiskSpace
-        expr: node_filesystem_avail_bytes{fstype!~"ramfs|tmpfs|fuse.*"} / node_filesystem_size_bytes{fstype!~"ramfs|tmpfs|fuse.*"} < 0.15
+        expr: node_filesystem_avail_bytes{fstype=~"ext4|zfs"} / node_filesystem_size_bytes{fstype=~"ext4|zfs"} < 0.15
         for: 10m
+        labels:
+          severity: info
         annotations:
           summary: '{{ $labels.instance }} mountpoint "{{ $labels.mountpoint }}" is > 85% full'
       - alert: AptUpgradesPending
         expr: sum without(arch) (apt_upgrades_pending) > 0
         for: 10m
+        labels:
+          severity: info
         annotations:
           summary: Instance {{ $labels.instance }} has apt upgrades pending
       - alert: HostRequiresReboot
@@ -36,3 +42,10 @@ groups:
           severity: info
         annotations:
           summary: Host requires reboot (instance {{ $labels.instance }})
+      - alert: HostUptime
+        expr: (time() - node_boot_time_seconds ) / (24*3600) > 30
+        for: 10m
+        labels:
+          severity: info
+        annotations:
+          summary: Instance {{ $labels.instance }} has uptime > 30 days
