@@ -6,4 +6,4 @@ groups:
       - alert: UpsOnBattery
         expr: network_ups_tools_ups_status{flag="OB"} == 1
         labels:
-          severity: page
+          severity: critical

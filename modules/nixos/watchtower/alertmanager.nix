@@ -30,12 +30,17 @@ in
         };
         route = {
           receiver = "email";
-          repeat_interval = "12h";
           routes = [
+            {
+              receiver = "email";
+              repeat_interval = "12h";
+              matchers = [ ''severity=~"critical|warning|info"'' ];
+              continue = true;
+            }
             {
               receiver = "pushover";
               repeat_interval = "4h";
-              matchers = [ ''severity=~"critical|page"'' ];
+              matchers = [ ''severity="critical"'' ];
             }
           ];
         };

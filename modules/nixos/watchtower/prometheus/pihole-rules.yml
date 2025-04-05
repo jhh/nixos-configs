@@ -5,4 +5,4 @@ groups:
         expr: pihole_status == 0
         for: 5m
         labels:
-          severity: page
+          severity: critical
