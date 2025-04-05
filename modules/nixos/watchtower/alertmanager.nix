@@ -35,7 +35,7 @@ in
             {
               receiver = "pushover";
               repeat_interval = "4h";
-              matchers = [ ''severity=~"(critical|page)"'' ];
+              matchers = [ ''severity=~"critical|page"'' ];
             }
           ];
         };
