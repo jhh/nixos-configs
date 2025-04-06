@@ -38,5 +38,18 @@
     };
   };
 
+  systemd.services.test = {
+    enable = true;
+    script = ''
+      while true; do
+          if [ -f /tmp/fail ]; then
+              echo "/tmp/fail exists, exiting..."
+              exit -1
+          fi
+          sleep 1s
+      done
+    '';
+  };
+
   system.stateVersion = "21.05";
 }
