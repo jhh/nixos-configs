@@ -34,7 +34,7 @@ groups:
         labels:
           severity: info
         annotations:
-          summary: Instance {{ $labels.instance }} has apt upgrades pending
+          summary: Instance {{ $labels.instance }} has {{ $value }} apt upgrade(s) pending
       - alert: HostRequiresReboot
         expr: node_reboot_required > 0
         for: 4h
