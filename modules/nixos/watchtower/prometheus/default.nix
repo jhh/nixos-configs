@@ -3,6 +3,7 @@
 let
   cfg = config.j3ff.watchtower.prometheus;
   debNodePort = "9100";
+  pbsExporterPort = "10019";
 in
 {
   options = {
@@ -82,6 +83,27 @@ in
                 ];
                 labels = {
                   datacenter = "cloyster";
+                };
+              }
+            ];
+          }
+          {
+            job_name = "pbs";
+            static_configs = [
+              {
+                targets = [
+                  "pbs-1:${pbsExporterPort}"
+                ];
+                labels = {
+                  datacenter = "cloyster";
+                };
+              }
+              {
+                targets = [
+                  "pbs-2:${pbsExporterPort}"
+                ];
+                labels = {
+                  datacenter = "gembrit";
                 };
               }
             ];
@@ -212,6 +234,7 @@ in
 
       ruleFiles = [
         ./node-rules.yml
+        ./pbs-rules.yml
         ./push-rules.yml
         ./smartctl-rules.yml
         ./unifi-rules.yml

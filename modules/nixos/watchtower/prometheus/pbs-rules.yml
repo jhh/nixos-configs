@@ -1,0 +1,10 @@
+groups:
+  - name: pbs_rules
+    rules:
+      - alert: InstanceDown
+        expr: pbs_up{job="pbs"} == 0
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: PBS instance {{ $labels.instance }} down
