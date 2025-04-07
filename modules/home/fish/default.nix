@@ -53,7 +53,10 @@ in
           [
             (builtins.readFile ./config.fish)
           ]
-          ++ (lib.optional pkgs.stdenv.isDarwin "eval (/opt/homebrew/bin/brew shellenv)")
+          ++ (lib.optionals pkgs.stdenv.isDarwin [
+            "eval (/opt/homebrew/bin/brew shellenv)"
+            ''fish_add_path "$HOME/.local/bin"''
+          ])
         );
       in
       initFish;
