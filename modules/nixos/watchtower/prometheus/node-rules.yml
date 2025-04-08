@@ -66,3 +66,15 @@ groups:
       - alert: PveBackupFail
         expr: time() - pve_backup_completion_timestamp_seconds > 25*3600
         for: 1h
+      - alert: PiholeVersionsCacheStale
+        expr: time() - pihole_versions_cache_timestamp_seconds > 25*3600
+        for: 1h
+        labels:
+          severity: warning
+      - alert: PiholeUpgradesPending
+        expr: pihole_upgrades_pending > 0
+        for: 1h
+        labels:
+          severity: info
+        annotations:
+          summary: Instance {{ $labels.instance }} has {{ $value }} Pihole upgrade(s) pending
