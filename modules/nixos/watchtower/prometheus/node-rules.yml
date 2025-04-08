@@ -63,3 +63,6 @@ groups:
           severity: warning
         annotations:
           summary: Host Network Bond Degraded (instance {{ $labels.instance }})
+      - alert: PveBackupFail
+        expr: time() - pve_backup_completion_timestamp_seconds > 25*3600
+        for: 1h

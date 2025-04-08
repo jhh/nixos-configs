@@ -19,7 +19,7 @@
   j3ff.watchtower = {
     alertmanager.enable = true;
     prometheus.enable = true;
-    pushgateway.enable = true;
+    pushgateway.enable = false;
     grafana.enable = true;
     exporters = {
       nut.enable = true;
