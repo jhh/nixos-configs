@@ -61,8 +61,7 @@ in
               {
                 user_key = "ugdx1vs5quycvqg3stin54ps5jqm3i";
                 token = "$PUSHOVER_TOKEN";
-                retry = "1h";
-                expire = "4h";
+                priority = ''{{ if eq .Status "firing" }}1{{ else }}-1{{ end }}'';
               }
             ];
           }
