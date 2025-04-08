@@ -43,6 +43,14 @@ in
       scrapeConfigs =
         let
           nodePort = toString config.services.prometheus.exporters.node.port;
+          relabel_configs = [
+            {
+              source_labels = [ "__address__" ];
+              target_label = "instance";
+              replacement = "\${1}";
+              regex = "([^:]+):([0-9]+)";
+            }
+          ];
         in
         [
           {
@@ -73,6 +81,7 @@ in
                 };
               }
             ];
+            inherit relabel_configs;
           }
           {
             job_name = "grafana";
@@ -84,6 +93,12 @@ in
                 labels = {
                   datacenter = "cloyster";
                 };
+              }
+            ];
+            relabel_configs = [
+              {
+                target_label = "instance";
+                replacement = "vesta";
               }
             ];
           }
@@ -107,6 +122,7 @@ in
                 };
               }
             ];
+            inherit relabel_configs;
           }
           {
             job_name = "prometheus";
@@ -120,6 +136,12 @@ in
                 };
               }
             ];
+            relabel_configs = [
+              {
+                target_label = "instance";
+                replacement = "vesta";
+              }
+            ];
           }
           {
             job_name = "push";
@@ -130,6 +152,12 @@ in
                 labels = {
                   datacenter = "cloyster";
                 };
+              }
+            ];
+            relabel_configs = [
+              {
+                target_label = "instance";
+                replacement = "vesta";
               }
             ];
           }
@@ -154,6 +182,7 @@ in
                 };
               }
             ];
+            inherit relabel_configs;
           }
           {
             job_name = "ups";
@@ -171,6 +200,12 @@ in
                 };
               }
             ];
+            relabel_configs = [
+              {
+                target_label = "instance";
+                replacement = "pve-1";
+              }
+            ];
           }
           {
             job_name = "unifi";
@@ -183,6 +218,12 @@ in
                 labels = {
                   datacenter = "cloyster";
                 };
+              }
+            ];
+            relabel_configs = [
+              {
+                target_label = "instance";
+                replacement = "cloyster";
               }
             ];
           }
@@ -206,6 +247,7 @@ in
                 };
               }
             ];
+            inherit relabel_configs;
           }
         ]
         ++ lib.optional config.j3ff.watchtower.exporters.pihole.enable {
@@ -218,6 +260,12 @@ in
               labels = {
                 datacenter = "cloyster";
               };
+            }
+          ];
+          relabel_configs = [
+            {
+              target_label = "instance";
+              replacement = "pihole";
             }
           ];
         };
@@ -235,7 +283,6 @@ in
       ruleFiles = [
         ./node-rules.yml
         ./pbs-rules.yml
-        ./push-rules.yml
         ./smartctl-rules.yml
         ./unifi-rules.yml
         ./ups-rules.yml
