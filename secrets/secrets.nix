@@ -43,6 +43,10 @@ in
     eris
   ];
   "paperless_passwd.age".publicKeys = [ jeff ] ++ hosts;
+  "pbs_gembrit.age".publicKeys = [
+    jeff
+    phobos
+  ];
   "pgadmin_passwd.age".publicKeys = [
     jeff
     eris
