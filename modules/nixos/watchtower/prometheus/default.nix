@@ -32,7 +32,7 @@ in
     services.prometheus = {
       enable = true;
       port = 9001;
-      retentionTime = "15d";
+      retentionTime = "45d";
       webExternalUrl = "http://${cfg.domain}";
 
       globalConfig = {
