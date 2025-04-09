@@ -16,3 +16,10 @@ groups:
         for: 15m
         annotations:
           description: Unifi speed test upload < 850 Mb/s
+      - alert: UnifiDeviceUptime
+        expr: (unpoller_device_uptime_seconds / (24 * 3600)) > 30
+        for: 5m
+        labels:
+          severity: info
+        annotations:
+          description: "Unifi device {{ $labels.name }} has uptime of {{ printf \"%.1f\" $value }} > 30 days"
