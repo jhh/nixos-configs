@@ -11,6 +11,7 @@ in
   imports = [
     flake.modules.nixos.hardware-proxmox-lxc
     flake.modules.nixos.server-j3ff
+    inputs.speedtest.nixosModules.default
     inputs.srvos.nixosModules.mixins-nginx
     flake.modules.nixos.watchtower
     flake.modules.nixos.home-manager-jeff

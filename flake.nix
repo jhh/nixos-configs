@@ -34,6 +34,9 @@
 
     upkeep.url = "github:jhh/upkeep";
     upkeep.inputs.nixpkgs.follows = "nixpkgs";
+
+    speedtest.url = "github:jhh/prometheus-speedtest-collector";
+    speedtest.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
