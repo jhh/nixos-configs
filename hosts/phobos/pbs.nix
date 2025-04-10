@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   age.secrets.pbs_gembrit = {
     file = ../../secrets/pbs_gembrit.age;

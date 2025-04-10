@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  promNodeTextfilesDir = "/var/local/prometheus/node-exporter";
+in
 {
   imports = [
     flake.modules.nixos.hardware-proxmox-lxc
@@ -50,6 +53,16 @@
       done
     '';
   };
+
+  # prometheus node exporter textfiles collection directory
+
+  systemd.tmpfiles.rules = [
+    "d ${promNodeTextfilesDir} 0755 node-exporter node-exporter 10d -"
+  ];
+
+  services.prometheus.exporters.node.extraFlags = [
+    "--collector.textfile.directory ${promNodeTextfilesDir}"
+  ];
 
   system.stateVersion = "21.05";
 }
