@@ -28,6 +28,8 @@ in
     exporters = {
       nut.enable = true;
       pihole.enable = false;
+      speedtest.enable = true;
+      speedtest.interval = "4h";
       unifi.enable = true;
     };
   };
