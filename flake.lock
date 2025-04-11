@@ -557,11 +557,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1744317520,
-        "narHash": "sha256-49AoHTOqs2e+LtthhYGVNkPkRLBIAiBSeDKOHV3Brn4=",
+        "lastModified": 1744380733,
+        "narHash": "sha256-81ujRotcCcklKAzRPyNZnsdR2skk4Ve8x27gdp0FfoI=",
         "owner": "jhh",
         "repo": "prometheus-speedtest-collector",
-        "rev": "e9e999cd7a759fae14eca1244d4c03ebe1044527",
+        "rev": "2af5820e398da4fc63c7405bb21bab53430de32f",
         "type": "github"
       },
       "original": {
