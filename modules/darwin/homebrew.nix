@@ -32,6 +32,7 @@
       "thetimemachinemechanic"
       "transmit"
       "visual-studio-code"
+      "zotero"
     ];
 
     # masApps = {
