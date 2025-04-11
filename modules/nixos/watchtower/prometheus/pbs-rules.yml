@@ -8,3 +8,24 @@ groups:
           severity: warning
         annotations:
           summary: PBS instance {{ $labels.instance }} down
+      - alert: DailyBackupOverdue
+        expr: (time() - pbs_snapshot_vm_last_timestamp{namespace="daily"}) / (3600) > 24
+        for: 1h
+        labels:
+          serverity: warning
+        annotations:
+          summary: "Daily backup overdue for {{ $labels.vm_name }} on {{ $labels.instance }}: {{ $value }}"
+      - alert: WeeklyBackupOverdue
+        expr: (time() - pbs_snapshot_vm_last_timestamp{namespace="weekly"}) / (3600) > 168
+        for: 1h
+        labels:
+          serverity: warning
+        annotations:
+          summary: "Weekly backup overdue for {{ $labels.vm_name }} on {{ $labels.instance }}: {{ $value }}"
+      - alert: MonthlyBackupOverdue
+        expr: (time() - pbs_snapshot_vm_last_timestamp{namespace="monthly"}) / (3600) > 840 # 35 days is max 1st Sat -> 1st Sat
+        for: 1h
+        labels:
+          serverity: warning
+        annotations:
+          summary: "Monthly backup overdue for {{ $labels.vm_name }} on {{ $labels.instance }}: {{ $value }}"
