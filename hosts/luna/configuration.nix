@@ -16,6 +16,7 @@
     flake.modules.nixos.zrepl
     ./hardware-configuration.nix
     ./nfs.nix
+    ./pbs.nix
     ./plex.nix
     ./samba.nix
     ./rclone.nix
