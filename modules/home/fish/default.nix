@@ -87,6 +87,5 @@ in
     ".config/eza/theme.yml" = {
       source = ./catppuccin_eza.yml;
     };
-
   };
 }

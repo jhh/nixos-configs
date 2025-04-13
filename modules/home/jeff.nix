@@ -5,6 +5,7 @@
     ./fish
     ./git
     ./nvim
+    ./zed.nix
   ];
 
   home.sessionVariables = {
