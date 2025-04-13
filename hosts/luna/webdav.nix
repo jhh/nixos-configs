@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   services.webdav = {
     enable = true;
