@@ -1,9 +1,4 @@
-{
-  flake,
-  inputs,
-  pkgs,
-  ...
-}:
+{ flake, inputs, ... }:
 let
   promNodeTextfilesDir = "/var/local/prometheus/node-exporter";
 in
