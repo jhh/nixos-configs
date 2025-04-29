@@ -38,6 +38,7 @@
       ports.dns = 53;
       ports.http = 9101;
       prometheus.enable = true;
+      queryLog.type = "none";
     };
   };
 
@@ -46,4 +47,5 @@
     53
     9101
   ];
+
 }
