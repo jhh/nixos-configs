@@ -1,9 +1,4 @@
-{
-  config,
-  flake,
-  inputs,
-  ...
-}:
+{ flake, inputs, ... }:
 
 {
   imports = [
