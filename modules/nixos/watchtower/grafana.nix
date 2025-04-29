@@ -29,6 +29,7 @@ in
         http_port = 2342;
         http_addr = "127.0.0.1";
       };
+      settings.panels.disable_sanitize_html = true;
       declarativePlugins = with pkgs.grafanaPlugins; [
         grafana-piechart-panel
         grafana-clock-panel

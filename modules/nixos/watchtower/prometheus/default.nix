@@ -4,6 +4,7 @@ let
   cfg = config.j3ff.watchtower.prometheus;
   debNodePort = "9100";
   pbsExporterPort = "10019";
+  blockyPort = 9101;
 in
 {
   options = {
@@ -27,6 +28,7 @@ in
       "100.114.102.106" = [ "pbs-2" ];
       "10.1.0.9" = [ "pve-1" ];
       "10.1.0.11" = [ "pve-2" ];
+      "10.1.0.50" = [ "pluto" ];
     };
 
     services.prometheus = {
@@ -54,6 +56,18 @@ in
         in
         [
           {
+            job_name = "blocky";
+            static_configs = [
+              {
+                targets = [ "pluto:${toString blockyPort}" ];
+                labels = {
+                  datacenter = "cloyster";
+                };
+              }
+            ];
+            inherit relabel_configs;
+          }
+          {
             job_name = "node";
             static_configs = [
               {
@@ -62,7 +76,7 @@ in
                   "ceres:${nodePort}"
                   "luna:${nodePort}"
                   "pbs-1:${debNodePort}"
-                  "pihole:${debNodePort}"
+                  "pluto:${nodePort}"
                   "pve-1:${debNodePort}"
                   "pve-2:${debNodePort}"
                   "vesta:${nodePort}"
@@ -131,24 +145,6 @@ in
                 targets = [
                   "localhost:${toString config.services.prometheus.port}"
                 ];
-                labels = {
-                  datacenter = "cloyster";
-                };
-              }
-            ];
-            relabel_configs = [
-              {
-                target_label = "instance";
-                replacement = "vesta";
-              }
-            ];
-          }
-          {
-            job_name = "push";
-            honor_labels = true;
-            static_configs = [
-              {
-                targets = [ "localhost:${toString config.j3ff.watchtower.pushgateway.port}" ];
                 labels = {
                   datacenter = "cloyster";
                 };

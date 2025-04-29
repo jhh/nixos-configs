@@ -1,0 +1,4 @@
+*.apple.com
+*.ethicalads.io
+*.icloud.com
+*.sonos.com
