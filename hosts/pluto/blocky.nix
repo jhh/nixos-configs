@@ -35,6 +35,11 @@
         clientGroupsBlock.default = [ "default" ];
       };
 
+      caching = {
+        minTime = "5m";
+        prefetching = true;
+      };
+
       ports.dns = 53;
       ports.http = 9101;
       prometheus.enable = true;
