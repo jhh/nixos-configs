@@ -43,9 +43,15 @@
       ports.dns = 53;
       ports.http = 9101;
       prometheus.enable = true;
-      queryLog.type = "none";
+
+      queryLog = {
+        type = "none";
+        target = "/var/log/blocky";
+      };
     };
   };
+
+  systemd.services.blocky.serviceConfig.LogsDirectory = "blocky";
 
   networking.firewall.allowedUDPPorts = [ 53 ];
   networking.firewall.allowedTCPPorts = [

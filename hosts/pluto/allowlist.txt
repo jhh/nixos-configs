@@ -2,3 +2,5 @@
 *.ethicalads.io
 *.icloud.com
 *.sonos.com
+link.theatlantic.com
+link.nymag.com
