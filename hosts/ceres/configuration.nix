@@ -42,6 +42,15 @@ in
     group = mediaGroup;
   };
 
+  # radarr
+
+  services.readarr = {
+    enable = true;
+    package = pkgsUnstable.readarr;
+    user = mediaUser;
+    group = mediaGroup;
+  };
+
   # sabnzbd
 
   systemd.tmpfiles.rules = [
@@ -69,6 +78,14 @@ in
       locations = {
         "/" = {
           proxyPass = "http://127.0.0.1:7878";
+        };
+      };
+    };
+
+    "readarr.j3ff.io" = {
+      locations = {
+        "/" = {
+          proxyPass = "http://127.0.0.1:8787";
         };
       };
     };

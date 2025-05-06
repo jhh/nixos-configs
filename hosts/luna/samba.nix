@@ -38,6 +38,14 @@
     };
 
     settings = {
+      Books = {
+        path = "/mnt/tank/media/books";
+        "valid users" = "jeff";
+        "force user" = "media";
+        public = "no";
+        writeable = "yes";
+      };
+
       Jeff = {
         path = "/mnt/tank/share/jeff";
         "valid users" = "jeff";
