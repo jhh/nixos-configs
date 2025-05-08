@@ -146,11 +146,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1746703530,
-        "narHash": "sha256-8jV3tatMPckIbBMkNt4iVBA03LIyvZS7jsdLEU+MAH8=",
+        "lastModified": 1746720424,
+        "narHash": "sha256-06kPa+oz6VLXgeroZhE6POHw9HkUZM823NLdXaiYC8k=",
         "ref": "refs/heads/main",
-        "rev": "0650cc0f606e49903191dbc110dc41880c30112f",
-        "revCount": 7,
+        "rev": "e4afc45f0deac6ea7445213d053ce8a31949b620",
+        "revCount": 8,
         "type": "git",
         "url": "https://gitea.j3ff.io/jeff/ceres.git"
       },
