@@ -1,0 +1,10 @@
+groups:
+  - name: gitea_rules
+    rules:
+      - alert: GiteaDumpOverdue
+        expr: (time() - gitea_dump_timestamp_seconds) / (3600) > 24
+        for: 1h
+        labels:
+          serverity: warning
+        annotations:
+          summary: "Daily Gitea dump overdue on {{ $labels.instance }}: {{ printf \"%.1f\" $value }}"

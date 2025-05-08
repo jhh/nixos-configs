@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   imports = [
     inputs.srvos.nixosModules.server
@@ -25,4 +25,6 @@
     fstrim.enable = true;
     getty.autologinUser = "root";
   };
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

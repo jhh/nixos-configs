@@ -277,6 +277,7 @@ in
       ];
 
       ruleFiles = [
+        ./gitea-rules.yml
         ./node-rules.yml
         ./pbs-rules.yml
         ./smartctl-rules.yml

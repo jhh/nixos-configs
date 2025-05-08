@@ -1,7 +1,6 @@
 {
   inputs,
   config,
-  flake,
   lib,
   pkgs,
   ...
@@ -9,6 +8,7 @@
 {
   imports = [
     inputs.agenix.nixosModules.default
+    ./node-exporter.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -44,17 +44,6 @@
     relayHost = "smtp.fastmail.com";
     relayPort = 587;
     rootAlias = "jeff@j3ff.io";
-  };
-
-  services.prometheus = {
-    exporters = {
-      node = {
-        enable = true;
-        enabledCollectors = [ "systemd" ];
-        port = 9002;
-        openFirewall = true;
-      };
-    };
   };
 
   nix = {

@@ -59,9 +59,20 @@ in
   systemd.services.gitea-dump-prune = {
     enable = true;
     startAt = "daily";
+    path = with pkgs; [
+      findutils
+      moreutils
+    ];
 
     script = ''
-      ${pkgs.findutils}/bin/find ${backupDir} -type f -mtime +5 -exec rm {} \;
+      find ${backupDir} -type f -mtime +5 -exec rm {} \;
+      (
+        timestamp=$(find /var/backup/gitea -type f -printf '%T@ %p\n' | sort -nr | head -n 1 | cut -d . -f 1)
+        echo "# HELP gitea_dump_timestamp_seconds Unix timestamp of the most recent gitea dump file"
+        echo "# TYPE gitea_dump_timestamp_seconds gauge"
+        echo "gitea_dump_timestamp_seconds $timestamp"
+
+      ) | sponge "${config.j3ff.nodeExporter.textfileDir}/gitea_dump.prom"
     '';
   };
 
