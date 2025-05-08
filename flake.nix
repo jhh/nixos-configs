@@ -11,6 +11,9 @@
     blueprint.url = "github:numtide/blueprint";
     blueprint.inputs.nixpkgs.follows = "nixpkgs";
 
+    ceres.url = "git+https://gitea.j3ff.io/jeff/ceres.git";
+    ceres.inputs.nixpkgs.follows = "nixpkgs-unstable";
+
     deploy-rs.url = "github:serokell/deploy-rs";
     deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -45,9 +48,11 @@
       inherit inputs;
     }
     // {
+      # inherit (inputs.ceres) nixosConfigurations;
       deploy.nodes =
         let
           inherit (inputs.nixpkgs) lib;
+          nixosConfigurations = inputs.self.nixosConfigurations // inputs.ceres.nixosConfigurations;
           nodeFor =
             hostname:
             {
@@ -59,7 +64,7 @@
                 inherit hostname fastConnection sshUser;
                 profiles.system = {
                   user = "root";
-                  path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations.${hostname};
+                  path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos nixosConfigurations.${hostname};
                 };
               };
             };
@@ -72,7 +77,7 @@
           phobos = {
             fastConnection = false;
           };
-          # styx = { };
+          styx = { };
           vesta = { };
         };
 
