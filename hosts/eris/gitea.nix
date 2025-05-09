@@ -61,11 +61,22 @@ in
     startAt = "daily";
     path = with pkgs; [
       findutils
-      moreutils
     ];
 
     script = ''
       find ${backupDir} -type f -mtime +5 -exec rm {} \;
+    '';
+  };
+
+  systemd.services.prometheus-node-exporter-gitea = {
+    enable = true;
+    startAt = "*:0/15";
+    path = with pkgs; [
+      findutils
+      moreutils
+    ];
+
+    script = ''
       (
         timestamp=$(find /var/backup/gitea -type f -printf '%T@ %p\n' | sort -nr | head -n 1 | cut -d . -f 1)
         echo "# HELP gitea_dump_timestamp_seconds Unix timestamp of the most recent gitea dump file"
