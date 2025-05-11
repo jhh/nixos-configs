@@ -36,7 +36,7 @@
       };
 
       caching = {
-        minTime = "5m";
+        minTime = "6m";
         prefetching = true;
       };
 
