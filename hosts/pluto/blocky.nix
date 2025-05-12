@@ -25,6 +25,8 @@
         "https://dns.google/dns-query"
       ];
 
+      hostsFile.sources = [ ./hosts.txt ];
+
       blocking = {
         denylists.default = [
           "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
@@ -36,7 +38,7 @@
       };
 
       caching = {
-        minTime = "6m";
+        minTime = "7m";
         prefetching = true;
       };
 
