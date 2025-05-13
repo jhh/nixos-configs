@@ -20,7 +20,7 @@
       nut.enable = true;
       pihole.enable = false;
       speedtest.enable = true;
-      speedtest.interval = "8h";
+      speedtest.interval = "24h";
       unifi.enable = true;
     };
   };
