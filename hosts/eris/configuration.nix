@@ -9,7 +9,6 @@
     flake.modules.nixos.hardware-proxmox-lxc
     inputs.srvos.nixosModules.mixins-nginx
     inputs.puka.nixosModules.puka
-    inputs.upkeep.nixosModules.default
     flake.modules.nixos.server-j3ff
     ./gitea.nix
     ./miniflux.nix
@@ -17,7 +16,6 @@
     ./paperless.nix
     ./postgresql.nix
     ./puka.nix
-    ./upkeep.nix
   ];
 
   networking.hostName = "eris";
