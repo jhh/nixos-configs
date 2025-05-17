@@ -19,7 +19,6 @@
       "miniflux"
       "paperless"
       "puka"
-      "upkeep"
     ];
     pgdumpOptions = "--clean";
   };

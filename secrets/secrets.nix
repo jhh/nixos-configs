@@ -89,11 +89,6 @@ in
     jeff
     vesta
   ];
-  "upkeep_secrets.age".publicKeys = [
-    jeff
-    eris
-    styx
-  ];
   "upsmon.conf.age".publicKeys = [
     jeff
     luna
