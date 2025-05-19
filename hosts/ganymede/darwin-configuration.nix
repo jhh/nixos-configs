@@ -7,6 +7,8 @@
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
+  system.primaryUser = "jeff";
+
   nix.linux-builder = {
     enable = true;
     ephemeral = true;
@@ -21,5 +23,7 @@
       };
     };
   };
+
+  ids.gids.nixbld = 350;
   system.stateVersion = 4;
 }

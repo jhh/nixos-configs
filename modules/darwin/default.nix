@@ -3,8 +3,7 @@
 {
 
   programs.fish.enable = true;
-  security.pam.enableSudoTouchIdAuth = true;
-  services.nix-daemon.enable = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   nix = {
     extraOptions =
