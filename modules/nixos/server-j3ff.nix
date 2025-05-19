@@ -96,7 +96,7 @@
     users.media = {
       uid = 994;
       group = "media";
-      shell = null;
+      shell = pkgs.shadow;
       isSystemUser = true;
     };
     groups.media = {
