@@ -15,6 +15,7 @@
 
     casks = [
       "1password"
+      "calibre"
       "carbon-copy-cloner"
       "dash"
       "discord"
