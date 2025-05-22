@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-25.05";
-    # nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -29,8 +28,7 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # nix-darwin.url = "github:Lnl7/nix-darwin?ref=nix-darwin-25.05";
-    nix-darwin.url = "github:Lnl7/nix-darwin";
+    nix-darwin.url = "github:Lnl7/nix-darwin?ref=nix-darwin-25.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-vscode-server.url = "github:nix-community/nixos-vscode-server";
