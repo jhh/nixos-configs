@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-25.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
+    # nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -12,7 +12,7 @@
     blueprint.inputs.nixpkgs.follows = "nixpkgs";
 
     ceres.url = "git+https://gitea.j3ff.io/jeff/ceres.git";
-    ceres.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    ceres.inputs.nixpkgs.follows = "nixpkgs";
 
     deploy-rs.url = "github:serokell/deploy-rs";
     deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
