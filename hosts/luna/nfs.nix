@@ -13,6 +13,7 @@
       /mnt/tank/media/plex           10.1.0.0/24(rw,insecure,sync,no_subtree_check,crossmnt)
       /mnt/tank/proxmox/pbs          10.1.0.9(rw,insecure,sync,no_subtree_check)
       /mnt/tank/proxmox/pve          -rw,insecure,sync,no_subtree_check,no_root_squash 10.1.0.9 10.1.0.11
+      /mnt/tank/services/calibre     10.1.0.0/24(rw,insecure,sync,no_subtree_check)
     '';
   };
 
