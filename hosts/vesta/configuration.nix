@@ -7,6 +7,7 @@
     inputs.srvos.nixosModules.mixins-nginx
     flake.modules.nixos.watchtower
     flake.modules.nixos.home-manager-jeff
+    ./homer
   ];
 
   networking.hostName = "vesta";
