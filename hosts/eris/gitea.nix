@@ -52,6 +52,18 @@ in
     locations = {
       "/" = {
         proxyPass = "http://127.0.0.1:3000";
+        extraConfig = ''
+          # Minimal CORS
+          add_header 'Access-Control-Allow-Origin' '*' always;
+
+          # Handle preflight requests
+          if ($request_method = 'OPTIONS') {
+              add_header 'Access-Control-Allow-Origin' '*' always;
+              add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS' always;
+              add_header 'Access-Control-Allow-Headers' 'Content-Type, Authorization' always;
+              return 204;
+          }
+        '';
       };
     };
   };

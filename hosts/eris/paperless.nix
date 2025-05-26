@@ -70,6 +70,17 @@ in
         extraConfig = ''
           proxy_redirect off;
           add_header Referrer-Policy "strict-origin-when-cross-origin";
+
+          # Minimal CORS
+          add_header 'Access-Control-Allow-Origin' '*' always;
+
+          # Handle preflight requests
+          if ($request_method = 'OPTIONS') {
+              add_header 'Access-Control-Allow-Origin' '*' always;
+              add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS' always;
+              add_header 'Access-Control-Allow-Headers' 'Content-Type, Authorization' always;
+              return 204;
+          }
         '';
       };
     };
