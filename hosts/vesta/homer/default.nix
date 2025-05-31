@@ -84,6 +84,14 @@ let
     url = "https://app.jetkvm.com/devices/8199000ecb116d7b";
   };
 
+  pbs-2-kvm = service {
+    name = "PBS-2 KVM";
+    icon = "fa-solid fa-server";
+    subtitle = "Intel NUC";
+    keywords = "proxmox kvm server";
+    url = "https://app.jetkvm.com/devices/58d1c556689ac54a";
+  };
+
   luna-bmc = {
     name = "Luna BMC";
     icon = "fa-solid fa-server";
@@ -174,6 +182,7 @@ let
       pve-1-bmc
       pve-2-kvm
       luna-bmc
+      pbs-2-kvm
     ];
   };
 
