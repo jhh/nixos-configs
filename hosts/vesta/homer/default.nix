@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   proxmoxReadonlyToken = "root@pam!homer=e1bd8fcb-1733-4839-ab1b-834152b31cbc";
-
+  paperlessReadonlyToken = "6e927a9c4aaeb182b70cf79697771a1cd69b4abe";
   service = s: s // { target = "_blank"; };
 
   proxmoxService =
@@ -139,7 +139,7 @@ let
     logo = "/icons/paperless-ngx.svg";
     type = "PaperlessNG";
     url = "https://paperless.j3ff.io";
-    apikey = "6e927a9c4aaeb182b70cf79697771a1cd69b4abe";
+    apikey = paperlessReadonlyToken;
   };
 
   puka = service {
