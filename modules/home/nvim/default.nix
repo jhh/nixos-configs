@@ -1,5 +1,5 @@
-{ pkgs, ... }:
-{
+{ lib, pkgs, ... }:
+lib.mkIf pkgs.stdenv.isLinux {
   programs.neovim = {
     # package = specialArgs.inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     enable = true;

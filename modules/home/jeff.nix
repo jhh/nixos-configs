@@ -4,7 +4,7 @@
     ./bat
     ./fish
     ./git
-    ./nvim
+    ./nvim # no-op unless isLinux
     ./zed.nix
   ];
 
