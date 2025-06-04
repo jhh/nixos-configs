@@ -1,64 +1,48 @@
-{ lib, pkgs, ... }:
+{ ... }:
 let
-  gitConfig = lib.mkMerge [
-    {
-      core.editor = "vim";
-      github.user = "jhh";
-    }
-    {
-      # https://blog.gitbutler.com/how-git-core-devs-configure-git/
-      column.ui = "auto";
-      branch.sort = "-committerdate";
-      tag.sort = "version:refname";
-      init.defaultBranch = "main";
-      diff = {
-        algorithm = "histogram";
-        colorMoved = "plain";
-        mnemonicPrefix = true;
-        renames = true;
-      };
-      push = {
-        default = "simple";
-        autoSetupRemote = true;
-        followTags = true;
-      };
-      fetch = {
-        prune = true;
-        pruneTags = true;
-        all = true;
-      };
-      rebase = {
-        autosquash = true;
-        interactive = true;
-        updateRefs = true;
-      };
-      merge.conflictStyle = "zdiff3";
-      pull.rebase = true;
-    }
-    (lib.mkIf pkgs.stdenv.isDarwin {
-      diff = {
-        tool = "Kaleidoscope";
-      };
-      difftool.Kaleidoscope = {
-        cmd = ''
-          ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"
-        '';
-        trustExitCode = true;
-      };
-      difftool.prompt = false;
+  gitConfig = {
+    core.editor = "vim";
+    github.user = "jhh";
 
-      merge = {
-        tool = "Kaleidoscope";
-      };
-      mergetool.Kaleidoscope = {
-        cmd = ''
-          ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot
-        '';
-        trustExitCode = true;
-      };
-      mergetool.prompt = false;
-    })
-  ];
+    # https://blog.gitbutler.com/how-git-core-devs-configure-git/
+    column.ui = "auto";
+    branch.sort = "-committerdate";
+    tag.sort = "version:refname";
+    init.defaultBranch = "main";
+    diff = {
+      algorithm = "histogram";
+      colorMoved = "plain";
+      mnemonicPrefix = true;
+      renames = true;
+    };
+    push = {
+      default = "simple";
+      autoSetupRemote = true;
+      followTags = true;
+    };
+    fetch = {
+      prune = true;
+      pruneTags = true;
+      all = true;
+    };
+    rebase = {
+      autosquash = true;
+      interactive = true;
+      updateRefs = true;
+    };
+    merge.conflictStyle = "zdiff3";
+    pull.rebase = true;
+
+    # diff and merge tools
+    diff.tool = "nvimdiff";
+    difftool.nvimdiff.cmd = ''nvim -d "$LOCAL" "$REMOTE"'';
+    difftool.prompt = false;
+
+    merge.tool = "nvimdiff";
+    mergetool.nvimdiff.cmd = ''nvim -d "$LOCAL" "$REMOTE" "$MERGED" -c "$wincmd w" -c "wincmd J"'';
+    mergetool.prompt = false;
+    mergetool.keepBackup = false;
+  };
 
 in
 {
