@@ -1,11 +1,15 @@
-{ config, flake, pkgs, ... }:
+{
+  config,
+  flake,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      flake.modules.nixos.home-manager-jeff
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    flake.modules.nixos.home-manager-jeff
+  ];
 
   # ZFS boot settings.
   boot.supportedFilesystems = [ "zfs" ];
@@ -15,17 +19,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # Set your time zone.
-  # time.timeZone = "America/Detroit";
+  time.timeZone = "America/Detroit";
 
   networking.hostName = "europa";
+  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
   networking.hostId = "88c43f5a";
-  networking.useDHCP = false;
-  networking.interfaces.eno1.useDHCP = true;
-  networking.interfaces.wlp58s0.useDHCP = false;
+  # networking.useDHCP = false;
+  # networking.interfaces.eno1.useDHCP = true;
+  # networking.interfaces.wlp58s0.useDHCP = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -52,9 +54,14 @@
     uid = 1000;
     home = "/home/jeff";
     description = "Jeff Hutchison";
-    extraGroups = [ "docker" "wheel" ];
+    extraGroups = [
+      "docker"
+      "wheel"
+    ];
     hashedPassword = "$6$Iz7OA82lRmO$6SqGFySdF4gr8U47sIY6Vf.WzVJjtrZ4hiGQ1OPCpksEvj4Uo5.ylfI1czif0o488BcHXGIlDIpnJY3kIgQeT0";
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel jeff@j3ff.io" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel jeff@j3ff.io"
+    ];
   };
 
   users.users.root = {
@@ -116,4 +123,3 @@
   system.stateVersion = "21.11"; # Did you read the comment?
 
 }
-
