@@ -11,7 +11,6 @@
 
   environment.systemPackages = with pkgs; [
     file
-    ghostty.terminfo
     mailutils
   ];
 

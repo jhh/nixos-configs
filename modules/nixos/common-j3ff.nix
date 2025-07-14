@@ -10,6 +10,10 @@
     inputs.agenix.nixosModules.default
   ];
 
+  environment.systemPackages = with pkgs; [
+    ghostty.terminfo
+  ];
+
   nix = {
     gc = {
       automatic = true;
