@@ -12,10 +12,6 @@
     flake.modules.nixos.home-manager-jeff
   ];
 
-  # ZFS boot settings.
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.devNodes = "/dev/";
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -25,7 +21,6 @@
 
   networking.hostName = "europa";
   networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
-  networking.hostId = "88c43f5a";
 
   i18n.defaultLocale = "en_US.UTF-8";
 
