@@ -55,11 +55,6 @@
     wl-clipboard
   ];
 
-  # ZFS maintenance settings.
-  services.zfs.trim.enable = true;
-  services.zfs.autoScrub.enable = true;
-  services.zfs.autoScrub.pools = [ "rpool" ];
-
   services.openssh.enable = true;
 
   networking.firewall.enable = true;
