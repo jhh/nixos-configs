@@ -21,15 +21,35 @@
 
   networking.hostName = "europa";
   networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
+  networking.firewall.enable = true;
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  programs.hyprland.enable = true;
-  programs.hyprland.withUWSM = true;
-  programs.chromium.enable = true;
-  programs.neovim.enable = true;
-  programs.neovim.vimAlias = true;
-  programs.ssh.startAgent = true;
+  hardware = {
+    openrazer = {
+      enable = true;
+      users = [ "jeff" ];
+    };
+  };
+
+  programs = {
+    _1password.enable = true;
+    _1password-gui = {
+      enable = true;
+      polkitPolicyOwners = [ "jeff" ];
+    };
+
+    chromium.enable = true;
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
+    neovim = {
+      enable = true;
+      vimAlias = true;
+    };
+    ssh.startAgent = true;
+  };
 
   nix = {
     extraOptions = ''
@@ -37,27 +57,45 @@
     '';
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = with pkgs; [
-    brave
     btop
+    chromium
     curl
     fastfetch
     fd
-    firefox
-    gcc
+    ghostty
     git
     gnumake
+    hyprpolkitagent
     kitty
+    mako
+    razer-cli
     ripgrep
     unzip
+    waybar
     wget
     wl-clipboard
   ];
 
-  services.openssh.enable = true;
+  services = {
+    openssh.enable = true;
+    hypridle.enable = true;
+  };
 
-  networking.firewall.enable = true;
+  # Initial login experience
+  services.greetd = {
+    enable = true;
+    settings.default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --time --cmd \"uwsm start default\"";
+  };
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-emoji
+    nerd-fonts.caskaydia-mono
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
