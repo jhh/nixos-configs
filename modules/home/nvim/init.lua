@@ -16,6 +16,7 @@ vim.cmd.nnoremap("N", "Nzz")
 vim.cmd.xnoremap("<leader>p", '"_dP')
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("i", "jk", "<Esc>", { silent = true })
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 vim.cmd("colorscheme tokyonight")
 
@@ -37,3 +38,4 @@ require("mini.basics").setup({
 })
 require("tailwind-tools").setup({})
 require("nvim-treesitter.configs").setup({})
+require("oil").setup()

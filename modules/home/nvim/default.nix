@@ -16,6 +16,7 @@ lib.mkIf pkgs.stdenv.isLinux {
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
+      oil-nvim
       tailwind-tools-nvim
       telescope-file-browser-nvim
       telescope-fzf-native-nvim
