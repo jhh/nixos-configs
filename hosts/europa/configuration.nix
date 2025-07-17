@@ -79,6 +79,7 @@
     waybar
     wget
     wl-clipboard
+    wl-clip-persist
   ];
 
   services = {
