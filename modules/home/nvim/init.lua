@@ -18,7 +18,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("i", "jk", "<Esc>", { silent = true })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme tokyonight-night")
 
 require("mini.ai").setup()
 require("mini.bracketed").setup()
