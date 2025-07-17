@@ -36,7 +36,6 @@
     _1password.enable = false;
     _1password-gui = {
       enable = true;
-      package = pkgs._1password-gui-beta;
       polkitPolicyOwners = [ "jeff" ];
     };
 
