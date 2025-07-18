@@ -69,6 +69,7 @@
     ghostty
     git
     gnumake
+    hyprpaper
     hyprpolkitagent
     kitty
     mako
