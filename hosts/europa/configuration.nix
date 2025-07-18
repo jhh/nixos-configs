@@ -74,6 +74,8 @@
     mako
     razer-cli
     ripgrep
+    spotify
+    stow
     unzip
     waybar
     wget
