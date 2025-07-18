@@ -75,6 +75,8 @@ in
     };
   };
 
+  programs.nix-index.enable = true;
+
   home.sessionVariables = {
     EZA_CONFIG_DIR = ".config/eza";
   };
