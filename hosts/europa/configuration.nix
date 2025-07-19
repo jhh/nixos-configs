@@ -66,27 +66,8 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.systemPackages = with pkgs; [
-    btop
-    chromium
-    curl
-    fastfetch
-    fd
-    ghostty
     git
-    gnumake
-    hyprpaper
-    hyprpolkitagent
-    kitty
-    mako
     razer-cli
-    ripgrep
-    spotify
-    stow
-    unzip
-    waybar
-    wget
-    wl-clipboard
-    wl-clip-persist
   ];
 
   services = {
