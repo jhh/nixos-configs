@@ -22,6 +22,7 @@
   networking.hostName = "europa";
   networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
   networking.firewall.enable = false;
+  services.resolved.enable = true;
 
   i18n.defaultLocale = "en_US.UTF-8";
 
