@@ -9,6 +9,7 @@
       curl
       fastfetch
       fd
+      gcc
       ghostty
       gnumake
       hyprpaper
