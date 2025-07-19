@@ -8,6 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./jeff.nix
     flake.modules.nixos.common-j3ff
     flake.modules.nixos.home-manager-jeff
   ];
@@ -102,8 +103,6 @@
     noto-fonts-emoji
     nerd-fonts.caskaydia-mono
   ];
-
-  home-manager.users.jeff.services.vscode-server.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
