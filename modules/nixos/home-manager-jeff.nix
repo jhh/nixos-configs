@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   pkgs,
   ...
 }:
@@ -27,7 +28,7 @@
     "${inputs.nixos-vscode-server}/modules/vscode-server/home.nix"
   ];
 
-  home-manager.users.jeff.services.vscode-server.enable = true;
+  home-manager.users.jeff.services.vscode-server.enable = lib.mkDefault true;
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 }
