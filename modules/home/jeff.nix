@@ -23,6 +23,7 @@
     lazygit
     prettyping
     ripgrep
+    stow
   ];
 
   programs = {
