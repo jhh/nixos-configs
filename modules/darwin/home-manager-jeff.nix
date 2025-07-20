@@ -22,6 +22,7 @@
     flake.homeModules.sonos
     ({
       j3ff.gui.ghostty.enable = true;
+      home.packages = [ pkgs.cargo ];
     })
   ];
 
