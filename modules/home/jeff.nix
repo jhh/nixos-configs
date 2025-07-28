@@ -21,6 +21,7 @@
     glow
     gh
     lazygit
+    nixfmt-rfc-style
     prettyping
     ripgrep
     stow
