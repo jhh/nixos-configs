@@ -25,6 +25,11 @@
         "https://dns.google/dns-query"
       ];
 
+      customDNS.mapping = {
+        "pve-1.lan.j3ff.io" = "10.1.0.9";
+        "pve-2.lan.j3ff.io" = "10.1.0.11";
+      };
+
       hostsFile.sources = [ ./hosts.txt ];
 
       blocking = {

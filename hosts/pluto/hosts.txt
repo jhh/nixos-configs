@@ -1,5 +1,3 @@
-10.1.0.9 pve-1.j3ff.io pve-1.lan.j3ff.io
-10.1.0.11 pve-2.j3ff.io pve-2.lan.j3ff.io
 10.1.0.12 pbs-1.j3ff.io pbs-1.lan.j3ff.io
 10.1.0.44 ceres.lan.j3ff.io deluge.j3ff.io prowlarr.j3ff.io radarr.j3ff.io readarr.j3ff.io sonarr.j3ff.io transmission.j3ff.io
 10.1.0.45 vesta.lan.j3ff.io alertmanager.j3ff.io grafana.j3ff.io homer.j3ff.io prometheus.j3ff.io
