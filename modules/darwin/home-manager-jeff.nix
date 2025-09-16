@@ -21,7 +21,10 @@
     flake.homeModules.ghostty
     flake.homeModules.sonos
     ({
-      j3ff.gui.ghostty.enable = true;
+      j3ff.gui.ghostty = {
+        enable = true;
+        theme = "TokyoNight Storm";
+      };
       home.packages = [ pkgs.cargo ];
     })
   ];
