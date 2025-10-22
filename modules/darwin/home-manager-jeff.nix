@@ -25,7 +25,11 @@
         enable = true;
         theme = "TokyoNight Storm";
       };
-      home.packages = [ pkgs.cargo ];
+      home.packages = with pkgs; [
+        cargo
+        nodejs
+        statix
+      ];
     })
   ];
 
