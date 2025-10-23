@@ -16,23 +16,26 @@
     shell = pkgs.fish;
   };
 
-  home-manager.users.jeff.imports = [
-    flake.homeModules.jeff
-    flake.homeModules.ghostty
-    flake.homeModules.sonos
-    ({
-      j3ff.gui.ghostty = {
-        enable = true;
-        theme = "TokyoNight Storm";
-      };
-      home.packages = with pkgs; [
-        cargo
-        nodejs
-        statix
-      ];
-    })
-  ];
+  home-manager = {
+    users.jeff.imports = [
+      flake.homeModules.jeff
+      flake.homeModules.ghostty
+      flake.homeModules.sonos
+      {
+        j3ff.gui.ghostty = {
+          enable = true;
+          theme = "TokyoNight Storm";
+        };
+        home.packages = with pkgs; [
+          cargo
+          jujutsu
+          nodejs
+          statix
+        ];
+      }
+    ];
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
 }
