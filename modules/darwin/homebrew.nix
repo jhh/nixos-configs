@@ -24,7 +24,6 @@
       "firefox"
       "iterm2"
       # "jetbrains-toolbox"
-      # "kaleidoscope"
       "omnigraffle"
       "postgres-unofficial"
       "postico"
