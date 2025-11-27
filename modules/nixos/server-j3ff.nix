@@ -28,16 +28,15 @@
 
   services.postfix = {
     enable = true;
-    config = {
+    settings.main = {
+      mydomain = config.networking.domain;
+      relayhost = [ "[smtp.fastmail.com]:587" ];
       "append_dot_mydomain" = "yes";
       "smtp_sasl_auth_enable" = "yes";
       "smtp_sasl_password_maps" = "hash:/etc/postfix/sasl_passwd";
       "smtp_sasl_security_options" = "noanonymous";
       "inet_protocols" = "ipv4";
     };
-    domain = config.networking.domain;
-    relayHost = "smtp.fastmail.com";
-    relayPort = 587;
     rootAlias = "jeff@j3ff.io";
   };
 
