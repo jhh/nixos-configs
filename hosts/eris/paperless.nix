@@ -48,7 +48,7 @@ in
   };
 
   systemd.services.postgresql.postStart = ''
-    $PSQL -d ${dbName} -tA << END_INPUT
+    ${config.services.postgresql.package}/bin/psql -d paperless -tA << END_INPUT
       ALTER ROLE ${dbName} SET client_encoding TO 'utf8';
       ALTER ROLE ${dbName} SET default_transaction_isolation TO 'read committed';
       ALTER ROLE ${dbName} SET timezone TO 'UTC';

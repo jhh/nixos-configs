@@ -14,7 +14,7 @@
 
   home.packages = with pkgs; [
     bottom
-    du-dust
+    dust
     duf
     fd
     fzf

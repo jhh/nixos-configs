@@ -46,19 +46,17 @@ let
 
 in
 {
-  programs.git = {
-    enable = true;
-    diff-so-fancy.enable = true;
-    userName = "Jeff Hutchison";
-    userEmail = "jeff@jeffhutchison.com";
+  programs.diff-so-fancy.enable = true;
+  programs.git.enable = true;
+  programs.git.settings = {
+    user.name = "Jeff Hutchison";
+    user.email = "jeff@jeffhutchison.com";
     signing = {
       signByDefault = true;
       key = "26960A62CBEEC91D";
     };
 
-    extraConfig = gitConfig;
-
-    aliases = {
+    alias = {
       amend = "commit --amend -m";
       br = "branch";
       co = "checkout";
@@ -72,7 +70,8 @@ in
       ca = "commit -am";
       dc = "diff --cached";
     };
+  }
+  // gitConfig;
 
-    ignores = import ./ignore.nix;
-  };
+  programs.git.ignores = import ./ignore.nix;
 }

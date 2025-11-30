@@ -26,7 +26,7 @@
   };
 
   systemd.services.postgresql.postStart = lib.mkIf config.services.puka.enable ''
-    $PSQL -d puka -tA << END_INPUT
+    ${config.services.postgresql.package}/bin/psql -d puka -tA << END_INPUT
       ALTER DATABASE puka SET client_encoding TO 'UTF8';
       ALTER DATABASE puka SET default_transaction_isolation TO 'read committed';
       ALTER DATABASE puka SET timezone TO 'UTC';

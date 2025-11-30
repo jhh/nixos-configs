@@ -283,7 +283,8 @@ in
         ./smartctl-rules.yml
         ./unifi-rules.yml
         ./ups-rules.yml
-      ] ++ lib.optional config.j3ff.watchtower.exporters.pihole.enable ./pihole-rules;
+      ]
+      ++ lib.optional config.j3ff.watchtower.exporters.pihole.enable ./pihole-rules;
 
     };
 
