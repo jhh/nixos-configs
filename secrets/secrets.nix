@@ -93,4 +93,8 @@ in
     jeff
     luna
   ];
+  "wendy_passwd.age".publicKeys = [
+    jeff
+    luna
+  ];
 }
