@@ -45,11 +45,25 @@
     ];
   };
 
-  users.users.jeff = lib.mkDefault {
-    isNormalUser = true;
-    createHome = false;
-    useDefaultShell = false;
-    uid = 1000;
+  # age.secrets.wendy_passwd = {
+  #   file = ../../secrets/wendy_passwd.age;
+  # };
+
+  users.users = {
+    jeff = lib.mkDefault {
+      isNormalUser = true;
+      createHome = false;
+      useDefaultShell = false;
+      uid = 1000;
+    };
+
+    wendy = lib.mkDefault {
+      isNormalUser = true;
+      createHome = false;
+      useDefaultShell = false;
+      uid = 1001;
+      # hashedPasswordFile = config.age.secrets.wendy_passwd.path;
+    };
   };
 
   users = {

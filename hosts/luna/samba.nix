@@ -1,5 +1,7 @@
-{ config, pkgs, ... }:
+{ ... }:
 {
+
+  # use `smbpasswd -a <user>` to add valid users and passwords
 
   users.users.tm = {
     isSystemUser = true;
@@ -49,6 +51,16 @@
       Jeff = {
         path = "/mnt/tank/share/jeff";
         "valid users" = "jeff";
+        public = "no";
+        writeable = "yes";
+      };
+
+      Wendy = {
+        path = "/mnt/tank/share/wendy";
+        "valid users" = [
+          "jeff"
+          "wendy"
+        ];
         public = "no";
         writeable = "yes";
       };
