@@ -29,7 +29,7 @@
   services.postfix = {
     enable = true;
     settings.main = {
-      mydomain = config.networking.domain;
+      inherit (config.networking) domain;
       relayhost = [ "[smtp.fastmail.com]:587" ];
       "append_dot_mydomain" = "yes";
       "smtp_sasl_auth_enable" = "yes";
