@@ -9,7 +9,13 @@
       autoUpdate = true;
     };
 
+    taps = [
+      "d12frosted/emacs-plus"
+    ];
+
     brews = [
+      "clojure"
+      "emacs-plus"
       "neovim"
       "uv"
     ];
