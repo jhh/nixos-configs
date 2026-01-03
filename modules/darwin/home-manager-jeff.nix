@@ -32,6 +32,10 @@
           nodejs
           statix
         ];
+
+        home.sessionVariables = {
+          EDITOR = "nvim";
+        };
       }
     ];
 
