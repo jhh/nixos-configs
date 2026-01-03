@@ -8,24 +8,23 @@
     ./zed.nix
   ];
 
-  home.sessionVariables = {
-    MANWIDTH = 88;
+  home = {
+    sessionVariables.MANWIDTH = 88;
+    packages = with pkgs; [
+      bottom
+      dust
+      duf
+      fd
+      fzf
+      glow
+      gh
+      lazygit
+      nixfmt-rfc-style
+      prettyping
+      ripgrep
+      stow
+    ];
   };
-
-  home.packages = with pkgs; [
-    bottom
-    dust
-    duf
-    fd
-    fzf
-    glow
-    gh
-    lazygit
-    nixfmt-rfc-style
-    prettyping
-    ripgrep
-    stow
-  ];
 
   programs = {
     awscli.enable = true;
