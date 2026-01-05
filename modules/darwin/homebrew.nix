@@ -34,6 +34,7 @@
       "postgres-unofficial"
       "postico"
       "qlmarkdown"
+      "slack"
       "spotify"
       "tableplus"
       "thetimemachinemechanic"
@@ -48,7 +49,6 @@
       "Paprika Recipe Manager 3" = 1303222628;
       "Pcalc" = 403504866;
       "Reeder 5" = 1529448980;
-      # "Slack for Desktop" = 803453959;
       "Tailscale" = 1475387142;
     };
   };
