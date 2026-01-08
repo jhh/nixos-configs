@@ -13,12 +13,20 @@
       "d12frosted/emacs-plus"
     ];
 
-    brews = [
-      "clojure"
-      "emacs-plus"
-      "neovim"
-      "uv"
-    ];
+    brews =
+      let
+        datalevin = [
+          "libomp"
+          "llvm"
+        ];
+      in
+      [
+        "clojure"
+        "emacs-plus"
+        "neovim"
+        "uv"
+      ]
+      ++ datalevin;
 
     casks = [
       "1password"
