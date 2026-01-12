@@ -22,6 +22,7 @@
       in
       [
         "clojure"
+        "clojure-lsp"
         "emacs-plus"
         "neovim"
         "uv"
