@@ -11,6 +11,7 @@
 
     taps = [
       "d12frosted/emacs-plus"
+      "borkdude/brew"
     ];
 
     brews =
@@ -21,6 +22,7 @@
         ];
       in
       [
+        "borkdude/brew/babashka"
         "clojure"
         "clojure-lsp"
         "emacs-plus"
