@@ -23,6 +23,7 @@
       in
       [
         "borkdude/brew/babashka"
+        "borkdude/brew/clj-kondo"
         "clojure"
         "clojure-lsp"
         "emacs-plus"
