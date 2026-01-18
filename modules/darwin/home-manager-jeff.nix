@@ -31,10 +31,12 @@
           jujutsu
           nodejs
           statix
+          zulu25
         ];
 
         home.sessionVariables = {
           EDITOR = "nvim";
+          JAVA_HOME = pkgs.zulu25;
         };
       }
     ];
