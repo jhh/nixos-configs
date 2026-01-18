@@ -12,6 +12,7 @@
     taps = [
       "d12frosted/emacs-plus"
       "borkdude/brew"
+      "avencera/tap"
     ];
 
     brews =
@@ -22,6 +23,7 @@
         ];
       in
       [
+        "avencera/tap/rustywind"
         "borkdude/brew/babashka"
         "borkdude/brew/clj-kondo"
         "clojure"
@@ -51,6 +53,7 @@
       "tableplus"
       "thetimemachinemechanic"
       "transmit"
+      "utm"
       "visual-studio-code"
       "zotero"
     ];
