@@ -20,6 +20,7 @@
     ./plex.nix
     ./samba.nix
     ./rclone.nix
+    ./restic.nix
   ];
 
   hardware.cpu.intel.updateMicrocode = true;
