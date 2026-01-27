@@ -10,9 +10,10 @@
     };
 
     taps = [
-      "d12frosted/emacs-plus"
-      "borkdude/brew"
       "avencera/tap"
+      "borkdude/brew"
+      "d12frosted/emacs-plus"
+      "garethgeorge/homebrew-backrest-tap"
     ];
 
     brews =
@@ -29,6 +30,7 @@
         "clojure"
         "clojure-lsp"
         "emacs-plus"
+        "garethgeorge/homebrew-backrest-tap/backrest"
         "neovim"
         "uv"
       ]
