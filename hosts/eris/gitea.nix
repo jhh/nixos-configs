@@ -20,6 +20,10 @@ in
       repository = {
         DEFAULT_BRANCH = "main";
       };
+      cron = {
+        ENABLED = true;
+        NOTICE_ON_SUCCESS = true;
+      };
       mailer = {
         ENABLED = true;
         PROTOCOL = "smtps";
