@@ -46,6 +46,7 @@
       "firefox"
       "iterm2"
       "omnigraffle"
+      "opencode-desktop"
       "postgres-unofficial"
       "postico"
       "qlmarkdown"
