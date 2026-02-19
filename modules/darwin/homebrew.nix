@@ -44,6 +44,7 @@
       "dash"
       "discord"
       "firefox"
+      "gitbutler"
       "iterm2"
       "omnigraffle"
       "opencode-desktop"
