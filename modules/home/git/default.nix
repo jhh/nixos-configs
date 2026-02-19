@@ -57,8 +57,6 @@ let
     mergetool.nvimdiff.cmd = ''nvim -d "$LOCAL" "$REMOTE" "$MERGED" -c "$wincmd w" -c "wincmd J"'';
     mergetool.prompt = false;
     mergetool.keepBackup = false;
-<<<<<<< ours
-
     user = {
       name = "Jeff Hutchison";
       email = "jeff@j3ff.io";
@@ -66,17 +64,6 @@ let
 
     gitbutler.signCommits = true;
     gpg.ssh.allowedSignersFile = "${config.xdg.configHome}/git/allowed_signers";
-||||||| ancestor
-=======
-
-    user = {
-      name = "Jeff Hutchison";
-      email = "jeff@jeffhutchison.com";
-    };
-
-    gitbutler.signCommits = true;
-    gpg.ssh.allowedSignersFile = "${config.xdg.configHome}/git/allowed_signers";
->>>>>>> theirs
   };
 
 in
@@ -93,36 +80,9 @@ in
     ignores = import ./ignore.nix;
   };
 
-<<<<<<< ours
   xdg.configFile."git/allowed_signers" = {
     text = ''
       jeff@j3ff.io ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel
     '';
   };
-||||||| ancestor
-    alias = {
-      amend = "commit --amend -m";
-      br = "branch";
-      co = "checkout";
-      st = "status";
-      la = "!git config -l | grep alias | cut -c 7-";
-      ls = ''log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --all --decorate --oneline --graph'';
-      ll = ''log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate --numstat'';
-      lg = "log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %s %C(italic)- %an%C(reset)%C(magenta bold)%d%C(reset)' --all";
-
-      cm = "commit -m";
-      ca = "commit -am";
-      dc = "diff --cached";
-    };
-  }
-  // gitConfig;
-
-  programs.git.ignores = import ./ignore.nix;
-=======
-  xdg.configFile."git/allowed_signers" = {
-    text = ''
-      jeff@jeffhutchison.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPqpWpNJzfzioGYyR9q4wLwPkBrnmc/Gdl6JsO+SUpel
-    '';
-  };
->>>>>>> theirs
 }
