@@ -131,8 +131,7 @@
   # Temporary
   ".netrwhist"
   "*~"
-  # Auto-generated tag files
-  "tags"
+
   # Persistent undo
   "[._]*.un~"
 
