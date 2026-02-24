@@ -26,6 +26,8 @@ let
 
 in
 {
+  "dnsimple_secrets.age".publicKeys = [ jeff ] ++ hosts;
+
   "aws_secret.age".publicKeys = [
     jeff
     pallas
