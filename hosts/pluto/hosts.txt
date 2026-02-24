@@ -1,4 +1,5 @@
 10.1.0.12 pbs-1.j3ff.io pbs-1.lan.j3ff.io
-10.1.0.44 ceres.lan.j3ff.io deluge.j3ff.io prowlarr.j3ff.io radarr.j3ff.io readarr.j3ff.io sonarr.j3ff.io transmission.j3ff.io
-10.1.0.45 vesta.lan.j3ff.io alertmanager.j3ff.io grafana.j3ff.io homer.j3ff.io prometheus.j3ff.io
-10.1.0.46 eris.lan.j3ff.io calibre.j3ff.io gitea.j3ff.io miniflux.j3ff.io paperless.j3ff.io pgadmin.j3ff.io puka.j3ff.io
+10.1.0.44 ceres ceres.j3ff.io ceres.lan.j3ff.io deluge.j3ff.io prowlarr.j3ff.io radarr.j3ff.io readarr.j3ff.io sonarr.j3ff.io transmission.j3ff.io
+10.1.0.45 vesta vesta.j3ff.io vesta.lan.j3ff.io alertmanager.j3ff.io grafana.j3ff.io homer.j3ff.io prometheus.j3ff.io
+10.1.0.46 eris eris.j3ff.io eris.lan.j3ff.io calibre.j3ff.io gitea.j3ff.io miniflux.j3ff.io paperless.j3ff.io pgadmin.j3ff.io puka.j3ff.io
+10.1.0.49 styx styx.j3ff.io

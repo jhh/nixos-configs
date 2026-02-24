@@ -15,8 +15,8 @@
   ];
 
   networking = {
-    domain = "lan.j3ff.io";
-    search = [ "lan.j3ff.io" ];
+    domain = "j3ff.io";
+    search = [ "j3ff.io" ];
 
     nameservers = [
       "1.1.1.1"
