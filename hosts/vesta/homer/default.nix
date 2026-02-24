@@ -213,7 +213,7 @@ in
   services.homer = {
     enable = true;
     virtualHost = {
-      nginx.enable = true;
+      caddy.enable = true;
       domain = "homer.j3ff.io";
     };
     settings = {
@@ -231,7 +231,7 @@ in
     };
   };
 
-  services.nginx.virtualHosts."homer.j3ff.io".locations."/icons/" =
+  services.caddy.virtualHosts."homer.j3ff.io".extraConfig =
     let
       iconsDir = pkgs.stdenv.mkDerivation {
         name = "homer-icons";
@@ -242,7 +242,11 @@ in
         '';
       };
     in
-    {
-      alias = "${iconsDir}/";
-    };
+    ''
+      handle_path /icons/* {
+          root * ${iconsDir}
+          file_server
+      }
+    '';
+
 }

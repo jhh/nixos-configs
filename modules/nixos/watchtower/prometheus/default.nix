@@ -302,10 +302,8 @@ in
       ];
     };
 
-    services.nginx.virtualHosts."${cfg.domain}" = {
-      locations."/" = {
-        proxyPass = "http://127.0.0.1:${toString config.services.prometheus.port}";
-      };
-    };
+    services.caddy.virtualHosts."${cfg.domain}".extraConfig = ''
+      reverse_proxy http://127.0.0.1:${toString config.services.prometheus.port}
+    '';
   };
 }
