@@ -14,16 +14,8 @@
     adminCredentialsFile = config.age.secrets.miniflux_secret.path;
   };
 
-  services.nginx.virtualHosts."miniflux.j3ff.io" = {
-    # security.acme is configured for eris globally in nginx.nix
-    forceSSL = true;
-    enableACME = true;
-    acmeRoot = null;
+  services.caddy.virtualHosts."miniflux.j3ff.io".extraConfig = ''
+    reverse_proxy http://${toString config.services.miniflux.config.LISTEN_ADDR}
+  '';
 
-    locations = {
-      "/" = {
-        proxyPass = "http://127.0.0.1:8010";
-      };
-    };
-  };
 }

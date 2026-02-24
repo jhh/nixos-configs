@@ -33,23 +33,8 @@
     END_INPUT
   '';
 
-  services.nginx = lib.mkIf config.services.puka.enable {
-    enable = true;
-    recommendedProxySettings = true;
-    recommendedOptimisation = true;
-    recommendedGzipSettings = true;
+  services.caddy.virtualHosts."puka.j3ff.io".extraConfig = ''
+    reverse_proxy http://127.0.0.1:${toString config.services.puka.port}
+  '';
 
-    virtualHosts."puka.j3ff.io" = {
-      # security.acme is configured for eris globally in nginx.nix
-      forceSSL = true;
-      enableACME = true;
-      acmeRoot = null;
-
-      locations = {
-        "/" = {
-          proxyPass = "http://127.0.0.1:${toString config.services.puka.port}";
-        };
-      };
-    };
-  };
 }

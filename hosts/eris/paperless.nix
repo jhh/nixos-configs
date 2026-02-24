@@ -55,36 +55,9 @@ in
     END_INPUT
   '';
 
-  services.nginx.virtualHosts."paperless.j3ff.io" = {
-    # security.acme is configured for eris globally in nginx.nix
-    forceSSL = true;
-    enableACME = true;
-    acmeRoot = null;
-
-    locations = {
-      "/" = {
-        proxyPass = "http://127.0.0.1:${toString config.services.paperless.port}";
-        recommendedProxySettings = true;
-        # https://github.com/paperless-ngx/paperless-ngx/wiki/Using-a-Reverse-Proxy-with-Paperless-ngx#nginx
-        proxyWebsockets = true;
-        extraConfig = ''
-          proxy_redirect off;
-          add_header Referrer-Policy "strict-origin-when-cross-origin";
-
-          # Minimal CORS
-          add_header 'Access-Control-Allow-Origin' '*' always;
-
-          # Handle preflight requests
-          if ($request_method = 'OPTIONS') {
-              add_header 'Access-Control-Allow-Origin' '*' always;
-              add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS' always;
-              add_header 'Access-Control-Allow-Headers' 'Content-Type, Authorization' always;
-              return 204;
-          }
-        '';
-      };
-    };
-  };
+  services.caddy.virtualHosts."paperless.j3ff.io".extraConfig = ''
+    reverse_proxy http://127.0.0.1:${toString config.services.paperless.port}
+  '';
 
   services.vsftpd = {
     enable = true;

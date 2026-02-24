@@ -47,30 +47,9 @@ in
     };
   };
 
-  services.nginx.virtualHosts."gitea.j3ff.io" = {
-    # security.acme is configured for eris globally in nginx.nix
-    forceSSL = true;
-    enableACME = true;
-    acmeRoot = null;
-
-    locations = {
-      "/" = {
-        proxyPass = "http://127.0.0.1:3000";
-        extraConfig = ''
-          # Minimal CORS
-          add_header 'Access-Control-Allow-Origin' '*' always;
-
-          # Handle preflight requests
-          if ($request_method = 'OPTIONS') {
-              add_header 'Access-Control-Allow-Origin' '*' always;
-              add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS' always;
-              add_header 'Access-Control-Allow-Headers' 'Content-Type, Authorization' always;
-              return 204;
-          }
-        '';
-      };
-    };
-  };
+  services.caddy.virtualHosts."gitea.j3ff.io".extraConfig = ''
+    reverse_proxy http://127.0.0.1:${toString config.services.gitea.settings.server.HTTP_PORT}
+  '';
 
   systemd.services.gitea-dump-prune = {
     enable = true;

@@ -7,13 +7,12 @@
 {
   imports = [
     flake.modules.nixos.hardware-proxmox-lxc
-    inputs.srvos.nixosModules.mixins-nginx
     inputs.puka.nixosModules.puka
     flake.modules.nixos.server-j3ff
-    ./calibre.nix
+    ./caddy.nix
+    # ./calibre.nix
     ./gitea.nix
     ./miniflux.nix
-    ./nginx.nix
     ./paperless.nix
     ./postgresql.nix
     ./puka.nix

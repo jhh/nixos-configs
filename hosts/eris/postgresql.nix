@@ -46,18 +46,9 @@
   };
 
   services.pgadmin = {
-    enable = true;
+    enable = false;
     initialEmail = "jeff@j3ff.io";
     initialPasswordFile = "${config.age.secrets.pgadmin_passwd.path}";
-  };
-
-  # enabled in todo.nix
-  services.nginx.virtualHosts."pgadmin.j3ff.io" = lib.mkIf config.services.pgadmin.enable {
-    locations = {
-      "/" = {
-        proxyPass = "http://127.0.0.1:5050";
-      };
-    };
   };
 
   environment.systemPackages = [
