@@ -6,7 +6,7 @@
     inputs.speedtest.nixosModules.default
     flake.modules.nixos.watchtower
     flake.modules.nixos.home-manager-jeff
-    ./caddy.nix
+    flake.modules.nixos.caddy
     ./homer
   ];
 

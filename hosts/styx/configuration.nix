@@ -9,7 +9,7 @@
     flake.modules.nixos.hardware-proxmox-vm
     flake.modules.nixos.server-j3ff
     flake.modules.nixos.home-manager-jeff
-    ./caddy.nix
+    flake.modules.nixos.caddy
   ];
 
   networking.hostName = "styx";
