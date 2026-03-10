@@ -56,6 +56,7 @@ in
           ++ (lib.optionals pkgs.stdenv.isDarwin [
             "eval (/opt/homebrew/bin/brew shellenv)"
             ''fish_add_path "$HOME/.local/bin"''
+            "but completions fish | source"
           ])
         );
       in
