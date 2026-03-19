@@ -68,6 +68,18 @@ let
     target = "_blank";
   };
 
+  pbs-1 = service {
+    name = "PBS-1";
+    url = "https://pbs.lan.j3ff.io:8007/";
+    logo = "/icons/proxmox.svg";
+  };
+
+  pbs-2 = service {
+    name = "PBS-2";
+    url = "https://pbs.strykeforce.org:8007/";
+    logo = "/icons/proxmox.svg";
+  };
+
   pve-1-bmc = service {
     name = "PVE-1 BMC";
     icon = "fa-solid fa-server";
@@ -172,6 +184,8 @@ let
       pve-1-dashboard
       pve-2
       pve-2-dashboard
+      pbs-1
+      pbs-2
     ];
   };
 
