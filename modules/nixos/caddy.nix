@@ -6,10 +6,13 @@
 
   services.caddy = {
     enable = true;
+
+    # https://wiki.nixos.org/wiki/Caddy#Plug-ins
     package = pkgs.caddy.withPlugins {
       plugins = [ "github.com/caddy-dns/dnsimple@v0.0.0-20251214142352-69317c3989f0" ];
       hash = "sha256-r6kF5prS5+1TrVtNUMFoFdTFCrbdts7+Lpkvlc/3Tq4=";
     };
+
     environmentFile = config.age.secrets.dnsimple_secrets.path;
 
     globalConfig = ''
