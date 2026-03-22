@@ -46,10 +46,14 @@
   };
 
   services.pgadmin = {
-    enable = false;
+    enable = true;
     initialEmail = "jeff@j3ff.io";
     initialPasswordFile = "${config.age.secrets.pgadmin_passwd.path}";
   };
+
+  services.caddy.virtualHosts."pgadmin.j3ff.io".extraConfig = ''
+    reverse_proxy http://127.0.0.1:${toString config.services.pgadmin.port}
+  '';
 
   environment.systemPackages = [
     (
