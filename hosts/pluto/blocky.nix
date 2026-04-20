@@ -23,6 +23,7 @@
         "2606:4700:4700::1001"
         "https://cloudflare-dns.com/dns-query"
         "https://dns.google/dns-query"
+        "8.8.8.8"
       ];
 
       customDNS.mapping = {
