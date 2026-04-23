@@ -66,6 +66,21 @@ in
     userlist = [ "paperless" ];
     chrootlocalUser = true;
     allowWriteableChroot = true;
+    extraConfig = ''
+      pasv_max_port=10095
+      pasv_min_port=10090
+    '';
   };
 
+  networking.firewall = {
+    allowedTCPPorts = [
+      21
+      10090
+      10091
+      10092
+      10093
+      10094
+      10095
+    ];
+  };
 }
