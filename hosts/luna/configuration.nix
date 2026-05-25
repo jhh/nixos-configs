@@ -18,6 +18,7 @@
     ./nfs.nix
     ./pbs.nix
     ./plex.nix
+    ./plex-backup.nix
     ./samba.nix
     ./rclone.nix
     ./restic.nix
