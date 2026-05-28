@@ -27,7 +27,9 @@
   hardware.cpu.intel.updateMicrocode = true;
 
   boot = {
+    initrd.systemd.enable = true;
     kernelParams = [ "zfs.zfs_arc_max=30064771072" ];
+    zfs.forceImportRoot = false;
   };
 
   services.getty.autologinUser = "root";
