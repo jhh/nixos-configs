@@ -3,3 +3,5 @@
 10.1.0.45 vesta vesta.j3ff.io vesta.lan.j3ff.io alertmanager.j3ff.io grafana.j3ff.io homer.j3ff.io prometheus.j3ff.io
 10.1.0.46 eris eris.j3ff.io eris.lan.j3ff.io calibre.j3ff.io gitea.j3ff.io miniflux.j3ff.io paperless.j3ff.io pgadmin.j3ff.io puka.j3ff.io
 10.1.0.49 styx styx.j3ff.io
+10.1.0.50 pluto pluto.j3ff.io
+10.1.0.51 oberon oberon.j3ff.io

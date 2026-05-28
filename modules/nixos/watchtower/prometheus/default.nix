@@ -33,6 +33,7 @@ in
       "10.1.0.47" = [ "pallas" ];
       "10.1.0.49" = [ "styx" ];
       "10.1.0.50" = [ "pluto" ];
+      "10.1.0.51" = [ "oberon" ];
     };
 
     services.prometheus = {

@@ -5,6 +5,7 @@ let
   ceres = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPfiXFXZVG3HHUcqujuEcsiJM2Eov+yriP5VVynEx+v0";
   eris = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGPsAbbFQgKY1zznXgTMOxOj+jmhCIRrJx1TO61Z4djZ";
   luna = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJUJb6IP7qsp/FPbtVKl1CbX2lOYQDjDcgV0c5qAJv9W";
+  oberon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFuPOWIa33AdMfpdhEctkvXIp7gt53wgBnl+inpeJdsW";
   pallas = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBeB+n+G1c6c2VZvPlfllS/Hnw7u6S8mn7ILWMK29iwe";
   phobos = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEldSjroPbKUueasCQuy88nE9X9Wt1a4lSbd3XSzvps";
   pluto = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPd/O9WiXj1UG5S85Hh+EWG3lhXl4paqZZjy6HF94MWC";
@@ -16,6 +17,7 @@ let
     ceres
     eris
     luna
+    oberon
     pallas
     phobos
     pluto
@@ -40,6 +42,12 @@ in
     jeff
     luna
   ];
+
+  "multi_scrobbler_secrets.age".publicKeys = [
+    jeff
+    oberon
+  ];
+
   "paperless_admin_passwd.age".publicKeys = [
     jeff
     eris
@@ -72,6 +80,7 @@ in
     eris
   ];
   "sasl_passwd.age".publicKeys = [ jeff ] ++ hosts;
+
   "smtp_passwd.age".publicKeys = [
     jeff
     eris

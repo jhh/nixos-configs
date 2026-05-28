@@ -69,6 +69,7 @@
           ceres = { };
           eris = { };
           luna = { };
+          oberon = { };
           pluto = { };
           phobos = {
             fastConnection = false;
