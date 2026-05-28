@@ -19,7 +19,7 @@
       glow
       gh
       lazygit
-      nixfmt-rfc-style
+      nixfmt
       prettyping
       ripgrep
       stow

@@ -20,7 +20,7 @@ lib.mkIf pkgs.stdenv.isLinux {
         nil = {
           settings = {
             formatting = {
-              command = [ (lib.getExe pkgs.nixfmt-rfc-style) ];
+              command = [ (lib.getExe pkgs.nixfmt) ];
             };
           };
         };

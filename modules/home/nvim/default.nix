@@ -42,7 +42,7 @@ in
         fd
         lua-language-server
         nil
-        nixfmt-rfc-style
+        nixfmt
         ripgrep
         ruff
         stylua
