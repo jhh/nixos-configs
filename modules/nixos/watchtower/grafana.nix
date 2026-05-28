@@ -30,6 +30,7 @@ in
         http_addr = "127.0.0.1";
       };
       settings.panels.disable_sanitize_html = true;
+      settings.security.secret_key = "SW2YcwTIb9zpOOhoPsMm"; # use hard-coded 25.11 value
       declarativePlugins = with pkgs.grafanaPlugins; [
         grafana-piechart-panel
         grafana-clock-panel
