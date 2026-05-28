@@ -2,7 +2,7 @@
   description = "Configs for j3ff.io homelab";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-26.05";
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +16,7 @@
     deploy-rs.url = "github:serokell/deploy-rs";
     deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager.url = "github:nix-community/home-manager?ref=release-25.11";
+    home-manager.url = "github:nix-community/home-manager?ref=release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     puka.url = "github:jhh/puka";
