@@ -42,8 +42,12 @@
     firewall.enable = false;
   };
 
-  services.openssh.enable = true;
-  services.getty.autologinUser = "root";
+  services = {
+    openssh.enable = true;
+    qemuGuest.enable = true;
+    fstrim.enable = true;
+    getty.autologinUser = "root";
+  };
 
   users = {
     mutableUsers = false;
