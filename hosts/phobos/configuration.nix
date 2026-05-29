@@ -18,6 +18,8 @@
   hardware.cpu.intel.updateMicrocode = true;
 
   boot = {
+    initrd.systemd.enable = true;
+    zfs.forceImportRoot = false;
     kernelParams = [
       "console=tty1"
       "console=ttyS1,115200"
