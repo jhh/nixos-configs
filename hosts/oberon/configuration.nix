@@ -7,7 +7,8 @@
 {
   imports = [
     flake.modules.nixos.server-j3ff
-    ./podman.nix
+    flake.modules.nixos.caddy
+    ./podman
     ./hardware-configuration.nix
   ];
 
