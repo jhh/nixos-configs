@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   gitConfig = {
     alias = {
@@ -79,6 +79,8 @@ in
     };
     ignores = import ./ignore.nix;
   };
+
+  home.packages = [ pkgs.git-filter-repo ];
 
   xdg.configFile."git/allowed_signers" = {
     text = ''
