@@ -63,12 +63,14 @@
     ];
 
     masApps = {
+      "1Password for Safari" = 1569813296;
       "Icon Slate" = 439697913;
       "Infuse 7" = 1136220934;
       "Paprika Recipe Manager 3" = 1303222628;
       "Pcalc" = 403504866;
       "Reeder 5" = 1529448980;
       "Tailscale" = 1475387142;
+      "Kagi for Safari" = 1622835804;
     };
   };
 }
