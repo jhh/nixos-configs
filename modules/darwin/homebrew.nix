@@ -48,7 +48,7 @@
       "iterm2"
       "omnigraffle"
       "opencode-desktop"
-      "postgres-unofficial"
+      "postgres-app"
       "postico"
       "qlmarkdown"
       "slack"
