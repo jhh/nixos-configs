@@ -58,6 +58,11 @@
         type = "none";
         target = "/var/log/blocky";
       };
+
+      ecs = {
+        useAsClient = true;
+        forward = true;
+      };
     };
   };
 
