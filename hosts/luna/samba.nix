@@ -74,8 +74,9 @@
 
       Music = {
         path = "/mnt/tank/media/plex/music/Music";
-        public = "yes";
-        writeable = "no";
+        "valid users" = "jeff";
+        public = "no";
+        writeable = "yes";
       };
 
       "Time Capsule" = {
