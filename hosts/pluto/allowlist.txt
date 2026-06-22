@@ -1,7 +1,0 @@
-*.apple.com
-*.ethicalads.io
-*.icloud.com
-*.sonos.com
-challenges.cloudflare.com
-link.theatlantic.com
-link.nymag.com
