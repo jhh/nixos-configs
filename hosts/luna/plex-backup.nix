@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -32,7 +33,7 @@ in
         START=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
         END=$(date -u -d "+1 hours" +"%Y-%m-%dT%H:%M:%SZ")
 
-        curl -X POST "$AM_URL/api/v2/silences" \
+        ${lib.getExe pkgs.curl} -X POST "$AM_URL/api/v2/silences" \
           -H "Content-Type: application/json" \
           -d '{
             "matchers": [
