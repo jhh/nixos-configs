@@ -9,21 +9,6 @@
     file = ../../secrets/puka_secrets.age;
   };
 
-  services.puka = {
-    enable = true;
-    secrets = [ config.age.secrets.puka_secrets.path ];
-  };
-
-  services.postgresql = lib.mkIf config.services.puka.enable {
-    ensureDatabases = [ "puka" ];
-    ensureUsers = [
-      {
-        name = "puka";
-        ensureDBOwnership = true;
-      }
-    ];
-  };
-
   systemd.services.postgresql.postStart = lib.mkIf config.services.puka.enable ''
     ${config.services.postgresql.package}/bin/psql -d puka -tA << END_INPUT
       ALTER DATABASE puka SET client_encoding TO 'UTF8';
@@ -31,9 +16,27 @@
       ALTER DATABASE puka SET timezone TO 'UTC';
     END_INPUT
   '';
+  services = {
+    puka = {
+      enable = true;
+      secrets = [ config.age.secrets.puka_secrets.path ];
+    };
 
-  services.caddy.virtualHosts."puka.j3ff.io".extraConfig = ''
-    reverse_proxy http://127.0.0.1:${toString config.services.puka.port}
-  '';
+    postgresql = lib.mkIf config.services.puka.enable {
+      ensureDatabases = [ "puka" ];
+      ensureUsers = [
+        {
+          name = "puka";
+          ensureDBOwnership = true;
+        }
+      ];
+    };
 
+    caddy.virtualHosts."puka.j3ff.io" = {
+      extraConfig = ''
+        reverse_proxy http://127.0.0.1:${toString config.services.puka.port}
+      '';
+      logFormat = "output discard";
+    };
+  };
 }
